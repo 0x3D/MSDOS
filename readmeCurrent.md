@@ -47,4 +47,7 @@ git clone https://github.com/0x3D/MSDOS.git
 Nu ska ni ha repot i denna mappen
 
 
+För att träna på git kan man använda [Webbverktyget](https://learngitbranching.js.org/)
+
+
 
