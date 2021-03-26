@@ -25,7 +25,7 @@ lite och få förståelse hur det funkar.
 
 En aktivitet inom Scrum är Sprintplanering. En Sprintplanering vet jag inte hur den är uppbyggd samt ingen uppfattning om innehållet i sprintplaneringen
 ska vara. Jag vill att mitt bidrag till gruppen ska vara att ha bra förståelse om vad som är rimligt att sätta upp på en 
-sådan planerinng. Genom att söka upp exempel på färdiga Sprintplaneringar och undersöka innehållet i dessa, ska jag försöka ta mig an det uppdraget och
+sådan planering. Genom att söka upp exempel på färdiga Sprintplaneringar och undersöka innehållet i dessa, ska jag försöka ta mig an det uppdraget och
 försöka få vår Sprintplanering på bästa sätt.
 
 #### Mitt bidrag till gruppens leverans.
@@ -34,6 +34,6 @@ Tiden för arbetet är begränsat och våra veckoplaneringar vill vi alltid hinn
 Ett stort hjälpmedel för detta är att ha bra förståelse om hur lång tid olika uppgifter tar, samt ha förmågan och se om man kan/ska dela in en uppgift 
 på planeringen till mindre deluppgifter som tillslut löser samma problem. 
 Detta är lösbart genom att kolla med sig själv eller gruppen om personen har stött på uppgiften i tidigare fall och få en tidsuppfattning om uppgiften.
-Jag vill att mitt uppdrag till gruppens leverans ska vara att alltid göra denna checken på varje veckoplanering. Ytterliggare en sak till gruppens leverens
+Jag vill att mitt uppdrag till gruppens leverans ska vara att alltid göra denna checken på varje veckoplanering. Ytterligare en sak till gruppens leverans
 var medverkan på det sociala kontraktet som skrevs, då vi i tidigare kurs hade gjort något liknande kunde jag bidra med tidigare erfarenheter.
 
