@@ -46,12 +46,7 @@ git clone https://github.com/0x3D/MSDOS.git
 ```
 Nu ska ni ha repot i denna mappen
 
-<<<<<<< HEAD
-### [ Länk för att köra saker iterativt](https://learngitbranching.js.org/ )
-=======
 
-För att träna på git kan man använda [Webbverktyget](https://learngitbranching.js.org/)
+### [ Länk för att förstå hur det fungerar](https://learngitbranching.js.org/ )
 
-
->>>>>>> 697dadedb9e6750b0776943372c5a6f5f7ce5603
 
