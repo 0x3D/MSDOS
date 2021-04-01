@@ -20,3 +20,10 @@ Att använda Scrum-metodiken för att utveckla ett projekt innebär till stor de
 Denna vecka ska gruppen leverera ett socialt kontrakt, där tänker jag att det skulle vara bra om man börjar med att lista upp de punkter vi anser nödvändiga att ha med i kontraktet. Det kan vara punkter såsom; Hur ofta och mycket vi anser jobba i veckan? Vilka roller vi behöver dela in oss i för att lösa projektet. Våra ambitionsnivåer. osv…
 
 För att efter det gå igenom alla punkter, en för en, och bygga det sociala kontraktet på så vis.
+
+
+
+
+
+
+
