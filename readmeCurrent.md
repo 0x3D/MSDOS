@@ -55,7 +55,7 @@ ___
 
 * VSCode : [Länk til nedladdningssida](https://code.visualstudio.com/download)
 
-* Installera node.js : [Länk till nedaddningssida av Node](https://nodejs.org/en/i)
+* Installera node.js : [Länk till nedaddningssida av Node](https://nodejs.org/en/)
 
 ___
 
