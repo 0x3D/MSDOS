@@ -25,3 +25,5 @@ hs_err_pid*
 
 # Macos file
 .DS_Store
+
+./msdos/package-lock.json
