@@ -49,4 +49,15 @@ Nu ska ni ha repot i denna mappen
 
 ### [ Länk för att förstå hur det fungerar](https://learngitbranching.js.org/ )
 
+___
+
+# Installera allt som behövs
+
+* VSCode : [Länk til nedladdningssida](https://code.visualstudio.com/download)
+
+* Installera node.js : [Länk till nedaddningssida av Node](https://nodejs.org/en/i)
+
+___
+
+Nu ska det bara vara att öppna vs-code och kunna använda npm i terminalen
 
