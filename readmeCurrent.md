@@ -24,8 +24,13 @@ Efter det så finns filen på repot
 	* Om du har mac eller linux har det från början? Testa med commandot i terminalen
 			
 			git --version
+	 Installera homebrew genom att kopiera in `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` i terminalen.  
+	 Efter detta kan git installeras med `brew install git`.  
+	 Alternativt kommer _Xcode_ med git.  
+	 Eller en [installerare](https://sourceforge.net/projects/git-osx-installer/)
 			
 	* [Windows](https://git-scm.com/download/win) 
+	* För Linux använd pakethanteraren ex. `sudo apt install git`, `sudo pacman -S git`, `yum install git`,    
 
 ### För att få hem repot på din dator
 Kolla i ditt hembiblotek hur ni har de uppbyggt. Vanligast är att man har en mapp __IdeaProjects__ i sitt hembiblotek. Om inte så skapa en sådan mapp.
