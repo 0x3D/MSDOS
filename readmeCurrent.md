@@ -25,7 +25,7 @@ Efter det så finns filen på repot
 			
 			git --version
 			
-	* Windows har jag fan ingen aning(kolla up)
+	* [Windows](https://git-scm.com/download/win) 
 
 ### För att få hem repot på din dator
 Kolla i ditt hembiblotek hur ni har de uppbyggt. Vanligast är att man har en mapp __IdeaProjects__ i sitt hembiblotek. Om inte så skapa en sådan mapp.
