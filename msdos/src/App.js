@@ -1,5 +1,5 @@
 import './styles/App.css';
-import Testcomponent from "./components/Testcomponent"
+import Testcomponent from './components/Testcomponent';
 import AdminPage from './components/Adminpage/AdminPage';
 
 function App() {
