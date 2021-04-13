@@ -1,5 +1,6 @@
 import './styles/App.css';
 import Testcomponent from "./components/Testcomponent"
+import AdminPage from './components/Adminpage/AdminPage';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <h2> MSDOS </h2> 
       <Testcomponent />
+      <AdminPage />
     </div>
 
   );
