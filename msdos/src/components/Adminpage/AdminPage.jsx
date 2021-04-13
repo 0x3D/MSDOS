@@ -52,11 +52,11 @@ export default function AdminPage() {
             </Container>
 
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} size={'xl'}>
                 <Modal.Header closeButton>
                     Titel
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body scrollable={true}>
                     <HandleBookings />
                 </Modal.Body>
                 <Modal.Footer>
