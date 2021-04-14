@@ -2,20 +2,32 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, ListGroup, Modal, Button } from 'react-bootstrap'
 import HandleBookings from './HandleBookings'
+import HandleUsers from './HandleUsers'
+import AddFacility from './AddFacility'
 
-
-/*
- TODO: Göra så att man vet vilken knapp man trycker på, just nu kan jag bara öppna en modul, medan jag vill man ska kunna öppna den man klickar på
- Axel
-*/
 
 export default function AdminPage() {
 
-    const [show, setShow] = React.useState(false)
+    const [show, setShow] = useState(false)
+    const [selectedModal, setSelectedModal] = useState([])
 
+    let handle_bookings = <HandleBookings />
+    let handle_users = <HandleUsers />
+    let add_facility = <AddFacility />
 
-    const handleShow = () => setShow(true)
-    const handleClose = () => setShow(false)
+    const handleShow = (event) => {
+        let modal = event.target.id
+        // TODO: make this prettier
+        if ( modal === 'handle-bookings') {setSelectedModal(handle_bookings)}
+        if ( modal === 'handle-users') {setSelectedModal(handle_users)}
+        if ( modal === 'add-fac') {setSelectedModal(add_facility)}
+        setShow(true)    
+    }
+
+    const handleClose = () => {
+        setShow(false)
+    }
+
 
     return (
         <div className="AdminPage">
@@ -28,22 +40,22 @@ export default function AdminPage() {
                     <Col sm={12}>
                         <ListGroup>
                             <ListGroup.Item>
-                                <Button onClick={handleShow}>
+                                <Button id="handle-bookings" onClick={handleShow}>
                                     Hantera bokningar
                                 </Button>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
-                                <Button>
+                                <Button id="handle-users" onClick={handleShow}>
                                     Hantera användare
                                 </Button>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
-                            <Button>
-                                Lägga till faciliteter
+                                <Button id="add-fac" onClick={handleShow}>
+                                    Lägga till faciliteter
                                 </Button>
-                </ListGroup.Item>
+                            </ListGroup.Item>
 
                         </ListGroup>
                     </Col>
@@ -56,8 +68,9 @@ export default function AdminPage() {
                 <Modal.Header closeButton>
                     Titel
                 </Modal.Header>
-                <Modal.Body scrollable={true}>
-                    <HandleBookings />
+                <Modal.Body id="modal-body" scrollable={true}>
+                    {/* HÄR VILL JAG ATT MAN SKA KUNNA OLIKA SLAGS KOMPONENTER WALLA BILLA */}
+                    {selectedModal}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
