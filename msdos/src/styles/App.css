@@ -1,1 +1,16 @@
+*{
+    text-align: center;
+     box-sizing: border-box;
+}
 
+
+/* Här kan vi hämta färger med hjälp av 'var(--main-color)' */
+:root {
+  --main-color: #1f8ff88f;
+  --secendary-color: rgb(134, 173, 190);
+  --text-color: rgb(31, 29, 29);
+  --text-color-light: rgb(114, 109, 109);
+  --border-color: rgb(110, 106, 106);
+  --bg-color: #504e4e;
+  --neutral-color: rgb(219, 205, 205);
+}
