@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import '../../styles/AdminPage.css'
 
 const useStyles = makeStyles({
   table: {
@@ -37,11 +38,11 @@ export default function HandleBookings() {
       <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Facilitet</TableCell>
-            <TableCell align="right">Tid</TableCell>
-            <TableCell align="right">Dag</TableCell>
+          <TableRow style ={{backgroundColor:"GrayText"}}>
+            <TableCell align="left"><h3>Name</h3></TableCell>
+            <TableCell align="center"><h3>Faciliteter</h3></TableCell>
+            <TableCell align="center"><h3>Tid</h3></TableCell>
+            <TableCell align="center"><h3>Dag</h3></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,9 +51,9 @@ export default function HandleBookings() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.type}</TableCell>
-              <TableCell align="right">{row.time}</TableCell>
-              <TableCell align="right">{row.date}</TableCell>
+              <TableCell align="center">{row.type}</TableCell>
+              <TableCell align="center">{row.time}</TableCell>
+              <TableCell align="center">{row.date}</TableCell>
             </TableRow>
           ))}
         </TableBody>
