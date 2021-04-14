@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home';
 import Test from './Test';
+import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 
 
@@ -17,7 +18,8 @@ function App() {
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route path="/test" component={Test} />
-          <Redirect to="/home"/>
+          <Redirect exact from="/" to="/home"/>
+          <Route path="/" component={ErrorPage} />
         </Switch>
       </Router>
     </>
