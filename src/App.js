@@ -6,6 +6,7 @@ import Test from './Test';
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
+import Home from './Home';
 
 function App() {
   document.title = 'MSDOS Booking'
@@ -15,6 +16,7 @@ function App() {
         <NavigationBar/>
         
         <Switch>
+          <Route exact path="/home" component={Home} />
           <Route exact path="/booking" component={Booking} />
           <Route path="/test" component={Test} />
           <Redirect exact from="/" to="/booking"/>
