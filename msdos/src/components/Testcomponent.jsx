@@ -16,6 +16,7 @@ export default function ProfilePane() {
         setAnchorEl(null);
     };
 
+    // Comment this much better
     return (
         <div>
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
