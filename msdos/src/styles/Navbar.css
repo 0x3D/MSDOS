@@ -2,3 +2,8 @@
     background-color: black;
     border-radius: 10px;
 }
+
+.subnav {
+    width: 70%;
+    text-align: center;
+}
