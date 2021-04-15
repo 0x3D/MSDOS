@@ -1,9 +1,9 @@
-cache: ~
-directories: 
-  - msdos/node_modules
 language: node_js
 node_js: 
   - stable
 script: 
   - "npm test"
   - "npm run build"
+arch: amd64          # optional, this is default, routes to a full VM
+os: linux            # optional, this is default
+dist: focal          # or bionic | xenial | trusty | precise with xenial as default
