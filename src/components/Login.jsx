@@ -4,10 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/login.css";
 
 export default function Login() {
+  const handleLogin = (e) => {};
+
   return (
     <Container classname="loginContainer">
-      <Row>
-        <Col md={6}>
+      <Row className="justify-content-md-center">
+        <Col xs={5}>
           <Form classname="loginForm">
             <Form.Group controllId="formBasicEmail">
               <Form.Label> Email adress </Form.Label>
@@ -16,10 +18,18 @@ export default function Login() {
             <Form.Group controllerId="formBasicPassword">
               <Form.Label> Password </Form.Label>
               <Form.Control type="password"></Form.Control>
-              <Button>Sign in</Button>
             </Form.Group>
           </Form>
         </Col>
+      </Row>
+      <Row className="justify-content-md-center">
+        <Button
+          onClick={() => {
+            console.log("hej");
+          }}
+        >
+          Sign in
+        </Button>
       </Row>
     </Container>
   );
