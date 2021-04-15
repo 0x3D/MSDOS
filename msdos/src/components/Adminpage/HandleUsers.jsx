@@ -1,5 +1,6 @@
 import React from 'react';
 import {makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@material-ui/core/'
+var jsonTestData = require('./../../testData/handleUsers.json')
 
 const useStyles = makeStyles({
   table: {
@@ -37,12 +38,12 @@ const classes = useStyles()
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {jsonTestData.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="center">{row.lghNr}</TableCell>
+              <TableCell align="center">{row.appNr}</TableCell>
               <TableCell align="center">{row.telNumber}</TableCell>
             </TableRow>
           ))}
