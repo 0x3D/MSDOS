@@ -31,6 +31,7 @@ export default function ProfilePane() {
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
+            <h2> TEST FÖR TRAVIS</h2>
         </div>
     );
 }
