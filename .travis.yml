@@ -1,9 +1,9 @@
+cache: ~
+directories: 
+  - msdos/node_modules
 language: node_js
- node_js:
- - "stable"
- cache:
- directories:
-   - msdos/node_modules
- script:
- - npm test
- - npm run build
+node_js: 
+  - stable
+script: 
+  - "npm test"
+  - "npm run build"
