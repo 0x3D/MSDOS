@@ -1,5 +1,5 @@
 import React from 'react'
-import { DataGrid, GridRowsProp, GridColDef } from '@material-ui/data-grid';
+import { DataGrid} from '@material-ui/data-grid';
 
 export default function AddFacility() {
 

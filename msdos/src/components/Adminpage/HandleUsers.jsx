@@ -9,19 +9,6 @@ const useStyles = makeStyles({
 },
 );
 
-function createData(name, lghNr, telNumber ) {
-  return { name,lghNr, telNumber};
-}
-
-
-const rows = [
-  createData('test1',1, 123123123),
-  createData('test2',2, 321321321),
-  createData('test3',3, 111000333),
-  createData('test4',4,999999999),
-  createData('test5',5, 555555555),
-];
-
 export default function HandleUsers() {
 
 const classes = useStyles()

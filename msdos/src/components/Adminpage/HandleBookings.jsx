@@ -9,18 +9,6 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, type, time, date) {
-  return { name, type, time, date };
-}
-
-const rows = [
-  createData('test1', 'tvätt', 13, "tors"),
-  createData('test2', 'cykel', 15, "onsdag"),
-  createData('testr3', 'gym', 8, "måndag"),
-  createData('teste4', 'tvätt', 8, "söndag"),
-  createData('testd5', 'tvätt', 10, "lördag"),
-];
-
 export default function HandleBookings() {
 
   const classes = useStyles()
