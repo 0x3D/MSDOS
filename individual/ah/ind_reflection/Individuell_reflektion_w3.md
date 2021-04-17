@@ -41,8 +41,8 @@ Mitt bidrag till gruppens leverans var att jag startade igång en React
 applikation samt satt upp en struktur vart olika filer och annat skall ligga.
 Vad jag också har gjort är en __read_me fil__ med användbar information om hur
 man startar applikationen mm.
-Vad jag också har gjort är att ha gjort en user-story, som var en admin sida med
-en överblick vad en admin kan göra med "testdata" för att visualisera hur
+Vad jag också har gjort är en user-story, som var en admin sida med
+där man har överblick vad en admin kan göra. Med hjälp av testdata kunde jag visualisera hur
 slutprodukten av adminsidan skall se ut. 
 En annan sak som vi hade med i denna sprinten var att koppla travis med
 applikationen ( [länk om vad det är](https://docs.travis-ci.com/user/for-beginners/) ).
