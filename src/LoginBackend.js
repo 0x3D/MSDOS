@@ -19,7 +19,11 @@ export default class LoginBackend {
     }
 
     authenticate_token(token) {
-        
+        if( token !== null && token.length > 1){
+            return true
+        } else {
+            return false;
+        }
     }
 
 

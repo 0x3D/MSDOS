@@ -3,6 +3,7 @@ import { Form, Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/login.css";
 import LoginBackend from "../LoginBackend";
+import { Redirect } from "react-router";
 
 export default function Login() {
   const backend = new LoginBackend();
@@ -10,14 +11,16 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const handleLogin = (e) => {
     //e.preventDefault();
-    backend.basic_login(email,password);
+    const result = backend.basic_login(email, password);
+    if (result) {
+      //this.context.router.push("/booking");
+    }
   };
 
   function validateForm() {
     // TODO: Add check for password security and proper email here
-    return email.length > 0 && password.length >0;
+    return email.length > 0 && password.length > 0;
   }
-
 
   return (
     <Container classname="loginContainer">
@@ -26,26 +29,28 @@ export default function Login() {
           <Form classname="loginForm">
             <Form.Group controllId="formBasicEmail">
               <Form.Label> Email adress </Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="email"
                 autoFocus
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)} />
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </Form.Group>
             <Form.Group controllerId="formBasicPassword">
               <Form.Label> Password </Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}></Form.Control>
+                onChange={(e) => setPassword(e.target.value)}
+              ></Form.Control>
             </Form.Group>
           </Form>
         </Col>
       </Row>
       <Row className="justify-content-md-center">
         <Button
-          type="submit" 
+          type="submit"
           disabled={!validateForm()}
           onClick={() => {
             console.log("Starting to handle login");
