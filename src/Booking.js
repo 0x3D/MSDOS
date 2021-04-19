@@ -2,6 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { Tabs, Tab } from 'react-bootstrap';
 import BookingCalander from './components/Bookings/BookingCalander';
+import Calander from './components/Bookings/WeekNumber';
 import LaundryTimes from './Data/laundry.json'
 
 export default function Booking() {
@@ -12,11 +13,14 @@ export default function Booking() {
                     <Tab eventKey="Tvättstuga" title="Tvättstuga">
                         {/* Create component for booking the laundryroom */}
                         <BookingCalander timeStamps={LaundryTimes} />
-                        
+
                     </Tab>
                     <Tab eventKey="Gym" title="Gym">
                         {/* Create component for booking the gym */}
-                        <h1>hej</h1>
+                        <div>
+                            <Calander />
+                        </div>
+
                     </Tab>
                     <Tab eventKey="Lokaler" title="Lokaler">
                         {/* Create component for booking lokaler */}

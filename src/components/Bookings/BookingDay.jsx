@@ -13,9 +13,7 @@ export default function BookingDay({day }) {
                 <Row>
                     <SpecificBooking bookingInfo={day.bookingTimes[0]}/>
                 </Row>
-
             </Container>
-            
         </div>
     )
 }
