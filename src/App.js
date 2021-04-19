@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Booking from './Booking';
 import Test from './Test';
-import ErrorPage from './ErrorPage'
-import NavigationBar from './components/NavigationBar'
-import AdminPage from './components/AdminPage/AdminPage'
+import ErrorPage from './ErrorPage';
+import NavigationBar from './components/NavigationBar';
+import AdminPage from './components/AdminPage/AdminPage';
 
 function App() {
   document.title = 'MSDOS Booking'
