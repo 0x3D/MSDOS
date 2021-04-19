@@ -5,82 +5,78 @@ import HandleBookings from './HandleBookings'
 import HandleUsers from './HandleUsers'
 import AddFacility from './AddFacility'
 
+export default function AdminPage () {
+  const [show, setShow] = useState(false)
 
-export default function AdminPage() {
+  const [selectedModal, setSelectedModal] = useState([])
 
-    const [show, setShow] = useState(false)
+  const handle_bookings = <HandleBookings />
+  const handle_users = <HandleUsers />
+  const add_facility = <AddFacility />
 
-    const [selectedModal, setSelectedModal] = useState([])
+  const handleShow = (event) => {
+    const modal = event.target.id
+    // TODO: make this prettier
+    if (modal === 'handle-bookings') { setSelectedModal(handle_bookings) }
+    if (modal === 'handle-users') { setSelectedModal(handle_users) }
+    if (modal === 'add-fac') { setSelectedModal(add_facility) }
+    setShow(true)
+  }
 
-    let handle_bookings = <HandleBookings />
-    let handle_users = <HandleUsers />
-    let add_facility = <AddFacility />
+  const handleClose = () => {
+    setShow(false)
+  }
 
-    const handleShow = (event) => {
-        let modal = event.target.id
-        // TODO: make this prettier
-        if (modal === 'handle-bookings') { setSelectedModal(handle_bookings) }
-        if (modal === 'handle-users') { setSelectedModal(handle_users) }
-        if (modal === 'add-fac') { setSelectedModal(add_facility) }
-        setShow(true)
-    }
-
-    const handleClose = () => {
-        setShow(false)
-    }
-
-
-    return (
-        <div className="AdminPage">
-            {/* Tänker att detta ska vara typ som knappar som man klickar på med en pane eller annat som tycker upp på skärmen
+  return (
+    <div className='AdminPage'>
+      {/* Tänker att detta ska vara typ som knappar som man klickar på med en pane eller annat som tycker upp på skärmen
                 med en React Komponent för varje vald "hantering".
                 Det är bara en tanke men vi kanske vill ha det på annat sätt */}
-            <h1> Admin sida</h1>
-            <Container>
-                <Row>
-                    <Col sm={12}>
+      <h1> Admin sida</h1>
+      <Container>
+        <Row>
+          <Col sm={12}>
 
-                        <ListGroup>
-                            <ListGroup.Item>
-                                <Button id="handle-bookings" onClick={handleShow}>
-                                    Hantera bokningar
-                                </Button>
-                            </ListGroup.Item>
+            <ListGroup>
+              <ListGroup.Item>
+                <Button id='handle-bookings' onClick={handleShow}>
+                  Hantera bokningar
+                </Button>
+              </ListGroup.Item>
 
-                            <ListGroup.Item>
-                                <Button id="handle-users" onClick={handleShow}>
-                                    Hantera användare
-                                </Button>
-                            </ListGroup.Item>
+              <ListGroup.Item>
+                <Button id='handle-users' onClick={handleShow}>
+                  Hantera användare
+                </Button>
+              </ListGroup.Item>
 
-                            <ListGroup.Item>
-                                <Button id="add-fac" onClick={handleShow}>
-                                    Lägga till faciliteter
-                                </Button>
-                            </ListGroup.Item>
+              <ListGroup.Item>
+                <Button id='add-fac' onClick={handleShow}>
+                  Lägga till faciliteter
+                </Button>
+              </ListGroup.Item>
 
-                        </ListGroup>
-                    </Col>
+            </ListGroup>
+          </Col>
 
-                </Row>
-            </Container>
+        </Row>
+      </Container>
 
+      <Modal show={show} onHide={handleClose} size='xl'>
+        <Modal.Header closeButton>
+          Admin
+        </Modal.Header>
+        <Modal.Body id='modal-body' scrollable>
+          {/* HÄR VILL JAG ATT MAN SKA KUNNA OLIKA SLAGS KOMPONENTER WALLA BILLA */}
+          {selectedModal}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
-            <Modal show={show} onHide={handleClose} size={'xl'}>
-                <Modal.Header closeButton>
-                    Admin
-                </Modal.Header>
-                <Modal.Body id="modal-body" scrollable={true}>
-                    {/* HÄR VILL JAG ATT MAN SKA KUNNA OLIKA SLAGS KOMPONENTER WALLA BILLA */}
-                    {selectedModal}
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-
-        </div>
-    )
+    </div>
+  )
 }
