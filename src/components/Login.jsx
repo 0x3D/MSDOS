@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/login.css";
+import LoginBackend from "../LoginBackend";
 
 export default function Login() {
-  const handleLogin = (e) => {};
+  const backend = new LoginBackend();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = (e) => {
+    //e.preventDefault();
+    backend.basic_login(email,password);
+  };
+
+  function validateForm() {
+    // TODO: Add check for password security and proper email here
+    return email.length > 0 && password.length >0;
+  }
+
 
   return (
     <Container classname="loginContainer">
@@ -13,19 +26,30 @@ export default function Login() {
           <Form classname="loginForm">
             <Form.Group controllId="formBasicEmail">
               <Form.Label> Email adress </Form.Label>
-              <Form.Control type="email" />
+              <Form.Control 
+                type="email"
+                autoFocus
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)} />
             </Form.Group>
             <Form.Group controllerId="formBasicPassword">
               <Form.Label> Password </Form.Label>
-              <Form.Control type="password"></Form.Control>
+              <Form.Control 
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}></Form.Control>
             </Form.Group>
           </Form>
         </Col>
       </Row>
       <Row className="justify-content-md-center">
         <Button
+          type="submit" 
+          disabled={!validateForm()}
           onClick={() => {
-            console.log("hej");
+            console.log("Starting to handle login");
+            handleLogin();
           }}
         >
           Sign in
