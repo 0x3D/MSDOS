@@ -5,6 +5,7 @@ export default function RenderWeekNumber() {
 
     let date = new Date()
     const weekFormat = "w"
+    
 
     return (
         <div>
