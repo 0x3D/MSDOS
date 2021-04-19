@@ -1,24 +1,35 @@
 import React from 'react'
-import { format,startOfWeek  } from "date-fns";
+import { format, addDays, startOfWeek } from "date-fns";
+import { Container, Row, Col } from 'react-bootstrap';
 
 export default function WeekDays() {
 
     let date = new Date()
 
-const weekDayFormat = "PPPP";
-        let firstDayInWeek = startOfWeek(date)
-        const days = [];
-        for (let i = 1; i < 8; i++) {
-            days.push(
-                <div className="weekDays-middle" id="weekDays-middle" key={i}>
-                    <h2 className="weekDays-middle-child" id={"weekday" + i}>
-                        {format(addDays(firstDayInWeek, i), weekDayFormat)}
-                    </h2>
-                </div>
-            );
-        }
+    const weekDayFormat = "PPPP";
+    let firstDayInWeek = startOfWeek(date)
+    const days = [];
+    for (let i = 1; i < 8; i++) {
+        days.push(
+            <div key={i}>
+                <pre id={"weekday" + i}>
+                    {format(addDays(firstDayInWeek, i), weekDayFormat)}
+                </pre>
+            </div>
+        );
+    }
 
     return (
-       <div> {days} </div> 
+        <Container>
+            <Row>
+                <Col>
+                    <div classname="days">
+                        {days}
+                    </div>
+
+                </Col>
+
+            </Row>
+        </Container>
     )
 }
