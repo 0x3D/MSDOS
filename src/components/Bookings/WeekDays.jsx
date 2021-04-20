@@ -1,5 +1,5 @@
 import React from 'react'
-import { format,startOfWeek  } from "date-fns";
+import { format,startOfWeek, addDays  } from "date-fns";
 
 export default function WeekDays() {
 

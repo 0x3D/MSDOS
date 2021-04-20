@@ -2,8 +2,9 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { Tabs, Tab } from 'react-bootstrap';
 import BookingCalander from './components/Bookings/BookingCalander';
-import Calander from './components/Bookings/WeekNumber';
+import Calender from './components/Bookings/Calander';
 import LaundryTimes from './Data/laundry.json'
+import WeekDays from './components/Bookings/WeekDays';
 
 export default function Booking() {
     return (
@@ -17,10 +18,7 @@ export default function Booking() {
                     </Tab>
                     <Tab eventKey="Gym" title="Gym">
                         {/* Create component for booking the gym */}
-                        <div>
-                            <Calander />
-                        </div>
-
+                        <Calender />
                     </Tab>
                     <Tab eventKey="Lokaler" title="Lokaler">
                         {/* Create component for booking lokaler */}
