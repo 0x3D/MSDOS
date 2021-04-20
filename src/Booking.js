@@ -2,7 +2,8 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { Tabs, Tab } from 'react-bootstrap';
 import BookingCalander from './components/Bookings/BookingCalander';
-import Calender from './components/Bookings/Calander';
+import Calander from './components/Bookings/Calander';
+
 import LaundryTimes from './Data/laundry.json'
 import WeekDays from './components/Bookings/WeekDays';
 
