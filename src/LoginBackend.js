@@ -22,12 +22,15 @@ export default class LoginBackend {
   authenticateToken (token) {
     // TODO: make this pretty
     let found = false
+
     Users.forEach((user) => {
       console.log(user.password)
       console.log(token)
       console.log(user.password === token)
-      if (user.password.valueOf() === token.valueOf()) {
-        found = true
+      if(user.password !== null && token !== null){
+        if (user.password.valueOf() === token.valueOf()) {
+            found = true
+          }
       }
     })
     return found
