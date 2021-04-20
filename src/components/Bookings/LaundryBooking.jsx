@@ -7,8 +7,8 @@ import { Button, Modal } from 'react-bootstrap'
 const LOCAL_STORAGE_LAUNDRY_TIMES = 'bookingApp.laundryBooked'
 const laundryTime = 180
 const openHours = [[8, 20]];
-var startTime = '';
-var endTime = '';
+var startTime = new Date();
+var endTime = new Date();
 
 
 export default function LaundryBooking() {
@@ -65,9 +65,16 @@ export default function LaundryBooking() {
             {/* Also show modal for confirmation */}
             <Modal show={showConfirmation} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Bekräfta din bokning</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                    {/* Add form for submitting lgh nr */}
+                    Bekräfta din bokning av tvättid.
+                    <br/> 
+                    Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/\"/g, "")} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/\"/g, "")}
+                    <br/> 
+                    Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/\"/g, "")}
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Stäng
