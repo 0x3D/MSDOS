@@ -8,7 +8,7 @@ CREATE TABLE Logins(
 CREATE TABLE Users(
     apartmentNo INTEGER NOT NULL UNIQUE,
     email TEXT PRIMARY KEY,
-    FOREIGN KEY (email) REFERENCES Logins(email),
+    FOREIGN KEY (email) REFERENCES Logins(email)
 );
 
 CREATE TABLE Admins(
