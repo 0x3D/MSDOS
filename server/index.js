@@ -8,12 +8,12 @@ const db = pgp('postgres://postgres:postgres@localhost:5432/postgres')
 
 
 db.one('SELECT $1 AS value', 123)
-  .then(function (data) {
-    console.log('DATA:', data.value)
-  })
-  .catch(function (error) {
-    console.log('ERROR:', error)
-  })
+    .then(function (data) {
+        console.log('DATA:', data.value)
+    })
+    .catch(function (error) {
+        console.log('ERROR:', error)
+    })
 
 
 app.use(cors())
@@ -22,17 +22,23 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.post('/api/insert', (req, res) => {
 
-    const pname = req.body.pname
-    const appNr = req.body.appNr
-    const sqlInsert = "INSERT INTO Person (pname,appNr) VALUES (?,?)";
+    const appartmentNo = req.body.appartmentNo
+    const email = req.body.email
+    const sqlInsert = "INSERT INTO Users (appartmentNo,email) VALUES (?,?)";
 
-    db.query(sqlInsert, [pname, appNr], (err, res) => {
-        console.log(res)
-        console.log(err)
+    db.one('INSERT INTO Users VALUES($1,$2)', [appartmentNo, email]).then(function (data) {
+        console.log('DATA:', data.value)
+    }).catch(function (error) {
+        console.log('ERROR:', error)
     })
+
+    // db.query(sqlInsert, [appartmentNo, email], (err, res) => {
+    //     console.log(res)
+    //     console.log(err)
+    // })
 })
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.send("helloooooooo postgres")
 })
 
