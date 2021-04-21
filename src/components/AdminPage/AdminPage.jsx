@@ -4,9 +4,14 @@ import { Container, Row, Col, ListGroup, Modal, Button } from 'react-bootstrap'
 import HandleBookings from './HandleBookings'
 import HandleUsers from './HandleUsers'
 import AddFacility from './AddFacility'
+import dataBackend from '../../Data/dataBackend'
 
 
 export default function AdminPage() {
+
+    const dataBE = new dataBackend()
+
+    dataBE.insertToSql()
 
     const [show, setShow] = useState(false)
 
