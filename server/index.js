@@ -2,14 +2,18 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
-const mysql = require('mysql') // TODO REMOVE
 
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "msdos",
-    database: "msdos_database"
-});
+const pgp = require('pg-promise')(/* options */)
+const db = pgp('postgres://postgres:postgres@localhost:5432/postgres')
+
+
+db.one('SELECT $1 AS value', 123)
+    .then(function (data) {
+        console.log('DATA:', data.value)
+    })
+    .catch(function (error) {
+        console.log('ERROR:', error)
+    })
 
 
 app.use(cors())
@@ -18,14 +22,37 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.post('/api/insert', (req, res) => {
 
-    const pname = req.body.pname
-    const appNr = req.body.appNr
-    const sqlInsert = "INSERT INTO Person (pname,appNr) VALUES (?,?)";
+    const apartmentNo = req.body.appartmentNo
+    const email = req.body.email
+    const sqlInsert = "INSERT INTO Users (appartmentNo,email) VALUES ($1,$2)";
 
-    db.query(sqlInsert, [pname, appNr], (err, res) => {
-        console.log(res)
-        console.log(err)
+    db.one('INSERT INTO Logins VALUES($1,$2)', [email, apartmentNo]).then(function (data) {
+        console.log('DATA:', data.value)
+    }).catch(function (error) {
+        console.log('ERROR:', error)
     })
+
+    db.one('INSERT INTO Users VALUES($1,$2)', [apartmentNo, email]).then(function (data) {
+        console.log('DATA:', data.value)
+    }).catch(function (error) {
+        console.log('ERROR:', error)
+    })
+
+    // TODO: should probably bbe /api/insert/Users or something here    
+    // db.one(sqlInsert, [apartmentNo, email]).then(function (data) {
+    //     console.log('DATA:', data.value)
+    // }).catch(function (error) {
+    //     console.log('ERROR:', error)
+    // })
+
+    // db.query(sqlInsert, [appartmentNo, email], (err, res) => {
+    //     console.log(res)
+    //     console.log(err)
+    // })
+})
+
+app.get('/', (req, res) => {
+    res.send("helloooooooo postgres")
 })
 
 app.listen(3002, () => {

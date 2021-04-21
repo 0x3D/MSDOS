@@ -11,7 +11,7 @@ export default function AdminPage() {
 
     const dataBE = new dataBackend()
 
-    dataBE.insertToSql()
+    // dataBE.insertToSql()
 
     const [show, setShow] = useState(false)
 
