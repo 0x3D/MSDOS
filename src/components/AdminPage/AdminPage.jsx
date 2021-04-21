@@ -11,7 +11,6 @@ export default function AdminPage() {
 
     const dataBE = new dataBackend()
 
-    // dataBE.insertToSql()
 
     const [show, setShow] = useState(false)
 
@@ -37,10 +36,9 @@ export default function AdminPage() {
 
     return (
         <div className="AdminPage">
-            {/* Tänker att detta ska vara typ som knappar som man klickar på med en pane eller annat som tycker upp på skärmen
-                med en React Komponent för varje vald "hantering".
-                Det är bara en tanke men vi kanske vill ha det på annat sätt */}
             <h1> Admin sida</h1>
+            <button onClick={dataBE.insertToUsers(19,"chelsea@gmail.com")}>INSERT TEMP</button>
+            <button onClick={dataBE.getUsers}>GET TEMP</button>
             <Container>
                 <Row>
                     <Col sm={12}>

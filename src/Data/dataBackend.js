@@ -4,13 +4,19 @@ import Axios from 'axios'
 export default class dataBackend {
 
 
-    insertToSql() {
+    insertToUsers(inAppartmentNumber, inEmail) {
         Axios.post('http://localhost:3002/api/insert', {
-            appartmentNo: 45,
-            email: "msdos@msdosen.com"
+            appartmentNo: inAppartmentNumber,
+            email: inEmail
         }).then(() => {
             alert("succes insert")
         })
     }
 
+    async getUsers() {
+       Axios({
+           method: 'get',
+           url: 'http://localhost:3002/api/insert'
+       }).then(res => console.log(res)).catch(err => console.log(err))
+}
 }
