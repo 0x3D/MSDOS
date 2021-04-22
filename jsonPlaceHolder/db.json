@@ -1,11 +1,47 @@
 {
     "users": [
         {
+            "lghNr": 1,
+            "email": "hej@gmail.com"
+        },
+        {
+            "lghNr": 2,
+            "email": "erik@gmail.com"
+        },
+        {
             "lghNr": 3,
             "email": "hej@gmail.com"
         },
         {
+            "lghNr": 4,
+            "email": "erik@gmail.com"
+        }, {
+            "lghNr": 5,
+            "email": "hej@gmail.com"
+        },
+        {
+            "lghNr": 6,
+            "email": "erik@gmail.com"
+        }, {
+            "lghNr": 7,
+            "email": "hej@gmail.com"
+        },
+        {
+            "lghNr": 8,
+            "email": "erik@gmail.com"
+        }, {
+            "lghNr": 9,
+            "email": "hej@gmail.com"
+        },
+        {
             "lghNr": 10,
+            "email": "erik@gmail.com"
+        }, {
+            "lghNr": 11,
+            "email": "hej@gmail.com"
+        },
+        {
+            "lghNr": 12,
             "email": "erik@gmail.com"
         }
     ],
