@@ -363,3 +363,7 @@ $RECYCLE.BIN/
 *.lnk
 
 package-lock.json
+
+tools/admins.json
+tools/logins.json
+tools/users.json
