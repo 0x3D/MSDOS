@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from "react-timecalendar";
 import { format, addHours } from 'date-fns'
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Form } from 'react-bootstrap'
 
 
 const LOCAL_STORAGE_LAUNDRY_TIMES = 'bookingApp.laundryBooked'
@@ -33,8 +33,9 @@ export default function LaundryBooking() {
     const handleConfirmation = () => {
         setShowModal(false);
         var dateformat = 'yyyy-MM-dd HH:mm:ss'
-        
+
         //om bekräftat körs denna för att "spara bokningen"
+        // borde bytas till lägga till bokad tid till en databas
         setBookings(prevBookings => {
             return [...prevBookings, {
                 start_time: format(startTime, dateformat),
@@ -42,12 +43,12 @@ export default function LaundryBooking() {
             }]
         })
     }
-    
-    //Should be moved to app.js
+
+
     const handleChosenTime = (chosenTime) => {
         startTime = chosenTime
         endTime = addHours(startTime, laundryTime / 60)
-        
+
         //Show modal for further confirmation
         setShowModal(true);
     }
@@ -68,7 +69,6 @@ export default function LaundryBooking() {
                     <Modal.Title>Bekräfta din bokning</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {/* Add form for submitting lgh nr */}
                     Bekräfta din bokning av tvättid.
                     <br/> 
                     Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/\"/g, "")} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/\"/g, "")}
