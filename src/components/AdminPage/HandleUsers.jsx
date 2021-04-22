@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
-import jsonTestData from './../../testData/handleUsers.json'
-import axios from 'axios'
-import 'react-fetch'
+
+
 
 
 const useStyles = makeStyles({
@@ -11,7 +10,6 @@ const useStyles = makeStyles({
   }
 },
 );
-
 
 
 export default function HandleUsers() {
