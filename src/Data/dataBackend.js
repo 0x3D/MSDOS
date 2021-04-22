@@ -14,9 +14,29 @@ export default class dataBackend {
     }
 
     async getUsers() {
-       Axios({
-           method: 'get',
-           url: 'http://localhost:3002/api/insert'
-       }).then(res => console.log(res)).catch(err => console.log(err))
-}
+        let arr = []
+
+        Axios({
+            method: 'get',
+            url: 'http://localhost:3002/api/get'
+        }).then(res => {
+            arr = res.data[0].json_agg;
+            return arr
+        }
+        ).catch(err => console.log(err))
+
+    }
+
+
+    testtest() {
+        Axios.get('http://localhost:3002/api/get')
+            .then(response => {
+                console.log(response.data);
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
 }

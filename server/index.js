@@ -7,20 +7,21 @@ const pgp = require('pg-promise')(/* options */)
 const db = pgp('postgres://postgres:postgres@localhost:5432/postgres')
 
 
-// db.one('SELECT $1 AS value', 123)
-//     .then(function (data) {
-//         console.log('DATA:', data.value)
-//     })
-//     .catch(function (error) {
-//         console.log('ERROR:', error)
-//     })
-
-
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.post('/api/insert', (req, res) => {
+app.get("/api/get", (req, res) => {
+    const sqlGet = "SELECT json_agg(Users) FROM Users;"
+    //const sqlGet = "Select * from Users"
+    db.many(sqlGet).then(function (data) {
+        res.send(data)
+    }).catch(function (err) {
+        console.log(err)
+    })
+})
+
+app.post("/api/insert", (req, res) => {
 
     const apartmentNo = req.body.appartmentNo
     const email = req.body.email
@@ -31,23 +32,8 @@ app.post('/api/insert', (req, res) => {
     }).catch(function (error) {
         console.log('ERROR:', error)
     })
-
-    // TODO: should probably bbe /api/insert/Users or something here    
-    // db.one(sqlInsert, [apartmentNo, email]).then(function (data) {
-    //     console.log('DATA:', data.value)
-    // }).catch(function (error) {
-    //     console.log('ERROR:', error)
-    // })
-
-    // db.query(sqlInsert, [appartmentNo, email], (err, res) => {
-    //     console.log(res)
-    //     console.log(err)
-    // })
 })
 
-app.get('/', (req, res) => {
-    res.send("helloooooooo postgres")
-})
 
 app.listen(3002, () => {
     console.log('running on 3002')
