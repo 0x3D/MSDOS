@@ -364,6 +364,6 @@ $RECYCLE.BIN/
 
 package-lock.json
 
-tools/admins.json
-tools/logins.json
-tools/users.json
+src/tools/admins.json
+src/tools/logins.json
+src/tools/users.json
