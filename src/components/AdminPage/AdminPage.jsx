@@ -9,7 +9,6 @@ import dataBackend from '../../Data/dataBackend'
 
 export default function AdminPage() {
 
-    const dataBE = new dataBackend()
 
 
     const [show, setShow] = useState(false)
@@ -37,8 +36,6 @@ export default function AdminPage() {
     return (
         <div className="AdminPage">
             <h1> Admin sida</h1>
-            <button onClick={dataBE.insertToUsers(19,"chelsea@gmail.com")}>INSERT TEMP</button>
-            <button onClick={dataBE.getUsers}>GET TEMP</button>
             <Container>
                 <Row>
                     <Col sm={12}>
@@ -73,7 +70,7 @@ export default function AdminPage() {
                 <Modal.Header closeButton>
                     Admin
                 </Modal.Header>
-                <Modal.Body id="modal-body" scrollable={true}>
+                <Modal.Body id="modal-body" scrollable="true">
                     {/* HÄR VILL JAG ATT MAN SKA KUNNA OLIKA SLAGS KOMPONENTER WALLA BILLA */}
                     {selectedModal}
                 </Modal.Body>

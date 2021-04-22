@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
-import dataBackend from '../../Data/dataBackend';
-import SelectInput from '@material-ui/core/Select/SelectInput';
-//import Axios from 'axios'
-//var jsonTestData = require('./../../testData/handleUsers.json')
+import jsonTestData from './../../testData/handleUsers.json'
+import axios from 'axios'
+import 'react-fetch'
 
 
 const useStyles = makeStyles({
@@ -13,25 +12,24 @@ const useStyles = makeStyles({
 },
 );
 
+
+
 export default function HandleUsers() {
-  let jsonTestData = []
 
-  const Axios = require('axios').default;
-
-
-  const getUsers = async () => {
-    try {
-      const res = await Axios.get('http://localhost:3002/api/get')
-      jsonTestData = res.data
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  getUsers()
-
-  console.log(jsonTestData);
-
+  const [users, setUsers] = useState(null)
   const classes = useStyles()
+
+  const fetchUsers = async () => {
+    const response = await fetch('http://localhost:8000/users')
+    const data = await response.json()
+    setUsers(data)
+    console.log(data)
+    }
+
+  useEffect(async () => {
+    fetchUsers()
+  }, [])
+
 
   return (
     <div>
@@ -39,21 +37,23 @@ export default function HandleUsers() {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow style={{ backgroundColor: "LightGrey" }}>
-              <TableCell ><h2>Name</h2></TableCell>
-              <TableCell align="center"><h2>Lägenhetsnummer</h2></TableCell>
-              {/* <TableCell align="center"><h2>Mobilnummer</h2></TableCell> */}
+              <TableCell ><h2>Lägenhetsnummer</h2></TableCell>
+              <TableCell align="center"><h2>Email</h2></TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
 
-            {jsonTestData.map((row) => {
-              <TableRow key={row.apartmentNo}>
-                <TableCell component="th" scope="row">
-                  {row.apartmentNo}
+          <TableBody>
+            {!users ? (<h1>loading...</h1>) : (<>{users.map((row) => (
+              <TableRow key={row.lghNr}>
+                <TableCell align="center" scope="row">
+                  {row.lghNr}
                 </TableCell>
-                <TableCell align="center">{row.email}</TableCell>
+                <TableCell align="center">
+                  {row.email}
+                </TableCell>
               </TableRow>
-            })}
+            
+            ))}</>)}
           </TableBody>
         </Table>
       </TableContainer>
@@ -61,45 +61,3 @@ export default function HandleUsers() {
   )
 }
 
-// return (
-//   <div>
-//     <TableContainer component={Paper} >
-//       <Table className={classes.table} aria-label="simple table">
-//         <TableHead>
-//           <TableRow style={{ backgroundColor: "LightGrey" }}>
-//             <TableCell ><h2>Name</h2></TableCell>
-//             <TableCell align="center"><h2>Lägenhetsnummer</h2></TableCell>
-//             {/* <TableCell align="center"><h2>Mobilnummer</h2></TableCell> */}
-//           </TableRow>
-//         </TableHead>
-//         <TableBody>
-
-//           {jsonTestData.map((row) => {
-//             <TableRow key={row.apartmentNo}>
-//               <TableCell component="th" scope="row">
-//                 {row.apartmentNo}
-//               </TableCell>
-//               <TableCell align="center">{row.email}</TableCell>
-//             </TableRow>
-//           })}
-//         </TableBody>
-//       </Table>
-//     </TableContainer>
-//   </div>
-// )
-
-
-
-
-/* <TableBody>
-          {jsonTestData.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="center">{row.appNr}</TableCell>
-              <TableCell align="center">{row.telNumber}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-*/
