@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from "react-timecalendar";
 import { format, addHours } from 'date-fns'
-import { Button, Modal, Alert } from 'react-bootstrap'
+import { Button, Modal, Card } from 'react-bootstrap'
 
 
-//const LOCAL_STORAGE_LAUNDRY_TIMES = 'bookingApp.laundryBooked'
 const laundryTime = 180
 const openHours = [[8, 20]];
 var startTime = new Date();
@@ -21,18 +20,6 @@ export default function LaundryBooking() {
     const handleClose = () => setShowModal(false);
 
 
-    // //Get bookings from local
-    // useEffect(() => {
-    //     const storedBookings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LAUNDRY_TIMES))
-    //     if (storedBookings) setBookings(storedBookings)
-    // }, [])
-
-    // //Save booked times to local machine (we dont have any database)
-    // useEffect(() => {
-    //     localStorage.setItem(LOCAL_STORAGE_LAUNDRY_TIMES, JSON.stringify(bookings))
-    // }, [bookings])
-
-
     //Fetches the bookings from the api
     const fetchBookings = async () => {
         const response = await fetch(url)
@@ -46,20 +33,21 @@ export default function LaundryBooking() {
     }, [])
 
 
+    //Creates a new booking
     const newBooking = async (sTime, eTime) => {
         var dateformat = 'yyyy-MM-dd HH:mm:ss'
 
-        
         const postData = {
             start_time: format(sTime, dateformat),
             end_time: format(eTime, dateformat),
             lghNr: "3"
         }
-        
+
         await postBooking(postData)
         await fetchBookings()
     }
 
+    //Posts the previously created booking
     const postBooking = async (postData) => {
         const requestOptions = {
             method: 'POST',
@@ -93,13 +81,16 @@ export default function LaundryBooking() {
 
     return (
         <>
-            <TimeCalendar clickable
-                openHours={openHours}
-                disableHistory
-                timeSlot={laundryTime}
-                bookings={bookings}
-                onTimeClick={handleChosenTime}
-            />
+                <h4 className="pt-4 pb-4">Här bokar du dina tvätttider</h4>
+                <div className="border-top">
+                    <TimeCalendar clickable
+                        openHours={openHours}
+                        disableHistory
+                        timeSlot={laundryTime}
+                        bookings={bookings}
+                        onTimeClick={handleChosenTime}
+                    />
+                </div>
 
             {/* Modal for confirmation of booking*/}
             <Modal show={showConfirmation} onHide={handleClose}>
