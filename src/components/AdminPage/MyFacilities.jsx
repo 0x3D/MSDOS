@@ -1,7 +1,19 @@
 import React from 'react'
 import { DataGrid} from '@material-ui/data-grid';
 
+
+/**
+ * A admin component that gives a overview of all Faciities
+ * 
+ * 
+ * 
+ * @returns a react-component
+ * @version 0.1.0
+ * @author [Axel Hertzberg](https://github.com/axelhertzberg)
+ */
 export default function AddFacility() {
+
+    //TODO: Göra klart
 
     const rows = [
         { id: 1, col1: 'Hello', col2: 'World' },
