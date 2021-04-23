@@ -78,6 +78,7 @@ export default function Login () {
         >
           Sign in
         </Button>
+        <Col xs={1}>&nbsp;</Col>
         <Button
           type='help'
           onClick={() => { handleShow() }}
