@@ -49,7 +49,7 @@ export default function HandleUsers () {
   /**
  * useEffect is a React function that is used to not rerender uneccesary thing
  */
-  useEffect(async () => {
+  useEffect(() => {
     fetchUsers()
   }, [])
 

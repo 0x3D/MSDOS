@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 
@@ -71,7 +70,7 @@ export default function Profile () {
   useEffect(() => {
     fetchBookings()
     fetchUsers()
-  }, [])
+  })
 
   return (
     <div>
