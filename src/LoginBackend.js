@@ -19,6 +19,10 @@ export default class LoginBackend {
     return true
   }
 
+  basicLogout() {
+    
+  }
+
   authenticateToken (token) {
     // TODO: make this pretty
     let found = false

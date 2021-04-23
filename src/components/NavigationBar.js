@@ -1,11 +1,13 @@
 import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
 import '../styles/Navbar.css'
 import Logo from '../assets/msdos-logo.png'
 
+
 export default function NavigationBar () {
   const whiteText = { color: 'white' }
+  const handleLogOut = () => {console.log("hej")}
 
   return (
     <Navbar sticky='top' bg='dark' variant='dark'>
@@ -16,7 +18,14 @@ export default function NavigationBar () {
 
       <Nav className='mr-auto ml-auto'>
         <Nav.Link as={NavLink} to='/booking' activeStyle={whiteText} activeClassName='selected-tab'>Boka</Nav.Link>
-        <Nav.Link as={NavLink} to='/test' activeStyle={whiteText} activeClassName='selected-tab'>Mitt konto</Nav.Link>
+        <Nav.Link as={NavLink} to='/profile' activeStyle={whiteText} activeClassName='selected-tab'>Mitt konto</Nav.Link>
+      </Nav>
+
+      <Nav>
+        <NavDropdown title="Login" variant='dark'>
+          <NavDropdown.Item>My account</NavDropdown.Item>
+          <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
+        </NavDropdown>
       </Nav>
     </Navbar>
   )
