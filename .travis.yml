@@ -1,6 +1,9 @@
 language: node_js
 node_js: 
   - stable
+  - 10
+  - 11
+  - 12
 script: 
   - "npm test"
   - "npm run build"
