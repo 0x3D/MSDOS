@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { Tabs, Tab } from 'react-bootstrap';
 import LaundryBooking from './components/Bookings/LaundryBooking'
-
+import GymBooking from './components/Bookings/GymBooking'
 
 export default function Booking() {
     
@@ -15,8 +15,11 @@ export default function Booking() {
                             <LaundryBooking />
                         </div>
                     </Tab>
-                    <Tab eventKey="#gym" title="Gym">
+                    <Tab eventKey="gym" title="Gym">
                         {/* Create component for booking the gym */}
+                        <div className="border-bottom border-left border-right">
+                            <GymBooking />
+                        </div>
                     </Tab>
                     <Tab eventKey="lokaler" title="Lokaler">
                         {/* Create component for booking lokaler */}
