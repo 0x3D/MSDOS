@@ -1,6 +1,31 @@
 # MSDOS
 Projekt i DAT257
 
+___
+
+# Starta applicationen
+
+
+```
+git pull
+
+```
+
+```
+npm start
+
+```
+```
+cd jsonPaceHolder
+
+```
+
+```
+npm run start:server
+
+```
+___
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
