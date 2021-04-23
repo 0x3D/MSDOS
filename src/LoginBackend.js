@@ -27,10 +27,10 @@ export default class LoginBackend {
       console.log(user.password)
       console.log(token)
       console.log(user.password === token)
-      if(user.password !== null && token !== null){
+      if (user.password !== null && token !== null) {
         if (user.password.valueOf() === token.valueOf()) {
-            found = true
-          }
+          found = true
+        }
       }
     })
     return found

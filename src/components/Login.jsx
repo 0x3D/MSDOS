@@ -5,19 +5,19 @@ import '../styles/login.css'
 import LoginBackend from '../LoginBackend'
 import { Redirect } from 'react-router'
 
-export default function Login() {
+export default function Login () {
   const backend = new LoginBackend()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const [showHelp, setShowHelp] = useState(false);
+  const [showHelp, setShowHelp] = useState(false)
   const handleClose = () => setShowHelp(false)
   const handleShow = () => setShowHelp(true)
 
-  let loggedIn = false; 
+  let loggedIn = false
 
   useEffect(() => {
-    loggedIn = () => {backend.authenticateToken()}
+    loggedIn = () => { backend.authenticateToken() }
   })
 
   const handleLogin = (e) => {
@@ -27,14 +27,14 @@ export default function Login() {
     }
   }
 
-  function validateForm() {
+  function validateForm () {
     // TODO: Add check for password security and proper email here
     return email.length > 0 && password.length > 0
   }
 
   return (
     <Container classname='loginContainer'>
-    {loggedIn ? <Redirect to="/booking"></Redirect> : <h1> &nbsp;</h1> }
+      {loggedIn ? <Redirect to='/booking' /> : <h1> &nbsp;</h1>}
       <Modal show={showHelp} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Help</Modal.Title>
