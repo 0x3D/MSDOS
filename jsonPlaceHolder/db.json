@@ -505,36 +505,33 @@
             "password": "fae.hyatt@hotmail.com"
         }
     ],
-    
     "admins": [
-        [
-            {
-                "email": "vheidenreich@hotmail.com"
-            },
-            {
-                "email": "eusebio.kassulke@gmail.com"
-            },
-            {
-                "email": "kstoltenberg@sipes.com"
-            },
-            {
-                "email": "boris64@hotmail.com"
-            },
-            {
-                "email": "vfranecki@bergstrom.info"
-            },
-            {
-                "email": "hbergnaum@gmail.com"
-            },
-            {
-                "email": "daniela09@marquardt.com"
-            },
-            {
-                "email": "bebert@yahoo.com"
-            },
-            {
-                "email": "huels.ashtyn@yahoo.com"
-            }
-        ]
+        {
+            "email": "vheidenreich@hotmail.com"
+        },
+        {
+            "email": "eusebio.kassulke@gmail.com"
+        },
+        {
+            "email": "kstoltenberg@sipes.com"
+        },
+        {
+            "email": "boris64@hotmail.com"
+        },
+        {
+            "email": "vfranecki@bergstrom.info"
+        },
+        {
+            "email": "hbergnaum@gmail.com"
+        },
+        {
+            "email": "daniela09@marquardt.com"
+        },
+        {
+            "email": "bebert@yahoo.com"
+        },
+        {
+            "email": "huels.ashtyn@yahoo.com"
+        }
     ]
 }

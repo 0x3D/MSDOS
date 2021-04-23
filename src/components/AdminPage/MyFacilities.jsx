@@ -1,5 +1,5 @@
-import React from 'react'
-import { DataGrid} from '@material-ui/data-grid';
+import React, { useState, useEffect } from 'react'
+import { Card } from 'react-bootstrap';
 
 
 /**
@@ -11,27 +11,21 @@ import { DataGrid} from '@material-ui/data-grid';
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function AddFacility() {
-
-    //TODO: Göra klart
-
-    const rows = [
-        { id: 1, col1: 'Hello', col2: 'World' },
-        { id: 2, col1: 'XGrid', col2: 'is Awesome' },
-        { id: 3, col1: 'Material-UI', col2: 'is Amazing' },
-    ];
-
-    const columns = [
-        { field: 'col1', headerName: 'Column 1', width: 150 },
-        { field: 'col2', headerName: 'Column 2', width: 150 },
-    ];
+export default function MyFacilities() {
 
 
+    const [facilities, setFacilities] = useState([])
+
+    useEffect(() => {
+        setFacilities("tvättStuga")
+    })
 
     return (
         <div className="AddFacility">
-            <h2> testing a datafrid from material UI</h2>
-            <DataGrid rows={rows} columns={columns} checkboxSelection/>
+            <Card>
+                <Card.Header> Lista över Faciiteter</Card.Header>
+                <Card.Body> {facilities} </Card.Body>
+            </Card>
         </div>
     )
 }

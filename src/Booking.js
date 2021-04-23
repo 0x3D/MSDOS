@@ -7,6 +7,7 @@ import LaundryBooking from './components/Bookings/LaundryBooking'
 
 
 export default function Booking() {
+    
 
     return (
         <>
