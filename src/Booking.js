@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import { Container } from 'react-bootstrap';
 import { Tabs, Tab } from 'react-bootstrap';
 import Calander from './components/Bookings/Calander';
-import LaundryTimes from './Data/laundry.json'
 import LaundryBooking from './components/Bookings/LaundryBooking'
 
 
 
 export default function Booking() {
-    const [key, setKey] = useState('laundry');
+    
 
     return (
         <>
