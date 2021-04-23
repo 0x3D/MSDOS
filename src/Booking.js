@@ -1,23 +1,25 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
 import { Tabs, Tab } from 'react-bootstrap';
+import LaundryBooking from './components/Bookings/LaundryBooking'
+
 
 export default function Booking() {
+    
     return (
         <>
             <Container className="mt-2 subnav" >
-                <Tabs justify defaultActiveKey="profile" id="uncontrolled-tab-example">
-                    <Tab eventKey="Tvättstuga" title="Tvättstuga">
-                        {/* Create component for booking the laundryroom */}
-                        <p>hej</p>
+                <Tabs justify defaultActiveKey="laundry" id="uncontrolled-tab-example">
+                    <Tab eventKey="laundry" title="Tvättstuga">
+                        <div className="border-bottom border-left border-right">
+                            <LaundryBooking />
+                        </div>
                     </Tab>
-                    <Tab eventKey="Gym" title="Gym">
+                    <Tab eventKey="#gym" title="Gym">
                         {/* Create component for booking the gym */}
-                        <h1>hej</h1>
                     </Tab>
-                    <Tab eventKey="Lokaler" title="Lokaler">
+                    <Tab eventKey="lokaler" title="Lokaler">
                         {/* Create component for booking lokaler */}
-                        <p>hej</p>
                     </Tab>
                 </Tabs>
             </Container>

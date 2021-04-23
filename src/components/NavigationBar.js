@@ -17,7 +17,7 @@ export default function NavigationBar() {
 
             <Nav className="mr-auto ml-auto">
                 <Nav.Link as={NavLink} to="/booking" activeStyle={whiteText} activeClassName="selected-tab">Boka</Nav.Link>
-                <Nav.Link as={NavLink} to="/test" activeStyle={whiteText} activeClassName="selected-tab">Mitt konto</Nav.Link>
+                <Nav.Link as={NavLink} to="/profile" activeStyle={whiteText} activeClassName="selected-tab">Mitt konto</Nav.Link>
             </Nav>
         </Navbar>
     )
