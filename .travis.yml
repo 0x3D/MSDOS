@@ -1,11 +1,15 @@
 language: node_js
 node_js: 
   - stable
-  - 10
-  - 11
-  - 12
+before_install:
+  - "node --version"
+  - "npm --version"
+  - "nvm --version"
+install: 
+  - "npm install --legacy-peer-deps"
 script: 
   - "npm test"
+  - "npx standard"
   - "npm run build"
 arch: amd64          # optional, this is default, routes to a full VM
 os: linux            # optional, this is default
