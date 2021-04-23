@@ -2,29 +2,29 @@ import React, { useState, useEffect } from 'react'
 import { Form, Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/login.css'
-import LoginBackend from '../LoginBackend'
-import { Redirect } from 'react-router'
+import { Link, Redirect } from "react-router-dom";
+import { authenticateUser, AuthDataContext, useAuth} from '../LoginBackend'
 
 export default function Login () {
-  const backend = new LoginBackend()
+  const { basicLogin } = useAuth();
+  const [isLoggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  //const referer = props.location.state.referer || '/';
 
   const [showHelp, setShowHelp] = useState(false)
   const handleClose = () => setShowHelp(false)
   const handleShow = () => setShowHelp(true)
 
-  let loggedIn = false
+  if(isLoggedIn){
+    return (<Redirect to="/"/>)
+  }
 
-  useEffect(() => {
-    loggedIn = () => { backend.authenticateToken() }
-  })
 
   const handleLogin = (e) => {
-    const result = backend.basicLogin(email, password)
-    if (result) {
-      // this.context.router.push("/booking");
-    }
+    // TODO: Add token here
+    const userTokens = authenticateUser(email,password)
+    basicLogin(userTokens)
   }
 
   function validateForm () {
@@ -34,7 +34,6 @@ export default function Login () {
 
   return (
     <Container classname='loginContainer'>
-      {loggedIn ? <Redirect to='/booking' /> : <h1> &nbsp;</h1>}
       <Modal show={showHelp} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Help</Modal.Title>

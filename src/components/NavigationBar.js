@@ -3,11 +3,16 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
 import '../styles/Navbar.css'
 import Logo from '../assets/msdos-logo.png'
-
+import LoginBackend from '../LoginBackend'
+import { useHistory } from 'react-router-dom';
 
 export default function NavigationBar () {
   const whiteText = { color: 'white' }
-  const handleLogOut = () => {console.log("hej")}
+  //const backend = new LoginBackend()
+  let history = useHistory();
+  const handleLogOut = (e) => {
+    //const result = backend.basicLogout(); history.push('/')
+  }
 
   return (
     <Navbar sticky='top' bg='dark' variant='dark'>

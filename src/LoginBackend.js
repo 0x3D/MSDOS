@@ -1,42 +1,50 @@
 // Backend
-
+import React, { createContext, useState, useEffect, useMemo, useContext } from "react";
 import { localStorageAvailable } from '@material-ui/data-grid'
-import Users from './testData/users.json'
 
-export default class LoginBackend {
-  getLoginToken (apartment, password) {
-    // TODO: Json webtokens and/or Argon2 // Ask Erik B or Erik R
-    return password
+export const AuthDataContext = createContext(null)
+
+const INITAUTHDATA = {}
+
+const getAuthData = () => {
+  // Save cookie if browser allows.
+  if (localStorageAvailable) {
+    const existingTokens = JSON.parse(localStorage.getItem("tokens"));
+    return existingTokens
   }
-
-  basicLogin (apartmentNo, password) {
-    const token = this.getLoginToken(apartmentNo, password)
-
-    // Save cookie if browser allows.
-    if (localStorageAvailable) {
-      localStorage.setItem('loginToken', token)
-    }
-    return true
-  }
-
-  basicLogout() {
-    
-  }
-
-  authenticateToken (token) {
-    // TODO: make this pretty
-    let found = false
-
-    Users.forEach((user) => {
-      console.log(user.password)
-      console.log(token)
-      console.log(user.password === token)
-      if (user.password !== null && token !== null) {
-        if (user.password.valueOf() === token.valueOf()) {
-          found = true
-        }
-      }
-    })
-    return found
-  }
+  return INITAUTHDATA
 }
+
+export const authenticateUser = (username, password) => {
+  return { username, password };
+}
+
+const AuthDataProvider = (props) => {
+  const [authData, setAuthData] = useState(INITAUTHDATA)
+
+  useEffect(() => {
+    const currentAuthData = getAuthData();
+    if (currentAuthData) {
+      setAuthData(currentAuthData);
+    }
+  }, [])
+
+  const basicLogout = () => {setAuthData(INITAUTHDATA)}
+
+  const basicLogin = (newAuthData) => {
+    setAuthData(newAuthData)
+    localStorage.setItem("tokens", JSON.stringify(newAuthData));
+  }
+
+  //This will cache for speed
+  //const authDataValue = useMemo({ ...authData, basicLogin, basicLogout }, [authData]);
+
+  return <AuthDataContext.Provider value={{ authData, basicLogin, basicLogout }} {...props} />;
+};
+
+// Hook to get Authenticated
+export function useAuth() {
+  return useContext(AuthDataContext);
+}
+
+export default AuthDataProvider
