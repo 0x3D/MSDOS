@@ -6,7 +6,7 @@ import Users from './testData/users.json'
 export default class LoginBackend {
   getLoginToken (apartment, password) {
     // TODO: Json webtokens and/or Argon2 // Ask Erik B or Erik R
-    return apartment + password
+    return password
   }
 
   basicLogin (apartmentNo, password) {
@@ -34,10 +34,5 @@ export default class LoginBackend {
       }
     })
     return found
-    // if (token !== null && token.length > 1) {
-    //    return true
-    // } else {
-    //    return false;
-    // }
   }
 }
