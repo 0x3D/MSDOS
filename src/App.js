@@ -9,26 +9,19 @@ import AdminPage from './components/AdminPage/AdminPage'
 import Home from './Home'
 import Profile from './components/Profile'
 import AuthDataProvider from './LoginBackend'
-import { authenticateUser, AuthDataContext, useAuth } from './LoginBackend'
+import { getAuthData } from './LoginBackend'
 
 const url = 'http://localhost:8000/logins'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  //const backend = new LoginBackend()
-  //const token = localStorage.getItem('loginToken')
-  //useEffect(() => {
-  //  getUsers()
-  //}, [])
-  //const auth = backend.authenticateToken(token,users)
-  const { authTokens } = useAuth();
-  console.log(authTokens)
-
-  // Add your own authentication on the below line.
+  let tokens = getAuthData()
+  // TODO: Authenticate here
+  
   return (
     <Route
       {...rest}
       render={props =>
-        authTokens ? (
+        tokens ? (
           <Component {...props} />
         ) : (
           <Redirect to={{ pathname: '/home', state: { from: props.location } }} />

@@ -6,7 +6,7 @@ export const AuthDataContext = createContext(null)
 
 const INITAUTHDATA = {}
 
-const getAuthData = () => {
+export const getAuthData = () => {
   // Save cookie if browser allows.
   if (localStorageAvailable) {
     const existingTokens = JSON.parse(localStorage.getItem("tokens"));
@@ -29,7 +29,10 @@ const AuthDataProvider = (props) => {
     }
   }, [])
 
-  const basicLogout = () => {setAuthData(INITAUTHDATA)}
+  const basicLogout = () => {
+    setAuthData(INITAUTHDATA)
+    localStorage.removeItem("tokens")
+  }
 
   const basicLogin = (newAuthData) => {
     setAuthData(newAuthData)

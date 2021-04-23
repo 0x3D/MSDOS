@@ -3,15 +3,17 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
 import '../styles/Navbar.css'
 import Logo from '../assets/msdos-logo.png'
-import LoginBackend from '../LoginBackend'
 import { useHistory } from 'react-router-dom';
+import { useAuth } from '../LoginBackend'
 
 export default function NavigationBar () {
   const whiteText = { color: 'white' }
+  const { basicLogout } = useAuth();
   //const backend = new LoginBackend()
   let history = useHistory();
   const handleLogOut = (e) => {
-    //const result = backend.basicLogout(); history.push('/')
+    const result = basicLogout(); 
+    history.push('/')
   }
 
   return (
@@ -27,8 +29,8 @@ export default function NavigationBar () {
       </Nav>
 
       <Nav>
-        <NavDropdown title="Login" variant='dark'>
-          <NavDropdown.Item>My account</NavDropdown.Item>
+        <NavDropdown title="My account" variant='dark'>
+          <NavDropdown.Item><Link to='/home'>Login</Link></NavDropdown.Item>
           <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
         </NavDropdown>
       </Nav>

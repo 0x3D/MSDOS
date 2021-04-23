@@ -3,21 +3,21 @@ import { Form, Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/login.css'
 import { Link, Redirect } from "react-router-dom";
-import { authenticateUser, AuthDataContext, useAuth} from '../LoginBackend'
+import { authenticateUser, AuthDataContext, useAuth, getAuthData} from '../LoginBackend'
 
-export default function Login () {
+export default function Login (props) {
   const { basicLogin } = useAuth();
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  let [isLoggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  //const referer = props.location.state.referer || '/';
-
   const [showHelp, setShowHelp] = useState(false)
   const handleClose = () => setShowHelp(false)
   const handleShow = () => setShowHelp(true)
+  var referrer = document.referrer || '/';
+  // console.log("referrer url",referrer);
 
   if(isLoggedIn){
-    return (<Redirect to="/"/>)
+    return (<Redirect to={referrer}/>)
   }
 
 
@@ -25,6 +25,7 @@ export default function Login () {
     // TODO: Add token here
     const userTokens = authenticateUser(email,password)
     basicLogin(userTokens)
+    setLoggedIn(true)
   }
 
   function validateForm () {
@@ -32,8 +33,16 @@ export default function Login () {
     return email.length > 0 && password.length > 0
   }
 
+  let tokens = getAuthData()
+  // TODO: Authenticate here
+
+  if (tokens) {
+    setLoggedIn(true)
+  }
+
   return (
     <Container classname='loginContainer'>
+    {isLoggedIn ? <Redirect to='/booking' /> : <h1> &nbsp;</h1>}
       <Modal show={showHelp} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Help</Modal.Title>
