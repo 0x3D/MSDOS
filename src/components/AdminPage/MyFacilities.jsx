@@ -16,6 +16,7 @@ export default function MyFacilities() {
 
     const [facilities, setFacilities] = useState([])
 
+    
     useEffect(() => {
         setFacilities("tvättStuga")
     })

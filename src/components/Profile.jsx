@@ -15,14 +15,14 @@ export default function Profile() {
 
     //TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer 
     //som är inloggad, använder currentUser sålänge
-    const currentUser = 3
+    const currentUser = 18
 
     /**
      * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
      * @returns a right formed string to ask the database for the inforamtion we want
      */
     const formatLghNr = () => {
-        return "lghNr=" + String(3)
+        return "lghNr=" + String(currentUser)
     }
 
     /**
@@ -103,7 +103,6 @@ export default function Profile() {
                                     <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
                                     <Button variant="danger">Ta bort bokning</Button>
                                 </Card.Text>
-
                             </>
                         ))}
                     </Card>
