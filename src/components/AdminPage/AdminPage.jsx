@@ -3,80 +3,126 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, ListGroup, Modal, Button } from 'react-bootstrap'
 import HandleBookings from './HandleBookings'
 import HandleUsers from './HandleUsers'
-import AddFacility from './AddFacility'
+import AddFacility from './MyFacilities'
 
-export default function AdminPage () {
-  const [show, setShow] = useState(false)
+/**
+ * The AdminPage component is the component that gather all things a admin can do
+ * 
+ * 
+ * @returns a react-component
+ * @version 0.1.0
+ * @author [Axel Hertzberg](https://github.com/axelhertzberg)
+ */
+export default function AdminPage() {
 
-  const [selectedModal, setSelectedModal] = useState([])
+/**
+   * show is a variable, and setShow is a set-method for the variable
+   * Usestate is the default value
+   * 
+   * @constant show is a boolean
+   * @method setLaundryBookings is a set-method for the boolean
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
+    const [show, setShow] = useState(false)
 
-  const handle_bookings = <HandleBookings />
-  const handle_users = <HandleUsers />
-  const add_facility = <AddFacility />
+    /**
+   * selectedModal is a variable, and setSelectedModal is a set-method for the variable
+   * Usestate is the default value
+   * 
+   * @constant selectedModal is a array
+   * @method setLaundryBookings is a set-method for the array
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
+    const [selectedModal, setSelectedModal] = useState([])
 
-  const handleShow = (event) => {
-    const modal = event.target.id
-    // TODO: make this prettier
-    if (modal === 'handle-bookings') { setSelectedModal(handle_bookings) }
-    if (modal === 'handle-users') { setSelectedModal(handle_users) }
-    if (modal === 'add-fac') { setSelectedModal(add_facility) }
-    setShow(true)
-  }
+    /**
+     * @var handle_bookings refrences to the HandleBooking-component
+     * @see{@link (https://github.com/0x3D/MSDOS/blob/main/src/components/AdminPage/HandleBookings.jsx)}
+     */
+    let handle_bookings = <HandleBookings />
 
-  const handleClose = () => {
-    setShow(false)
-  }
+    /**
+     * @var handle_users refrences to the HandleUser-component
+     * @see{@link (https://github.com/0x3D/MSDOS/blob/main/src/components/AdminPage/HandleUsers.jsx)}
+     */
+    let handle_users = <HandleUsers />
 
-  return (
-    <div className='AdminPage'>
-      {/* Tänker att detta ska vara typ som knappar som man klickar på med en pane eller annat som tycker upp på skärmen
-                med en React Komponent för varje vald "hantering".
-                Det är bara en tanke men vi kanske vill ha det på annat sätt */}
-      <h1> Admin sida</h1>
-      <Container>
-        <Row>
-          <Col sm={12}>
+    /**
+     * @var handle_bookings refrences to the add_facility-component
+     * @see{@link (https://github.com/0x3D/MSDOS/blob/main/src/components/AdminPage/AddFacility.jsx)}
+     */
+    let add_facility = <AddFacility />
 
-            <ListGroup>
-              <ListGroup.Item>
-                <Button id='handle-bookings' onClick={handleShow}>
-                  Hantera bokningar
-                </Button>
-              </ListGroup.Item>
+/**
+ * handelShow is a method that does the logic of which admin-component which is showing
+ * Use @method setSelectedModal to set the selectedmodal
+ * @param event is a eventListener
+ */
+    const handleShow = (event) => {
+        let modal = event.target.id
+        // TODO: make this prettier
+        if (modal === 'handle-bookings') { setSelectedModal(handle_bookings) }
+        if (modal === 'handle-users') { setSelectedModal(handle_users) }
+        if (modal === 'add-fac') { setSelectedModal(add_facility) }
+        setShow(true)
+    }
+/**
+ * handelClose is a method that close the modal
+ * Use @method setSelectedModal to set the selectedmodal
+ * @param event is a eventListener
+ */
+    const handleClose = () => {
+        setShow(false)
+    }
 
-              <ListGroup.Item>
-                <Button id='handle-users' onClick={handleShow}>
-                  Hantera användare
-                </Button>
-              </ListGroup.Item>
 
-              <ListGroup.Item>
-                <Button id='add-fac' onClick={handleShow}>
-                  Lägga till faciliteter
-                </Button>
-              </ListGroup.Item>
+    return (
+        <div className="AdminPage">
+            <h1> Admin sida</h1>
+            <Container>
+                <Row>
+                    <Col sm={12}>
 
-            </ListGroup>
-          </Col>
+                        <ListGroup>
+                            <ListGroup.Item>
+                                <Button id="handle-bookings" onClick={handleShow}>
+                                    Hantera bokningar
+                                </Button>
+                            </ListGroup.Item>
 
-        </Row>
-      </Container>
+                            <ListGroup.Item>
+                                <Button id="handle-users" onClick={handleShow}>
+                                    Hantera användare
+                                </Button>
+                            </ListGroup.Item>
 
-      <Modal show={show} onHide={handleClose} size='xl'>
-        <Modal.Header closeButton>
-          Admin
-        </Modal.Header>
-        <Modal.Body id='modal-body' scrollable>
-          {/* HÄR VILL JAG ATT MAN SKA KUNNA OLIKA SLAGS KOMPONENTER WALLA BILLA */}
-          {selectedModal}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+                            <ListGroup.Item>
+                                <Button id="add-fac" onClick={handleShow}>
+                                    Lägga till faciliteter
+                                </Button>
+                            </ListGroup.Item>
 
-    </div>
-  )
+                        </ListGroup>
+                    </Col>
+
+                </Row>
+            </Container>
+
+
+            <Modal show={show} onHide={handleClose} size={'xl'}>
+                <Modal.Header closeButton>
+                    Admin
+                </Modal.Header>
+                <Modal.Body id="modal-body" scrollable="true">
+                    {selectedModal}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+        </div>
+    )
 }

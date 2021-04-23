@@ -2,7 +2,6 @@ import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Booking from './Booking'
-import Test from './Test'
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
@@ -28,7 +27,26 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   )
 }
 
-function App () {
+/**
+ * 
+ * 
+ * @returns The react-component that gather all react-components we are using
+ * with a Router with our own NavigationBar
+ * @see{@link (https://reactrouter.com/)}
+ * 
+ * 
+ * 
+ * @version 0.1.0
+ * 
+ * @author [Axel Hertzberg](https://github.com/axelhertzberg)
+ * @author [Jonas Nordin](https://github.com/jonasn-chalmers)
+ * @author [Erik Antilla Ryderup](https://github.com/0x3D)
+ * @author [Erik Bengtsson](https://github.com/erikbengtssonchalmers)
+ * @author [Theodor Lyrheden](https://github.com/theodorlyrheden)
+ * @author [Filip Hansson](https://github.com/filiphan)
+ * @author [Oliver Österberg](https://github.com/oliost)
+ */
+function App() {
   document.title = 'MSDOS Booking'
   if (localStorage) {
     return (
@@ -39,7 +57,6 @@ function App () {
           <Switch>
             <Route exact path='/home' component={Home} />
             <PrivateRoute exact path='/booking' component={Booking} />
-            <PrivateRoute path='/test' component={Test} />
             <Redirect exact from='/' to='/booking' />
             <Route path='/admin' component={AdminPage} />
             <Route path='/' component={ErrorPage} />
@@ -48,6 +65,6 @@ function App () {
       </>
     )
   }
-}
+};
 
 export default App
