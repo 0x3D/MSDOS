@@ -4,8 +4,6 @@ import BookingDay from './BookingDay'
 export default function BookingCalander({timeStamps}) {
 
 
-    
-
     return (
         
         <div>
