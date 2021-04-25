@@ -8,15 +8,14 @@ import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
 import Home from './Home'
 import Profile from './components/Profile'
-import AuthDataProvider from './LoginBackend'
-import { getAuthData } from './LoginBackend'
+import AuthDataProvider, { getAuthData } from './LoginBackend'
 
 const url = 'http://localhost:8000/logins'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  let tokens = getAuthData()
-  // TODO: Authenticate here
-  
+  const tokens = getAuthData()
+  // TODO: Authenticate here As in Login.jsx should probable be refactored.
+
   return (
     <Route
       {...rest}
@@ -49,7 +48,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
  * @author [Filip Hansson](https://github.com/filiphan)
  * @author [Oliver Österberg](https://github.com/oliost)
  */
-function App() {
+function App () {
   document.title = 'MSDOS Booking'
   if (localStorage) {
     return (

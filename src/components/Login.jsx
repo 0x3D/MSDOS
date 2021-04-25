@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Form, Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/login.css'
-import { Link, Redirect } from "react-router-dom";
-import { authenticateUser, AuthDataContext, useAuth, getAuthData } from '../LoginBackend'
+import { Redirect } from 'react-router-dom'
+import { authenticateUser, useAuth, getAuthData } from '../LoginBackend'
 
-export default function Login(props) {
-  const { basicLogin } = useAuth();
-  let [isLoggedIn, setLoggedIn] = useState(false);
+export default function Login (props) {
+  const { basicLogin } = useAuth()
+  const [isLoggedIn, setLoggedIn] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showHelp, setShowHelp] = useState(false)
   const handleClose = () => setShowHelp(false)
   const handleShow = () => setShowHelp(true)
-  var referrer = document.referrer || '/';
+  const referrer = document.referrer || '/'
   // console.log("referrer url",referrer);
 
   if (isLoggedIn) {
     return (<Redirect to={referrer} />)
   }
-
 
   const handleLogin = (e) => {
     // TODO: Add token here
@@ -28,14 +27,15 @@ export default function Login(props) {
     setLoggedIn(true)
   }
 
-  function validateForm() {
+  function validateForm () {
     // TODO: Add check for password security and proper email here
     return username.length > 0 && password.length > 0
   }
 
-  let tokens = getAuthData()
-  // TODO: Authenticate here
+  const tokens = getAuthData()
+  // TODO: Authenticate here. authentication should probably be factored out into another file
 
+  // if authenticated(tokens) check instead
   if (tokens) {
     setLoggedIn(true)
   }
@@ -54,10 +54,12 @@ export default function Login(props) {
       </Modal>
       <Row className='justify-content-md-center'>
         <Col xs={5} xs-offset={2}>
-          <Form classname='loginForm' onSubmit={() => {
-            console.log('Starting to handle login')
-            handleLogin()
-          }}>
+          <Form
+            classname='loginForm' onSubmit={() => {
+              console.log('Starting to handle login')
+              handleLogin()
+            }}
+          >
             <Form.Group controllId='formBasicUsername'>
               <Form.Label> Apartment Number </Form.Label>
               <Form.Control
@@ -65,7 +67,7 @@ export default function Login(props) {
                 type='text'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder={"47"}
+                placeholder='47'
               />
             </Form.Group>
             <Form.Group controllerId='formBasicPassword'>
@@ -74,7 +76,7 @@ export default function Login(props) {
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder={"password"}
+                placeholder='password'
               />
             </Form.Group>
             <Row className='justify-content-md-center'>
@@ -83,14 +85,14 @@ export default function Login(props) {
                 disabled={!validateForm()}
               >
                 Sign in
-        </Button>
+              </Button>
               <Col xs={1}>&nbsp;</Col>
               <Button
-                type="button"
+                type='button'
                 onClick={() => { handleShow() }}
               >
                 Help
-        </Button>
+              </Button>
             </Row>
           </Form>
         </Col>
