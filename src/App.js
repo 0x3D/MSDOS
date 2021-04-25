@@ -20,11 +20,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
-        tokens ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
-        )}
+        tokens
+          ? (
+            <Component {...props} />
+            )
+          : (
+            <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
+            )}
     />
   )
 }
@@ -50,25 +52,23 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
  */
 function App () {
   document.title = 'MSDOS Booking'
-  if (localStorage) {
-    return (
-      <>
-        <Router>
-          <AuthDataProvider>
-            <NavigationBar />
-            <Switch>
-              <Route exact path='/home' component={Home} />
-              <PrivateRoute exact path='/booking' component={Booking} />
-              <Route exact path='/profile' component={Profile} />
-              <Redirect exact from='/' to='/booking' />
-              <Route path='/admin' component={AdminPage} />
-              <Route path='/' component={ErrorPage} />
-            </Switch>
-          </AuthDataProvider>
-        </Router>
-      </>
-    )
-  }
-};
+  return (
+    <>
+      <Router>
+        <AuthDataProvider>
+          <NavigationBar />
+          <Switch>
+            <Route exact path='/home' component={Home} />
+            <PrivateRoute exact path='/booking' component={Booking} />
+            <Route exact path='/profile' component={Profile} />
+            <Redirect exact from='/' to='/booking' />
+            <Route path='/admin' component={AdminPage} />
+            <Route path='/' component={ErrorPage} />
+          </Switch>
+        </AuthDataProvider>
+      </Router>
+    </>
+  )
+}
 
 export default App

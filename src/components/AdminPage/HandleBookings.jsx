@@ -65,20 +65,24 @@ export default function HandleBookings () {
           </TableHead>
           <TableBody>
 
-            {!laundryBookings ? (<h1>loading...</h1>) : (<>{laundryBookings.map((row) => (
-              <TableRow key={row.lghNr}>
-                <TableCell component='th' scope='row'>
-                  {row.start_time}
-                </TableCell>
-                <TableCell align='center'>
-                  {row.end_time}
-                </TableCell>
-                <TableCell align='center'>
-                  {row.lghNr}
-                </TableCell>
-              </TableRow>
-            ))}
-            </>)}
+            {!laundryBookings
+              ? (<h1>loading...</h1>)
+              : (
+                <>
+                  {laundryBookings.map((row) => (
+                    <TableRow key={row.lghNr}>
+                      <TableCell component='th' scope='row'>
+                        {row.start_time}
+                      </TableCell>
+                      <TableCell align='center'>
+                        {row.end_time}
+                      </TableCell>
+                      <TableCell align='center'>
+                        {row.lghNr}
+                      </TableCell>
+                    </TableRow>))}
+                </>
+                )}
           </TableBody>
         </Table>
       </TableContainer>

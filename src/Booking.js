@@ -13,7 +13,7 @@ export default function Booking () {
               <LaundryBooking />
             </div>
           </Tab>
-          <Tab eventKey='#gym' title='Gym'>
+          <Tab eventKey='gym' title='Gym'>
             {/* Create component for booking the gym */}
           </Tab>
           <Tab eventKey='lokaler' title='Lokaler'>

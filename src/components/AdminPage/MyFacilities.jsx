@@ -15,7 +15,7 @@ export default function MyFacilities () {
 
   useEffect(() => {
     setFacilities('tvättStuga')
-  })
+  }, [])
 
   return (
     <div className='AddFacility'>

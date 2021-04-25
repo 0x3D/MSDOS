@@ -49,7 +49,7 @@ export default function HandleUsers () {
   /**
  * useEffect is a React function that is used to not rerender uneccesary thing
  */
-  useEffect(async () => {
+  useEffect(() => {
     fetchUsers()
   }, [])
 
@@ -65,18 +65,21 @@ export default function HandleUsers () {
           </TableHead>
 
           <TableBody>
-            {!users ? (<h1>loading...</h1>) : (<>{users.map((row) => (
-              <TableRow key={row.lghNr}>
-                <TableCell align='center' scope='row'>
-                  {row.lghNr}
-                </TableCell>
-                <TableCell align='center'>
-                  {row.email}
-                </TableCell>
-              </TableRow>
-
-            ))}
-            </>)}
+            {!users
+              ? (<h1>loading...</h1>)
+              : (
+                <>
+                  {users.map((row) => (
+                    <TableRow key={row.lghNr}>
+                      <TableCell align='center' scope='row'>
+                        {row.lghNr}
+                      </TableCell>
+                      <TableCell align='center'>
+                        {row.email}
+                      </TableCell>
+                    </TableRow>))}
+                </>
+                )}
           </TableBody>
         </Table>
       </TableContainer>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
-import { Button, Modal, Card } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 
 const laundryTime = 180
 const openHours = [[8, 20]]

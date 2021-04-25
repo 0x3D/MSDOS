@@ -38,19 +38,19 @@ export default function AdminPage () {
      * @var handle_bookings refrences to the HandleBooking-component
      * @see{@link (https://github.com/0x3D/MSDOS/blob/main/src/components/AdminPage/HandleBookings.jsx)}
      */
-  const handle_bookings = <HandleBookings />
+  const handleBookings = <HandleBookings />
 
   /**
      * @var handle_users refrences to the HandleUser-component
      * @see{@link (https://github.com/0x3D/MSDOS/blob/main/src/components/AdminPage/HandleUsers.jsx)}
      */
-  const handle_users = <HandleUsers />
+  const handleUsers = <HandleUsers />
 
   /**
      * @var handle_bookings refrences to the add_facility-component
      * @see{@link (https://github.com/0x3D/MSDOS/blob/main/src/components/AdminPage/AddFacility.jsx)}
      */
-  const add_facility = <AddFacility />
+  const addFacility = <AddFacility />
 
   /**
  * handelShow is a method that does the logic of which admin-component which is showing
@@ -60,9 +60,9 @@ export default function AdminPage () {
   const handleShow = (event) => {
     const modal = event.target.id
     // TODO: make this prettier
-    if (modal === 'handle-bookings') { setSelectedModal(handle_bookings) }
-    if (modal === 'handle-users') { setSelectedModal(handle_users) }
-    if (modal === 'add-fac') { setSelectedModal(add_facility) }
+    if (modal === 'handle-bookings') { setSelectedModal(handleBookings) }
+    if (modal === 'handle-users') { setSelectedModal(handleUsers) }
+    if (modal === 'add-fac') { setSelectedModal(addFacility) }
     setShow(true)
   }
   /**

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 
@@ -71,7 +70,7 @@ export default function Profile () {
   useEffect(() => {
     fetchBookings()
     fetchUsers()
-  }, [])
+  })
 
   return (
     <div>
@@ -80,7 +79,10 @@ export default function Profile () {
         <Row>
           <Col>
             <h3>
-              <h3><b>Email: </b></h3> {!userData ? (<h2>Not logged in</h2>)
+              <h3>
+                <b>Email:</b>
+              </h3> {!userData
+                ? (<h2>Not logged in</h2>)
                 : (userData[0].email)}
             </h3>
           </Col>
@@ -91,19 +93,25 @@ export default function Profile () {
             </h3>
           </Col>
         </Row>
-        {!laundryBookings ? (<h1>loading...</h1>) : (
-          <Card style={{}}>
-            <Card.Header as='h3'> <b>Mina Bokningar</b> </Card.Header> <br />
-            {laundryBookings.map((row) => (
-              <>
-                <Card.Text className='border'>
-                  <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
-                  <Button variant='danger'>Ta bort bokning</Button>
-                </Card.Text>
-              </>
-            ))}
-          </Card>
-        )}
+        {!laundryBookings
+          ? (<h1>loading...</h1>)
+          : (
+            <Card style={{}}>
+              <Card.Header as='h3'> <b>Mina Bokningar</b> </Card.Header> <br />
+              {/* TODO: This gives warning (Missing "key" prop for element in
+              iterator. Shorthand fragment syntax does not support providing keys.
+               Use React.Fragment instead) changing map to forEach solves warning
+               but breaks app. Can't see bookings */}
+              {laundryBookings.map((row) => (
+                <>
+                  <Card.Text className='border'>
+                    <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
+                    <Button variant='danger'>Ta bort bokning</Button>
+                  </Card.Text>
+                </>
+              ))}
+            </Card>
+            )}
       </Container>
     </div>
   )
