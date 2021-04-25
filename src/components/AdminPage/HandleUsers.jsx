@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
+import { Button, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function HandleUsers () {
+export default function HandleUsers() {
   /**
    * users is a variables, and setUsers is a set-method for the variable
    * Usestate is the default value
@@ -35,7 +35,10 @@ export default function HandleUsers () {
    * @constant classes is to set the styles in the returned Component
    */
   const classes = useStyles()
-
+  /**
+   * @constant lghNr is the lghNr from the database
+   */
+  const lghNr = 1
   /**
    * Fething the users data
    */
@@ -52,6 +55,25 @@ export default function HandleUsers () {
   useEffect(() => {
     fetchUsers()
   }, [])
+/**
+ * 
+ * @returns Formatet lghNr
+ */
+  const formatLghNr = () => {
+    return 'lghNr=' + String(lghNr)
+  }
+
+  const removeUser = async ()  => {
+    console.log('m called')
+    fetch('http://localhost:8000/users?' + formatLghNr(), {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8' 
+       },
+    })
+      .then(res => res.text()) 
+      .then(res => console.log(res))
+  }
 
   return (
     <div>
@@ -61,6 +83,7 @@ export default function HandleUsers () {
             <TableRow style={{ backgroundColor: 'LightGrey' }}>
               <TableCell><h2>Lägenhetsnummer</h2></TableCell>
               <TableCell align='center'><h2>Email</h2></TableCell>
+              <TableCell align='center'><h2> { /**SKA VARA TOM */} </h2></TableCell>
             </TableRow>
           </TableHead>
 
@@ -77,9 +100,12 @@ export default function HandleUsers () {
                       <TableCell align='center'>
                         {row.email}
                       </TableCell>
+                      <TableCell align='center'>
+                        <Button variant="contained" color="secondary" onClick={removeUser}> Ta bort användare </Button>
+                      </TableCell>
                     </TableRow>))}
                 </>
-                )}
+              )}
           </TableBody>
         </Table>
       </TableContainer>

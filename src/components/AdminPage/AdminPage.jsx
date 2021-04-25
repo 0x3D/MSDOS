@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, ListGroup, Modal, Button } from 'react-bootstrap'
 import HandleBookings from './HandleBookings'
 import HandleUsers from './HandleUsers'
-import AddFacility from './MyFacilities'
+import MyFacilities from './MyFacilities'
 
 /**
  * The AdminPage component is the component that gather all things a admin can do
@@ -50,7 +50,7 @@ export default function AdminPage () {
      * @var handle_bookings refrences to the add_facility-component
      * @see{@link (https://github.com/0x3D/MSDOS/blob/main/src/components/AdminPage/AddFacility.jsx)}
      */
-  const addFacility = <AddFacility />
+  const addFacility = <MyFacilities />
 
   /**
  * handelShow is a method that does the logic of which admin-component which is showing
@@ -83,20 +83,20 @@ export default function AdminPage () {
 
             <ListGroup>
               <ListGroup.Item>
-                <Button id='handle-bookings' onClick={handleShow}>
+                <Button id='handle-bookings' onClick={handleShow} size="lg" block>
                   Hantera bokningar
                 </Button>
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <Button id='handle-users' onClick={handleShow}>
+                <Button id='handle-users' onClick={handleShow} size="lg" block>
                   Hantera användare
                 </Button>
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <Button id='add-fac' onClick={handleShow}>
-                  Lägga till faciliteter
+                <Button id='add-fac' onClick={handleShow} size="lg" block>
+                  Mina faciliteter
                 </Button>
               </ListGroup.Item>
 

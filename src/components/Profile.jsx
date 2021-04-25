@@ -70,7 +70,7 @@ export default function Profile () {
   useEffect(() => {
     fetchBookings()
     fetchUsers()
-  })
+  }, [])
 
   return (
     <div>
@@ -104,7 +104,7 @@ export default function Profile () {
                but breaks app. Can't see bookings */}
               {laundryBookings.map((row) => (
                 <>
-                  <Card.Text className='border'>
+                  <Card.Text className='border' key={row.start_time}>
                     <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
                     <Button variant='danger'>Ta bort bokning</Button>
                   </Card.Text>

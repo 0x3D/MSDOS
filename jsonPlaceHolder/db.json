@@ -545,5 +545,16 @@
         {
             "email": "huels.ashtyn@yahoo.com"
         }
+    ],
+    "facilities": [
+        {
+            "fac": "Gym"
+        },
+        {
+            "fac": "Tvättstuga"
+        },
+        {
+            "fac": "Lokaler"
+        }
     ]
 }
