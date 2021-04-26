@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
+import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@material-ui/core/'
+import { Toast } from 'react-bootstrap'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function HandleBookings () {
+export default function HandleBookings() {
   /**
    * @constant classes is to set the styles in the returned Component
    */
@@ -35,6 +36,10 @@ export default function HandleBookings () {
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [laundryBookings, setLaundryBookings] = useState(null)
+
+  const [showToast, setShowToast] = useState (false)
+
+  const toggleShowToast = () => {setShowToast(!showToast)}
 
   /**
    * Fetches the bookings from the api
@@ -52,6 +57,23 @@ export default function HandleBookings () {
     fetchBookings()
   }, [])
 
+  const removeBooking = async (e) => {
+    console.log(e)
+    const id = String(e)
+
+    //TODO: Fix so we have a ID
+    fetch('http://localhost:8000/laundryBookings/' + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json'
+      },
+    })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      toggleShowToast()
+  }
+
+  
   return (
     <div>
       <TableContainer component={Paper}>
@@ -61,6 +83,7 @@ export default function HandleBookings () {
               <TableCell align='left'><h3>Start Tid</h3></TableCell>
               <TableCell align='center'><h3>Slut Tid</h3></TableCell>
               <TableCell align='center'><h3>Lägenhetsnummer</h3></TableCell>
+              <TableCell align='center'><h3>Ta bort bokning</h3></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -70,7 +93,7 @@ export default function HandleBookings () {
               : (
                 <>
                   {laundryBookings.map((row) => (
-                    <TableRow key={row.lghNr}>
+                    <TableRow key={row.id}>
                       <TableCell component='th' scope='row'>
                         {row.start_time}
                       </TableCell>
@@ -80,12 +103,25 @@ export default function HandleBookings () {
                       <TableCell align='center'>
                         {row.lghNr}
                       </TableCell>
+                      <TableCell> <Button variant="contained" color="secondary" onClick={(e) => {
+                        removeBooking(row.id) }}> Ta bort bokning </Button> </TableCell>
                     </TableRow>))}
                 </>
-                )}
+              )}
           </TableBody>
         </Table>
       </TableContainer>
+
+      <div className="cancelation-booking-toast">
+        <Toast show={showToast} onClose={toggleShowToast}>
+          <Toast.Header>
+            <img className="rounded mr-2" alt="" />
+            <strong className="mr-auto">Bokning borttagen</strong>
+
+          </Toast.Header>
+          <Toast.Body>Din bokning har blivit borttagen. I din profi kommer duinte längre hitta din bokning</Toast.Body>
+        </Toast >
+      </div>
     </div>
   )
 }
