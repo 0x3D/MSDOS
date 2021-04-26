@@ -70,7 +70,7 @@ export default function Profile () {
   useEffect(() => {
     fetchBookings()
     fetchUsers()
-  })
+  }, [])
 
   return (
     <div>
