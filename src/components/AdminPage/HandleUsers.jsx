@@ -59,15 +59,13 @@ export default function HandleUsers() {
  * 
  * @returns Formatet lghNr
  */
-  const formatLghNr = () => {
-    return 'lghNr=' + String(lghNr)
-  }
 
+  const id = 3
   const removeUser = async ()  => {
     console.log('m called')
 
     //TODO: Fix so we have a ID
-    fetch('http://localhost:8000/users?' + formatLghNr(), {
+    fetch('http://localhost:8000/users/' + id, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json' 

@@ -12,8 +12,9 @@ def genPassword(email):
 def createLogin(email,no):
     login = {'email': email,
             'password': genPassword(email)}
-    user = {'apartmentNo': no,
-            'email':email}
+    user = {'lghNr': no,
+            'email':email,
+            'id': no}
     logins.append(login)
     users.append(user)
     if(no%7==0):
