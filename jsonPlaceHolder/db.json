@@ -1,19 +1,9 @@
 {
   "users": [
     {
-      "lghNr": 0,
-      "email": "vheidenreich@hotmail.com",
-      "id": 0
-    },
-    {
-      "lghNr": 1,
-      "email": "shyatt@yahoo.com",
-      "id": 1
-    },
-    {
-      "lghNr": 2,
-      "email": "kris.audreanne@hotmail.com",
-      "id": 2
+      "lghNr": 3,
+      "email": "hon@lgh3.se",
+      "id": 3
     },
     {
       "lghNr": 4,
@@ -289,25 +279,26 @@
       "lghNr": 58,
       "email": "kwest@yahoo.com",
       "id": 58
-    },
-    {
-      "lghNr": 59,
-      "email": "fae.hyatt@hotmail.com",
-      "id": 59
     }
   ],
   "laundryBookings": [
     {
-      "start_time": "2021-04-23 14:00:00",
-      "end_time": "2021-04-23 17:00:00",
-      "lghNr": "18",
-      "id": 3
+      "start_time": "2021-04-29 11:00:00",
+      "end_time": "2021-04-29 14:00:00",
+      "lghNr": "3",
+      "id": 22
     },
     {
-      "start_time": "2021-04-23 08:00:00",
-      "end_time": "2021-04-23 11:00:00",
-      "lghNr": "43",
-      "id": 4
+      "start_time": "2021-04-29 14:00:00",
+      "end_time": "2021-04-29 17:00:00",
+      "lghNr": "3",
+      "id": 23
+    },
+    {
+      "start_time": "2021-04-29 17:00:00",
+      "end_time": "2021-04-29 20:00:00",
+      "lghNr": "3",
+      "id": 24
     }
   ],
   "gymBookings": [

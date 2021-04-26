@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
+import { Container, Row, Col, Toast } from 'react-bootstrap'
+import CheckBox from '../../assets/greenCheck.png'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -32,13 +34,19 @@ export default function HandleUsers() {
   const [users, setUsers] = useState(null)
 
   /**
+   * @constant  showToast is a variables, and @method setShowToast is a set-method for the variable
+   * Usestate is the default value
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
+  const [showToast, setShowToast] = useState(false)
+
+  const toggleShowToast = () => { setShowToast(!showToast) }
+
+  /**
    * @constant classes is to set the styles in the returned Component
    */
   const classes = useStyles()
-  /**
-   * @constant lghNr is the lghNr from the database
-   */
-  const lghNr = 1
+
   /**
    * Fething the users data
    */
@@ -55,28 +63,38 @@ export default function HandleUsers() {
   useEffect(() => {
     fetchUsers()
   }, [])
-/**
- * 
- * @returns Formatet lghNr
- */
 
-  const id = 3
-  const removeUser = async ()  => {
+
+  const removeUser = async (e) => {
     console.log('m called')
-
-    //TODO: Fix so we have a ID
+    const id = String(e)
     fetch('http://localhost:8000/users/' + id, {
       method: 'DELETE',
       headers: {
-        'Content-type': 'application/json' 
-       },
+        'Content-type': 'application/json'
+      },
     })
-      .then(res => res.json()) 
+      .then(res => res.json())
       .then(res => console.log(res))
+    toggleShowToast()
   }
 
   return (
     <div>
+      <Container>
+        <Row>
+          <Col md={{ span: 4, offset: 4 }}>
+            <Toast show={showToast} onClose={toggleShowToast}>
+              <Toast.Header>
+                <img width='35px' src={CheckBox} alt="" />
+                <strong className="mr-auto">Bokning borttagen</strong>
+
+              </Toast.Header>
+              <Toast.Body> Användaren har blivit borttagen! Uppdatera sidan för att se resultat </Toast.Body>
+            </Toast >
+          </Col>
+        </Row>
+      </Container>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
           <TableHead>
@@ -101,7 +119,9 @@ export default function HandleUsers() {
                         {row.email}
                       </TableCell>
                       <TableCell align='center'>
-                        <Button variant="contained" color="secondary" onClick={removeUser}> Ta bort användare </Button>
+                        <Button variant="contained" color="secondary" onClick={(e) => {
+                          removeUser(row.id)
+                        }}> Ta bort användare </Button>
                       </TableCell>
                     </TableRow>))}
                 </>

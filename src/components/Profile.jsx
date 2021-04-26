@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
+import * as Icon from 'react-bootstrap-icons'
+import CheckBox from '../assets/greenCheck.png'
+
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.
@@ -9,10 +12,10 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap'
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function Profile () {
+export default function Profile() {
   // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
   // som är inloggad, använder currentUser sålänge
-  const currentUser = 18
+  const currentUser = 3 // TODO:
 
   /**
      * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
@@ -40,6 +43,13 @@ export default function Profile () {
    */
   const [laundryBookings, setLaundryBookings] = useState(null)
 
+  const [showToast, setShowToast] = useState(false)
+  /**
+   * method that handle the Toast
+   */
+  const toggleShowToast = () => { setShowToast(!showToast) }
+
+
   /**
      * Fetches the Userdata from jsonPlaceHolder
      * @constant response is what the jsonplaceholder gives us
@@ -49,7 +59,6 @@ export default function Profile () {
     const response = await fetch('http://localhost:8000/users?' + formatLghNr())
     const data = await response.json()
     setUserData(data)
-    console.log(data)
   }
 
   /**
@@ -61,7 +70,19 @@ export default function Profile () {
     const response = await fetch('http://localhost:8000/laundryBookings?' + formatLghNr())
     const data = await response.json()
     setLaundryBookings(data)
-    console.log(data)
+  }
+
+  const removeBooking = async (e) => {
+    const id = String(e)
+    fetch('http://localhost:8000/laundryBookings/' + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json'
+      },
+    })
+      .then(res => res.json())
+      .then(res => console.log(res))
+    toggleShowToast()
   }
 
   /**
@@ -93,26 +114,41 @@ export default function Profile () {
             </h3>
           </Col>
         </Row>
+        <Row>
+          <Col md={{ span: 4, offset: 4 }}>
+            <Toast show={showToast} onClose={toggleShowToast}>
+              <Toast.Header>
+                <img width='35px' src={CheckBox} alt="" />
+                <strong className="mr-auto">Bokning borttagen</strong>
+              </Toast.Header>
+              <Toast.Body>
+                Din bokning har blivit borttagen. Klicka här för att uppdatera sidan
+          </Toast.Body>
+              <Toast.Body> <Button onClick={(e) => { window.location.reload() }}>   <Icon.ArrowCounterclockwise /> </Button> </Toast.Body>
+            </Toast >
+          </Col>
+        </Row>
         {!laundryBookings
           ? (<h1>loading...</h1>)
           : (
             <Card style={{}}>
               <Card.Header as='h3'> <b>Mina Bokningar</b> </Card.Header> <br />
-              {/* TODO: This gives warning (Missing "key" prop for element in
-              iterator. Shorthand fragment syntax does not support providing keys.
-               Use React.Fragment instead) changing map to forEach solves warning
-               but breaks app. Can't see bookings */}
               {laundryBookings.map((row) => (
                 <>
                   <Card.Text className='border' key={row.start_time}>
                     <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
-                    <Button variant='danger'>Ta bort bokning</Button>
+                    <Button variant='danger' onClick={(e) => {
+                      removeBooking(row.id)
+                    }}>Ta bort bokning</Button>
                   </Card.Text>
                 </>
               ))}
             </Card>
-            )}
+          )}
       </Container>
+
+
+
     </div>
   )
 }

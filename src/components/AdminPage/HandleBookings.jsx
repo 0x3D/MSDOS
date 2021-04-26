@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@material-ui/core/'
-import { Toast } from 'react-bootstrap'
+import { Container, Row, Col, Toast } from 'react-bootstrap'
+import CheckBox from '../../assets/greenCheck.png'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -37,9 +38,9 @@ export default function HandleBookings() {
    */
   const [laundryBookings, setLaundryBookings] = useState(null)
 
-  const [showToast, setShowToast] = useState (false)
+  const [showToast, setShowToast] = useState(false)
 
-  const toggleShowToast = () => {setShowToast(!showToast)}
+  const toggleShowToast = () => { setShowToast(!showToast) }
 
   /**
    * Fetches the bookings from the api
@@ -70,12 +71,27 @@ export default function HandleBookings() {
     })
       .then(res => res.json())
       .then(res => console.log(res))
-      toggleShowToast()
+    toggleShowToast()
   }
 
-  
+
   return (
     <div>
+      <Container>
+        <Row>
+          <Col md={{ span: 4, offset: 4 }}>
+            <Toast show={showToast} onClose={toggleShowToast}>
+              <Toast.Header>
+                <img width='35px' src={CheckBox} alt="" />
+                <strong className="mr-auto">Bokning borttagen</strong>
+
+              </Toast.Header>
+              <Toast.Body>Bokningen har blivit borttagen, uppdatera sidan för att se ädnringar</Toast.Body>
+            </Toast >
+          </Col>
+        </Row>
+      </Container>
+
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
           <TableHead>
@@ -104,24 +120,14 @@ export default function HandleBookings() {
                         {row.lghNr}
                       </TableCell>
                       <TableCell> <Button variant="contained" color="secondary" onClick={(e) => {
-                        removeBooking(row.id) }}> Ta bort bokning </Button> </TableCell>
+                        removeBooking(row.id)
+                      }}> Ta bort bokning </Button> </TableCell>
                     </TableRow>))}
                 </>
               )}
           </TableBody>
         </Table>
       </TableContainer>
-
-      <div className="cancelation-booking-toast">
-        <Toast show={showToast} onClose={toggleShowToast}>
-          <Toast.Header>
-            <img className="rounded mr-2" alt="" />
-            <strong className="mr-auto">Bokning borttagen</strong>
-
-          </Toast.Header>
-          <Toast.Body>Din bokning har blivit borttagen. I din profi kommer duinte längre hitta din bokning</Toast.Body>
-        </Toast >
-      </div>
     </div>
   )
 }
