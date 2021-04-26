@@ -65,13 +65,15 @@ export default function HandleUsers() {
 
   const removeUser = async ()  => {
     console.log('m called')
+
+    //TODO: Fix so we have a ID
     fetch('http://localhost:8000/users?' + formatLghNr(), {
       method: 'DELETE',
       headers: {
-        'Content-type': 'application/json; charset=UTF-8' 
+        'Content-type': 'application/json' 
        },
     })
-      .then(res => res.text()) 
+      .then(res => res.json()) 
       .then(res => console.log(res))
   }
 
