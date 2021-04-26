@@ -43,7 +43,6 @@ export default function HandleBookings () {
     const response = await fetch('http://localhost:8000/laundryBookings')
     const data = await response.json()
     setLaundryBookings(data)
-    console.log(data)
   }
   /**
    * useEffect is a React function that is used to not rerender uneccesary thing

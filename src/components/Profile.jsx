@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import getAuthData from '../LoginBackend'
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.
@@ -12,7 +13,7 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 export default function Profile () {
   // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
   // som är inloggad, använder currentUser sålänge
-  const currentUser = 18
+  const currentUser = getAuthData().props.value.authData.apartmentNo
 
   /**
      * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
@@ -49,7 +50,6 @@ export default function Profile () {
     const response = await fetch('http://localhost:8000/users?' + formatLghNr())
     const data = await response.json()
     setUserData(data)
-    console.log(data)
   }
 
   /**
@@ -61,7 +61,6 @@ export default function Profile () {
     const response = await fetch('http://localhost:8000/laundryBookings?' + formatLghNr())
     const data = await response.json()
     setLaundryBookings(data)
-    console.log(data)
   }
 
   /**
@@ -74,7 +73,6 @@ export default function Profile () {
 
   return (
     <div>
-      {/* {laundryBookings ?  (laundryBookings[0].start_time) : <p>ERROR</p>} */}
       <Container>
         <Row>
           <Col>

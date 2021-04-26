@@ -43,7 +43,6 @@ export default function HandleUsers () {
     const response = await fetch('http://localhost:8000/users')
     const data = await response.json()
     setUsers(data)
-    console.log(data)
   }
 
   /**
