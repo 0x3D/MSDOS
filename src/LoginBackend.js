@@ -2,6 +2,8 @@
 import React, { createContext, useState, useEffect, useMemo, useContext } from 'react'
 import { localStorageAvailable } from '@material-ui/data-grid'
 
+
+
 export const AuthDataContext = createContext(null)
 
 // This const is to have an empty object if no login

@@ -1,8 +1,10 @@
 import json;
 
 logins = list()
-users = list()
+
 admins = list()
+
+users = list()
 
 
 def genPassword(email):
@@ -13,11 +15,15 @@ def createLogin(email,no):
     login = {'email': email,
             'password': genPassword(email)}
     user = {'apartmentNo': no,
-            'email':email}
+            'email':email,
+            'password': email,
+            'id': no,
+            'role': 'user'}
     logins.append(login)
     users.append(user)
     if(no%7==0):
         admin = {'email':email}
+        user['role']='admin'
         admins.append(admin)
 
 
