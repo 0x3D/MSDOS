@@ -9,6 +9,8 @@ import AdminPage from './components/AdminPage/AdminPage'
 import Home from './Home'
 import Profile from './components/Profile'
 import AuthDataProvider, { getAuthData } from './LoginBackend'
+import {IconContext} from "react-icons";
+
 
 const url = 'http://localhost:8000/logins'
 
@@ -54,6 +56,7 @@ function App () {
   document.title = 'MSDOS Booking'
   return (
     <>
+    <IconContext.Provider value={{ color: 'cornflowerblue', size: '50px' }}>
       <Router>
         <AuthDataProvider>
           <NavigationBar />
@@ -67,6 +70,7 @@ function App () {
           </Switch>
         </AuthDataProvider>
       </Router>
+      </IconContext.Provider>
     </>
   )
 }

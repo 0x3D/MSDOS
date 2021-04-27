@@ -1,7 +1,11 @@
 import React from 'react'
 import { Container, Tabs, Tab } from 'react-bootstrap'
-
+import { MdLocalLaundryService } from "react-icons/md";
 import LaundryBooking from './components/Bookings/LaundryBooking'
+import { CgGym } from "react-icons/cg";
+import { BiBuildings } from "react-icons/bi";
+
+
 
 export default function Booking () {
   return (
@@ -13,11 +17,14 @@ export default function Booking () {
               <LaundryBooking />
             </div>
           </Tab>
-          <Tab eventKey='gym' title='Gym'>
+          <Tab eventKey='gym' title='Gym' image="favicon.ico">
             {/* Create component for booking the gym */}
+            <CgGym size="2em"/>
+            
           </Tab>
           <Tab eventKey='lokaler' title='Lokaler'>
             {/* Create component for booking lokaler */}
+            <BiBuildings size="2em"/>
           </Tab>
         </Tabs>
       </Container>
