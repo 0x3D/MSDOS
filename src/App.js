@@ -10,7 +10,6 @@ import Home from './Home'
 import Profile from './components/Profile'
 import AuthDataProvider, { getAuthData } from './LoginBackend'
 
-// const url = 'http://localhost:8000/logins'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const tokens = getAuthData()
