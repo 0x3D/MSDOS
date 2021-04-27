@@ -62,7 +62,7 @@ export default function HandleBookings() {
     console.log(e)
     const id = String(e)
 
-    //TODO: Fix so we have a ID
+
     fetch('http://localhost:8000/laundryBookings/' + id, {
       method: 'DELETE',
       headers: {

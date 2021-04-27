@@ -23,7 +23,7 @@ const useStyles = makeStyles({
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function HandleUsers() {
+export default function HandleUsers () {
   /**
    * users is a variables, and setUsers is a set-method for the variable
    * Usestate is the default value
