@@ -14,7 +14,6 @@ import CheckBox from '../assets/greenCheck.png'
  */
 export default function Profile () {
   // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
-  // som är inloggad, använder currentUser sålänge
   const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
 
   /*
