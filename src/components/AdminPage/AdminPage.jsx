@@ -83,19 +83,19 @@ export default function AdminPage () {
 
             <ListGroup>
               <ListGroup.Item>
-                <Button id='handle-bookings' onClick={handleShow} size="lg" block>
+                <Button id='handle-bookings' onClick={handleShow} size='lg' block>
                   Hantera bokningar
                 </Button>
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <Button id='handle-users' onClick={handleShow} size="lg" block>
+                <Button id='handle-users' onClick={handleShow} size='lg' block>
                   Hantera användare
                 </Button>
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <Button id='add-fac' onClick={handleShow} size="lg" block>
+                <Button id='add-fac' onClick={handleShow} size='lg' block>
                   Mina faciliteter
                 </Button>
               </ListGroup.Item>

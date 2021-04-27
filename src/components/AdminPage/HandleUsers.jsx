@@ -39,7 +39,6 @@ export default function HandleUsers () {
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [showToast, setShowToast] = useState(false)
-
   const toggleShowToast = () => { setShowToast(!showToast) }
 
   /**
@@ -63,7 +62,6 @@ export default function HandleUsers () {
     fetchUsers()
   }, [])
 
-
   const removeUser = async (e) => {
     console.log('m called')
     const id = String(e)
@@ -71,7 +69,7 @@ export default function HandleUsers () {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json'
-      },
+      }
     })
       .then(res => res.json())
       .then(res => console.log(res))
@@ -85,12 +83,12 @@ export default function HandleUsers () {
           <Col md={{ span: 4, offset: 4 }}>
             <Toast show={showToast} onClose={toggleShowToast}>
               <Toast.Header>
-                <img width='35px' src={CheckBox} alt="" />
-                <strong className="mr-auto">Bokning borttagen</strong>
+                <img width='35px' src={CheckBox} alt='' />
+                <strong className='mr-auto'>Bokning borttagen</strong>
 
               </Toast.Header>
               <Toast.Body> Användaren har blivit borttagen! Uppdatera sidan för att se resultat </Toast.Body>
-            </Toast >
+            </Toast>
           </Col>
         </Row>
       </Container>
@@ -100,7 +98,7 @@ export default function HandleUsers () {
             <TableRow style={{ backgroundColor: 'LightGrey' }}>
               <TableCell><h2>Lägenhetsnummer</h2></TableCell>
               <TableCell align='center'><h2>Email</h2></TableCell>
-              <TableCell align='center'><h2> { /**SKA VARA TOM */} </h2></TableCell>
+              <TableCell align='center'><h2> {/** SKA VARA TOM */} </h2></TableCell>
             </TableRow>
           </TableHead>
 
@@ -118,13 +116,16 @@ export default function HandleUsers () {
                         {row.email}
                       </TableCell>
                       <TableCell align='center'>
-                        <Button variant="contained" color="secondary" onClick={(e) => {
-                          removeUser(row.id)
-                        }}> Ta bort användare </Button>
+                        <Button
+                          variant='contained' color='secondary' onClick={(e) => {
+                            removeUser(row.id)
+                          }}
+                        > Ta bort användare
+                        </Button>
                       </TableCell>
                     </TableRow>))}
                 </>
-              )}
+                )}
           </TableBody>
         </Table>
       </TableContainer>

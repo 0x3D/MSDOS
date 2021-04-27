@@ -37,9 +37,13 @@ export default function HandleBookings () {
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [laundryBookings, setLaundryBookings] = useState(null)
-
+   
+  /**
+   * @constant  showToast is a variables, and @method setShowToast is a set-method for the variable
+   * Usestate is the default value
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
   const [showToast, setShowToast] = useState(false)
-
   const toggleShowToast = () => { setShowToast(!showToast) }
 
   /**
@@ -61,18 +65,16 @@ export default function HandleBookings () {
     console.log(e)
     const id = String(e)
 
-
     fetch('http://localhost:8000/laundryBookings/' + id, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json'
-      },
+      }
     })
       .then(res => res.json())
       .then(res => console.log(res))
     toggleShowToast()
   }
-
 
   return (
     <div>
@@ -81,12 +83,12 @@ export default function HandleBookings () {
           <Col md={{ span: 4, offset: 4 }}>
             <Toast show={showToast} onClose={toggleShowToast}>
               <Toast.Header>
-                <img width='35px' src={CheckBox} alt="" />
-                <strong className="mr-auto">Bokning borttagen</strong>
+                <img width='35px' src={CheckBox} alt='' />
+                <strong className='mr-auto'>Bokning borttagen</strong>
 
               </Toast.Header>
               <Toast.Body>Bokningen har blivit borttagen, uppdatera sidan för att se ädnringar</Toast.Body>
-            </Toast >
+            </Toast>
           </Col>
         </Row>
       </Container>
@@ -118,12 +120,16 @@ export default function HandleBookings () {
                       <TableCell align='center'>
                         {row.lghNr}
                       </TableCell>
-                      <TableCell> <Button variant="contained" color="secondary" onClick={(e) => {
-                        removeBooking(row.id)
-                      }}> Ta bort bokning </Button> </TableCell>
+                      <TableCell> <Button
+                        variant='contained' color='secondary' onClick={(e) => {
+                          removeBooking(row.id)
+                        }}
+                                  > Ta bort bokning
+                      </Button>
+                      </TableCell>
                     </TableRow>))}
                 </>
-              )}
+                )}
           </TableBody>
         </Table>
       </TableContainer>

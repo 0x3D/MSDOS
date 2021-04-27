@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
-import  getAuthData  from '../LoginBackend'
-
+import getAuthData from '../LoginBackend'
+import { localStorageAvailable } from '@material-ui/data-grid'
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.
@@ -50,7 +50,6 @@ export default function Profile () {
    */
   const toggleShowToast = () => { setShowToast(!showToast) }
 
-
   /**
      * Fetches the Userdata from jsonPlaceHolder
      * @constant response is what the jsonplaceholder gives us
@@ -79,7 +78,7 @@ export default function Profile () {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json'
-      },
+      }
     })
       .then(res => res.json())
       .then(res => console.log(res))
@@ -96,6 +95,7 @@ export default function Profile () {
 
   return (
     <div>
+      {console.log()}
       <Container>
         <Row>
           <Col>
@@ -104,13 +104,15 @@ export default function Profile () {
                 <b>Email:</b>
               </h3> {!userData
                 ? (<h2>Not logged in</h2>)
-                : (userData[0].email)}
+                : (
+                    JSON.parse(localStorage.getItem('tokens')).email
+                  )}
             </h3>
           </Col>
 
           <Col>
             <h3>
-              <h3><b>Lägenhetsnummer: </b></h3> {currentUser}
+              <h3><b>Lägenhetsnummer: </b> </h3> {currentUser}
             </h3>
           </Col>
         </Row>
@@ -118,14 +120,14 @@ export default function Profile () {
           <Col md={{ span: 4, offset: 4 }}>
             <Toast show={showToast} onClose={toggleShowToast}>
               <Toast.Header>
-                <img width='35px' src={CheckBox} alt="" />
-                <strong className="mr-auto">Bokning borttagen</strong>
+                <img width='35px' src={CheckBox} alt='' />
+                <strong className='mr-auto'>Bokning borttagen</strong>
               </Toast.Header>
               <Toast.Body>
                 Din bokning har blivit borttagen. Klicka här för att uppdatera sidan
-          </Toast.Body>
+              </Toast.Body>
               <Toast.Body> <Button onClick={(e) => { window.location.reload() }}>   <Icon.ArrowCounterclockwise /> </Button> </Toast.Body>
-            </Toast >
+            </Toast>
           </Col>
         </Row>
         {!laundryBookings
@@ -137,17 +139,18 @@ export default function Profile () {
                 <>
                   <Card.Text className='border' key={row.start_time}>
                     <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
-                    <Button variant='danger' onClick={(e) => {
-                      removeBooking(row.id)
-                    }}>Ta bort bokning</Button>
+                    <Button
+                      variant='danger' onClick={(e) => {
+                        removeBooking(row.id)
+                      }}
+                    >Ta bort bokning
+                    </Button>
                   </Card.Text>
                 </>
               ))}
             </Card>
-          )}
+            )}
       </Container>
-
-
 
     </div>
   )

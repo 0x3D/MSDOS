@@ -10,9 +10,8 @@ import { Card, ListGroup } from 'react-bootstrap'
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function MyFacilities() {
+export default function MyFacilities () {
   const [facilities, setFacilities] = useState(null)
-
 
   const fetchBookings = async () => {
     const response = await fetch('http://localhost:8000/facilities')
@@ -29,7 +28,7 @@ export default function MyFacilities() {
     <div className='AddFacility'>
       <Card>
         <Card.Header as='h3'> <b>Faciliteter</b> </Card.Header> <br />
-        <ListGroup variant="flush">
+        <ListGroup variant='flush'>
           {!facilities
             ? (<h1>loading...</h1>)
             : (<> {
@@ -38,7 +37,8 @@ export default function MyFacilities() {
                   <ListGroup.Item>{row.fac}</ListGroup.Item>
                 </>
               ))
-            }</>)}
+            }
+            </>)}
         </ListGroup>
       </Card>
     </div>
