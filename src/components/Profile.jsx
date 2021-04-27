@@ -12,10 +12,10 @@ import CheckBox from '../assets/greenCheck.png'
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function Profile() {
+export default function Profile () {
   // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
   // som är inloggad, använder currentUser sålänge
-  const currentUser = 3 // TODO:
+  const currentUser = 3 // TODO: This should be  the currently logged in user
 
   /**
      * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
