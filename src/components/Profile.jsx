@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
 import getAuthData from '../LoginBackend'
-import { localStorageAvailable } from '@material-ui/data-grid'
+
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.
@@ -13,15 +13,15 @@ import { localStorageAvailable } from '@material-ui/data-grid'
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function Profile () {
+export default function Profile() {
   // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
   // som är inloggad, använder currentUser sålänge
-  const currentUser = getAuthData().props.value.authData.apartmentNo
+  const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
 
-  /**
-     * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
-     * @returns a right formed string to ask the database for the inforamtion we want
-     */
+  /*
+  * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
+  * @returns a right formed string to ask the database for the inforamtion we want
+  */
   const formatLghNr = () => {
     return 'apartmentNo=' + String(currentUser)
   }
@@ -50,13 +50,13 @@ export default function Profile () {
    */
   const toggleShowToast = () => { setShowToast(!showToast) }
 
-  /**
-     * Fetches the Userdata from jsonPlaceHolder
-     * @constant response is what the jsonplaceholder gives us
-     * @constant data is the data we formatting to a JSON
-     */
+  /*
+  * Fetches the Userdata from jsonPlaceHolder
+  * @constant response is what the jsonplaceholder gives us
+  * @constant data is the data we formatting to a JSON
+  */
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:8000/users?' + formatLghNr())
+    const response = await fetch('http://localhost:8000/users?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setUserData(data)
   }
@@ -95,7 +95,7 @@ export default function Profile () {
 
   return (
     <div>
-      {console.log()}
+      {console.log(currentUser)}
       <Container>
         <Row>
           <Col>
@@ -105,8 +105,8 @@ export default function Profile () {
               </h3> {!userData
                 ? (<h2>Not logged in</h2>)
                 : (
-                    JSON.parse(localStorage.getItem('tokens')).email
-                  )}
+                  JSON.parse(localStorage.getItem('tokens')).email
+                )}
             </h3>
           </Col>
 
@@ -149,7 +149,7 @@ export default function Profile () {
                 </>
               ))}
             </Card>
-            )}
+          )}
       </Container>
 
     </div>

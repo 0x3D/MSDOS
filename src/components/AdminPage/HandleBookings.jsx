@@ -118,7 +118,7 @@ export default function HandleBookings () {
                         {row.end_time}
                       </TableCell>
                       <TableCell align='center'>
-                        {row.lghNr}
+                        {row.apartmentNo}
                       </TableCell>
                       <TableCell> <Button
                         variant='contained' color='secondary' onClick={(e) => {

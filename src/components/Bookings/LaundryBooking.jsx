@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
+import getAuthData from '../../LoginBackend'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
 let startTime = new Date()
 let endTime = new Date()
-const url = 'http://localhost:8000/laundryBookings/'
+const laundryUrl = 'http://localhost:8000/laundryBookings/'
+const historyUrl = 'http://localhost:8000/bookingHistory/'
 
 export default function LaundryBooking () {
   // Booked times
@@ -19,9 +21,9 @@ export default function LaundryBooking () {
 
   // Fetches the bookings from the api
   const fetchBookings = async () => {
-    const response = await fetch(url)
-    const data = await response.json()
-    setBookings(data)
+    const laundryRespons = await fetch(laundryUrl)
+    const laundryData = await laundryRespons.json()
+    setBookings(laundryData)
   }
 
   useEffect(() => {
@@ -35,7 +37,7 @@ export default function LaundryBooking () {
     const postData = {
       start_time: format(sTime, dateformat),
       end_time: format(eTime, dateformat),
-      lghNr: '3'
+      apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
     }
 
     await postBooking(postData)
@@ -52,9 +54,12 @@ export default function LaundryBooking () {
       },
       body: JSON.stringify(postData)
     }
-    const response = await fetch(url, requestOptions)
-    const data = await response.json()
-    console.log(data)
+    const laundryResponse = await fetch(laundryUrl, requestOptions)
+    const historyRespons = await fetch(historyUrl, requestOptions)
+    const laundryData = await laundryResponse.json()
+    const historyData = await historyRespons.json()
+    console.log(laundryData)
+    console.log(historyData)
   }
 
   const handleModalConfirmation = () => {
