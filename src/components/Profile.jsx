@@ -13,7 +13,6 @@ import CheckBox from '../assets/greenCheck.png'
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function Profile () {
-  // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
   const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
 
   /*
