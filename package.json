@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "standard": "^16.0.3"
   }
 }
