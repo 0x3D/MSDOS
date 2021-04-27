@@ -7,15 +7,17 @@ import { Button, Modal } from 'react-bootstrap'
 const gymSections = 30
 const openHours = [[8, 22.5]];
 const url = 'http://localhost:8000/gymBookings/'
-var startTime = new Date()
-var endTime = new Date()
-
 
 export default function GymBooking() {
     //Booked times
     const [bookings, setBookings] = useState(null)
     const [showConfirmation, setShowModal] = useState(false);
-    const [chosenTime, setChosenTime] = useState(null)
+    const [chosenTime, setChosenTime] = useState({ startTime: '', endTime: '' })
+    const [hasChosenTime, setHasChosenTime] = useState(false)
+
+
+    const [startTime, setStartTime] = useState('') 
+    const [endTime, setEndTime] = useState('')
 
     const handleClose = () => setShowModal(false);
 
@@ -66,21 +68,29 @@ export default function GymBooking() {
     const handleModalConfirmation = () => {
         setShowModal(false);
 
-        //släng upp en alert om godkänt i nåra sec
-        //showAlert()
+        console.log(chosenTime)
 
         //om bekräftat körs denna för att "spara bokningen"
-        newBooking(chosenTime.startTime, chosenTime.endTime)
+        //newBooking(chosenTime.startTime, chosenTime.endTime)
     }
 
 
-    const handleChosenTime = (chosenStartTime) => {
-        //startTime = chosenStartTime
-        //endTime = addHours(startTime, gymSections / 60)
-        console.log(chosenStartTime)
+    const handleChosenTime = (time) => {
+        const dateFns = require('date-fns')
+     
+        
+        if (startTime === '') {
+            setStartTime(time)
+        } else if (!dateFns.isSameDay(startTime, time) || time < startTime) {
+            setStartTime('')
+            setEndTime('')
+        } else {
+            setHasChosenTime(true)
+            setShowModal(true);
+            setEndTime(time)
+        }
 
-        //Show modal for further confirmation
-        setShowModal(true);
+        console.log(chosenTime)
     }
 
     return (
@@ -93,9 +103,9 @@ export default function GymBooking() {
                     disableHistory
                     timeSlot={gymSections}
                     bookings={bookings}
+                    startTime={startTime}
+                    endTime={endTime}
                     onTimeClick={handleChosenTime}
-                    startTime={setChosenTime.startTime}
-                    endTime={setChosenTime.endTime}
                 />
             </div>
 
@@ -104,13 +114,15 @@ export default function GymBooking() {
                 <Modal.Header closeButton>
                     <Modal.Title>Bekräfta din bokning</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    Bekräfta din bokning av tvättid.
-                    <br />
-                    Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, "")} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, "")}
-                    <br />
-                    Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, "")}
-                </Modal.Body>
+                {!hasChosenTime ? (<p>No chosen time</p>) : (
+                    <Modal.Body>
+                        Bekräfta din bokning av tvättid.
+                        <br />
+                        Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, "")} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, "")}
+                        <br />
+                        Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, "")}
+                    </Modal.Body>
+                )}
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Stäng
