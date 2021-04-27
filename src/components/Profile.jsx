@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
-import getAuthData from '../LoginBackend'
 
 
 /**
@@ -13,7 +12,7 @@ import getAuthData from '../LoginBackend'
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function Profile() {
+export default function Profile () {
   // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
   // som är inloggad, använder currentUser sålänge
   const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
@@ -105,8 +104,8 @@ export default function Profile() {
               </h3> {!userData
                 ? (<h2>Not logged in</h2>)
                 : (
-                  JSON.parse(localStorage.getItem('tokens')).email
-                )}
+                    JSON.parse(localStorage.getItem('tokens')).email
+                  )}
             </h3>
           </Col>
 
@@ -149,7 +148,7 @@ export default function Profile() {
                 </>
               ))}
             </Card>
-          )}
+            )}
       </Container>
 
     </div>

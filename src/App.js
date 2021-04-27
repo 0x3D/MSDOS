@@ -2,7 +2,7 @@ import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Booking from './Booking'
-import React, { useEffect } from 'react'
+import React, {} from 'react'
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
@@ -10,7 +10,7 @@ import Home from './Home'
 import Profile from './components/Profile'
 import AuthDataProvider, { getAuthData } from './LoginBackend'
 
-const url = 'http://localhost:8000/logins'
+// const url = 'http://localhost:8000/logins'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const tokens = getAuthData()

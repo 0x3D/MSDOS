@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
@@ -14,35 +15,21 @@ const useStyles = makeStyles({
 })
 
 /**
- * A admin component that gives a overview of all bookings
- * The bookings i stored in a Json-placeholder
+ * A admin component that gives overView og all bookingHistory
  *
  *
  * @returns a react-component
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function HandleBookings () {
+export default function BookingHistory () {
   /**
-   * @constant classes is to set the styles in the returned Component
-   */
+      * @constant classes is to set the styles in the returned Component
+      */
   const classes = useStyles()
 
-  /**
-   * laundryBookings is a variable, and setLaundryBookings is a set-method for the variable
-   * Usestate is the default value
-   *
-   * @constant laundryBookings
-   * @method setLaundryBookings
-   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
-   */
-  const [laundryBookings, setLaundryBookings] = useState(null)
+  const [bookingHistory, setBookingHistory] = useState(null)
 
-  /**
-   * @constant  showToast is a variables, and @method setShowToast is a set-method for the variable
-   * Usestate is the default value
-   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
-   */
   const [showToast, setShowToast] = useState(false)
   const toggleShowToast = () => { setShowToast(!showToast) }
 
@@ -50,31 +37,34 @@ export default function HandleBookings () {
    * Fetches the bookings from the api
    */
   const fetchBookings = async () => {
-    const response = await fetch('http://localhost:8000/laundryBookings')
+    const response = await fetch('http://localhost:8000/bookingHistory')
     const data = await response.json()
-    setLaundryBookings(data)
+    setBookingHistory(data)
   }
+
+  const clearBookingHistory = async () => {
+    console.log('m called')
+    const arr = Object.keys(bookingHistory)
+    console.log(arr)
+    for (let i = 0; i < bookingHistory.length; i++) {
+      fetch('http://localhost:8000/bookingHistory/' + bookingHistory[i].id, {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+        .then(res => res.json())
+        .then(res => console.log(res))
+    }
+    toggleShowToast()
+  }
+
   /**
-   * useEffect is a React function that is used to not rerender uneccesary thing
-   */
+     * useEffect is a React function that is used to not rerender uneccesary thing
+     */
   useEffect(() => {
     fetchBookings()
   }, [])
-
-  const removeBooking = async (e) => {
-    console.log(e)
-    const id = String(e)
-
-    fetch('http://localhost:8000/laundryBookings/' + id, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(res => console.log(res))
-    toggleShowToast()
-  }
 
   return (
     <div>
@@ -94,22 +84,28 @@ export default function HandleBookings () {
       </Container>
 
       <TableContainer component={Paper}>
+        <Button
+          variant='contained' color='secondary' fullWidth='true' onClick={(e) => {
+            clearBookingHistory()
+          }}
+        >
+          Rensa bokningshistorik
+        </Button>
         <Table className={classes.table} aria-label='simple table'>
           <TableHead>
             <TableRow style={{ backgroundColor: 'LightGrey' }}>
               <TableCell align='left'><h3>Start Tid</h3></TableCell>
               <TableCell align='center'><h3>Slut Tid</h3></TableCell>
               <TableCell align='center'><h3>Lägenhetsnummer</h3></TableCell>
-              <TableCell align='center'><h3>Ta bort bokning</h3></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
 
-            {!laundryBookings
+            {!bookingHistory
               ? (<h1>loading...</h1>)
               : (
                 <>
-                  {laundryBookings.map((row) => (
+                  {bookingHistory.map((row) => (
                     <TableRow key={row.id}>
                       <TableCell component='th' scope='row'>
                         {row.start_time}
@@ -120,13 +116,7 @@ export default function HandleBookings () {
                       <TableCell align='center'>
                         {row.apartmentNo}
                       </TableCell>
-                      <TableCell> <Button
-                        variant='contained' color='secondary' onClick={(e) => {
-                          removeBooking(row.id)
-                        }}
-                                  > Ta bort bokning
-                      </Button>
-                      </TableCell>
+                      <TableCell />
                     </TableRow>))}
                 </>
                 )}
