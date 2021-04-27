@@ -74,10 +74,9 @@ export default function BookingHistory () {
             <Toast show={showToast} onClose={toggleShowToast}>
               <Toast.Header>
                 <img width='35px' src={CheckBox} alt='' />
-                <strong className='mr-auto'>Bokning borttagen</strong>
-
+                <strong className='mr-auto'>Historik rensad</strong>
               </Toast.Header>
-              <Toast.Body>Bokningen har blivit borttagen, uppdatera sidan för att se ädnringar</Toast.Body>
+              <Toast.Body>Bokningshistoriken har blivit rensad, uppdatera sidan för att se ändringar</Toast.Body>
             </Toast>
           </Col>
         </Row>
