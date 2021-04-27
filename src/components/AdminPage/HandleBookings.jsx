@@ -22,7 +22,7 @@ const useStyles = makeStyles({
  * @version 0.1.0
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
-export default function HandleBookings() {
+export default function HandleBookings () {
   /**
    * @constant classes is to set the styles in the returned Component
    */
