@@ -7,3 +7,14 @@
     width: 70%;
     text-align: center;
 }
+
+
+.head_menu ul
+{
+    padding:0px;
+    margin:0;
+    list-style:none;
+    position:relative;
+    right:0;    
+
+}

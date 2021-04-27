@@ -1,8 +1,7 @@
-*{
-    text-align: center;
-     box-sizing: border-box;
+* {
+  text-align: center;
+  box-sizing: border-box;
 }
-
 
 /* Här kan vi hämta färger med hjälp av 'var(--main-color)' */
 :root {

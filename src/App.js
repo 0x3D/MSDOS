@@ -2,10 +2,34 @@ import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Booking from './Booking'
+import React, { useEffect } from 'react'
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
+import Home from './Home'
 import Profile from './components/Profile'
+import AuthDataProvider, { getAuthData } from './LoginBackend'
+
+const url = 'http://localhost:8000/logins'
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const tokens = getAuthData()
+  // TODO: Authenticate here As in Login.jsx should probable be refactored.
+
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        tokens
+          ? (
+            <Component {...props} />
+            )
+          : (
+            <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
+            )}
+    />
+  )
+}
 
 /**
  *
@@ -31,15 +55,17 @@ function App () {
   return (
     <>
       <Router>
-        <NavigationBar />
-
-        <Switch>
-          <Route exact path='/booking' component={Booking} />
-          <Route path='/profile' component={Profile} />
-          <Redirect exact from='/' to='/booking' />
-          <Route path='/admin' component={AdminPage} />
-          <Route path='/' component={ErrorPage} />
-        </Switch>
+        <AuthDataProvider>
+          <NavigationBar />
+          <Switch>
+            <Route exact path='/home' component={Home} />
+            <PrivateRoute exact path='/booking' component={Booking} />
+            <Route exact path='/profile' component={Profile} />
+            <Redirect exact from='/' to='/booking' />
+            <Route path='/admin' component={AdminPage} />
+            <Route path='/' component={ErrorPage} />
+          </Switch>
+        </AuthDataProvider>
       </Router>
     </>
   )

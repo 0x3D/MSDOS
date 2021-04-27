@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
+import  getAuthData  from '../LoginBackend'
 
 
 /**
@@ -15,14 +16,14 @@ import CheckBox from '../assets/greenCheck.png'
 export default function Profile () {
   // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
   // som är inloggad, använder currentUser sålänge
-  const currentUser = 3 // TODO: This should be  the currently logged in user
+  const currentUser = getAuthData().props.value.authData.apartmentNo
 
   /**
      * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
      * @returns a right formed string to ask the database for the inforamtion we want
      */
   const formatLghNr = () => {
-    return 'lghNr=' + String(currentUser)
+    return 'apartmentNo=' + String(currentUser)
   }
 
   /**
@@ -95,7 +96,6 @@ export default function Profile () {
 
   return (
     <div>
-      {/* {laundryBookings ?  (laundryBookings[0].start_time) : <p>ERROR</p>} */}
       <Container>
         <Row>
           <Col>

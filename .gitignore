@@ -367,3 +367,5 @@ package-lock.json
 src/tools/admins.json
 src/tools/logins.json
 src/tools/users.json
+
+*.swp

@@ -1,304 +1,510 @@
 {
   "users": [
     {
-      "lghNr": 3,
-      "email": "hon@lgh3.se",
-      "id": 3
+      "apartmentNo": 0,
+      "email": "vheidenreich@hotmail.com",
+      "password": "vheidenreich@hotmail.com",
+      "id": 0,
+      "role": "admin"
     },
     {
-      "lghNr": 4,
+      "apartmentNo": 1,
+      "email": "shyatt@yahoo.com",
+      "password": "shyatt@yahoo.com",
+      "id": 1,
+      "role": "user"
+    },
+    {
+      "apartmentNo": 2,
+      "email": "kris.audreanne@hotmail.com",
+      "password": "kris.audreanne@hotmail.com",
+      "id": 2,
+      "role": "user"
+    },
+    {
+      "apartmentNo": 3,
+      "email": "laurie.kutch@yahoo.com",
+      "password": "laurie.kutch@yahoo.com",
+      "id": 3,
+      "role": "user"
+    },
+    {
+      "apartmentNo": 4,
       "email": "mackenzie.anderson@gmail.com",
-      "id": 4
+      "password": "mackenzie.anderson@gmail.com",
+      "id": 4,
+      "role": "user"
     },
     {
-      "lghNr": 5,
+      "apartmentNo": 5,
       "email": "elyse79@senger.org",
-      "id": 5
+      "password": "elyse79@senger.org",
+      "id": 5,
+      "role": "user"
     },
     {
-      "lghNr": 6,
+      "apartmentNo": 6,
       "email": "jessie.hackett@yahoo.com",
-      "id": 6
+      "password": "jessie.hackett@yahoo.com",
+      "id": 6,
+      "role": "user"
     },
     {
-      "lghNr": 7,
+      "apartmentNo": 7,
       "email": "eusebio.kassulke@gmail.com",
-      "id": 7
+      "password": "eusebio.kassulke@gmail.com",
+      "id": 7,
+      "role": "admin"
     },
     {
-      "lghNr": 8,
+      "apartmentNo": 8,
       "email": "keith88@hotmail.com",
-      "id": 8
+      "password": "keith88@hotmail.com",
+      "id": 8,
+      "role": "user"
     },
     {
-      "lghNr": 9,
+      "apartmentNo": 9,
       "email": "john.bashirian@gorczany.com",
-      "id": 9
+      "password": "john.bashirian@gorczany.com",
+      "id": 9,
+      "role": "user"
     },
     {
-      "lghNr": 10,
+      "apartmentNo": 10,
       "email": "tomasa02@yahoo.com",
-      "id": 10
+      "password": "tomasa02@yahoo.com",
+      "id": 10,
+      "role": "user"
     },
     {
-      "lghNr": 11,
+      "apartmentNo": 11,
       "email": "wroob@kunze.net",
-      "id": 11
+      "password": "wroob@kunze.net",
+      "id": 11,
+      "role": "user"
     },
     {
-      "lghNr": 12,
+      "apartmentNo": 12,
       "email": "willis85@gulgowski.com",
-      "id": 12
+      "password": "willis85@gulgowski.com",
+      "id": 12,
+      "role": "user"
     },
     {
-      "lghNr": 13,
+      "apartmentNo": 13,
       "email": "dylan.prohaska@kuvalis.com",
-      "id": 13
+      "password": "dylan.prohaska@kuvalis.com",
+      "id": 13,
+      "role": "user"
     },
     {
-      "lghNr": 14,
+      "apartmentNo": 14,
       "email": "kstoltenberg@sipes.com",
-      "id": 14
+      "password": "kstoltenberg@sipes.com",
+      "id": 14,
+      "role": "admin"
     },
     {
-      "lghNr": 15,
+      "apartmentNo": 15,
       "email": "clarabelle57@yahoo.com",
-      "id": 15
+      "password": "clarabelle57@yahoo.com",
+      "id": 15,
+      "role": "user"
     },
     {
-      "lghNr": 16,
+      "apartmentNo": 16,
       "email": "ryley.lebsack@douglas.com",
-      "id": 16
+      "password": "ryley.lebsack@douglas.com",
+      "id": 16,
+      "role": "user"
     },
     {
-      "lghNr": 17,
+      "apartmentNo": 17,
       "email": "lillie.boehm@gmail.com",
-      "id": 17
+      "password": "lillie.boehm@gmail.com",
+      "id": 17,
+      "role": "user"
     },
     {
-      "lghNr": 18,
+      "apartmentNo": 18,
       "email": "catalina.raynor@littel.net",
-      "id": 18
+      "password": "catalina.raynor@littel.net",
+      "id": 18,
+      "role": "user"
     },
     {
-      "lghNr": 19,
+      "apartmentNo": 19,
       "email": "oritchie@quitzon.com",
-      "id": 19
+      "password": "oritchie@quitzon.com",
+      "id": 19,
+      "role": "user"
     },
     {
-      "lghNr": 20,
+      "apartmentNo": 20,
       "email": "sipes.felicia@volkman.biz",
-      "id": 20
+      "password": "sipes.felicia@volkman.biz",
+      "id": 20,
+      "role": "user"
     },
     {
-      "lghNr": 21,
+      "apartmentNo": 21,
       "email": "boris64@hotmail.com",
-      "id": 21
+      "password": "boris64@hotmail.com",
+      "id": 21,
+      "role": "admin"
     },
     {
-      "lghNr": 22,
+      "apartmentNo": 22,
       "email": "qokuneva@hotmail.com",
-      "id": 22
+      "password": "qokuneva@hotmail.com",
+      "id": 22,
+      "role": "user"
     },
     {
-      "lghNr": 23,
+      "apartmentNo": 23,
       "email": "dixie.willms@mante.com",
-      "id": 23
+      "password": "dixie.willms@mante.com",
+      "id": 23,
+      "role": "user"
     },
     {
-      "lghNr": 24,
+      "apartmentNo": 24,
       "email": "miller.abbott@gmail.com",
-      "id": 24
+      "password": "miller.abbott@gmail.com",
+      "id": 24,
+      "role": "user"
     },
     {
-      "lghNr": 25,
+      "apartmentNo": 25,
       "email": "pschuster@jacobson.com",
-      "id": 25
+      "password": "pschuster@jacobson.com",
+      "id": 25,
+      "role": "user"
     },
     {
-      "lghNr": 26,
+      "apartmentNo": 26,
       "email": "wyman.kacie@hotmail.com",
-      "id": 26
+      "password": "wyman.kacie@hotmail.com",
+      "id": 26,
+      "role": "user"
     },
     {
-      "lghNr": 27,
+      "apartmentNo": 27,
       "email": "samir.lehner@white.com",
-      "id": 27
+      "password": "samir.lehner@white.com",
+      "id": 27,
+      "role": "user"
     },
     {
-      "lghNr": 28,
+      "apartmentNo": 28,
       "email": "vfranecki@bergstrom.info",
-      "id": 28
+      "password": "vfranecki@bergstrom.info",
+      "id": 28,
+      "role": "admin"
     },
     {
-      "lghNr": 29,
+      "apartmentNo": 29,
       "email": "alessandra95@yahoo.com",
-      "id": 29
+      "password": "alessandra95@yahoo.com",
+      "id": 29,
+      "role": "user"
     },
     {
-      "lghNr": 30,
+      "apartmentNo": 30,
       "email": "ritchie.francisco@yahoo.com",
-      "id": 30
+      "password": "ritchie.francisco@yahoo.com",
+      "id": 30,
+      "role": "user"
     },
     {
-      "lghNr": 31,
+      "apartmentNo": 31,
       "email": "matt41@yahoo.com",
-      "id": 31
+      "password": "matt41@yahoo.com",
+      "id": 31,
+      "role": "user"
     },
     {
-      "lghNr": 32,
+      "apartmentNo": 32,
       "email": "valentina02@collins.biz",
-      "id": 32
+      "password": "valentina02@collins.biz",
+      "id": 32,
+      "role": "user"
     },
     {
-      "lghNr": 33,
+      "apartmentNo": 33,
       "email": "htorp@hotmail.com",
-      "id": 33
+      "password": "htorp@hotmail.com",
+      "id": 33,
+      "role": "user"
     },
     {
-      "lghNr": 34,
+      "apartmentNo": 34,
       "email": "bart.keebler@gmail.com",
-      "id": 34
+      "password": "bart.keebler@gmail.com",
+      "id": 34,
+      "role": "user"
     },
     {
-      "lghNr": 35,
+      "apartmentNo": 35,
       "email": "hbergnaum@gmail.com",
-      "id": 35
+      "password": "hbergnaum@gmail.com",
+      "id": 35,
+      "role": "admin"
     },
     {
-      "lghNr": 36,
+      "apartmentNo": 36,
       "email": "dana.roberts@hotmail.com",
-      "id": 36
+      "password": "dana.roberts@hotmail.com",
+      "id": 36,
+      "role": "user"
     },
     {
-      "lghNr": 37,
+      "apartmentNo": 37,
       "email": "howe.ciara@hessel.biz",
-      "id": 37
+      "password": "howe.ciara@hessel.biz",
+      "id": 37,
+      "role": "user"
     },
     {
-      "lghNr": 38,
+      "apartmentNo": 38,
       "email": "timmy59@doyle.com",
-      "id": 38
+      "password": "timmy59@doyle.com",
+      "id": 38,
+      "role": "user"
     },
     {
-      "lghNr": 39,
+      "apartmentNo": 39,
       "email": "gretchen.volkman@hotmail.com",
-      "id": 39
+      "password": "gretchen.volkman@hotmail.com",
+      "id": 39,
+      "role": "user"
     },
     {
-      "lghNr": 40,
+      "apartmentNo": 40,
       "email": "krystel.lindgren@hotmail.com",
-      "id": 40
+      "password": "krystel.lindgren@hotmail.com",
+      "id": 40,
+      "role": "user"
     },
     {
-      "lghNr": 41,
+      "apartmentNo": 41,
       "email": "ydurgan@hotmail.com",
-      "id": 41
+      "password": "ydurgan@hotmail.com",
+      "id": 41,
+      "role": "user"
     },
     {
-      "lghNr": 42,
+      "apartmentNo": 42,
       "email": "daniela09@marquardt.com",
-      "id": 42
+      "password": "daniela09@marquardt.com",
+      "id": 42,
+      "role": "admin"
     },
     {
-      "lghNr": 43,
+      "apartmentNo": 43,
       "email": "hester.yundt@schamberger.com",
-      "id": 43
+      "password": "hester.yundt@schamberger.com",
+      "id": 43,
+      "role": "user"
     },
     {
-      "lghNr": 44,
+      "apartmentNo": 44,
       "email": "adelia70@feil.com",
-      "id": 44
+      "password": "adelia70@feil.com",
+      "id": 44,
+      "role": "user"
     },
     {
-      "lghNr": 45,
+      "apartmentNo": 45,
       "email": "morris.russel@stamm.com",
-      "id": 45
+      "password": "morris.russel@stamm.com",
+      "id": 45,
+      "role": "user"
     },
     {
-      "lghNr": 46,
+      "apartmentNo": 46,
       "email": "xhermiston@yahoo.com",
-      "id": 46
+      "password": "xhermiston@yahoo.com",
+      "id": 46,
+      "role": "user"
     },
     {
-      "lghNr": 47,
+      "apartmentNo": 47,
       "email": "deondre.robel@hotmail.com",
-      "id": 47
+      "password": "deondre.robel@hotmail.com",
+      "id": 47,
+      "role": "user"
     },
     {
-      "lghNr": 48,
+      "apartmentNo": 48,
       "email": "beier.kelli@yahoo.com",
-      "id": 48
+      "password": "beier.kelli@yahoo.com",
+      "id": 48,
+      "role": "user"
     },
     {
-      "lghNr": 49,
+      "apartmentNo": 49,
       "email": "bebert@yahoo.com",
-      "id": 49
+      "password": "bebert@yahoo.com",
+      "id": 49,
+      "role": "admin"
     },
     {
-      "lghNr": 50,
+      "apartmentNo": 50,
       "email": "hfriesen@upton.com",
-      "id": 50
+      "password": "hfriesen@upton.com",
+      "id": 50,
+      "role": "user"
     },
     {
-      "lghNr": 51,
+      "apartmentNo": 51,
       "email": "eula59@gmail.com",
-      "id": 51
+      "password": "eula59@gmail.com",
+      "id": 51,
+      "role": "user"
     },
     {
-      "lghNr": 52,
+      "apartmentNo": 52,
       "email": "howell38@gmail.com",
-      "id": 52
+      "password": "howell38@gmail.com",
+      "id": 52,
+      "role": "user"
     },
     {
-      "lghNr": 53,
+      "apartmentNo": 53,
       "email": "ivy69@hotmail.com",
-      "id": 53
+      "password": "ivy69@hotmail.com",
+      "id": 53,
+      "role": "user"
     },
     {
-      "lghNr": 54,
+      "apartmentNo": 54,
       "email": "waters.arlie@gmail.com",
-      "id": 54
+      "password": "waters.arlie@gmail.com",
+      "id": 54,
+      "role": "user"
     },
     {
-      "lghNr": 55,
+      "apartmentNo": 55,
       "email": "jeramie.batz@nikolaus.org",
-      "id": 55
+      "password": "jeramie.batz@nikolaus.org",
+      "id": 55,
+      "role": "user"
     },
     {
-      "lghNr": 56,
+      "apartmentNo": 56,
       "email": "huels.ashtyn@yahoo.com",
-      "id": 56
+      "password": "huels.ashtyn@yahoo.com",
+      "id": 56,
+      "role": "admin"
     },
     {
-      "lghNr": 57,
+      "apartmentNo": 57,
       "email": "hcronin@yahoo.com",
-      "id": 57
+      "password": "hcronin@yahoo.com",
+      "id": 57,
+      "role": "user"
     },
     {
-      "lghNr": 58,
+      "apartmentNo": 58,
       "email": "kwest@yahoo.com",
-      "id": 58
+      "password": "kwest@yahoo.com",
+      "id": 58,
+      "role": "user"
+    },
+    {
+      "apartmentNo": 59,
+      "email": "fae.hyatt@hotmail.com",
+      "password": "fae.hyatt@hotmail.com",
+      "id": 59,
+      "role": "user"
     }
   ],
   "laundryBookings": [
     {
+      "start_time": "2021-04-22 11:00:00",
+      "end_time": "2021-04-22 14:00:00",
+      "lghNr": "3",
+      "id": 2
+    },
+    {
+      "start_time": "2021-04-23 14:00:00",
+      "end_time": "2021-04-23 17:00:00",
+      "lghNr": "18",
+      "id": 3
+    },
+    {
+      "start_time": "2021-04-23 08:00:00",
+      "end_time": "2021-04-23 11:00:00",
+      "lghNr": "43",
+      "id": 4
+    },
+    {
+      "start_time": "2021-04-28 08:00:00",
+      "end_time": "2021-04-28 11:00:00",
+      "lghNr": "3",
+      "id": 5
+    },
+    {
+      "start_time": "2021-04-28 11:00:00",
+      "end_time": "2021-04-28 14:00:00",
+      "lghNr": "3",
+      "id": 6
+    },
+    {
+      "start_time": "2021-04-28 14:00:00",
+      "end_time": "2021-04-28 17:00:00",
+      "lghNr": "3",
+      "id": 7
+    },
+    {
+      "start_time": "2021-04-28 17:00:00",
+      "end_time": "2021-04-28 20:00:00",
+      "lghNr": "3",
+      "id": 8
+    },
+    {
+      "start_time": "2021-04-29 08:00:00",
+      "end_time": "2021-04-29 11:00:00",
+      "lghNr": "3",
+      "id": 9
+    },
+    {
       "start_time": "2021-04-29 11:00:00",
       "end_time": "2021-04-29 14:00:00",
       "lghNr": "3",
-      "id": 22
+      "id": 10
     },
     {
       "start_time": "2021-04-29 14:00:00",
       "end_time": "2021-04-29 17:00:00",
       "lghNr": "3",
-      "id": 23
+      "id": 11
     },
     {
       "start_time": "2021-04-29 17:00:00",
       "end_time": "2021-04-29 20:00:00",
       "lghNr": "3",
-      "id": 24
+      "id": 12
+    },
+    {
+      "start_time": "2021-05-02 14:00:00",
+      "end_time": "2021-05-02 17:00:00",
+      "lghNr": "3",
+      "id": 13
+    },
+    {
+      "start_time": "2021-05-02 11:00:00",
+      "end_time": "2021-05-02 14:00:00",
+      "lghNr": "3",
+      "id": 14
+    },
+    {
+      "start_time": "2021-05-02 08:00:00",
+      "end_time": "2021-05-02 11:00:00",
+      "lghNr": "3",
+      "id": 15
     }
   ],
   "gymBookings": [
