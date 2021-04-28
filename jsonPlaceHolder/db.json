@@ -416,58 +416,10 @@
   ],
   "laundryBookings": [
     {
-      "start_time": "2021-04-30 14:00:00",
-      "end_time": "2021-04-30 17:00:00",
-      "apartmentNo": 15,
+      "start_time": "2021-03-29T06:00:00.000Z",
+      "end_time": "2021-03-29T09:00:00.000Z",
+      "apartmentNo": 59,
       "id": 1
-    },
-    {
-      "start_time": "2021-04-29 11:00:00",
-      "end_time": "2021-04-29 14:00:00",
-      "apartmentNo": 15,
-      "id": 2
-    },
-    {
-      "start_time": "2021-04-30 08:00:00",
-      "end_time": "2021-04-30 11:00:00",
-      "apartmentNo": 18,
-      "id": 3
-    },
-    {
-      "start_time": "2021-04-30 17:00:00",
-      "end_time": "2021-04-30 20:00:00",
-      "apartmentNo": 1,
-      "id": 4
-    },
-    {
-      "start_time": "2021-04-29 08:00:00",
-      "end_time": "2021-04-29 11:00:00",
-      "apartmentNo": 1,
-      "id": 5
-    },
-    {
-      "start_time": "2021-04-28 14:00:00",
-      "end_time": "2021-04-28 17:00:00",
-      "apartmentNo": 1,
-      "id": 6
-    },
-    {
-      "start_time": "2021-04-28 11:00:00",
-      "end_time": "2021-04-28 14:00:00",
-      "apartmentNo": 1,
-      "id": 7
-    },
-    {
-      "start_time": "2021-04-28 08:00:00",
-      "end_time": "2021-04-28 11:00:00",
-      "apartmentNo": 1,
-      "id": 8
-    },
-    {
-      "start_time": "2021-04-28 17:00:00",
-      "end_time": "2021-04-28 20:00:00",
-      "apartmentNo": 1,
-      "id": 9
     }
   ],
   "gymBookings": [
@@ -759,6 +711,5 @@
     {
       "fac": "Lokaler"
     }
-  ],
-  "bookingHistory": []
+  ]
 }

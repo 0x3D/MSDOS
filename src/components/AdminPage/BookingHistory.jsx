@@ -1,4 +1,4 @@
-
+import { isPast,format } from 'date-fns'
 import React, { useState, useEffect } from 'react'
 import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
@@ -23,6 +23,9 @@ const useStyles = makeStyles({
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function BookingHistory () {
+
+  const dateformat = 'yyyy-MM-dd HH:mm:ss' 
+
   /**
       * @constant classes is to set the styles in the returned Component
       */
@@ -37,17 +40,26 @@ export default function BookingHistory () {
    * Fetches the bookings from the api
    */
   const fetchBookings = async () => {
-    const response = await fetch('http://localhost:8000/bookingHistory')
+    const date = new Date()
+    const formatedDate = format(date, dateformat) 
+    const response = await fetch('http://localhost:8000/laundryBookings')
     const data = await response.json()
-    setBookingHistory(data)
+    console.log(data)
+    
+    const historyArray = []
+    for( let i= 0; i< data.length; i++) {
+      if (isPast( new Date (data[i].end_time))) {
+        console.log(1)
+        historyArray.push(data[i])
+      }
+    }
+    setBookingHistory(historyArray)
   }
 
   const clearBookingHistory = async () => {
     console.log('m called')
-    const arr = Object.keys(bookingHistory)
-    console.log(arr)
     for (let i = 0; i < bookingHistory.length; i++) {
-      fetch('http://localhost:8000/bookingHistory/' + bookingHistory[i].id, {
+      fetch('http://localhost:8000/laundryBookings/' + bookingHistory[i].id, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json'
@@ -68,6 +80,7 @@ export default function BookingHistory () {
 
   return (
     <div>
+      {console.log(bookingHistory)}
       <Container>
         <Row>
           <Col md={{ span: 4, offset: 4 }}>
