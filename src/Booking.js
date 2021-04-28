@@ -12,19 +12,16 @@ export default function Booking () {
     <>
       <Container className='mt-2 subnav'>
         <Tabs justify defaultActiveKey='laundry' id='uncontrolled-tab-example'>
-          <Tab eventKey='laundry' title='Tvättstuga'>
+          <Tab eventKey='laundry' title={<span> <MdLocalLaundryService size="2em"/> Tvättstuga </span>}>
             <div className='border-bottom border-left border-right'>
               <LaundryBooking />
             </div>
           </Tab>
-          <Tab eventKey='gym' title='Gym' image="favicon.ico">
+          <Tab eventKey='gym' title={<span> <CgGym size="2em"/> Gym </span>}>
             {/* Create component for booking the gym */}
-            <CgGym size="2em"/>
-            
           </Tab>
-          <Tab eventKey='lokaler' title='Lokaler'>
+          <Tab eventKey='lokaler' title={<span> <BiBuildings size="2em"/> Lokaler</span>}>
             {/* Create component for booking lokaler */}
-            <BiBuildings size="2em"/>
           </Tab>
         </Tabs>
       </Container>

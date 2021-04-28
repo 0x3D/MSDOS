@@ -5,6 +5,7 @@ import '../styles/Navbar.css'
 import Logo from '../assets/msdos-logo.png'
 import { BsCalendar } from "react-icons/bs";
 import { MdAssignment } from "react-icons/md";
+import { BiUserCircle, BiLogIn, BiLogOut } from "react-icons/bi";
 import { useAuth } from '../LoginBackend'
 
 
@@ -31,9 +32,9 @@ export default function NavigationBar () {
       </Nav>
 
       <Nav>
-        <NavDropdown  title='My account' variant='dark' >
-          <NavDropdown.Item><Link to='/home'>Login</Link></NavDropdown.Item>
-          <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
+        <NavDropdown  title={<span> <BiUserCircle size="1.5em"/> My account </span>} variant='dark' >
+          <NavDropdown.Item> <BiLogIn size="1.5em"/> <Link to='/home'>Login</Link></NavDropdown.Item>
+          <NavDropdown.Item onClick={handleLogOut}> <BiLogOut size="1.5em"/> Logout</NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar>

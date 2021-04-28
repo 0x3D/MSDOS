@@ -78,7 +78,6 @@ export default function LaundryBooking() {
   return (
     <>
       <div>
-        <MdLocalLaundryService size="2em" />
         <h4 className="text-center">Välj dag för att boka tvättid</h4>
       </div>
       <div>
