@@ -38,8 +38,10 @@ export default function LaundryBooking() {
         var dateformat = 'yyyy-MM-dd HH:mm:ss'
 
         const postData = {
-            start_time: format(sTime, dateformat),
-            end_time: format(eTime, dateformat),
+            // start_time: format(sTime, dateformat),
+            // end_time: format(eTime, dateformat),
+            start_time: sTime,
+            end_time: eTime,
             lghNr: "3"
         }
 
