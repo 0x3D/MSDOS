@@ -20,6 +20,7 @@ export default function GymBooking() {
     const [endTime, setEndTime] = useState('')
 
     const handleClose = () => setShowModal(false);
+    const handleShow = () => setShowModal(true);
 
 
     //Fetches the bookings from the api
@@ -37,18 +38,19 @@ export default function GymBooking() {
 
     //Creates a new booking
     const newBooking = async (sTime, eTime) => {
-        var dateformat = 'yyyy-MM-dd HH:mm:ss'
-
-        const bookingData = {
-            start_time: sTime,
-            end_time: eTime,
-            lghNr: "3"
+        if (sTime === '' || eTime === '') {
+            alert('Inga start eller sluttider valda')
+        } else {
+            const bookingData = {
+                start_time: sTime,
+                end_time: eTime,
+                lghNr: "3"
+            }
+            await postBooking(bookingData)
         }
-
-        await postBooking(bookingData)
         await fetchBookings()
     }
-
+    
     //Posts the previously created booking
     const postBooking = async (postData) => {
         const requestOptions = {
@@ -63,13 +65,15 @@ export default function GymBooking() {
         const data = await response.json()
         console.log(data)
     }
-
-
+    
+    
     const handleModalConfirmation = () => {
         setShowModal(false);
-
+        
         //om bekräftat körs denna för att "spara bokningen"
-        //newBooking(chosenTime.startTime, chosenTime.endTime)
+        newBooking(startTime, endTime)
+        
+        clearTimeInterval()
     }
 
 
@@ -79,19 +83,29 @@ export default function GymBooking() {
             setStartTime(time)
             setEndTime(time)
         } else if (differenceInMinutes(time, startTime) > maxGymSessionTime * 60 || time < startTime) {
-            setHasChosenTime(false)
-            setStartTime('')
-            setEndTime('')
+            clearTimeInterval()
         } else {
+            setEndTime(time)
             setHasChosenTime(true)
             //setShowModal(true);
-            setEndTime(time)
         }
+    }
+
+    const clearTimeInterval = () => {
+        setHasChosenTime(false)
+        setStartTime('')
+        setEndTime('')
     }
 
     return (
         <>
             <h4 className="pt-4 pb-4 ml-auto mr-auto">Här bokar du dina gymtider</h4>
+            <Button className="mb-3 mr-5" disabled={!hasChosenTime} onClick={handleShow} >
+                Boka vald tid
+            </Button>
+            <Button variant="secondary" className="mb-3 ml-5" onClick={clearTimeInterval}>
+                Rensa vald tid
+            </Button>
             <div className="border-top">
                 <TimeCalendar
                     clickable
@@ -110,9 +124,9 @@ export default function GymBooking() {
                 <Modal.Header closeButton>
                     <Modal.Title>Bekräfta din bokning</Modal.Title>
                 </Modal.Header>
-                {!hasChosenTime ? (<p>No chosen time</p>) : (
+                {!hasChosenTime ? (<p>Var vänlig välj tider innan du bokar</p>) : (
                     <Modal.Body>
-                        Bekräfta din bokning av tvättid.
+                        Bekräfta din bokning av gymtid.
                         <br />
                         Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, "")} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, "")}
                         <br />
