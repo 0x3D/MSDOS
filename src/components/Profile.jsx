@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
 import getAuthData from '../LoginBackend'
-import { localStorageAvailable } from '@material-ui/data-grid'
+const localStorage = window.localStorage
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.

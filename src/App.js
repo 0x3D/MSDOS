@@ -11,9 +11,10 @@ import Profile from './components/Profile'
 import AuthDataProvider, { getAuthData } from './LoginBackend'
 
 const url = 'http://localhost:8000/logins'
+const localStorage = window.localStorage
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const tokens = getAuthData()
+  const tokens = JSON.parse(localStorage.getItem('tokens'))
   // TODO: Authenticate here As in Login.jsx should probable be refactored.
 
   return (
