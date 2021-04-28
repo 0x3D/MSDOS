@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from "react-timecalendar";
-import { format, addHours } from 'date-fns'
+import { format, addHours, differenceInMinutes } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 
 
 const gymSections = 30
 const openHours = [[8, 22.5]];
 const url = 'http://localhost:8000/gymBookings/'
+const maxGymSessionTime = 3
 
 export default function GymBooking() {
     //Booked times
     const [bookings, setBookings] = useState(null)
     const [showConfirmation, setShowModal] = useState(false);
-    const [chosenTime, setChosenTime] = useState({ startTime: '', endTime: '' })
     const [hasChosenTime, setHasChosenTime] = useState(false)
 
 
@@ -40,8 +40,8 @@ export default function GymBooking() {
         var dateformat = 'yyyy-MM-dd HH:mm:ss'
 
         const bookingData = {
-            start_time: format(sTime, dateformat),
-            end_time: format(eTime, dateformat),
+            start_time: sTime,
+            end_time: eTime,
             lghNr: "3"
         }
 
@@ -68,34 +68,30 @@ export default function GymBooking() {
     const handleModalConfirmation = () => {
         setShowModal(false);
 
-        console.log(chosenTime)
-
         //om bekräftat körs denna för att "spara bokningen"
         //newBooking(chosenTime.startTime, chosenTime.endTime)
     }
 
 
     const handleChosenTime = (time) => {
-        const dateFns = require('date-fns')
-     
-        
+
         if (startTime === '') {
             setStartTime(time)
-        } else if (!dateFns.isSameDay(startTime, time) || time < startTime) {
+            setEndTime(time)
+        } else if (differenceInMinutes(time, startTime) > maxGymSessionTime * 60 || time < startTime) {
+            setHasChosenTime(false)
             setStartTime('')
             setEndTime('')
         } else {
             setHasChosenTime(true)
-            setShowModal(true);
+            //setShowModal(true);
             setEndTime(time)
         }
-
-        console.log(chosenTime)
     }
 
     return (
         <>
-            <h4 className="pt-4 pb-4">Här bokar du dina gymtider</h4>
+            <h4 className="pt-4 pb-4 ml-auto mr-auto">Här bokar du dina gymtider</h4>
             <div className="border-top">
                 <TimeCalendar
                     clickable
