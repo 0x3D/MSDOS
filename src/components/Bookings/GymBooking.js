@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TimeCalendar from "react-timecalendar";
 import { format, addHours, differenceInMinutes } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
+import '../../styles/App.css'
 
 
 const gymSections = 30
@@ -72,7 +73,7 @@ export default function GymBooking() {
         
         //om bekräftat körs denna för att "spara bokningen"
         newBooking(startTime, endTime)
-        
+
         clearTimeInterval()
     }
 
@@ -100,6 +101,14 @@ export default function GymBooking() {
     return (
         <>
             <h4 className="pt-4 pb-4 ml-auto mr-auto">Här bokar du dina gymtider</h4>
+            <div className="w-50 ml-auto mr-auto mb-4" ><ol className="instructionsList">
+                <li>Välj ett datum</li>
+                <li>Välj en starttid</li>
+                <li>Välj en sluttid (inom {maxGymSessionTime} timmar)</li>
+                <li>Klicka på boka vald tid</li>
+                <li>Bekräfta bokning i rutan som kommer upp</li>
+            </ol>
+            </div>
             <Button className="mb-3 mr-5" disabled={!hasChosenTime} onClick={handleShow} >
                 Boka vald tid
             </Button>
