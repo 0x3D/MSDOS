@@ -38,6 +38,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
  *
  * @returns The react-component that gather all react-components we are using
  * with a Router with our own NavigationBar
+ * 
+ * IconContext.Provider gives the opportiunity to set style to all icons at once. 
+ * The styles can be overitten by the components if the standard doesn´t fit.
+ *
  * @see{@link (https://reactrouter.com/)}
  *
  *
@@ -55,6 +59,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App () {
   document.title = 'MSDOS Booking'
   return (
+    
     <>
     <IconContext.Provider value={{ color: 'cornflowerblue', size: '50px' }}>
       <Router>
