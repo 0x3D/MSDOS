@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TimeCalendar from "react-timecalendar";
 import { format, addHours } from "date-fns";
-import { Button, Col, Modal, Row } from "react-bootstrap";
-import { MdLocalLaundryService } from "react-icons/md";
+import { Button, Modal } from "react-bootstrap";
 
 const laundryTime = 180;
 const openHours = [[8, 20]];

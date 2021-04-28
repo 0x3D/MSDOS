@@ -37,7 +37,7 @@ export default function HandleBookings () {
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [laundryBookings, setLaundryBookings] = useState(null)
-   
+
   /**
    * @constant  showToast is a variables, and @method setShowToast is a set-method for the variable
    * Usestate is the default value
