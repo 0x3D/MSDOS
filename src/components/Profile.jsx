@@ -14,14 +14,12 @@ const localStorage = window.localStorage
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function Profile () {
-  // TODO: När inloggningen är klar måste ni skicka vilket lägenhetsnummer
-  // som är inloggad, använder currentUser sålänge
-  const currentUser = getAuthData().props.value.authData.apartmentNo
+  const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
 
-  /**
-     * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
-     * @returns a right formed string to ask the database for the inforamtion we want
-     */
+  /*
+  * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
+  * @returns a right formed string to ask the database for the inforamtion we want
+  */
   const formatLghNr = () => {
     return 'apartmentNo=' + String(currentUser)
   }
@@ -50,13 +48,13 @@ export default function Profile () {
    */
   const toggleShowToast = () => { setShowToast(!showToast) }
 
-  /**
-     * Fetches the Userdata from jsonPlaceHolder
-     * @constant response is what the jsonplaceholder gives us
-     * @constant data is the data we formatting to a JSON
-     */
+  /*
+  * Fetches the Userdata from jsonPlaceHolder
+  * @constant response is what the jsonplaceholder gives us
+  * @constant data is the data we formatting to a JSON
+  */
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:8000/users?' + formatLghNr())
+    const response = await fetch('http://localhost:8000/users?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setUserData(data)
   }
@@ -95,7 +93,7 @@ export default function Profile () {
 
   return (
     <div>
-      {console.log()}
+      {console.log(currentUser)}
       <Container>
         <Row>
           <Col>

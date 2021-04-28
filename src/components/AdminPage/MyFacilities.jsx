@@ -34,7 +34,9 @@ export default function MyFacilities () {
             : (<> {
               facilities.map((row) => (
                 <>
-                  <ListGroup.Item>{row.fac}</ListGroup.Item>
+                  
+                    <ListGroup.Item key={row.fac} >{row.fac}</ListGroup.Item>
+                  
                 </>
               ))
             }
