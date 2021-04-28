@@ -7,8 +7,7 @@ const laundryTime = 180
 const openHours = [[8, 20]]
 let startTime = new Date()
 let endTime = new Date()
-const laundryUrl = 'http://localhost:8000/laundryBookings/'
-const historyUrl = 'http://localhost:8000/bookingHistory/'
+const url = 'http://localhost:8000/laundryBookings/'
 
 export default function LaundryBooking () {
   // Booked times
@@ -20,9 +19,9 @@ export default function LaundryBooking () {
 
   // Fetches the bookings from the api
   const fetchBookings = async () => {
-    const laundryRespons = await fetch(laundryUrl)
-    const laundryData = await laundryRespons.json()
-    setBookings(laundryData)
+    const response = await fetch(url)
+    const data = await laundryRespons.json()
+    setBookings(data)
   }
 
   useEffect(() => {
@@ -31,11 +30,10 @@ export default function LaundryBooking () {
 
   // Creates a new booking
   const newBooking = async (sTime, eTime) => {
-    const dateformat = 'yyyy-MM-dd HH:mm:ss'
 
     const postData = {
-      start_time: format(sTime, dateformat),
-      end_time: format(eTime, dateformat),
+      start_time: sTime,
+      end_time: eTime,
       apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
     }
 
@@ -53,12 +51,11 @@ export default function LaundryBooking () {
       },
       body: JSON.stringify(postData)
     }
-    const laundryResponse = await fetch(laundryUrl, requestOptions)
+    const response = await fetch(url, requestOptions)
   
-    const laundryData = await laundryResponse.json()
+    const data = await laundryResponse.json()
     
-    console.log(laundryData)
-  
+    console.log(data)
   }
 
   const handleModalConfirmation = () => {
@@ -75,8 +72,6 @@ export default function LaundryBooking () {
     // Show modal for further confirmation
     setShowModal(true)
   }
-
-  //        <Image src="favicon.ico" className="rounded float-left" width="35px" />
 
   return (
     <>

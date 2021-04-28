@@ -100,7 +100,6 @@ export default function GymBooking() {
 
 
     const handleChosenTime = (time) => {
-        console.log(new Date())
 
         if (startTime === '') {
             setStartTime(time)
