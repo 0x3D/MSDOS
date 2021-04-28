@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from "react-timecalendar";
-import { format, addHours, differenceInMinutes } from 'date-fns'
+import { format, addMinutes, differenceInMinutes, parseISO } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import '../../styles/App.css'
 
@@ -12,12 +12,12 @@ const maxGymSessionTime = 3
 
 export default function GymBooking() {
     //Booked times
-    const [bookings, setBookings] = useState(null)
+    const [bookings, setBookings] = useState('')
     const [showConfirmation, setShowModal] = useState(false);
     const [hasChosenTime, setHasChosenTime] = useState(false)
 
 
-    const [startTime, setStartTime] = useState('') 
+    const [startTime, setStartTime] = useState('')
     const [endTime, setEndTime] = useState('')
 
     const handleClose = () => setShowModal(false);
@@ -26,9 +26,30 @@ export default function GymBooking() {
 
     //Fetches the bookings from the api
     const fetchBookings = async () => {
-        const response = await fetch(url)
-        const data = await response.json()
-        setBookings(data)
+        // const response = await fetch(url)
+        // const data = await response.json()
+
+        // const bookings = data.map((booking) => {
+        //     booking.end_time = addMinutes(booking.end_time, 1)
+        // });
+
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((json) => {
+                parseData(json)
+            });
+
+
+        //setBookings(data)
+    }
+
+    const parseData = (bookings) => {
+        bookings.forEach((booking) => {
+            booking.end_time = JSON.stringify(addMinutes(new Date(booking.end_time), 1)).replace(/"/g, "")
+        })
+        console.log(bookings)
+        setBookings(bookings)
     }
 
 
@@ -51,7 +72,7 @@ export default function GymBooking() {
         }
         await fetchBookings()
     }
-    
+
     //Posts the previously created booking
     const postBooking = async (postData) => {
         const requestOptions = {
@@ -66,11 +87,11 @@ export default function GymBooking() {
         const data = await response.json()
         console.log(data)
     }
-    
-    
+
+
     const handleModalConfirmation = () => {
         setShowModal(false);
-        
+
         //om bekräftat körs denna för att "spara bokningen"
         newBooking(startTime, endTime)
 
@@ -79,6 +100,7 @@ export default function GymBooking() {
 
 
     const handleChosenTime = (time) => {
+        console.log(new Date())
 
         if (startTime === '') {
             setStartTime(time)
@@ -88,7 +110,6 @@ export default function GymBooking() {
         } else {
             setEndTime(time)
             setHasChosenTime(true)
-            //setShowModal(true);
         }
     }
 
