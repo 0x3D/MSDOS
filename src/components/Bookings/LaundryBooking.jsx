@@ -20,7 +20,7 @@ export default function LaundryBooking () {
   // Fetches the bookings from the api
   const fetchBookings = async () => {
     const response = await fetch(url)
-    const data = await laundryRespons.json()
+    const data = await response.json()
     setBookings(data)
   }
 
@@ -53,7 +53,7 @@ export default function LaundryBooking () {
     }
     const response = await fetch(url, requestOptions)
   
-    const data = await laundryResponse.json()
+    const data = await response.json()
     
     console.log(data)
   }
