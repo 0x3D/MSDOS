@@ -85,19 +85,19 @@ export default function GymBooking() {
 
     return (
         <>
-                <h4 className="pt-4 pb-4">Här bokar du dina gymtider</h4>
-                <div className="border-top">
-                    <TimeCalendar 
-                        clickable
-                        openHours={openHours}
-                        disableHistory
-                        timeSlot={gymSections}
-                        bookings={bookings}
-                        onTimeClick={handleChosenTime}
-                        startTime={setChosenTime.startTime}
-                        endTime={setChosenTime.endTime}
-                    />
-                </div>
+            <h4 className="pt-4 pb-4">Här bokar du dina gymtider</h4>
+            <div className="border-top">
+                <TimeCalendar
+                    clickable
+                    openHours={openHours}
+                    disableHistory
+                    timeSlot={gymSections}
+                    bookings={bookings}
+                    onTimeClick={handleChosenTime}
+                    startTime={setChosenTime.startTime}
+                    endTime={setChosenTime.endTime}
+                />
+            </div>
 
             {/* Modal for confirmation of booking*/}
             <Modal show={showConfirmation} onHide={handleClose}>

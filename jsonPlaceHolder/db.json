@@ -1,715 +1,549 @@
 {
-  "users": [
-    {
-      "apartmentNo": 1,
-      "email": "shyatt@yahoo.com",
-      "password": "shyatt@yahoo.com",
-      "id": 1,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 2,
-      "email": "kris.audreanne@hotmail.com",
-      "password": "kris.audreanne@hotmail.com",
-      "id": 2,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 3,
-      "email": "laurie.kutch@yahoo.com",
-      "password": "laurie.kutch@yahoo.com",
-      "id": 3,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 4,
-      "email": "mackenzie.anderson@gmail.com",
-      "password": "mackenzie.anderson@gmail.com",
-      "id": 4,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 5,
-      "email": "elyse79@senger.org",
-      "password": "elyse79@senger.org",
-      "id": 5,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 6,
-      "email": "jessie.hackett@yahoo.com",
-      "password": "jessie.hackett@yahoo.com",
-      "id": 6,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 7,
-      "email": "eusebio.kassulke@gmail.com",
-      "password": "eusebio.kassulke@gmail.com",
-      "id": 7,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 8,
-      "email": "keith88@hotmail.com",
-      "password": "keith88@hotmail.com",
-      "id": 8,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 9,
-      "email": "john.bashirian@gorczany.com",
-      "password": "john.bashirian@gorczany.com",
-      "id": 9,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 10,
-      "email": "tomasa02@yahoo.com",
-      "password": "tomasa02@yahoo.com",
-      "id": 10,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 11,
-      "email": "wroob@kunze.net",
-      "password": "wroob@kunze.net",
-      "id": 11,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 12,
-      "email": "willis85@gulgowski.com",
-      "password": "willis85@gulgowski.com",
-      "id": 12,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 13,
-      "email": "dylan.prohaska@kuvalis.com",
-      "password": "dylan.prohaska@kuvalis.com",
-      "id": 13,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 14,
-      "email": "kstoltenberg@sipes.com",
-      "password": "kstoltenberg@sipes.com",
-      "id": 14,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 15,
-      "email": "clarabelle57@yahoo.com",
-      "password": "clarabelle57@yahoo.com",
-      "id": 15,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 16,
-      "email": "ryley.lebsack@douglas.com",
-      "password": "ryley.lebsack@douglas.com",
-      "id": 16,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 17,
-      "email": "lillie.boehm@gmail.com",
-      "password": "lillie.boehm@gmail.com",
-      "id": 17,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 18,
-      "email": "catalina.raynor@littel.net",
-      "password": "catalina.raynor@littel.net",
-      "id": 18,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 19,
-      "email": "oritchie@quitzon.com",
-      "password": "oritchie@quitzon.com",
-      "id": 19,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 20,
-      "email": "sipes.felicia@volkman.biz",
-      "password": "sipes.felicia@volkman.biz",
-      "id": 20,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 21,
-      "email": "boris64@hotmail.com",
-      "password": "boris64@hotmail.com",
-      "id": 21,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 22,
-      "email": "qokuneva@hotmail.com",
-      "password": "qokuneva@hotmail.com",
-      "id": 22,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 23,
-      "email": "dixie.willms@mante.com",
-      "password": "dixie.willms@mante.com",
-      "id": 23,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 24,
-      "email": "miller.abbott@gmail.com",
-      "password": "miller.abbott@gmail.com",
-      "id": 24,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 25,
-      "email": "pschuster@jacobson.com",
-      "password": "pschuster@jacobson.com",
-      "id": 25,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 26,
-      "email": "wyman.kacie@hotmail.com",
-      "password": "wyman.kacie@hotmail.com",
-      "id": 26,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 27,
-      "email": "samir.lehner@white.com",
-      "password": "samir.lehner@white.com",
-      "id": 27,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 28,
-      "email": "vfranecki@bergstrom.info",
-      "password": "vfranecki@bergstrom.info",
-      "id": 28,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 29,
-      "email": "alessandra95@yahoo.com",
-      "password": "alessandra95@yahoo.com",
-      "id": 29,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 30,
-      "email": "ritchie.francisco@yahoo.com",
-      "password": "ritchie.francisco@yahoo.com",
-      "id": 30,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 31,
-      "email": "matt41@yahoo.com",
-      "password": "matt41@yahoo.com",
-      "id": 31,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 32,
-      "email": "valentina02@collins.biz",
-      "password": "valentina02@collins.biz",
-      "id": 32,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 33,
-      "email": "htorp@hotmail.com",
-      "password": "htorp@hotmail.com",
-      "id": 33,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 34,
-      "email": "bart.keebler@gmail.com",
-      "password": "bart.keebler@gmail.com",
-      "id": 34,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 35,
-      "email": "hbergnaum@gmail.com",
-      "password": "hbergnaum@gmail.com",
-      "id": 35,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 36,
-      "email": "dana.roberts@hotmail.com",
-      "password": "dana.roberts@hotmail.com",
-      "id": 36,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 37,
-      "email": "howe.ciara@hessel.biz",
-      "password": "howe.ciara@hessel.biz",
-      "id": 37,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 38,
-      "email": "timmy59@doyle.com",
-      "password": "timmy59@doyle.com",
-      "id": 38,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 39,
-      "email": "gretchen.volkman@hotmail.com",
-      "password": "gretchen.volkman@hotmail.com",
-      "id": 39,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 40,
-      "email": "krystel.lindgren@hotmail.com",
-      "password": "krystel.lindgren@hotmail.com",
-      "id": 40,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 41,
-      "email": "ydurgan@hotmail.com",
-      "password": "ydurgan@hotmail.com",
-      "id": 41,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 42,
-      "email": "daniela09@marquardt.com",
-      "password": "daniela09@marquardt.com",
-      "id": 42,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 43,
-      "email": "hester.yundt@schamberger.com",
-      "password": "hester.yundt@schamberger.com",
-      "id": 43,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 44,
-      "email": "adelia70@feil.com",
-      "password": "adelia70@feil.com",
-      "id": 44,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 45,
-      "email": "morris.russel@stamm.com",
-      "password": "morris.russel@stamm.com",
-      "id": 45,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 46,
-      "email": "xhermiston@yahoo.com",
-      "password": "xhermiston@yahoo.com",
-      "id": 46,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 47,
-      "email": "deondre.robel@hotmail.com",
-      "password": "deondre.robel@hotmail.com",
-      "id": 47,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 48,
-      "email": "beier.kelli@yahoo.com",
-      "password": "beier.kelli@yahoo.com",
-      "id": 48,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 49,
-      "email": "bebert@yahoo.com",
-      "password": "bebert@yahoo.com",
-      "id": 49,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 50,
-      "email": "hfriesen@upton.com",
-      "password": "hfriesen@upton.com",
-      "id": 50,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 51,
-      "email": "eula59@gmail.com",
-      "password": "eula59@gmail.com",
-      "id": 51,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 52,
-      "email": "howell38@gmail.com",
-      "password": "howell38@gmail.com",
-      "id": 52,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 53,
-      "email": "ivy69@hotmail.com",
-      "password": "ivy69@hotmail.com",
-      "id": 53,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 54,
-      "email": "waters.arlie@gmail.com",
-      "password": "waters.arlie@gmail.com",
-      "id": 54,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 55,
-      "email": "jeramie.batz@nikolaus.org",
-      "password": "jeramie.batz@nikolaus.org",
-      "id": 55,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 56,
-      "email": "huels.ashtyn@yahoo.com",
-      "password": "huels.ashtyn@yahoo.com",
-      "id": 56,
-      "role": "admin"
-    },
-    {
-      "apartmentNo": 57,
-      "email": "hcronin@yahoo.com",
-      "password": "hcronin@yahoo.com",
-      "id": 57,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 58,
-      "email": "kwest@yahoo.com",
-      "password": "kwest@yahoo.com",
-      "id": 58,
-      "role": "user"
-    },
-    {
-      "apartmentNo": 59,
-      "email": "fae.hyatt@hotmail.com",
-      "password": "fae.hyatt@hotmail.com",
-      "id": 59,
-      "role": "user"
-    }
-  ],
-  "laundryBookings": [
-    {
-      "start_time": "2021-03-29T06:00:00.000Z",
-      "end_time": "2021-03-29T09:00:00.000Z",
-      "apartmentNo": 59,
-      "id": 1
-    }
-  ],
-  "gymBookings": [
-    {
-      "start_time": "2021-04-24 08:00:00",
-      "end_time": "2021-04-24 11:00:00",
-      "apartmentNo": "3",
-      "id": 1
-    }
-  ],
-  "logins": [
-    {
-      "email": "vheidenreich@hotmail.com",
-      "password": "vheidenreich@hotmail.com"
-    },
-    {
-      "email": "shyatt@yahoo.com",
-      "password": "shyatt@yahoo.com"
-    },
-    {
-      "email": "kris.audreanne@hotmail.com",
-      "password": "kris.audreanne@hotmail.com"
-    },
-    {
-      "email": "laurie.kutch@yahoo.com",
-      "password": "laurie.kutch@yahoo.com"
-    },
-    {
-      "email": "mackenzie.anderson@gmail.com",
-      "password": "mackenzie.anderson@gmail.com"
-    },
-    {
-      "email": "elyse79@senger.org",
-      "password": "elyse79@senger.org"
-    },
-    {
-      "email": "jessie.hackett@yahoo.com",
-      "password": "jessie.hackett@yahoo.com"
-    },
-    {
-      "email": "eusebio.kassulke@gmail.com",
-      "password": "eusebio.kassulke@gmail.com"
-    },
-    {
-      "email": "keith88@hotmail.com",
-      "password": "keith88@hotmail.com"
-    },
-    {
-      "email": "john.bashirian@gorczany.com",
-      "password": "john.bashirian@gorczany.com"
-    },
-    {
-      "email": "tomasa02@yahoo.com",
-      "password": "tomasa02@yahoo.com"
-    },
-    {
-      "email": "wroob@kunze.net",
-      "password": "wroob@kunze.net"
-    },
-    {
-      "email": "willis85@gulgowski.com",
-      "password": "willis85@gulgowski.com"
-    },
-    {
-      "email": "dylan.prohaska@kuvalis.com",
-      "password": "dylan.prohaska@kuvalis.com"
-    },
-    {
-      "email": "kstoltenberg@sipes.com",
-      "password": "kstoltenberg@sipes.com"
-    },
-    {
-      "email": "clarabelle57@yahoo.com",
-      "password": "clarabelle57@yahoo.com"
-    },
-    {
-      "email": "ryley.lebsack@douglas.com",
-      "password": "ryley.lebsack@douglas.com"
-    },
-    {
-      "email": "lillie.boehm@gmail.com",
-      "password": "lillie.boehm@gmail.com"
-    },
-    {
-      "email": "catalina.raynor@littel.net",
-      "password": "catalina.raynor@littel.net"
-    },
-    {
-      "email": "oritchie@quitzon.com",
-      "password": "oritchie@quitzon.com"
-    },
-    {
-      "email": "sipes.felicia@volkman.biz",
-      "password": "sipes.felicia@volkman.biz"
-    },
-    {
-      "email": "boris64@hotmail.com",
-      "password": "boris64@hotmail.com"
-    },
-    {
-      "email": "qokuneva@hotmail.com",
-      "password": "qokuneva@hotmail.com"
-    },
-    {
-      "email": "dixie.willms@mante.com",
-      "password": "dixie.willms@mante.com"
-    },
-    {
-      "email": "miller.abbott@gmail.com",
-      "password": "miller.abbott@gmail.com"
-    },
-    {
-      "email": "pschuster@jacobson.com",
-      "password": "pschuster@jacobson.com"
-    },
-    {
-      "email": "wyman.kacie@hotmail.com",
-      "password": "wyman.kacie@hotmail.com"
-    },
-    {
-      "email": "samir.lehner@white.com",
-      "password": "samir.lehner@white.com"
-    },
-    {
-      "email": "vfranecki@bergstrom.info",
-      "password": "vfranecki@bergstrom.info"
-    },
-    {
-      "email": "alessandra95@yahoo.com",
-      "password": "alessandra95@yahoo.com"
-    },
-    {
-      "email": "ritchie.francisco@yahoo.com",
-      "password": "ritchie.francisco@yahoo.com"
-    },
-    {
-      "email": "matt41@yahoo.com",
-      "password": "matt41@yahoo.com"
-    },
-    {
-      "email": "valentina02@collins.biz",
-      "password": "valentina02@collins.biz"
-    },
-    {
-      "email": "htorp@hotmail.com",
-      "password": "htorp@hotmail.com"
-    },
-    {
-      "email": "bart.keebler@gmail.com",
-      "password": "bart.keebler@gmail.com"
-    },
-    {
-      "email": "hbergnaum@gmail.com",
-      "password": "hbergnaum@gmail.com"
-    },
-    {
-      "email": "dana.roberts@hotmail.com",
-      "password": "dana.roberts@hotmail.com"
-    },
-    {
-      "email": "howe.ciara@hessel.biz",
-      "password": "howe.ciara@hessel.biz"
-    },
-    {
-      "email": "timmy59@doyle.com",
-      "password": "timmy59@doyle.com"
-    },
-    {
-      "email": "gretchen.volkman@hotmail.com",
-      "password": "gretchen.volkman@hotmail.com"
-    },
-    {
-      "email": "krystel.lindgren@hotmail.com",
-      "password": "krystel.lindgren@hotmail.com"
-    },
-    {
-      "email": "ydurgan@hotmail.com",
-      "password": "ydurgan@hotmail.com"
-    },
-    {
-      "email": "daniela09@marquardt.com",
-      "password": "daniela09@marquardt.com"
-    },
-    {
-      "email": "hester.yundt@schamberger.com",
-      "password": "hester.yundt@schamberger.com"
-    },
-    {
-      "email": "adelia70@feil.com",
-      "password": "adelia70@feil.com"
-    },
-    {
-      "email": "morris.russel@stamm.com",
-      "password": "morris.russel@stamm.com"
-    },
-    {
-      "email": "xhermiston@yahoo.com",
-      "password": "xhermiston@yahoo.com"
-    },
-    {
-      "email": "deondre.robel@hotmail.com",
-      "password": "deondre.robel@hotmail.com"
-    },
-    {
-      "email": "beier.kelli@yahoo.com",
-      "password": "beier.kelli@yahoo.com"
-    },
-    {
-      "email": "bebert@yahoo.com",
-      "password": "bebert@yahoo.com"
-    },
-    {
-      "email": "hfriesen@upton.com",
-      "password": "hfriesen@upton.com"
-    },
-    {
-      "email": "eula59@gmail.com",
-      "password": "eula59@gmail.com"
-    },
-    {
-      "email": "howell38@gmail.com",
-      "password": "howell38@gmail.com"
-    },
-    {
-      "email": "ivy69@hotmail.com",
-      "password": "ivy69@hotmail.com"
-    },
-    {
-      "email": "waters.arlie@gmail.com",
-      "password": "waters.arlie@gmail.com"
-    },
-    {
-      "email": "jeramie.batz@nikolaus.org",
-      "password": "jeramie.batz@nikolaus.org"
-    },
-    {
-      "email": "huels.ashtyn@yahoo.com",
-      "password": "huels.ashtyn@yahoo.com"
-    },
-    {
-      "email": "hcronin@yahoo.com",
-      "password": "hcronin@yahoo.com"
-    },
-    {
-      "email": "kwest@yahoo.com",
-      "password": "kwest@yahoo.com"
-    },
-    {
-      "email": "fae.hyatt@hotmail.com",
-      "password": "fae.hyatt@hotmail.com"
-    }
-  ],
-  "admins": [
-    {
-      "email": "vheidenreich@hotmail.com"
-    },
-    {
-      "email": "eusebio.kassulke@gmail.com"
-    },
-    {
-      "email": "kstoltenberg@sipes.com"
-    },
-    {
-      "email": "boris64@hotmail.com"
-    },
-    {
-      "email": "vfranecki@bergstrom.info"
-    },
-    {
-      "email": "hbergnaum@gmail.com"
-    },
-    {
-      "email": "daniela09@marquardt.com"
-    },
-    {
-      "email": "bebert@yahoo.com"
-    },
-    {
-      "email": "huels.ashtyn@yahoo.com"
-    }
-  ],
-  "facilities": [
-    {
-      "fac": "Gym"
-    },
-    {
-      "fac": "Tvättstuga"
-    },
-    {
-      "fac": "Lokaler"
-    }
-  ]
+    "users": [
+        {
+            "lghNr": 0,
+            "email": "vheidenreich@hotmail.com"
+        },
+        {
+            "lghNr": 1,
+            "email": "shyatt@yahoo.com"
+        },
+        {
+            "lghNr": 2,
+            "email": "kris.audreanne@hotmail.com"
+        },
+        {
+            "lghNr": 3,
+            "email": "laurie.kutch@yahoo.com"
+        },
+        {
+            "lghNr": 4,
+            "email": "mackenzie.anderson@gmail.com"
+        },
+        {
+            "lghNr": 5,
+            "email": "elyse79@senger.org"
+        },
+        {
+            "lghNr": 6,
+            "email": "jessie.hackett@yahoo.com"
+        },
+        {
+            "lghNr": 7,
+            "email": "eusebio.kassulke@gmail.com"
+        },
+        {
+            "lghNr": 8,
+            "email": "keith88@hotmail.com"
+        },
+        {
+            "lghNr": 9,
+            "email": "john.bashirian@gorczany.com"
+        },
+        {
+            "lghNr": 10,
+            "email": "tomasa02@yahoo.com"
+        },
+        {
+            "lghNr": 11,
+            "email": "wroob@kunze.net"
+        },
+        {
+            "lghNr": 12,
+            "email": "willis85@gulgowski.com"
+        },
+        {
+            "lghNr": 13,
+            "email": "dylan.prohaska@kuvalis.com"
+        },
+        {
+            "lghNr": 14,
+            "email": "kstoltenberg@sipes.com"
+        },
+        {
+            "lghNr": 15,
+            "email": "clarabelle57@yahoo.com"
+        },
+        {
+            "lghNr": 16,
+            "email": "ryley.lebsack@douglas.com"
+        },
+        {
+            "lghNr": 17,
+            "email": "lillie.boehm@gmail.com"
+        },
+        {
+            "lghNr": 18,
+            "email": "catalina.raynor@littel.net"
+        },
+        {
+            "lghNr": 19,
+            "email": "oritchie@quitzon.com"
+        },
+        {
+            "lghNr": 20,
+            "email": "sipes.felicia@volkman.biz"
+        },
+        {
+            "lghNr": 21,
+            "email": "boris64@hotmail.com"
+        },
+        {
+            "lghNr": 22,
+            "email": "qokuneva@hotmail.com"
+        },
+        {
+            "lghNr": 23,
+            "email": "dixie.willms@mante.com"
+        },
+        {
+            "lghNr": 24,
+            "email": "miller.abbott@gmail.com"
+        },
+        {
+            "lghNr": 25,
+            "email": "pschuster@jacobson.com"
+        },
+        {
+            "lghNr": 26,
+            "email": "wyman.kacie@hotmail.com"
+        },
+        {
+            "lghNr": 27,
+            "email": "samir.lehner@white.com"
+        },
+        {
+            "lghNr": 28,
+            "email": "vfranecki@bergstrom.info"
+        },
+        {
+            "lghNr": 29,
+            "email": "alessandra95@yahoo.com"
+        },
+        {
+            "lghNr": 30,
+            "email": "ritchie.francisco@yahoo.com"
+        },
+        {
+            "lghNr": 31,
+            "email": "matt41@yahoo.com"
+        },
+        {
+            "lghNr": 32,
+            "email": "valentina02@collins.biz"
+        },
+        {
+            "lghNr": 33,
+            "email": "htorp@hotmail.com"
+        },
+        {
+            "lghNr": 34,
+            "email": "bart.keebler@gmail.com"
+        },
+        {
+            "lghNr": 35,
+            "email": "hbergnaum@gmail.com"
+        },
+        {
+            "lghNr": 36,
+            "email": "dana.roberts@hotmail.com"
+        },
+        {
+            "lghNr": 37,
+            "email": "howe.ciara@hessel.biz"
+        },
+        {
+            "lghNr": 38,
+            "email": "timmy59@doyle.com"
+        },
+        {
+            "lghNr": 39,
+            "email": "gretchen.volkman@hotmail.com"
+        },
+        {
+            "lghNr": 40,
+            "email": "krystel.lindgren@hotmail.com"
+        },
+        {
+            "lghNr": 41,
+            "email": "ydurgan@hotmail.com"
+        },
+        {
+            "lghNr": 42,
+            "email": "daniela09@marquardt.com"
+        },
+        {
+            "lghNr": 43,
+            "email": "hester.yundt@schamberger.com"
+        },
+        {
+            "lghNr": 44,
+            "email": "adelia70@feil.com"
+        },
+        {
+            "lghNr": 45,
+            "email": "morris.russel@stamm.com"
+        },
+        {
+            "lghNr": 46,
+            "email": "xhermiston@yahoo.com"
+        },
+        {
+            "lghNr": 47,
+            "email": "deondre.robel@hotmail.com"
+        },
+        {
+            "lghNr": 48,
+            "email": "beier.kelli@yahoo.com"
+        },
+        {
+            "lghNr": 49,
+            "email": "bebert@yahoo.com"
+        },
+        {
+            "lghNr": 50,
+            "email": "hfriesen@upton.com"
+        },
+        {
+            "lghNr": 51,
+            "email": "eula59@gmail.com"
+        },
+        {
+            "lghNr": 52,
+            "email": "howell38@gmail.com"
+        },
+        {
+            "lghNr": 53,
+            "email": "ivy69@hotmail.com"
+        },
+        {
+            "lghNr": 54,
+            "email": "waters.arlie@gmail.com"
+        },
+        {
+            "lghNr": 55,
+            "email": "jeramie.batz@nikolaus.org"
+        },
+        {
+            "lghNr": 56,
+            "email": "huels.ashtyn@yahoo.com"
+        },
+        {
+            "lghNr": 57,
+            "email": "hcronin@yahoo.com"
+        },
+        {
+            "lghNr": 58,
+            "email": "kwest@yahoo.com"
+        },
+        {
+            "lghNr": 59,
+            "email": "fae.hyatt@hotmail.com"
+        }
+    ],
+    "laundryBookings": [
+        {
+            "start_time": "2021-04-21 08:00:00",
+            "end_time": "2021-04-21 11:00:00",
+            "lghNr": "3",
+            "id": 1
+        },
+        {
+            "start_time": "2021-04-22 11:00:00",
+            "end_time": "2021-04-22 14:00:00",
+            "lghNr": "3",
+            "id": 2
+        },
+        {
+            "start_time": "2021-04-23 14:00:00",
+            "end_time": "2021-04-23 17:00:00",
+            "lghNr": "18",
+            "id": 3
+        },
+        {
+            "start_time": "2021-04-23 08:00:00",
+            "end_time": "2021-04-23 11:00:00",
+            "lghNr": "43",
+            "id": 4
+        }
+    ],
+    "gymBookings": [
+        {
+            "start_time": "2021-04-28 08:00:00",
+            "end_time": "2021-04-28 11:00:00",
+            "lghNr": "3",
+            "id": 1
+        }
+    ],
+    "logins": [
+        {
+            "email": "vheidenreich@hotmail.com",
+            "password": "vheidenreich@hotmail.com"
+        },
+        {
+            "email": "shyatt@yahoo.com",
+            "password": "shyatt@yahoo.com"
+        },
+        {
+            "email": "kris.audreanne@hotmail.com",
+            "password": "kris.audreanne@hotmail.com"
+        },
+        {
+            "email": "laurie.kutch@yahoo.com",
+            "password": "laurie.kutch@yahoo.com"
+        },
+        {
+            "email": "mackenzie.anderson@gmail.com",
+            "password": "mackenzie.anderson@gmail.com"
+        },
+        {
+            "email": "elyse79@senger.org",
+            "password": "elyse79@senger.org"
+        },
+        {
+            "email": "jessie.hackett@yahoo.com",
+            "password": "jessie.hackett@yahoo.com"
+        },
+        {
+            "email": "eusebio.kassulke@gmail.com",
+            "password": "eusebio.kassulke@gmail.com"
+        },
+        {
+            "email": "keith88@hotmail.com",
+            "password": "keith88@hotmail.com"
+        },
+        {
+            "email": "john.bashirian@gorczany.com",
+            "password": "john.bashirian@gorczany.com"
+        },
+        {
+            "email": "tomasa02@yahoo.com",
+            "password": "tomasa02@yahoo.com"
+        },
+        {
+            "email": "wroob@kunze.net",
+            "password": "wroob@kunze.net"
+        },
+        {
+            "email": "willis85@gulgowski.com",
+            "password": "willis85@gulgowski.com"
+        },
+        {
+            "email": "dylan.prohaska@kuvalis.com",
+            "password": "dylan.prohaska@kuvalis.com"
+        },
+        {
+            "email": "kstoltenberg@sipes.com",
+            "password": "kstoltenberg@sipes.com"
+        },
+        {
+            "email": "clarabelle57@yahoo.com",
+            "password": "clarabelle57@yahoo.com"
+        },
+        {
+            "email": "ryley.lebsack@douglas.com",
+            "password": "ryley.lebsack@douglas.com"
+        },
+        {
+            "email": "lillie.boehm@gmail.com",
+            "password": "lillie.boehm@gmail.com"
+        },
+        {
+            "email": "catalina.raynor@littel.net",
+            "password": "catalina.raynor@littel.net"
+        },
+        {
+            "email": "oritchie@quitzon.com",
+            "password": "oritchie@quitzon.com"
+        },
+        {
+            "email": "sipes.felicia@volkman.biz",
+            "password": "sipes.felicia@volkman.biz"
+        },
+        {
+            "email": "boris64@hotmail.com",
+            "password": "boris64@hotmail.com"
+        },
+        {
+            "email": "qokuneva@hotmail.com",
+            "password": "qokuneva@hotmail.com"
+        },
+        {
+            "email": "dixie.willms@mante.com",
+            "password": "dixie.willms@mante.com"
+        },
+        {
+            "email": "miller.abbott@gmail.com",
+            "password": "miller.abbott@gmail.com"
+        },
+        {
+            "email": "pschuster@jacobson.com",
+            "password": "pschuster@jacobson.com"
+        },
+        {
+            "email": "wyman.kacie@hotmail.com",
+            "password": "wyman.kacie@hotmail.com"
+        },
+        {
+            "email": "samir.lehner@white.com",
+            "password": "samir.lehner@white.com"
+        },
+        {
+            "email": "vfranecki@bergstrom.info",
+            "password": "vfranecki@bergstrom.info"
+        },
+        {
+            "email": "alessandra95@yahoo.com",
+            "password": "alessandra95@yahoo.com"
+        },
+        {
+            "email": "ritchie.francisco@yahoo.com",
+            "password": "ritchie.francisco@yahoo.com"
+        },
+        {
+            "email": "matt41@yahoo.com",
+            "password": "matt41@yahoo.com"
+        },
+        {
+            "email": "valentina02@collins.biz",
+            "password": "valentina02@collins.biz"
+        },
+        {
+            "email": "htorp@hotmail.com",
+            "password": "htorp@hotmail.com"
+        },
+        {
+            "email": "bart.keebler@gmail.com",
+            "password": "bart.keebler@gmail.com"
+        },
+        {
+            "email": "hbergnaum@gmail.com",
+            "password": "hbergnaum@gmail.com"
+        },
+        {
+            "email": "dana.roberts@hotmail.com",
+            "password": "dana.roberts@hotmail.com"
+        },
+        {
+            "email": "howe.ciara@hessel.biz",
+            "password": "howe.ciara@hessel.biz"
+        },
+        {
+            "email": "timmy59@doyle.com",
+            "password": "timmy59@doyle.com"
+        },
+        {
+            "email": "gretchen.volkman@hotmail.com",
+            "password": "gretchen.volkman@hotmail.com"
+        },
+        {
+            "email": "krystel.lindgren@hotmail.com",
+            "password": "krystel.lindgren@hotmail.com"
+        },
+        {
+            "email": "ydurgan@hotmail.com",
+            "password": "ydurgan@hotmail.com"
+        },
+        {
+            "email": "daniela09@marquardt.com",
+            "password": "daniela09@marquardt.com"
+        },
+        {
+            "email": "hester.yundt@schamberger.com",
+            "password": "hester.yundt@schamberger.com"
+        },
+        {
+            "email": "adelia70@feil.com",
+            "password": "adelia70@feil.com"
+        },
+        {
+            "email": "morris.russel@stamm.com",
+            "password": "morris.russel@stamm.com"
+        },
+        {
+            "email": "xhermiston@yahoo.com",
+            "password": "xhermiston@yahoo.com"
+        },
+        {
+            "email": "deondre.robel@hotmail.com",
+            "password": "deondre.robel@hotmail.com"
+        },
+        {
+            "email": "beier.kelli@yahoo.com",
+            "password": "beier.kelli@yahoo.com"
+        },
+        {
+            "email": "bebert@yahoo.com",
+            "password": "bebert@yahoo.com"
+        },
+        {
+            "email": "hfriesen@upton.com",
+            "password": "hfriesen@upton.com"
+        },
+        {
+            "email": "eula59@gmail.com",
+            "password": "eula59@gmail.com"
+        },
+        {
+            "email": "howell38@gmail.com",
+            "password": "howell38@gmail.com"
+        },
+        {
+            "email": "ivy69@hotmail.com",
+            "password": "ivy69@hotmail.com"
+        },
+        {
+            "email": "waters.arlie@gmail.com",
+            "password": "waters.arlie@gmail.com"
+        },
+        {
+            "email": "jeramie.batz@nikolaus.org",
+            "password": "jeramie.batz@nikolaus.org"
+        },
+        {
+            "email": "huels.ashtyn@yahoo.com",
+            "password": "huels.ashtyn@yahoo.com"
+        },
+        {
+            "email": "hcronin@yahoo.com",
+            "password": "hcronin@yahoo.com"
+        },
+        {
+            "email": "kwest@yahoo.com",
+            "password": "kwest@yahoo.com"
+        },
+        {
+            "email": "fae.hyatt@hotmail.com",
+            "password": "fae.hyatt@hotmail.com"
+        }
+    ],
+    "admins": [
+        {
+            "email": "vheidenreich@hotmail.com"
+        },
+        {
+            "email": "eusebio.kassulke@gmail.com"
+        },
+        {
+            "email": "kstoltenberg@sipes.com"
+        },
+        {
+            "email": "boris64@hotmail.com"
+        },
+        {
+            "email": "vfranecki@bergstrom.info"
+        },
+        {
+            "email": "hbergnaum@gmail.com"
+        },
+        {
+            "email": "daniela09@marquardt.com"
+        },
+        {
+            "email": "bebert@yahoo.com"
+        },
+        {
+            "email": "huels.ashtyn@yahoo.com"
+        }
+    ]
 }
