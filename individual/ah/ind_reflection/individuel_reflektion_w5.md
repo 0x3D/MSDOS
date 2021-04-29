@@ -39,8 +39,8 @@ få ut ett bra värde av veckans arbete för att slutligen få en bra produkt ti
 ## Mitt bidrag till gruppens leverans.
 Mitt bidrag till gruppens leverans denna vecka var att jag gjorde klart några
 userstories. Dessa var *cancelbooking*,*booking_confirmation*,*Cancelbooking_confirmation*,
-*Bookinghistory*, *Clear_Bokinghistory*. Det var alltså userstories som
-handlade om nyckelfunktionerna i applikationen så det gjorde så att man kunde
+*Bookinghistory*, *Clear_Bokinghistory*. Detta var de uppgifter jag hade tagit på mig denna sprint. 
+Det var alltså userstories som handlade om nyckelfunktionerna i applikationen så det gjorde så att man kunde
 föreställa sig hur slutprodukten ungefär skulle se ut och hur man gick till väga 
 inom applikationen när man gjorde en bokning eller avboking etc. Detta var något Alexander 
 gärna skulle vilja se vid nästa möte med honom (*måndag 3 maj*). Så mycket av mitt bidrag denna 
