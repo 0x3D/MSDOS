@@ -129,11 +129,14 @@ export default function GymBooking() {
                 <li>Bekräfta bokning i rutan som kommer upp</li>
             </ol>
             </div>
-            <Button className="mb-3 mr-5" disabled={!hasChosenTime} onClick={handleShow} >
-                Boka vald tid
-            </Button>
+
+
+            <Button className="mb-3 mr-5" disabled={!hasChosenTime} variant={hasChosenTime ? ("primary") : ("secondary")} onClick={handleShow} >
+                Boka markerad tid
+                </Button>
+
             <Button variant="secondary" className="mb-3 ml-5" onClick={clearTimeInterval}>
-                Rensa vald tid
+                Rensa markerad tid
             </Button>
             <div className="border-top">
                 <TimeCalendar
