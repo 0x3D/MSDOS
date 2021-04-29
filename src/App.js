@@ -9,6 +9,7 @@ import AdminPage from './components/AdminPage/AdminPage'
 import Home from './Home'
 import Profile from './components/Profile'
 import AuthDataProvider, { getAuthData } from './LoginBackend'
+import { IconContext } from 'react-icons'
 
 const url = 'http://localhost:8000/logins'
 const localStorage = window.localStorage
@@ -37,6 +38,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
  *
  * @returns The react-component that gather all react-components we are using
  * with a Router with our own NavigationBar
+ *
+ * IconContext.Provider gives the opportiunity to set style to all icons at once.
+ * The styles can be overitten by the components if the standard doesn´t fit.
+ *
  * @see{@link (https://reactrouter.com/)}
  *
  *
@@ -54,20 +59,23 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App () {
   document.title = 'MSDOS Booking'
   return (
+
     <>
-      <Router>
-        <AuthDataProvider>
-          <NavigationBar />
-          <Switch>
-            <Route exact path='/home' component={Home} />
-            <PrivateRoute exact path='/booking' component={Booking} />
-            <Route exact path='/profile' component={Profile} />
-            <Redirect exact from='/' to='/booking' />
-            <Route path='/admin' component={AdminPage} />
-            <Route path='/' component={ErrorPage} />
-          </Switch>
-        </AuthDataProvider>
-      </Router>
+      <IconContext.Provider value={{ color: 'cornflowerblue', size: '50px' }}>
+        <Router>
+          <AuthDataProvider>
+            <NavigationBar />
+            <Switch>
+              <Route exact path='/home' component={Home} />
+              <PrivateRoute exact path='/booking' component={Booking} />
+              <Route exact path='/profile' component={Profile} />
+              <Redirect exact from='/' to='/booking' />
+              <Route path='/admin' component={AdminPage} />
+              <Route path='/' component={ErrorPage} />
+            </Switch>
+          </AuthDataProvider>
+        </Router>
+      </IconContext.Provider>
     </>
   )
 }

@@ -76,11 +76,16 @@ export default function LaundryBooking () {
     setShowModal(true)
   }
 
+  //        <Image src="favicon.ico" className="rounded float-left" width="35px" />
+
   return (
     <>
-      <h4 className='pt-4 pb-4'>Här bokar du dina tvätttider</h4>
-      <div className='border-top'>
+      <div>
+        <h4 className='text-center'>Välj dag för att boka tvättid</h4>
+      </div>
+      <div>
         <TimeCalendar
+          className='border-top'
           clickable
           openHours={openHours}
           disableHistory
@@ -98,9 +103,13 @@ export default function LaundryBooking () {
         <Modal.Body>
           Bekräfta din bokning av tvättid.
           <br />
-          Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, '')} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
+          Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(
+            /"/g,
+            ''
+          )} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
           <br />
-          Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+          Dag:{' '}
+          {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
