@@ -108,9 +108,9 @@ export default function HandleUsers () {
               : (
                 <>
                   {users.map((row) => (
-                    <TableRow key={row.lghNr}>
+                    <TableRow key={row.apartmentNo}>
                       <TableCell align='center' scope='row'>
-                        {row.lghNr}
+                        {row.apartmentNo}
                       </TableCell>
                       <TableCell align='center'>
                         {row.email}
