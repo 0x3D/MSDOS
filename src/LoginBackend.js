@@ -1,16 +1,16 @@
 // Backend
 import React, { createContext, useState, useEffect, useMemo, useContext } from 'react'
-import { localStorageAvailable } from '@material-ui/data-grid'
 
 export const AuthDataContext = createContext(null)
 
 // This const is to have an empty object if no login
 const INITAUTHDATA = {}
+const localStorage = window.localStorage
 
 // If a login already exists, get it from localstorage
 export const getAuthData = () => {
   // Save cookie if browser allows.
-  if (localStorageAvailable) {
+  if (localStorage.getItem('tokens')) {
     const existingTokens = JSON.parse(localStorage.getItem('tokens'))
     return existingTokens
   }

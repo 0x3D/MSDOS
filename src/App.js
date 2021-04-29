@@ -2,7 +2,7 @@ import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Booking from './Booking'
-import React, { useEffect } from 'react'
+import React, {} from 'react'
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
@@ -12,9 +12,10 @@ import AuthDataProvider, { getAuthData } from './LoginBackend'
 import { IconContext } from 'react-icons'
 
 const url = 'http://localhost:8000/logins'
+const localStorage = window.localStorage
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const tokens = getAuthData()
+  const tokens = JSON.parse(localStorage.getItem('tokens'))
   // TODO: Authenticate here As in Login.jsx should probable be refactored.
 
   return (
