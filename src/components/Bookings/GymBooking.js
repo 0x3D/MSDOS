@@ -26,22 +26,11 @@ export default function GymBooking() {
 
     //Fetches the bookings from the api
     const fetchBookings = async () => {
-        // const response = await fetch(url)
-        // const data = await response.json()
-
-        // const bookings = data.map((booking) => {
-        //     booking.end_time = addMinutes(booking.end_time, 1)
-        // });
-
-
         fetch(url)
             .then((response) => response.json())
             .then((json) => {
                 parseData(json)
             });
-
-
-        //setBookings(data)
     }
 
     const parseData = (bookings) => {
