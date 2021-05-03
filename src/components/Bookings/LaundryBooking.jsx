@@ -31,7 +31,6 @@ export default function LaundryBooking () {
 
   // Creates a new booking
   const newBooking = async (sTime, eTime) => {
-
     const postData = {
       start_time: sTime,
       end_time: eTime,
@@ -54,9 +53,9 @@ export default function LaundryBooking () {
       body: JSON.stringify(postData)
     }
     const response = await fetch(url, requestOptions)
-  
+
     const data = await response.json()
-    
+
     console.log(data)
   }
 

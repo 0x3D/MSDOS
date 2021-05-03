@@ -6,7 +6,7 @@ import { CgGym } from 'react-icons/cg'
 import { BiBuildings } from 'react-icons/bi'
 import GymBooking from './components/Bookings/GymBooking'
 
-export default function Booking() {
+export default function Booking () {
   return (
     <>
       <Container className='mt-2 subnav'>

@@ -16,7 +16,6 @@ import { authenticateUser, useAuth, getAuthData } from '../LoginBackend'
   const handleShow = () => setShowHelp(true);
   const referrer = document.referrer || "/";
   const url = "http://localhost:8000/users?"; */
-  
 
 export default function Login (props) {
   const { basicLogin } = useAuth()
