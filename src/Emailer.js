@@ -24,5 +24,4 @@ const Emailer = (template, type) => {
             console.log('FAILED!!!', err)
         })
 }
-
 export default Emailer
