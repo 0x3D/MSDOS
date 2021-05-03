@@ -84,7 +84,7 @@ export default function AdminPage () {
 
   return (
     <div className='AdminPage'>
-      <h1> Admin sida</h1>
+      <h1> Adminsida</h1>
       <Container>
         <Row>
           <Col sm={12}>
