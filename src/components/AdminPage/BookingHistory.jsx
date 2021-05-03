@@ -1,4 +1,4 @@
-import { isPast, format } from 'date-fns'
+import { isPast } from 'date-fns'
 import React, { useState, useEffect } from 'react'
 import {
   makeStyles,
@@ -13,6 +13,8 @@ import {
 } from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
+
+const fetch = window.fetch
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -33,7 +35,7 @@ const useStyles = makeStyles({
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function BookingHistory () {
-  const dateformat = 'yyyy-MM-dd HH:mm:ss'
+  // const dateformat = 'yyyy-MM-dd HH:mm:ss'
 
   /**
    * @constant classes is to set the styles in the returned Component
@@ -51,8 +53,6 @@ export default function BookingHistory () {
    * Fetches the bookings from the api
    */
   const fetchBookings = async () => {
-    const date = new Date()
-    const formatedDate = format(date, dateformat)
     const response = await fetch('http://localhost:8000/laundryBookings')
     const data = await response.json()
     console.log(data)

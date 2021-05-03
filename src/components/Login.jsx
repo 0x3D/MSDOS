@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Form, Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/login.css'
 import { Redirect } from 'react-router-dom'
-import { authenticateUser, useAuth, getAuthData } from '../LoginBackend'
+import { useAuth } from '../LoginBackend'
+
+const fetch = window.fetch
 
 /* export default function Login(props) {
   const { basicLogin } = useAuth();
@@ -77,7 +79,7 @@ export default function Login (props) {
               handleLogin()
             }}
           >
-            <Form.Group controllId='formBasicUsername'>
+            <Form.Group controlId='formBasicUsername'>
               <Form.Label> Apartment Number </Form.Label>
               <Form.Control
                 autoFocus
@@ -87,7 +89,7 @@ export default function Login (props) {
                 placeholder='47'
               />
             </Form.Group>
-            <Form.Group controllerId='formBasicPassword'>
+            <Form.Group controlId='formBasicPassword'>
               <Form.Label> Password </Form.Label>
               <Form.Control
                 type='password'

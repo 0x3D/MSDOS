@@ -9,6 +9,8 @@ const openHours = [[8, 20]]
 let startTime = new Date()
 let endTime = new Date()
 const url = 'http://localhost:8000/laundryBookings/'
+const fetch = window.fetch
+const localStorage = window.localStorage
 
 export default function LaundryBooking () {
   // Booked times

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addMinutes, differenceInMinutes } from 'date-fns'
-import { Button, Modal, Container, ListGroup } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
 
@@ -9,6 +9,8 @@ const gymSections = 30
 const openHours = [[8, 22.5]]
 const url = 'http://localhost:8000/gymBookings/'
 const maxGymSessionTime = 3
+const fetch = window.fetch
+const localStorage = window.localStorage
 
 export default function GymBooking () {
   // Booked times
@@ -104,13 +106,14 @@ export default function GymBooking () {
   return (
     <>
       <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina gymtider</h4>
-      <div className='w-50 ml-auto mr-auto mb-4'><ol className='instructionsList'>
-        <li>Välj ett datum</li>
-        <li>Välj en starttid</li>
-        <li>Välj en sluttid (inom {maxGymSessionTime} timmar)</li>
-        <li>Klicka på boka vald tid</li>
-        <li>Bekräfta bokning i rutan som kommer upp</li>
-                                                 </ol>
+      <div className='w-50 ml-auto mr-auto mb-4'>
+        <ol className='instructionsList'>
+          <li>Välj ett datum</li>
+          <li>Välj en starttid</li>
+          <li>Välj en sluttid (inom {maxGymSessionTime} timmar)</li>
+          <li>Klicka på boka vald tid</li>
+          <li>Bekräfta bokning i rutan som kommer upp</li>
+        </ol>
       </div>
 
       <Button className='mb-3 mr-5' disabled={!hasChosenTime} variant={hasChosenTime ? ('primary') : ('secondary')} onClick={handleShow}>
@@ -137,15 +140,17 @@ export default function GymBooking () {
         <Modal.Header closeButton>
           <Modal.Title>Bekräfta din bokning</Modal.Title>
         </Modal.Header>
-        {!hasChosenTime ? (<p>Var vänlig välj tider innan du bokar</p>) : (
-          <Modal.Body>
-            Bekräfta din bokning av gymtid.
-            <br />
-            Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, '')} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
-            <br />
-            Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
-          </Modal.Body>
-        )}
+        {!hasChosenTime
+          ? <p>Var vänlig välj tider innan du bokar</p>
+          : (
+            <Modal.Body>
+              Bekräfta din bokning av gymtid.
+              <br />
+              Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, '')} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
+              <br />
+              Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+            </Modal.Body>
+            )}
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
             Stäng

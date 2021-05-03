@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
-import getAuthData from '../LoginBackend'
 const localStorage = window.localStorage
+const fetch = window.fetch
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.
@@ -134,7 +134,7 @@ export default function Profile () {
             <Card style={{}}>
               <Card.Header as='h3'> <b>Mina Bokningar</b> </Card.Header> <br />
               {laundryBookings.map((row) => (
-                <>
+                <React.Fragment key={row.start_time}>
                   <Card.Text className='border' key={row.start_time}>
                     <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
                     <Button
@@ -144,7 +144,7 @@ export default function Profile () {
                     >Ta bort bokning
                     </Button>
                   </Card.Text>
-                </>
+                </React.Fragment>
               ))}
             </Card>
             )}

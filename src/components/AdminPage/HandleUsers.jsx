@@ -13,6 +13,8 @@ import {
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
 
+const fetch = window.fetch
+
 /**
  * @constant useStyles is used to set the width of the table created
  * @see [Materia-UI](https://material-ui.com/styles/basics/)

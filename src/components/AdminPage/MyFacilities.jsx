@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
 
+const fetch = window.fetch
+
 /**
  * A admin component that gives a overview of all Faciities
  *
@@ -31,16 +33,18 @@ export default function MyFacilities () {
         <ListGroup variant='flush'>
           {!facilities
             ? (<h1>loading...</h1>)
-            : (<> {
+            : (
+              <> {
               facilities.map((row) => (
-                <>
+                <React.Fragment key={row.fac}>
 
                   <ListGroup.Item key={row.fac}>{row.fac}</ListGroup.Item>
 
-                </>
+                </React.Fragment>
               ))
             }
-            </>)}
+              </>
+              )}
         </ListGroup>
       </Card>
     </div>

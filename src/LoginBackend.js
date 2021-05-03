@@ -1,5 +1,5 @@
 // Backend
-import React, { createContext, useState, useEffect, useMemo, useContext } from 'react'
+import React, { createContext, useState, useEffect, useContext } from 'react'
 
 export const AuthDataContext = createContext(null)
 

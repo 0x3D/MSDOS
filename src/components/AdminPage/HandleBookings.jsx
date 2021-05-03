@@ -11,8 +11,9 @@ import {
   Button
 } from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
-import CheckBox from '../../assets/greenCheck.png'
 import { FaCheck } from 'react-icons/fa'
+
+const fetch = window.fetch
 
 /**
  * @constant useStyles is used to set the width of the table created
