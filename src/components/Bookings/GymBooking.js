@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from "react-timecalendar";
-import { format, addMinutes, differenceInMinutes, parseISO } from 'date-fns'
-import { Button, Modal } from 'react-bootstrap'
+import { format, addMinutes, differenceInMinutes } from 'date-fns'
+import { Button, Modal, Container, ListGroup } from 'react-bootstrap'
 import '../../styles/App.css'
 
 
@@ -48,14 +48,14 @@ export default function GymBooking() {
 
 
     //Creates a new booking
-    const newBooking = async (sTime, eTime) => {
-        if (sTime === '' || eTime === '') {
+    const newBooking = async (startTime, endTime) => {
+        if (startTime === '' || endTime === '') {
             alert('Inga start eller sluttider valda')
         } else {
             const bookingData = {
-                start_time: sTime,
-                end_time: eTime,
-                lghNr: "3"
+                start_time: startTime,
+                end_time: endTime,
+                apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
             }
             await postBooking(bookingData)
         }
@@ -119,11 +119,9 @@ export default function GymBooking() {
             </ol>
             </div>
 
-
             <Button className="mb-3 mr-5" disabled={!hasChosenTime} variant={hasChosenTime ? ("primary") : ("secondary")} onClick={handleShow} >
                 Boka markerad tid
-                </Button>
-
+            </Button>
             <Button variant="secondary" className="mb-3 ml-5" onClick={clearTimeInterval}>
                 Rensa markerad tid
             </Button>
