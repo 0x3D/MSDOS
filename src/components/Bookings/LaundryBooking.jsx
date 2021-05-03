@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
+import Emailer from '../../Emailer'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
@@ -39,6 +40,7 @@ export default function LaundryBooking () {
 
     await postBooking(postData)
     await fetchBookings()
+    await Emailer(postData, 'LAUNDRY')
   }
 
   // Posts the previously created booking

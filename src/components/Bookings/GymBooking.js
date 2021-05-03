@@ -3,6 +3,7 @@ import TimeCalendar from "react-timecalendar";
 import { format, addMinutes, differenceInMinutes } from 'date-fns'
 import { Button, Modal, Container, ListGroup } from 'react-bootstrap'
 import '../../styles/App.css'
+import Emailer from '../../Emailer'
 
 
 const gymSections = 30
@@ -58,6 +59,8 @@ export default function GymBooking() {
                 apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
             }
             await postBooking(bookingData)
+            await Emailer(bookingData,'GYM')
+
         }
         await fetchBookings()
     }
