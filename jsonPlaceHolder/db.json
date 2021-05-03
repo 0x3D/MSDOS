@@ -393,13 +393,6 @@
       "role": "admin"
     },
     {
-      "apartmentNo": 57,
-      "email": "hcronin@yahoo.com",
-      "password": "hcronin@yahoo.com",
-      "id": 57,
-      "role": "user"
-    },
-    {
       "apartmentNo": 58,
       "email": "kwest@yahoo.com",
       "password": "kwest@yahoo.com",
@@ -414,14 +407,7 @@
       "role": "user"
     }
   ],
-  "laundryBookings": [
-    {
-      "start_time": "2021-03-29T06:00:00.000Z",
-      "end_time": "2021-03-29T09:00:00.000Z",
-      "apartmentNo": 59,
-      "id": 1
-    }
-  ],
+  "laundryBookings": [],
   "gymBookings": [
     {
       "start_time": "2021-04-24 08:00:00",
