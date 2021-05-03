@@ -79,7 +79,7 @@ export default function Login (props) {
               handleLogin()
             }}
           >
-            <Form.Group controllId='formBasicUsername'>
+            <Form.Group controlId='formBasicUsername'>
               <Form.Label> Apartment Number </Form.Label>
               <Form.Control
                 autoFocus
@@ -89,7 +89,7 @@ export default function Login (props) {
                 placeholder='47'
               />
             </Form.Group>
-            <Form.Group controllerId='formBasicPassword'>
+            <Form.Group controlId='formBasicPassword'>
               <Form.Label> Password </Form.Label>
               <Form.Control
                 type='password'

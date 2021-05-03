@@ -425,6 +425,18 @@
       "end_time": "2021-05-06T18:00:00.000Z",
       "apartmentNo": 2,
       "id": 3
+    },
+    {
+      "start_time": "2021-05-04T09:00:00.000Z",
+      "end_time": "2021-05-04T12:00:00.000Z",
+      "apartmentNo": 2,
+      "id": 4
+    },
+    {
+      "start_time": "2021-05-05T12:00:00.000Z",
+      "end_time": "2021-05-05T15:00:00.000Z",
+      "apartmentNo": 2,
+      "id": 5
     }
   ],
   "gymBookings": [
