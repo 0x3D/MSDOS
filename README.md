@@ -21,7 +21,7 @@ cd jsonPaceHolder
 ```
 
 ```
-npm run start:server
+npm run json:server
 
 ```
 ___
