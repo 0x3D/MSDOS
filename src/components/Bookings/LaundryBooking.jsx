@@ -8,6 +8,8 @@ const openHours = [[8, 20]]
 let startTime = new Date()
 let endTime = new Date()
 const url = 'http://localhost:8000/laundryBookings/'
+const fetch = window.fetch
+const localStorage = window.localStorage
 
 export default function LaundryBooking () {
   // Booked times
@@ -30,7 +32,6 @@ export default function LaundryBooking () {
 
   // Creates a new booking
   const newBooking = async (sTime, eTime) => {
-
     const postData = {
       start_time: sTime,
       end_time: eTime,
@@ -52,9 +53,9 @@ export default function LaundryBooking () {
       body: JSON.stringify(postData)
     }
     const response = await fetch(url, requestOptions)
-  
+
     const data = await response.json()
-    
+
     console.log(data)
   }
 

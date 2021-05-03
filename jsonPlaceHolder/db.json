@@ -407,13 +407,38 @@
       "role": "user"
     }
   ],
-  "laundryBookings": [],
+  "laundryBookings": [
+    {
+      "start_time": "2021-05-05T09:00:00.000Z",
+      "end_time": "2021-05-05T12:00:00.000Z",
+      "apartmentNo": 2,
+      "id": 1
+    },
+    {
+      "start_time": "2021-05-06T12:00:00.000Z",
+      "end_time": "2021-05-06T15:00:00.000Z",
+      "apartmentNo": 2,
+      "id": 2
+    },
+    {
+      "start_time": "2021-05-06T15:00:00.000Z",
+      "end_time": "2021-05-06T18:00:00.000Z",
+      "apartmentNo": 2,
+      "id": 3
+    }
+  ],
   "gymBookings": [
     {
       "start_time": "2021-04-24 08:00:00",
       "end_time": "2021-04-24 11:00:00",
       "apartmentNo": "3",
       "id": 1
+    },
+    {
+      "start_time": "2021-05-05T06:00:00.000Z",
+      "end_time": "2021-05-05T07:30:00.000Z",
+      "apartmentNo": 2,
+      "id": 2
     }
   ],
   "logins": [

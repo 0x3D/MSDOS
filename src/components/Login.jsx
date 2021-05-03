@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Form, Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/login.css'
 import { Redirect } from 'react-router-dom'
-import { authenticateUser, useAuth, getAuthData } from '../LoginBackend'
+import { useAuth } from '../LoginBackend'
+
+const fetch = window.fetch
 
 /* export default function Login(props) {
   const { basicLogin } = useAuth();
@@ -16,7 +18,6 @@ import { authenticateUser, useAuth, getAuthData } from '../LoginBackend'
   const handleShow = () => setShowHelp(true);
   const referrer = document.referrer || "/";
   const url = "http://localhost:8000/users?"; */
-  
 
 export default function Login (props) {
   const { basicLogin } = useAuth()

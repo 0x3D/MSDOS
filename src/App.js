@@ -8,10 +8,10 @@ import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
 import Home from './Home'
 import Profile from './components/Profile'
-import AuthDataProvider, { getAuthData } from './LoginBackend'
+import AuthDataProvider from './LoginBackend'
 import { IconContext } from 'react-icons'
 
-const url = 'http://localhost:8000/logins'
+// const url = 'http://localhost:8000/logins'
 const localStorage = window.localStorage
 
 const PrivateRoute = ({ component: Component, ...rest }) => {

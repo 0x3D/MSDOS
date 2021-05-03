@@ -14,7 +14,8 @@ export default function NavigationBar () {
   // const backend = new LoginBackend()
   const history = useHistory()
   const handleLogOut = (e) => {
-    const result = basicLogout()
+    // const result =
+    basicLogout()
     history.push('/')
   }
 
