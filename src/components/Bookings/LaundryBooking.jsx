@@ -41,7 +41,7 @@ export default function LaundryBooking () {
 
     await postBooking(postData)
     await fetchBookings()
-    await Emailer(postData, 'LAUNDRY')
+    Emailer(postData, 'LAUNDRY')
   }
 
   // Posts the previously created booking

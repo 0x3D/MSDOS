@@ -19,9 +19,9 @@ const Emailer = (template, type) => {
   const templateId = 'template_8yxr5ck'
   emailjs.send(serviceID, templateId, data, userID)
     .then((respons) => {
-      console.log('SUCCESS!', respons.status, respons.text)
+      console.log('Email sent', respons.status, respons.text)
     }, (err) => {
-      console.log('FAILED!!!', err)
+      console.log('Failed to send email', err)
     })
 }
 export default Emailer

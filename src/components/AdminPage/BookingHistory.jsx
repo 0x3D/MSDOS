@@ -135,22 +135,22 @@ export default function BookingHistory () {
             </TableRow>
           </TableHead>
           <TableBody>
-            {!bookingHistory ? (
-              <h1>loading...</h1>
-            ) : (
-              <>
-                {bookingHistory.map((row) => (
-                  <TableRow key={row.id}>
-                    <TableCell component='th' scope='row'>
-                      {row.start_time}
-                    </TableCell>
-                    <TableCell align='center'>{row.end_time}</TableCell>
-                    <TableCell align='center'>{row.apartmentNo}</TableCell>
-                    <TableCell />
-                  </TableRow>
-                ))}
-              </>
-            )}
+            {!bookingHistory
+              ? (<h1>loading...</h1>)
+              : (
+                <>
+                  {bookingHistory.map((row) => (
+                    <TableRow key={row.id}>
+                      <TableCell component='th' scope='row'>
+                        {row.start_time}
+                      </TableCell>
+                      <TableCell align='center'>{row.end_time}</TableCell>
+                      <TableCell align='center'>{row.apartmentNo}</TableCell>
+                      <TableCell />
+                    </TableRow>
+                  ))}
+                </>
+                )}
           </TableBody>
         </Table>
       </TableContainer>

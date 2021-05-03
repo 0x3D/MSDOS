@@ -11,6 +11,7 @@ const url = 'http://localhost:8000/gymBookings/'
 const maxGymSessionTime = 3
 const fetch = window.fetch
 const localStorage = window.localStorage
+const alert = window.alert
 
 export default function GymBooking () {
   // Booked times
@@ -56,7 +57,7 @@ export default function GymBooking () {
         apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
       }
       await postBooking(bookingData)
-      await Emailer(bookingData, 'GYM')
+      Emailer(bookingData, 'GYM')
     }
     await fetchBookings()
   }

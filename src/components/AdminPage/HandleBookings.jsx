@@ -128,34 +128,34 @@ export default function HandleBookings () {
             </TableRow>
           </TableHead>
           <TableBody>
-            {!laundryBookings ? (
-              <h1>loading...</h1>
-            ) : (
-              <>
-                {laundryBookings.map((row) => (
-                  <TableRow key={row.id}>
-                    <TableCell component='th' scope='row'>
-                      {row.start_time}
-                    </TableCell>
-                    <TableCell align='center'>{row.end_time}</TableCell>
-                    <TableCell align='center'>{row.apartmentNo}</TableCell>
-                    <TableCell>
-                      {' '}
-                      <Button
-                        variant='contained'
-                        color='secondary'
-                        onClick={(e) => {
-                          removeBooking(row.id)
-                        }}
-                      >
+            {!laundryBookings
+              ? (<h1>loading...</h1>)
+              : (
+                <>
+                  {laundryBookings.map((row) => (
+                    <TableRow key={row.id}>
+                      <TableCell component='th' scope='row'>
+                        {row.start_time}
+                      </TableCell>
+                      <TableCell align='center'>{row.end_time}</TableCell>
+                      <TableCell align='center'>{row.apartmentNo}</TableCell>
+                      <TableCell>
                         {' '}
-                        Ta bort bokning
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </>
-            )}
+                        <Button
+                          variant='contained'
+                          color='secondary'
+                          onClick={(e) => {
+                            removeBooking(row.id)
+                          }}
+                        >
+                          {' '}
+                          Ta bort bokning
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </>
+                )}
           </TableBody>
         </Table>
       </TableContainer>

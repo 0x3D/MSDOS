@@ -125,32 +125,32 @@ export default function HandleUsers () {
           </TableHead>
 
           <TableBody>
-            {!users ? (
-              <h1>loading...</h1>
-            ) : (
-              <>
-                {users.map((row) => (
-                  <TableRow key={row.apartmentNo}>
-                    <TableCell align='center' scope='row'>
-                      {row.apartmentNo}
-                    </TableCell>
-                    <TableCell align='center'>{row.email}</TableCell>
-                    <TableCell align='center'>
-                      <Button
-                        variant='contained'
-                        color='secondary'
-                        onClick={(e) => {
-                          removeUser(row.id)
-                        }}
-                      >
-                        {' '}
-                        Ta bort användare
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </>
-            )}
+            {!users
+              ? (<h1>loading...</h1>)
+              : (
+                <>
+                  {users.map((row) => (
+                    <TableRow key={row.apartmentNo}>
+                      <TableCell align='center' scope='row'>
+                        {row.apartmentNo}
+                      </TableCell>
+                      <TableCell align='center'>{row.email}</TableCell>
+                      <TableCell align='center'>
+                        <Button
+                          variant='contained'
+                          color='secondary'
+                          onClick={(e) => {
+                            removeUser(row.id)
+                          }}
+                        >
+                          {' '}
+                          Ta bort användare
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </>
+                )}
           </TableBody>
         </Table>
       </TableContainer>
