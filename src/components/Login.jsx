@@ -59,7 +59,7 @@ export default function Login (props) {
   }
 
   return (
-    <Container classname='loginContainer'>
+    <Container className='loginContainer'>
       {isLoggedIn ? <Redirect exact path='/booking' /> : <h1> &nbsp;</h1>}
       <Modal show={showHelp} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -73,7 +73,7 @@ export default function Login (props) {
       <Row className='justify-content-md-center'>
         <Col xs={5} xs-offset={2}>
           <Form
-            classname='loginForm'
+            className='loginForm'
             onSubmit={() => {
               handleLogin()
             }}
