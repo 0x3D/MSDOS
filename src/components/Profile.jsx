@@ -105,14 +105,13 @@ export default function Profile () {
         'Content-type': 'application/json'
       }
     })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then(res => res.json)
+      .then(res => console.log(res))
     toggleShowToast()
   }
 
   const handleEditBooking = (e) => {
     handleShow()
-    console.log(String(e))
     setTempBookingId(String(e))
   }
 

@@ -47,7 +47,6 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   // Posts the previously created booking
   const postBooking = async (postData) => {
     if (temporaryBookingId !== undefined) {
-      console.log(temporaryBookingId)
       removeFunction(temporaryBookingId)
       window.location.reload()
     }
