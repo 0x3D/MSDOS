@@ -110,8 +110,9 @@ export default function Profile() {
     toggleShowToast();
   };
 
-  const handleEditBooking = (e) => {
+  const handleEditBooking = () => {
     handleShow();
+    //const tempBooking = row.id;
   };
 
   /**
@@ -154,7 +155,7 @@ export default function Profile() {
             <Col md={{ span: 4, offset: 4 }}>
               <Toast show={showToast} onClose={toggleShowToast}>
                 <Toast.Header>
-                  <img width="35px" src={CheckBox} alt="" />
+                  <CheckBox size="2em" />
                   <strong className="mr-auto">Bokning borttagen</strong>
                 </Toast.Header>
                 <Toast.Body>
@@ -187,7 +188,7 @@ export default function Profile() {
               {laundryBookings.map((row) => (
                 <React.Fragment key={row.start_time}>
                   <Card.Text className="border" key={row.start_time}>
-                    <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> :{" "}
+                    <b>Starttid</b> : {row.start_time} <br /> <b>Sluttid</b> :{" "}
                     {row.end_time} <br />
                     <Button
                       variant="danger"
@@ -208,7 +209,7 @@ export default function Profile() {
         </Container>
       </div>
 
-      <Modal show={showModal} onHide={handleClose}>
+      <Modal size="lg" show={showModal} onHide={handleClose}>
         <ModalHeader closeButton>
           <ModalTitle> Välj ny tid för att redigera din bokning</ModalTitle>
         </ModalHeader>
