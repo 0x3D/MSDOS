@@ -369,3 +369,5 @@ src/tools/logins.json
 src/tools/users.json
 
 *.swp
+
+src/test/__snapshots__/
