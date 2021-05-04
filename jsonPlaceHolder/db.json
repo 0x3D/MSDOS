@@ -409,12 +409,6 @@
   ],
   "laundryBookings": [
     {
-      "start_time": "2021-04-24 08:00:00",
-      "end_time": "2021-04-24 11:00:00",
-      "apartmentNo": "3",
-      "id": 1
-    },
-    {
       "start_time": "2021-05-04T06:00:00.000Z",
       "end_time": "2021-05-04T09:00:00.000Z",
       "apartmentNo": 3,
@@ -491,6 +485,12 @@
       "end_time": "2021-05-11T12:00:00.000Z",
       "apartmentNo": 3,
       "id": 14
+    },
+    {
+      "start_time": "2021-05-11T06:00:00.000Z",
+      "end_time": "2021-05-11T09:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 15
     }
   ],
   "gymBookings": [
