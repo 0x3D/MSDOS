@@ -85,13 +85,13 @@ export default function GymBooking() {
     /**
      * Functinon to fetch the booked gymtimes from the database
      */
-    const fetchBookings = async () => {
+    const fetchBookings = useCallback(async () => {
         fetch(url)
             .then((response) => response.json())
             .then((json) => {
                 parseData(json)
             });
-    }
+    }, [])
 
     /**
      * Functinon to parse the fetched data from the database
@@ -111,7 +111,7 @@ export default function GymBooking() {
      */
     useEffect(() => {
         fetchBookings()
-    }, [])
+    }, [fetchBookings])
 
 
     //Creates a new booking

@@ -45,7 +45,9 @@
     ]
   },
   "standard": {
-    "env": [ "jest" ]
+    "env": [
+      "jest"
+    ]
   },
   "browserslist": {
     "production": [
