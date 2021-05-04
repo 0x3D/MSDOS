@@ -5,6 +5,7 @@ import HandleBookings from './HandleBookings'
 import HandleUsers from './HandleUsers'
 import MyFacilities from './MyFacilities'
 import BookingHistory from './BookingHistory'
+import '../../styles/App.css'
 
 /**
  * The AdminPage component is the component that gather all things a admin can do
@@ -83,14 +84,15 @@ export default function AdminPage () {
   }
 
   return (
-    <div className='AdminPage'>
-      <h1> Admin sida</h1>
-      <Container>
+    <div  className="adminTitle">
+      <h1> Adminsida</h1>
+      <Container >
         <Row>
           <Col sm={12}>
 
-            <ListGroup>
-              <ListGroup.Item>
+            <ListGroup className="adminListGroup">
+            
+              <ListGroup.Item >
                 <Button id='handle-bookings' onClick={handleShow} size='lg' block>
                   Hantera bokningar
                 </Button>

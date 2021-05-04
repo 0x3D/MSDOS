@@ -5,6 +5,7 @@ import LaundryBooking from './components/Bookings/LaundryBooking'
 import { CgGym } from 'react-icons/cg'
 import { BiBuildings } from 'react-icons/bi'
 
+
 export default function Booking () {
   return (
     <>

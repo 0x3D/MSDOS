@@ -3,6 +3,7 @@ import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 
+
 const laundryTime = 180
 const openHours = [[8, 20]]
 let startTime = new Date()

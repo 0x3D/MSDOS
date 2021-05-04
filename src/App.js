@@ -61,8 +61,11 @@ function App () {
   return (
 
     <>
+    <div className="namn">
+      hej
+    </div>
       <IconContext.Provider value={{ color: 'cornflowerblue', size: '50px' }}>
-        <Router>
+        <Router className="namn">
           <AuthDataProvider>
             <NavigationBar />
             <Switch>

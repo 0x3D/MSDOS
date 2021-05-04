@@ -5,11 +5,34 @@
 
 /* Här kan vi hämta färger med hjälp av 'var(--main-color)' */
 :root {
-  --main-color: #86ec8f8f;
+  --main-color: #65ca6e8f;
   --secendary-color: rgb(185, 137, 128);
   --text-color: rgb(31, 29, 29);
   --text-color-light: rgb(114, 109, 109);
   --border-color: rgb(241, 121, 241);
   --bg-color: #e9f541;
   --neutral-color: rgb(198, 239, 245);
+  --title-color: rgb(35, 199, 225);
+}
+
+.namn{
+  color: var(--secendary-color);
+}
+
+.adminTitle{
+  color: var(--title-color);
+}
+
+.adminListGroup button{
+  margin: 40px;
+  margin-inline: 5px;
+  background-color: var(--secendary-color)
+}
+
+.adminListGroup button:hover{
+  background-color: var(--title-color)
+}
+
+.adminListGroup button:{
+  background-color: var(--title-color)
 }
