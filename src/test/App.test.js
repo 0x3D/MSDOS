@@ -10,9 +10,7 @@ import BookingHistory from '../components/AdminPage/BookingHistory'
 import HandleBookings from '../components/AdminPage/HandleBookings'
 import HandleUsers from '../components/AdminPage/HandleUsers'
 import MyFacilities from '../components/AdminPage/MyFacilities'
-import { useAuth } from '../LoginBackend'
-
-
+// import { useAuth } from '../LoginBackend'
 
 it('LaundryBookings renders correctly', () => {
   const renderer = new ShallowRenderer()
@@ -29,14 +27,14 @@ it('GymBookings renders correctly', () => {
 })
 
 it('Login renders correctly', () => {
-  const data = {
-    "apartmentNo": 3,
-    "email": "laurie.kutch@yahoo.com",
-    "password": "laurie.kutch@yahoo.com",
-    "id": 3,
-    "role": "user"
-  }
-  localStorage.setItem('tokens', data);
+  /* const data = {
+    apartmentNo: 3,
+    email: 'laurie.kutch@yahoo.com',
+    password: 'laurie.kutch@yahoo.com',
+    id: 3,
+    role: 'user'
+  } */
+  // localStorage.setItem('tokens', data)
   const renderer = new ShallowRenderer()
   renderer.render(<Login />)
   const result = renderer.getRenderOutput()
@@ -86,7 +84,7 @@ it('HandleUsers renders correctly', () => {
 })
 
 it('MyFacilities renders correctly', () => {
-  console.log(localStorage)
+  // console.log(localStorage)
   const renderer = new ShallowRenderer()
   renderer.render(<MyFacilities />)
   const result = renderer.getRenderOutput()
