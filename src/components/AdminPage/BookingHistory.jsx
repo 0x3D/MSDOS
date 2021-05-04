@@ -46,13 +46,13 @@ export default function BookingHistory () {
   const classes = useStyles()
 
   /**
-   * bookingHistory is a variable, and setBookingHistory is a set-method for the variable
-   * Usestate is the default value
-   *
-   * @constant bookingHistory holds the bookings that tha date is past time
-   * @method setLaundryBookings setThe data to the variable
-   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
-   */
+  * bookingHistory is a variable, and setBookingHistory is a set-method for the variable
+  * Usestate is the default value
+  *
+  * @constant bookingHistory holds the bookings that tha date is past time
+  * @method setLaundryBookings setThe data to the variable
+  * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+  */
   const [bookingHistory, setBookingHistory] = useState(null)
 
   /**

@@ -5,20 +5,16 @@ import '../styles/login.css'
 import { Redirect } from 'react-router-dom'
 import { useAuth } from '../LoginBackend'
 
+// Use fetch from webbrowser.
 const fetch = window.fetch
 
-/* export default function Login(props) {
-  const { basicLogin } = useAuth();
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showHelp, setShowHelp] = useState(false);
-  const [userData, setUserData] = useState(null);
-  const handleClose = () => setShowHelp(false);
-  const handleShow = () => setShowHelp(true);
-  const referrer = document.referrer || "/";
-  const url = "http://localhost:8000/users?"; */
-
+/**
+* Loginpage to login user. Uses loginbackend to login user. Also checks if
+* password is correct.
+* TODO: Refactor into another file password logic.
+* @param {*} props
+* @returns React component with the login page.
+*/
 export default function Login (props) {
   const { basicLogin } = useAuth()
   const [isLoggedIn, setLoggedIn] = useState(false)
