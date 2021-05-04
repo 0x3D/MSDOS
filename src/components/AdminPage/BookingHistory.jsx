@@ -14,11 +14,14 @@ import {
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
 
+/**
+ * @constant fetch is a constant that holds the executed window
+ */
 const fetch = window.fetch
 
 /**
  * @constant useStyles is used to set the width of the table created
- * @see [Materia-UI](https://material-ui.com/styles/basics/)
+ * @see {@link[Materia-UI](https://material-ui.com/styles/basics/)}
  */
 const useStyles = makeStyles({
   table: {
@@ -42,9 +45,29 @@ export default function BookingHistory () {
    */
   const classes = useStyles()
 
+   /**
+   * bookingHistory is a variable, and setBookingHistory is a set-method for the variable
+   * Usestate is the default value
+   *
+   * @constant bookingHistory holds the bookings that tha date is past time
+   * @method setLaundryBookings setThe data to the variable
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
   const [bookingHistory, setBookingHistory] = useState(null)
 
+  /**
+   * showToast is a variable, and setShowToast is a set-method for the variable
+   * Usestate is the default value
+   *
+   * @constant showToast is a boolean that tells us if the Toast is showing or not
+   * @method setShowToast sets the boolean value
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
   const [showToast, setShowToast] = useState(false)
+
+  /**
+   * @method toggleShowToast is a method that handle the the @method setShowToast setter
+   */
   const toggleShowToast = () => {
     setShowToast(!showToast)
   }
@@ -67,6 +90,10 @@ export default function BookingHistory () {
     setBookingHistory(historyArray)
   }
 
+  /**
+   * @method clearBookingHistory is a async function that cleares tha past time bookings from the DB
+   * @param {is the event} e 
+   */
   const clearBookingHistory = async () => {
     console.log('m called')
     for (let i = 0; i < bookingHistory.length; i++) {
@@ -83,7 +110,7 @@ export default function BookingHistory () {
   }
 
   /**
-   * useEffect is a React function that is used to not rerender uneccesary thing
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
    */
   useEffect(() => {
     fetchBookings()

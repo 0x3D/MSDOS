@@ -56,6 +56,10 @@ export default function HandleBookings () {
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [showToast, setShowToast] = useState(false)
+
+  /**
+   * @method toggleShowToast is a method that handle the the @method setShowToast setter
+   */
   const toggleShowToast = () => {
     setShowToast(!showToast)
   }
@@ -69,12 +73,16 @@ export default function HandleBookings () {
     setLaundryBookings(data)
   }
   /**
-   * useEffect is a React function that is used to not rerender uneccesary thing
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
    */
   useEffect(() => {
     fetchBookings()
   }, [])
 
+  /**
+   * @method removeBooking is a async function that remove a booking from the DB
+   * @param {is the event} e 
+   */
   const removeBooking = async (e) => {
     console.log(e)
     const id = String(e)

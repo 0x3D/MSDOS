@@ -52,16 +52,20 @@ export default function Profile () {
   }, [currentUser])
 
   /**
-     * Fetches the laundryBooking from jsonPlaceHolder
-     * @constant response is what the jsonplaceholder gives us
-     * @constant data is the data we formatting to a JSON
-     */
+  * Fetches the laundryBooking from jsonPlaceHolder
+  * @constant response is what the jsonplaceholder gives us
+  * @constant data is the data we formatting to a JSON
+  */
   const fetchBookings = useCallback(async () => {
     const response = await fetch('http://localhost:8000/laundryBookings?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setLaundryBookings(data)
   }, [currentUser])
 
+  /**
+   * @method removeBooking is a async function that removes the booking for a specifik user from the DB
+   * @param {is the event} e 
+   */
   const removeBooking = async (e) => {
     const id = String(e)
     fetch('http://localhost:8000/laundryBookings/' + id, {
@@ -76,8 +80,8 @@ export default function Profile () {
   }
 
   /**
-     * useEffect is a React function that is used to not rerender uneccesary thing
-     */
+  * @method useEffect is a React function that is used to not rerender uneccesary thing
+  */
   useEffect(() => {
     fetchBookings()
     fetchUsers()

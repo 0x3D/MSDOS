@@ -35,11 +35,12 @@ const useStyles = makeStyles({
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function HandleUsers () {
+
   /**
    * users is a variables, and setUsers is a set-method for the variable
    * Usestate is the default value
-   * @constant users
-   * @method setUsers
+   * @constant users holds the values of the users
+   * @method setUsers is a setter for the users constant
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [users, setUsers] = useState(null)
@@ -50,6 +51,10 @@ export default function HandleUsers () {
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [showToast, setShowToast] = useState(false)
+
+  /**
+   * @method toggleShowToast is a method that handle the the @method setShowToast setter
+   */
   const toggleShowToast = () => {
     setShowToast(!showToast)
   }
@@ -69,12 +74,16 @@ export default function HandleUsers () {
   }
 
   /**
-   * useEffect is a React function that is used to not rerender uneccesary thing
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
    */
   useEffect(() => {
     fetchUsers()
   }, [])
 
+  /**
+   * @method removeUser is a async function that removes the user from the DB
+   * @param {is the event} e 
+   */
   const removeUser = async (e) => {
     console.log('m called')
     const id = String(e)
