@@ -437,6 +437,18 @@
       "end_time": "2021-05-05T15:00:00.000Z",
       "apartmentNo": 2,
       "id": 5
+    },
+    {
+      "start_time": "2021-05-11T09:00:00.000Z",
+      "end_time": "2021-05-11T12:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 6
+    },
+    {
+      "start_time": "2021-05-10T12:00:00.000Z",
+      "end_time": "2021-05-10T15:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 7
     }
   ],
   "gymBookings": [
@@ -451,6 +463,18 @@
       "end_time": "2021-05-05T07:30:00.000Z",
       "apartmentNo": 2,
       "id": 2
+    },
+    {
+      "start_time": "2021-05-12T06:30:00.000Z",
+      "end_time": "2021-05-12T09:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 3
+    },
+    {
+      "start_time": "2021-05-12T10:00:00.000Z",
+      "end_time": "2021-05-12T11:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 4
     }
   ],
   "logins": [
