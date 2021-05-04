@@ -81,7 +81,7 @@ export default function HandleBookings () {
 
   /**
    * @method removeBooking is a async function that remove a booking from the DB
-   * @param {is the event} e 
+   * @param {is the event} e
    */
   const removeBooking = async (e) => {
     console.log(e)
