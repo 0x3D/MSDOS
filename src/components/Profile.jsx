@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
-import getAuthData from '../LoginBackend'
 const localStorage = window.localStorage
+const fetch = window.fetch
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.
@@ -15,14 +15,6 @@ const localStorage = window.localStorage
  */
 export default function Profile () {
   const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
-
-  /*
-  * formatLghNr is a method that format the string how we communicate to the jsonplaceholder
-  * @returns a right formed string to ask the database for the inforamtion we want
-  */
-  const formatLghNr = () => {
-    return 'apartmentNo=' + String(currentUser)
-  }
 
   /**
    * usersData is a variables, and setUserData is a set-method for the variable
@@ -53,23 +45,27 @@ export default function Profile () {
   * @constant response is what the jsonplaceholder gives us
   * @constant data is the data we formatting to a JSON
   */
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     const response = await fetch('http://localhost:8000/users?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setUserData(data)
-  }
+  }, [currentUser])
 
   /**
-     * Fetches the laundryBooking from jsonPlaceHolder
-     * @constant response is what the jsonplaceholder gives us
-     * @constant data is the data we formatting to a JSON
-     */
-  const fetchBookings = async () => {
-    const response = await fetch('http://localhost:8000/laundryBookings?' + formatLghNr())
+  * Fetches the laundryBooking from jsonPlaceHolder
+  * @constant response is what the jsonplaceholder gives us
+  * @constant data is the data we formatting to a JSON
+  */
+  const fetchBookings = useCallback(async () => {
+    const response = await fetch('http://localhost:8000/laundryBookings?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setLaundryBookings(data)
-  }
+  }, [currentUser])
 
+  /**
+   * @method removeBooking is a async function that removes the booking for a specifik user from the DB
+   * @param {is the event} e
+   */
   const removeBooking = async (e) => {
     const id = String(e)
     fetch('http://localhost:8000/laundryBookings/' + id, {
@@ -84,12 +80,12 @@ export default function Profile () {
   }
 
   /**
-     * useEffect is a React function that is used to not rerender uneccesary thing
-     */
+  * @method useEffect is a React function that is used to not rerender uneccesary thing
+  */
   useEffect(() => {
     fetchBookings()
     fetchUsers()
-  }, [])
+  }, [fetchBookings, fetchUsers])
 
   return (
     <div>
@@ -134,7 +130,7 @@ export default function Profile () {
             <Card style={{}}>
               <Card.Header as='h3'> <b>Mina Bokningar</b> </Card.Header> <br />
               {laundryBookings.map((row) => (
-                <>
+                <React.Fragment key={row.start_time}>
                   <Card.Text className='border' key={row.start_time}>
                     <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
                     <Button
@@ -144,7 +140,7 @@ export default function Profile () {
                     >Ta bort bokning
                     </Button>
                   </Card.Text>
-                </>
+                </React.Fragment>
               ))}
             </Card>
             )}

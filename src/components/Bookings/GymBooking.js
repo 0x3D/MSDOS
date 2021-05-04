@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import TimeCalendar from "react-timecalendar";
+import React, { useState, useEffect, useCallback } from 'react'
+import TimeCalendar from 'react-timecalendar'
 import { format, addMinutes, differenceInMinutes } from 'date-fns'
-import { Button, Modal, Container, ListGroup } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 import '../../styles/App.css'
-
+import Emailer from '../../Emailer'
 
 
 /**
@@ -125,6 +125,7 @@ export default function GymBooking() {
                 apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
             }
             await postBooking(bookingData)
+            Emailer(bookingData, 'GYM')
         }
         await fetchBookings()
     }

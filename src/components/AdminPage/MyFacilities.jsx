@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
 
+const fetch = window.fetch
+
 /**
  * A admin component that gives a overview of all Faciities
  *
@@ -11,8 +13,18 @@ import { Card, ListGroup } from 'react-bootstrap'
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function MyFacilities () {
+  /**
+   * facilities is a variables, and setFacilities is a set-method for the variable
+   * Usestate is the default value
+   * @constant facilities holds the values of the facilities
+   * @method setFacilities is a setter for the users constant
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
   const [facilities, setFacilities] = useState(null)
 
+  /**
+   * @method fetchBookings Fething the facilities data from the database
+   */
   const fetchBookings = async () => {
     const response = await fetch('http://localhost:8000/facilities')
     const data = await response.json()
@@ -20,6 +32,9 @@ export default function MyFacilities () {
     console.log(data)
   }
 
+  /**
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
   useEffect(() => {
     fetchBookings()
   }, [])
@@ -31,16 +46,18 @@ export default function MyFacilities () {
         <ListGroup variant='flush'>
           {!facilities
             ? (<h1>loading...</h1>)
-            : (<> {
+            : (
+              <> {
               facilities.map((row) => (
-                <>
-                  
-                    <ListGroup.Item key={row.fac} >{row.fac}</ListGroup.Item>
-                  
-                </>
+                <React.Fragment key={row.fac}>
+
+                  <ListGroup.Item key={row.fac}>{row.fac}</ListGroup.Item>
+
+                </React.Fragment>
               ))
             }
-            </>)}
+              </>
+              )}
         </ListGroup>
       </Card>
     </div>
