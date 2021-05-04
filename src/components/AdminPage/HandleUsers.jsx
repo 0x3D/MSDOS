@@ -35,7 +35,6 @@ const useStyles = makeStyles({
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function HandleUsers () {
-
   /**
    * users is a variables, and setUsers is a set-method for the variable
    * Usestate is the default value
@@ -82,7 +81,7 @@ export default function HandleUsers () {
 
   /**
    * @method removeUser is a async function that removes the user from the DB
-   * @param {is the event} e 
+   * @param {is the event} e
    */
   const removeUser = async (e) => {
     console.log('m called')

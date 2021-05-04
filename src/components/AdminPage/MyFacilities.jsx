@@ -13,7 +13,6 @@ const fetch = window.fetch
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function MyFacilities () {
-
   /**
    * facilities is a variables, and setFacilities is a set-method for the variable
    * Usestate is the default value

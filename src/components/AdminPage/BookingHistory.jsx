@@ -45,7 +45,7 @@ export default function BookingHistory () {
    */
   const classes = useStyles()
 
-   /**
+  /**
    * bookingHistory is a variable, and setBookingHistory is a set-method for the variable
    * Usestate is the default value
    *
@@ -92,7 +92,7 @@ export default function BookingHistory () {
 
   /**
    * @method clearBookingHistory is a async function that cleares tha past time bookings from the DB
-   * @param {is the event} e 
+   * @param {is the event} e
    */
   const clearBookingHistory = async () => {
     console.log('m called')

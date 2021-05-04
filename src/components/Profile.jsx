@@ -64,7 +64,7 @@ export default function Profile () {
 
   /**
    * @method removeBooking is a async function that removes the booking for a specifik user from the DB
-   * @param {is the event} e 
+   * @param {is the event} e
    */
   const removeBooking = async (e) => {
     const id = String(e)
