@@ -6,6 +6,10 @@ import { CgGym } from 'react-icons/cg'
 import { BiBuildings } from 'react-icons/bi'
 import GymBooking from './components/Bookings/GymBooking'
 
+/**
+ * This is a container that contains the components Laundry booking and gymbooking in tabs.
+ * @returns A react component that loads LaundryBooking.jsx, Gymbooking.jsx and in the future localbooking.jsx
+ */
 export default function Booking () {
   return (
     <>
