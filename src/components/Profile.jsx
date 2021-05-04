@@ -15,6 +15,7 @@ import * as Icon from "react-bootstrap-icons";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import CheckBox from "../assets/greenCheck.png";
 import LaundryBooking from "./Bookings/LaundryBooking";
+import { getAuthData } from "../LoginBackend";
 
 const localStorage = window.localStorage;
 const fetch = window.fetch;
@@ -28,7 +29,9 @@ const fetch = window.fetch;
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function Profile() {
-  const currentUser = JSON.parse(localStorage.getItem("tokens")).apartmentNo;
+  const currentUser = getAuthData().apartmentNo;
+
+  const [tempBookingId, setTempBookingId] = useState(null);
 
   /**
    * Modal that is supposed to work for rebooking
@@ -110,13 +113,14 @@ export default function Profile() {
     toggleShowToast();
   };
 
-  const handleEditBooking = () => {
+  const handleEditBooking = (e) => {
     handleShow();
-    //const tempBooking = row.id;
+    console.log(String(e));
+    setTempBookingId(String(e));
   };
 
   /**
-   * useEffect is a React function that is used to not rerender uneccesary thing
+   * useEffect is a React function that is used to not rerender uneccesary things
    */
   useEffect(() => {
     fetchBookings();
@@ -126,7 +130,6 @@ export default function Profile() {
   return (
     <>
       <div>
-        {console.log(currentUser)}
         <Container>
           <Row>
             <Col>
@@ -198,7 +201,11 @@ export default function Profile() {
                     >
                       Ta bort bokning
                     </Button>
-                    <Button onClick={handleEditBooking}>
+                    <Button
+                      onClick={(e) => {
+                        handleEditBooking(row.id);
+                      }}
+                    >
                       Redigera bokning
                     </Button>
                   </Card.Text>
@@ -208,13 +215,15 @@ export default function Profile() {
           )}
         </Container>
       </div>
-
-      <Modal size="lg" show={showModal} onHide={handleClose}>
+      <Modal size="xl" show={showModal} onHide={handleClose}>
         <ModalHeader closeButton>
           <ModalTitle> Välj ny tid för att redigera din bokning</ModalTitle>
         </ModalHeader>
         <ModalBody>
-          <LaundryBooking />
+          <LaundryBooking
+            removeFunction={removeBooking}
+            temporaryBookingId={tempBookingId}
+          />
         </ModalBody>
         <ModalFooter>
           <Button onClick={handleClose}> Stäng </Button>
