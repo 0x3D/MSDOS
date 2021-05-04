@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
+import { getAuthData } from '../LoginBackend'
 const localStorage = window.localStorage
 const fetch = window.fetch
 
@@ -14,7 +15,7 @@ const fetch = window.fetch
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function Profile () {
-  const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
+  const currentUser = getAuthData().apartmentNo
 
   /**
    * usersData is a variables, and setUserData is a set-method for the variable

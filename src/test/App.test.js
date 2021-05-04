@@ -1,14 +1,94 @@
-import React from 'react'
-import renderer from 'react-test-renderer'
+import '@testing-library/jest-dom/extend-expect'
 import LaundryBooking from '../components/Bookings/LaundryBooking'
+import ShallowRenderer from 'react-test-renderer/shallow'
+import GymBooking from '../components/Bookings/GymBooking'
+import Login from '../components/Login'
+import Profile from '../components/Profile'
+import NavigationBar from '../components/NavigationBar'
+import AdminPage from '../components/AdminPage/AdminPage'
+import BookingHistory from '../components/AdminPage/BookingHistory'
+import HandleBookings from '../components/AdminPage/HandleBookings'
+import HandleUsers from '../components/AdminPage/HandleUsers'
+import MyFacilities from '../components/AdminPage/MyFacilities'
+import { useAuth } from '../LoginBackend'
 
-// test('renders learn react link', () => {
-//   render(<App />)
-//   const linkElement =
-//   expect(linkElement).toBeInTheDocument();
-// })
 
-test('LaundryBookings render correctly', () => {
-  const tree = renderer.create(<LaundryBooking />).toJSON()
-  expect(tree).toMatchSnapshot()
+
+it('LaundryBookings renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<LaundryBooking />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('GymBookings renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<GymBooking />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('Login renders correctly', () => {
+  const data = {
+    "apartmentNo": 3,
+    "email": "laurie.kutch@yahoo.com",
+    "password": "laurie.kutch@yahoo.com",
+    "id": 3,
+    "role": "user"
+  }
+  localStorage.setItem('tokens', data);
+  const renderer = new ShallowRenderer()
+  renderer.render(<Login />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('Profile renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<Profile />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('NavigationBar renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<NavigationBar />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('AdminPage renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<AdminPage />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('BookingHistory renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<BookingHistory />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('HandleBookings renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<HandleBookings />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('HandleUsers renders correctly', () => {
+  const renderer = new ShallowRenderer()
+  renderer.render(<HandleUsers />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
+})
+
+it('MyFacilities renders correctly', () => {
+  console.log(localStorage)
+  const renderer = new ShallowRenderer()
+  renderer.render(<MyFacilities />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
 })
