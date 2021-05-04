@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addMinutes, differenceInMinutes } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
@@ -26,13 +26,13 @@ export default function GymBooking () {
   const handleShow = () => setShowModal(true)
 
   // Fetches the bookings from the api
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         parseData(json)
       })
-  }
+  }, [])
 
   const parseData = (bookings) => {
     bookings.forEach((booking) => {
@@ -44,7 +44,7 @@ export default function GymBooking () {
 
   useEffect(() => {
     fetchBookings()
-  }, [])
+  }, [fetchBookings])
 
   // Creates a new booking
   const newBooking = async (startTime, endTime) => {
