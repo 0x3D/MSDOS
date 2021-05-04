@@ -1,37 +1,105 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addMinutes, differenceInMinutes } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import '../../styles/App.css'
+import Emailer from '../../Emailer'
 
-const gymSections = 30
-const openHours = [[8, 22.5]]
-const url = 'http://localhost:8000/gymBookings/'
-const maxGymSessionTime = 3
 const fetch = window.fetch
+const alert = window.alert
 const localStorage = window.localStorage
 
+/**
+ * The react subtab component for booking the gym.
+ *
+ * @returns The HTML to be rendered
+ */
 export default function GymBooking () {
-  // Booked times
+  /**
+     * Time in minutes for one gym section
+     * @const {integer}
+     */
+  const gymSections = 30
+
+  /**
+     * Open hours for the gym
+     * @const {array}
+     */
+  const openHours = [[8, 22.5]]
+
+  /**
+     * Open hours for the gym
+     * @const {string}
+     */
+  const url = 'http://localhost:8000/gymBookings/'
+
+  /**
+     * Open hours for the gym
+     * @const {string}
+     */
+  const maxGymSessionTime = 3
+
+  /**
+     * State for the currently booked gym times.
+     *
+     * @const {array}
+     */
   const [bookings, setBookings] = useState('')
+
+  /**
+     * State wether to show the confirmation for the booking or not.
+     *
+     * @const {boolean}
+     */
   const [showConfirmation, setShowModal] = useState(false)
+
+  /**
+     * State which tells if the user has chosen a time or not.
+     *
+     * @const {boolean}
+     */
   const [hasChosenTime, setHasChosenTime] = useState(false)
 
+  /**
+     * State which holds the user picked for start time the gym session.
+     *
+     * @const {object}
+     */
   const [startTime, setStartTime] = useState('')
+
+  /**
+     * State which holds the user picked end time for the gym session.
+     *
+     * @const {object}
+     */
   const [endTime, setEndTime] = useState('')
 
+  /**
+     * Function to close the confirmationmodal
+     */
   const handleClose = () => setShowModal(false)
+
+  /**
+     * Function to show the confirmationmodal
+     */
   const handleShow = () => setShowModal(true)
 
-  // Fetches the bookings from the api
-  const fetchBookings = async () => {
+  /**
+     * Functinon to fetch the booked gymtimes from the database
+     */
+  const fetchBookings = useCallback(async () => {
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         parseData(json)
       })
-  }
+  }, [])
 
+  /**
+     * Functinon to parse the fetched data from the database
+     *
+     * @param {object} bookings The fetched data from the database
+     */
   const parseData = (bookings) => {
     bookings.forEach((booking) => {
       booking.end_time = JSON.stringify(addMinutes(new Date(booking.end_time), 1)).replace(/"/g, '')
@@ -40,14 +108,17 @@ export default function GymBooking () {
     setBookings(bookings)
   }
 
+  /**
+     * React hook to fetch the
+     */
   useEffect(() => {
     fetchBookings()
-  }, [])
+  }, [fetchBookings])
 
   // Creates a new booking
   const newBooking = async (startTime, endTime) => {
     if (startTime === '' || endTime === '') {
-      window.alert('Inga start eller sluttider valda')
+      alert('Inga start eller sluttider valda')
     } else {
       const bookingData = {
         start_time: startTime,
@@ -55,6 +126,7 @@ export default function GymBooking () {
         apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
       }
       await postBooking(bookingData)
+      Emailer(bookingData, 'GYM')
     }
     await fetchBookings()
   }
@@ -74,6 +146,7 @@ export default function GymBooking () {
     console.log(data)
   }
 
+  // Handles the "book" button on the modal
   const handleModalConfirmation = () => {
     setShowModal(false)
 
@@ -83,6 +156,11 @@ export default function GymBooking () {
     clearTimeInterval()
   }
 
+  /**
+     * Handles and decides if the picked time is a starttime or an endtime.
+     *
+     * @param {Date} time Date-fns object
+     */
   const handleChosenTime = (time) => {
     if (startTime === '') {
       setStartTime(time)
@@ -95,6 +173,7 @@ export default function GymBooking () {
     }
   }
 
+  // Clears the chosen time interval
   const clearTimeInterval = () => {
     setHasChosenTime(false)
     setStartTime('')
@@ -139,7 +218,7 @@ export default function GymBooking () {
           <Modal.Title>Bekräfta din bokning</Modal.Title>
         </Modal.Header>
         {!hasChosenTime
-          ? <p>Var vänlig välj tider innan du bokar</p>
+          ? (<p>Var vänlig välj tider innan du bokar</p>)
           : (
             <Modal.Body>
               Bekräfta din bokning av gymtid.

@@ -66,7 +66,6 @@ export default function AdminPage () {
  */
   const handleShow = (event) => {
     const modal = event.target.id
-    // TODO: make this prettier
     if (modal === 'handle-bookings') { setSelectedModal(handleBookings) }
     if (modal === 'handle-users') { setSelectedModal(handleUsers) }
     if (modal === 'add-fac') { setSelectedModal(addFacility) }

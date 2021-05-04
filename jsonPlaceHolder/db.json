@@ -409,6 +409,7 @@
   ],
   "laundryBookings": [
     {
+<<<<<<< HEAD
       "start_time": "2021-05-29T12:00:00.000Z",
       "end_time": "2021-05-29T15:00:00.000Z",
       "apartmentNo": 2,
@@ -449,6 +450,90 @@
       "end_time": "2021-05-08T18:00:00.000Z",
       "apartmentNo": 1,
       "id": 20
+=======
+      "start_time": "2021-05-04T06:00:00.000Z",
+      "end_time": "2021-05-04T09:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 2
+    },
+    {
+      "start_time": "2021-05-04T09:00:00.000Z",
+      "end_time": "2021-05-04T12:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 3
+    },
+    {
+      "start_time": "2021-05-04T12:00:00.000Z",
+      "end_time": "2021-05-04T15:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 4
+    },
+    {
+      "start_time": "2021-05-04T15:00:00.000Z",
+      "end_time": "2021-05-04T18:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 5
+    },
+    {
+      "start_time": "2021-05-05T09:00:00.000Z",
+      "end_time": "2021-05-05T12:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 6
+    },
+    {
+      "start_time": "2021-05-06T12:00:00.000Z",
+      "end_time": "2021-05-06T15:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 7
+    },
+    {
+      "start_time": "2021-05-17T09:00:00.000Z",
+      "end_time": "2021-05-17T12:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 8
+    },
+    {
+      "start_time": "2021-05-27T12:00:00.000Z",
+      "end_time": "2021-05-27T15:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 9
+    },
+    {
+      "start_time": "2021-05-29T12:00:00.000Z",
+      "end_time": "2021-05-29T15:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 10
+    },
+    {
+      "start_time": "2021-05-12T12:00:00.000Z",
+      "end_time": "2021-05-12T15:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 11
+    },
+    {
+      "start_time": "2021-05-12T15:00:00.000Z",
+      "end_time": "2021-05-12T18:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 12
+    },
+    {
+      "start_time": "2021-05-05T06:00:00.000Z",
+      "end_time": "2021-05-05T09:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 13
+    },
+    {
+      "start_time": "2021-05-11T09:00:00.000Z",
+      "end_time": "2021-05-11T12:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 14
+    },
+    {
+      "start_time": "2021-05-11T06:00:00.000Z",
+      "end_time": "2021-05-11T09:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 15
+>>>>>>> main
     }
   ],
   "gymBookings": [
@@ -459,12 +544,13 @@
       "id": 1
     },
     {
-      "start_time": "2021-05-05T06:00:00.000Z",
-      "end_time": "2021-05-05T07:30:00.000Z",
-      "apartmentNo": 2,
+      "start_time": "2021-05-26T12:30:00.000Z",
+      "end_time": "2021-05-26T14:30:00.000Z",
+      "apartmentNo": 3,
       "id": 2
     },
     {
+<<<<<<< HEAD
       "start_time": "2021-05-13T07:00:00.000Z",
       "end_time": "2021-05-13T09:00:00.000Z",
       "apartmentNo": 2,
@@ -475,6 +561,12 @@
       "end_time": "2021-05-29T15:00:00.000Z",
       "apartmentNo": 2,
       "id": 4
+=======
+      "start_time": "2021-05-15T06:30:00.000Z",
+      "end_time": "2021-05-15T08:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 3
+>>>>>>> main
     }
   ],
   "logins": [
