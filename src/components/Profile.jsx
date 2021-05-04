@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
@@ -15,7 +15,6 @@ const fetch = window.fetch
  */
 export default function Profile () {
   const currentUser = JSON.parse(localStorage.getItem('tokens')).apartmentNo
-
 
   /**
    * usersData is a variables, and setUserData is a set-method for the variable
@@ -50,7 +49,7 @@ export default function Profile () {
     const response = await fetch('http://localhost:8000/users?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setUserData(data)
-  },[currentUser])
+  }, [currentUser])
 
   /**
      * Fetches the laundryBooking from jsonPlaceHolder
@@ -61,7 +60,7 @@ export default function Profile () {
     const response = await fetch('http://localhost:8000/laundryBookings?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setLaundryBookings(data)
-  },[currentUser])
+  }, [currentUser])
 
   const removeBooking = async (e) => {
     const id = String(e)
@@ -82,7 +81,7 @@ export default function Profile () {
   useEffect(() => {
     fetchBookings()
     fetchUsers()
-  }, [fetchBookings,fetchUsers])
+  }, [fetchBookings, fetchUsers])
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addMinutes, differenceInMinutes } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
@@ -30,7 +30,7 @@ export default function GymBooking () {
       .then((json) => {
         parseData(json)
       })
-  },[])
+  }, [])
 
   const parseData = (bookings) => {
     bookings.forEach((booking) => {
