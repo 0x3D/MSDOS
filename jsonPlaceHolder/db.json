@@ -405,13 +405,6 @@
       "password": "kwest@yahoo.com",
       "id": 58,
       "role": "user"
-    },
-    {
-      "apartmentNo": 59,
-      "email": "fae.hyatt@hotmail.com",
-      "password": "fae.hyatt@hotmail.com",
-      "id": 59,
-      "role": "user"
     }
   ],
   "laundryBookings": [

@@ -84,7 +84,8 @@ export default function AdminPage () {
   }
 
   return (
-    <div  className="adminTitle">
+    
+    <div  className="adminTitle" >
       <h1> Adminsida</h1>
       <Container >
         <Row>
@@ -137,5 +138,6 @@ export default function AdminPage () {
       </Modal>
 
     </div>
+
   )
 }

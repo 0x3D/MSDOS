@@ -94,15 +94,15 @@ export default function HandleUsers () {
       </Container>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
-              <TableCell><h2>Lägenhetsnummer</h2></TableCell>
-              <TableCell align='center'><h2>Email</h2></TableCell>
+          <TableHead className="handleUsersTop">
+            <TableRow>
+              <TableCell ><h2 className="handleUsersTitle">Lägenhetsnummer</h2></TableCell>
+              <TableCell align='center'><h2 className="handleUsersTitle">Email</h2></TableCell>
               <TableCell align='center'><h2> {/** SKA VARA TOM */} </h2></TableCell>
             </TableRow>
           </TableHead>
 
-          <TableBody>
+          <TableBody className="handleUsersBody">
             {!users
               ? (<h1>loading...</h1>)
               : (
@@ -115,9 +115,9 @@ export default function HandleUsers () {
                       <TableCell align='center'>
                         {row.email}
                       </TableCell>
-                      <TableCell align='center'>
+                      <TableCell className="taBortAnvändare"  align='center'>
                         <Button
-                          variant='contained' color='secondary' onClick={(e) => {
+                         variant='contained' onClick={(e) => {
                             removeUser(row.id)
                           }}
                         > Ta bort användare
