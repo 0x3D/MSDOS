@@ -16,6 +16,11 @@ import { FaCheck } from 'react-icons/fa'
 import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 import LaundryBooking from './Bookings/LaundryBooking'
 import { getAuthData } from '../LoginBackend'
+import { BsFillTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
+import '../styles/Profile.css'
+
+
 
 const localStorage = window.localStorage
 const fetch = window.fetch
@@ -194,19 +199,21 @@ export default function Profile () {
                       <b>Starttid</b> : {row.start_time} <br /> <b>Sluttid</b> :{' '}
                       {row.end_time} <br />
                       <Button
+                      className='btn-primary-spacing'
                         variant='danger'
                         onClick={(e) => {
                           removeBooking(row.id)
                         }}
                       >
-                        Ta bort bokning
+                        <BsFillTrashFill size="1.5em"/>
+                       Ta bort bokning
                       </Button>
-                      <Button
+                      <Button className='btn-primary-spacing'
                         onClick={(e) => {
                           handleEditBooking(row.id)
                         }}
                       >
-                        Redigera bokning
+                      <AiFillEdit size="1.5em"/> Redigera bokning
                       </Button>
                     </Card.Text>
                   </React.Fragment>
