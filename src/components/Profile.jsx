@@ -6,19 +6,17 @@ import {
   Card,
   Button,
   Toast,
-  Modal,
-  ModalTitle,
-  ModalBody,
-  ModalFooter
+  Modal
 } from 'react-bootstrap'
-import * as Icon from 'react-bootstrap-icons'
 import { FaCheck } from 'react-icons/fa'
-import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 import LaundryBooking from './Bookings/LaundryBooking'
 import { getAuthData } from '../LoginBackend'
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import '../styles/Profile.css'
+import { MdRefresh } from "react-icons/md";
+
+
 
 
 
@@ -78,9 +76,7 @@ export default function Profile () {
    * @constant data is the data we formatting to a JSON
    */
   const fetchUsers = useCallback(async () => {
-    const response = await fetch(
-      'http://localhost:8000/users?apartmentNo=' + String(currentUser)
-    )
+    const response = await fetch('http://localhost:8000/users?apartmentNo=' + String(currentUser))
     const data = await response.json()
     setUserData(data)
   }, [currentUser])
@@ -175,8 +171,7 @@ export default function Profile () {
                       window.location.reload()
                     }}
                   >
-                    {' '}
-                    <Icon.ArrowCounterclockwise />{' '}
+                    <MdRefresh size="1.5em"/>
                   </Button>{' '}
                 </Toast.Body>
               </Toast>
@@ -223,18 +218,18 @@ export default function Profile () {
         </Container>
       </div>
       <Modal size='xl' show={showModal} onHide={handleClose}>
-        <ModalHeader closeButton>
-          <ModalTitle> Välj ny tid för att redigera din bokning</ModalTitle>
-        </ModalHeader>
-        <ModalBody>
+        <Modal.Header closeButton>
+          <Modal.Title> Välj ny tid för att redigera din bokning</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <LaundryBooking
             removeFunction={removeBooking}
             temporaryBookingId={tempBookingId}
           />
-        </ModalBody>
-        <ModalFooter>
+        </Modal.Body>
+        <Modal.Footer>
           <Button onClick={handleClose}> Stäng </Button>
-        </ModalFooter>
+        </Modal.Footer>
       </Modal>
     </>
   )
