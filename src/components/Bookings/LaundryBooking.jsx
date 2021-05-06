@@ -13,9 +13,9 @@ const url = 'http://localhost:8000/'
 const laundryBookingsTable = 'laundryBookings/'
 const localStorage = window.localStorage
 
-export default function LaundryBooking () {
+export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
   // Booked times
-  const [bookings, setBookings] = useState(null)
+  const [bookings, setBookings] = useState([])
 
   const [showConfirmation, setShowModal] = useState(false)
 

@@ -436,6 +436,12 @@
       "end_time": "2021-05-20T15:00:00.000Z",
       "apartmentNo": 7,
       "id": 6
+    },
+    {
+      "start_time": "2021-05-10T09:00:00.000Z",
+      "end_time": "2021-05-10T12:00:00.000Z",
+      "apartmentNo": 53,
+      "id": 7
     }
   ],
   "gymBookings": [
