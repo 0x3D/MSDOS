@@ -60,7 +60,7 @@ export default function AdminPage () {
      */
   const bookingHistory = <BookingHistory />
 
-  const bookingSettings = <BookingSettings/>
+  const bookingSettings = <BookingSettings />
 
   /**
  * handelShow is a method that does the logic of which admin-component which is showing
