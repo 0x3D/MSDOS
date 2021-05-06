@@ -6,25 +6,34 @@ import { Button, Modal } from 'react-bootstrap'
 
 
 export default function RoomBooking() {
-    const startTime = ''
-    const endTime = ''
-    const bookings = ''
+    const [bookings, setBookings] = useState([{
+        start_time: "2021-05-11",
+        end_time: "2021-05-11",
+        apartmentNo: 3,
+        id: 14
+    }])
+    const openHours = [[8,9]]
 
     const handleChosenDate = (date) => {
         console.log(date)
+        setBookings([{
+            start_time: "2021-05-11 08:00:00",
+            end_time: "2021-05-11 9:00:00",
+            apartmentNo: 3,
+            id: 14
+        }])
+        console.log(bookings)
     }
-    
+
     return (
         <>
-
             <TimeCalendar
-                    clickable
-                    disableHistory
-                    bookings={bookings}
-                    startTime={startTime}
-                    endTime={endTime}
-                    onDateFunction={handleChosenDate}
-                />
+                clickable
+                disableHistory
+                openHours={openHours}
+                bookings={bookings}
+                onDateFunction={handleChosenDate}
+            />
         </>
     )
 }
