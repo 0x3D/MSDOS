@@ -13,3 +13,12 @@
   --bg-color: #504e4e;
   --neutral-color: rgb(219, 205, 205);
 }
+
+
+.bodyWrapper {
+  min-height: 70vh;
+}
+
+.calendar .timeSelector {
+  float: none !important;
+}

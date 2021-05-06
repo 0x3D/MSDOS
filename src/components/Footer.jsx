@@ -29,7 +29,6 @@ export default function Footer () {
 
   return (
     <div className='main-footer'>
-      {console.log(admins)}
       <Container>
         <Row>
           <Col md={3} sm={6}>

@@ -2,7 +2,7 @@ import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Booking from './Booking'
-import React, {} from 'react'
+import React, { } from 'react'
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
@@ -26,10 +26,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         tokens
           ? (
             <Component {...props} />
-            )
+          )
           : (
             <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
-            )}
+          )}
     />
   )
 }
@@ -57,7 +57,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
  * @author [Filip Hansson](https://github.com/filiphan)
  * @author [Oliver Österberg](https://github.com/oliost)
  */
-function App () {
+function App() {
   document.title = 'MSDOS Booking'
   return (
 
@@ -66,14 +66,16 @@ function App () {
         <Router>
           <AuthDataProvider>
             <NavigationBar />
-            <Switch>
-              <Route exact path='/home' component={Home} />
-              <PrivateRoute exact path='/booking' component={Booking} />
-              <PrivateRoute exact path='/profile' component={Profile} />
-              <Redirect exact from='/' to='/booking' />
-              <Route path='/admin' component={AdminPage} />
-              <Route path='/' component={ErrorPage} />
-            </Switch>
+            <div className="bodyWrapper">
+              <Switch>
+                <Route exact path='/home' component={Home} />
+                <PrivateRoute exact path='/booking' component={Booking} />
+                <PrivateRoute exact path='/profile' component={Profile} />
+                <Redirect exact from='/' to='/booking' />
+                <Route path='/admin' component={AdminPage} />
+                <Route path='/' component={ErrorPage} />
+              </Switch>
+            </div>
           </AuthDataProvider>
         </Router>
         <Footer />
