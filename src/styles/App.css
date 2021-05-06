@@ -13,3 +13,8 @@
   --bg-color: #504e4e;
   --neutral-color: rgb(219, 205, 205);
 }
+
+html,body{
+  height:100%;
+  width:100%;
+}

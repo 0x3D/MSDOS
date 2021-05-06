@@ -20,9 +20,9 @@ const getAmountOfBookings = async () => {
   return data.length
 }
 
-export default function LaundryBooking () {
+export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
   // Booked times
-  const [bookings, setBookings] = useState(null)
+  const [bookings, setBookings] = useState([])
 
   const [showConfirmation, setShowModal] = useState(false)
 
@@ -61,6 +61,11 @@ export default function LaundryBooking () {
 
   // Posts the previously created booking
   const postBooking = async (postData) => {
+    if (temporaryBookingId !== undefined) {
+      removeFunction(temporaryBookingId)
+      window.location.reload()
+    }
+
     const requestOptions = {
       method: 'POST',
       headers: {

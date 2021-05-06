@@ -10,6 +10,7 @@ import Home from './Home'
 import Profile from './components/Profile'
 import AuthDataProvider from './LoginBackend'
 import { IconContext } from 'react-icons'
+import Footer from './components/Footer'
 
 // const url = 'http://localhost:8000/logins'
 const localStorage = window.localStorage
@@ -75,6 +76,7 @@ function App () {
             </Switch>
           </AuthDataProvider>
         </Router>
+        <Footer />
       </IconContext.Provider>
     </>
   )
