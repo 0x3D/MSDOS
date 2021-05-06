@@ -133,9 +133,7 @@ export default function Profile () {
                   <b>Email:</b>
                 </h3>{' '}
                 {!userData
-                  ? (
-                    <h2>Not logged in</h2>
-                    )
+                  ? ( <h2>Not logged in</h2> )
                   : (
                       JSON.parse(localStorage.getItem('tokens')).email
                     )}
@@ -176,9 +174,7 @@ export default function Profile () {
             </Col>
           </Row>
           {!laundryBookings
-            ? (
-              <h1>loading...</h1>
-              )
+            ? (<h1>loading...</h1> )
             : (
               <Card style={{}}>
                 <Card.Header as='h3'>
