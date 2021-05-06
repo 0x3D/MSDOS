@@ -66,9 +66,7 @@ export default function Profile () {
   /**
    * method that handle the Toast
    */
-  const toggleShowToast = () => {
-    setShowToast(!showToast)
-  }
+  const toggleShowToast = () => {setShowToast(!showToast)}
 
   /*
    * Fetches the Userdata from jsonPlaceHolder
