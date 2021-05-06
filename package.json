@@ -37,7 +37,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npx standard && react-scripts test",
+    "test": "npx standard && react-scripts test -u",
     "eject": "react-scripts eject",
     "json-server": "json-server --watch ./jsonPlaceHolder/db.json --port 8000"
   },

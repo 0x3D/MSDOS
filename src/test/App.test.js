@@ -10,7 +10,7 @@ import BookingHistory from '../components/AdminPage/BookingHistory'
 import HandleBookings from '../components/AdminPage/HandleBookings'
 import HandleUsers from '../components/AdminPage/HandleUsers'
 import MyFacilities from '../components/AdminPage/MyFacilities'
-// import { useAuth } from '../LoginBackend'
+import AuthDataProvider from '../LoginBackend'
 
 it('LaundryBookings renders correctly', () => {
   const renderer = new ShallowRenderer()
@@ -27,16 +27,9 @@ it('GymBookings renders correctly', () => {
 })
 
 it('Login renders correctly', () => {
-  /* const data = {
-    apartmentNo: 3,
-    email: 'laurie.kutch@yahoo.com',
-    password: 'laurie.kutch@yahoo.com',
-    id: 3,
-    role: 'user'
-  } */
-  // localStorage.setItem('tokens', data)
   const renderer = new ShallowRenderer()
-  renderer.render(<Login />)
+  // AuthDataProvider provides login which Login component needs
+  renderer.render(<AuthDataProvider> <Login /></AuthDataProvider>)
   const result = renderer.getRenderOutput()
   expect(result).toMatchSnapshot()
 })
@@ -50,7 +43,7 @@ it('Profile renders correctly', () => {
 
 it('NavigationBar renders correctly', () => {
   const renderer = new ShallowRenderer()
-  renderer.render(<NavigationBar />)
+  renderer.render(<AuthDataProvider> <NavigationBar /></AuthDataProvider>)
   const result = renderer.getRenderOutput()
   expect(result).toMatchSnapshot()
 })
