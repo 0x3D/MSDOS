@@ -11,14 +11,10 @@ import {
 import { FaCheck } from 'react-icons/fa'
 import LaundryBooking from './Bookings/LaundryBooking'
 import { getAuthData } from '../LoginBackend'
-import { BsFillTrashFill } from "react-icons/bs";
-import { AiFillEdit } from "react-icons/ai";
+import { BsFillTrashFill } from 'react-icons/bs'
+import { AiFillEdit } from 'react-icons/ai'
 import '../styles/Profile.css'
-import { MdRefresh } from "react-icons/md";
-
-
-
-
+import { MdRefresh } from 'react-icons/md'
 
 const localStorage = window.localStorage
 const fetch = window.fetch
@@ -66,7 +62,7 @@ export default function Profile () {
   /**
    * method that handle the Toast
    */
-  const toggleShowToast = () => {setShowToast(!showToast)}
+  const toggleShowToast = () => { setShowToast(!showToast) }
 
   /*
    * Fetches the Userdata from jsonPlaceHolder
@@ -133,9 +129,7 @@ export default function Profile () {
                   <b>Email:</b>
                 </h3>{' '}
                 {!userData
-                  ? (
-                    <h2>Not logged in</h2>
-                    )
+                  ? (<h2>Not logged in</h2>)
                   : (
                       JSON.parse(localStorage.getItem('tokens')).email
                     )}
@@ -169,16 +163,14 @@ export default function Profile () {
                       window.location.reload()
                     }}
                   >
-                    <MdRefresh size="1.5em"/>
+                    <MdRefresh size='1.5em' />
                   </Button>{' '}
                 </Toast.Body>
               </Toast>
             </Col>
           </Row>
           {!laundryBookings
-            ? (
-              <h1>loading...</h1>
-              )
+            ? (<h1>loading...</h1>)
             : (
               <Card style={{}}>
                 <Card.Header as='h3'>
@@ -192,21 +184,22 @@ export default function Profile () {
                       <b>Starttid</b> : {row.start_time} <br /> <b>Sluttid</b> :{' '}
                       {row.end_time} <br />
                       <Button
-                      className='btn-primary-spacing'
+                        className='btn-primary-spacing'
                         variant='danger'
                         onClick={(e) => {
                           removeBooking(row.id)
                         }}
                       >
-                        <BsFillTrashFill size="1.5em"/>
-                       Ta bort bokning
+                        <BsFillTrashFill size='1.5em' />
+                        Ta bort bokning
                       </Button>
-                      <Button className='btn-primary-spacing'
+                      <Button
+                        className='btn-primary-spacing'
                         onClick={(e) => {
                           handleEditBooking(row.id)
                         }}
                       >
-                      <AiFillEdit size="1.5em"/> Redigera bokning
+                        <AiFillEdit size='1.5em' /> Redigera bokning
                       </Button>
                     </Card.Text>
                   </React.Fragment>
