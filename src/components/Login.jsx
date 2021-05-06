@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Container, Row, Col, Button, Modal } from 'react-bootstrap'
+import { Form, Container, Row, Col, Button, Modal, Alert } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/login.css'
 import { Redirect } from 'react-router-dom'
@@ -21,11 +21,13 @@ export default function Login (props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showHelp, setShowHelp] = useState(false)
+  const [alert, setAlert] = useState(false)
   const handleClose = () => setShowHelp(false)
   const handleShow = () => setShowHelp(true)
+  const alertShow = () => setAlert(true)
+  const alertClose = () => setAlert(false)
   const referrer = document.referrer || '/'
   const url = 'http://localhost:8000/users?'
-  // console.log("referrer url",referrer);
 
   if (isLoggedIn) {
     return <Redirect path={referrer} />
@@ -42,11 +44,12 @@ export default function Login (props) {
         // TODO save password hashed
         // const userTokens = authenticateUser(username, password)
         basicLogin(json['0'])
+        setLoggedIn(true)
       } else {
         console.log('Nay')
+        alertShow()
       }
     })
-    setLoggedIn(true)
     // console.log(json)
   }
 
@@ -57,6 +60,15 @@ export default function Login (props) {
 
   return (
     <Container className='loginContainer'>
+      <Alert show={alert} variant='danger' onClose={() => alertClose()} dismissible>
+        <Alert.Heading>
+          Du loggades inte in
+        </Alert.Heading>
+        <p>
+          Du har angivit fel lösenord för ditt lägenhetsnummer
+        </p>
+      </Alert>
+
       {isLoggedIn ? <Redirect exact path='/booking' /> : <h1> &nbsp;</h1>}
       <Modal show={showHelp} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -71,7 +83,8 @@ export default function Login (props) {
         <Col xs={5} xs-offset={2}>
           <Form
             className='loginForm'
-            onSubmit={() => {
+            onSubmit={(e) => {
+              e.preventDefault()
               handleLogin()
             }}
           >
