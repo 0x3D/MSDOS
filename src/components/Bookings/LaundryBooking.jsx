@@ -3,7 +3,7 @@ import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import Emailer from '../../Emailer'
-//import { isDOMComponentElement } from 'react-dom/test-utils'
+// import { isDOMComponentElement } from 'react-dom/test-utils'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
@@ -49,12 +49,14 @@ export default function LaundryBooking () {
     const amountOfBookings = await getAmountOfBookings()
     const maxAmount = JSON.parse(localStorage.getItem('settings')).laundryTime
     if (amountOfBookings < maxAmount) {
-      await postBooking(postData)
+      // Success
     } else {
       // TODO, Sorry you cant book
+      window.alert('No booking for you')
     }
-    await fetchBookings()
+    await postBooking(postData)
     Emailer(postData, 'LAUNDRY')
+    await fetchBookings()
   }
 
   // Posts the previously created booking
