@@ -14,7 +14,7 @@ const localStorage = window.localStorage
 
 export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
   // Booked times
-  const [bookings, setBookings] = useState(null)
+  const [bookings, setBookings] = useState([])
 
   const [showConfirmation, setShowModal] = useState(false)
 
