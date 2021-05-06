@@ -14,7 +14,7 @@ const localStorage = window.localStorage
 
 export default function LaundryBooking () {
   // Booked times
-  const [bookings, setBookings] = useState(null)
+  const [bookings, setBookings] = useState([])
 
   const [showConfirmation, setShowModal] = useState(false)
 
@@ -57,8 +57,6 @@ export default function LaundryBooking () {
     const response = await fetch(url, requestOptions)
 
     const data = await response.json()
-
-    console.log(data)
   }
 
   const handleModalConfirmation = () => {

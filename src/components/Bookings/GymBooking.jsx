@@ -44,7 +44,7 @@ export default function GymBooking () {
      *
      * @const {array}
      */
-  const [bookings, setBookings] = useState('')
+  const [bookings, setBookings] = useState([])
 
   /**
      * State wether to show the confirmation for the booking or not.

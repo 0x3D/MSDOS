@@ -1,12 +1,11 @@
 import React from 'react'
 import { Container, Tabs, Tab } from 'react-bootstrap'
 import { MdLocalLaundryService } from 'react-icons/md'
+import { CgGym } from 'react-icons/cg'
+import { BiBuildings } from 'react-icons/bi'
 import LaundryBooking from './components/Bookings/LaundryBooking'
 import GymBooking from './components/Bookings/GymBooking'
 import RoomBooking from './components/Bookings/RoomBooking'
-import { CgGym } from 'react-icons/cg'
-import { BiBuildings } from 'react-icons/bi'
-
 
 /**
  * This is a container that contains the components Laundry booking and gymbooking in tabs.
