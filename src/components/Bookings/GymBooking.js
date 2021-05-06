@@ -9,6 +9,14 @@ const fetch = window.fetch
 const alert = window.alert
 const localStorage = window.localStorage
 
+const getAmountOfBookings = async () => {
+  const url = 'http://localhost:8000/gymBookings'
+  const response = await fetch(url + '?apartmentNo=' + JSON.parse(localStorage.getItem('tokens')).apartmentNo)
+  const data = await response.json()
+  console.log(data)
+  return data.length
+}
+
 /**
  * The react subtab component for booking the gym.
  *
@@ -125,8 +133,21 @@ export default function GymBooking () {
         end_time: endTime,
         apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
       }
-      await postBooking(bookingData)
-      Emailer(bookingData, 'GYM')
+
+      const amountOfBookings = await getAmountOfBookings()
+      let maxAmount = 2
+      if (localStorage.getItem('settings')) {
+        maxAmount = JSON.parse(localStorage.getItem('settings')).gymTime
+      }
+      if (amountOfBookings < maxAmount) {
+        // Success
+        await postBooking(bookingData)
+        Emailer(bookingData, 'GYM')
+      } else {
+        // TODO, Make this prettier
+        window.alert('Woops, du har bokat för många tider, ' + maxAmount +
+        ' är max. \n Avboka en tid och försök igen')
+      }
     }
     await fetchBookings()
   }

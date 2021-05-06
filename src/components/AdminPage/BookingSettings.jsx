@@ -2,6 +2,7 @@ import { Form, Row, Col } from 'react-bootstrap'
 
 const localStorage = window.localStorage
 
+
 export default function BookingSettings () {
   const settings = {
     laundryTime: 2,
