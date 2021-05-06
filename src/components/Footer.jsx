@@ -37,7 +37,7 @@ export default function Footer () {
             <ul className='list-unstyled'>
               <li> <a href='https://github.com/axelhertzberg' target='_blank' rel='noreferrer'> Axel Hertzberg</a> </li>
               <li> <a href='https://github.com/jonasn-chalmers' target='_blank' rel='noreferrer'> Jonas Nordin</a> </li>
-              <li> <a href='https://github.com/0x3D' target='_blank' rel='noreferrer'> Erik Antilla Ryderup</a> </li>
+              <li> <a href='https://github.com/0x3D' target='_blank' rel='noreferrer'> Erik Anttila Ryderup</a> </li>
               <li> <a href='https://github.com/erikbengtssonchalmers' target='_blank' rel='noreferrer'> Erik Bengtsson</a> </li>
               <li> <a href='https://github.com/theodorlyrheden' target='_blank' rel='noreferrer'> Theodor Lyrheden</a> </li>
               <li> <a href='https://github.com/filiphan' target='_blank' rel='noreferrer'> Filip Hansson</a> </li>
