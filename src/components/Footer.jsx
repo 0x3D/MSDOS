@@ -48,11 +48,11 @@ export default function Footer () {
           <Col md={3} sm={6}>
             <h4>Länkar </h4>
             <ul className='list-unstyled'>
-              <li> <a href='http://localhost:3000/booking' target='_blank' rel='noreferrer'> Bokningssidan </a> </li>
-              <li> <a href='http://localhost:3000/profile' target='_blank' rel='noreferrer'> Mina bokningar</a> </li>
-              <li> <a href='http://localhost:3000/home' target='_blank' rel='noreferrer'> Loginsidan</a> </li>
-              <li> <a href='http://localhost:3000/admin' target='_blank' rel='noreferrer'> Adminsidan</a> </li>
-              <li> <a href='http://localhost:3000/admin' target='_blank' rel='noreferrer'> Om hemsidan </a> </li>
+              <li> <a href='http://localhost:3000/booking' > Bokningssidan </a> </li>
+              <li> <a href='http://localhost:3000/profile' > Mina bokningar</a> </li>
+              <li> <a href='http://localhost:3000/home' > Loginsidan</a> </li>
+              <li> <a href='http://localhost:3000/admin' > Adminsidan</a> </li>
+              <li> <a href='http://localhost:3000/admin' > Om hemsidan </a> </li>
             </ul>
           </Col>
 
