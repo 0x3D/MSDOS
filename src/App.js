@@ -26,10 +26,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         tokens
           ? (
             <Component {...props} />
-          )
+            )
           : (
             <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
-          )}
+            )}
     />
   )
 }
@@ -57,7 +57,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
  * @author [Filip Hansson](https://github.com/filiphan)
  * @author [Oliver Österberg](https://github.com/oliost)
  */
-function App() {
+function App () {
   document.title = 'MSDOS Booking'
   return (
 
@@ -66,7 +66,7 @@ function App() {
         <Router>
           <AuthDataProvider>
             <NavigationBar />
-            <div className="bodyWrapper">
+            <div className='bodyWrapper'>
               <Switch>
                 <Route exact path='/home' component={Home} />
                 <PrivateRoute exact path='/booking' component={Booking} />
