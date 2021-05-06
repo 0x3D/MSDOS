@@ -46,16 +46,21 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
       end_time: eTime,
       apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
     }
+
     const amountOfBookings = await getAmountOfBookings()
-    const maxAmount = JSON.parse(localStorage.getItem('settings')).laundryTime
+    let maxAmount = 2
+    if (localStorage.getItem('settings')) {
+      maxAmount = JSON.parse(localStorage.getItem('settings')).laundryTime
+    }
     if (amountOfBookings < maxAmount) {
       // Success
+      await postBooking(postData)
+      Emailer(postData, 'LAUNDRY')
     } else {
-      // TODO, Sorry you cant book
-      window.alert('No booking for you')
+      // TODO, Make this prettier
+      window.alert('Woops, du har bokat för många tider, ' + maxAmount +
+      ' är max. \n Avboka en tid och försök igen')
     }
-    await postBooking(postData)
-    Emailer(postData, 'LAUNDRY')
     await fetchBookings()
   }
 
