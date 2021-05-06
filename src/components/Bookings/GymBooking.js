@@ -4,8 +4,8 @@ import { format, addMinutes, differenceInMinutes } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
+import { getData, postData } from '../../Fetcher'
 
-const fetch = window.fetch
 const alert = window.alert
 const localStorage = window.localStorage
 
@@ -31,7 +31,13 @@ export default function GymBooking () {
      * Open hours for the gym
      * @const {string}
      */
-  const url = 'http://localhost:8000/gymBookings/'
+  const url = 'http://localhost:8000/'
+
+  /**
+     * Table gymBookings
+     * @const {string}
+     */
+  const gymBokingTable = 'gymBookings/'
 
   /**
      * Open hours for the gym
@@ -88,11 +94,8 @@ export default function GymBooking () {
      * Functinon to fetch the booked gymtimes from the database
      */
   const fetchBookings = useCallback(async () => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => {
-        parseData(json)
-      })
+    const json = await getData(url, gymBokingTable)
+    parseData(json)
   }, [])
 
   /**
@@ -132,18 +135,8 @@ export default function GymBooking () {
   }
 
   // Posts the previously created booking
-  const postBooking = async (postData) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    }
-    const response = await fetch(url, requestOptions)
-    const data = await response.json()
-    console.log(data)
+  const postBooking = async (pData) => {
+    postData(url, gymBokingTable, pData)
   }
 
   // Handles the "book" button on the modal

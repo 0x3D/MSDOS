@@ -3,8 +3,9 @@ import { Container, Row, Col, Card, Button, Toast } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import CheckBox from '../assets/greenCheck.png'
 import { getAuthData } from '../LoginBackend'
+import { getData, deleteData } from '../Fetcher'
+
 const localStorage = window.localStorage
-const fetch = window.fetch
 
 /**
  * The Profile component is the component that show the info of the users that are logged in.
@@ -16,6 +17,10 @@ const fetch = window.fetch
  */
 export default function Profile () {
   const currentUser = getAuthData().apartmentNo
+  const url = 'http://localhost:8000/'
+  const userTable = 'users'
+  const laundryBookingsTable = 'laundryBookings/'
+  const userCondition = '?apartmentNo=' + String(currentUser)
 
   /**
    * usersData is a variables, and setUserData is a set-method for the variable
@@ -47,10 +52,9 @@ export default function Profile () {
   * @constant data is the data we formatting to a JSON
   */
   const fetchUsers = useCallback(async () => {
-    const response = await fetch('http://localhost:8000/users?apartmentNo=' + String(currentUser))
-    const data = await response.json()
+    const data = await getData(url, userTable, userCondition)
     setUserData(data)
-  }, [currentUser])
+  }, [userCondition])
 
   /**
   * Fetches the laundryBooking from jsonPlaceHolder
@@ -58,10 +62,9 @@ export default function Profile () {
   * @constant data is the data we formatting to a JSON
   */
   const fetchBookings = useCallback(async () => {
-    const response = await fetch('http://localhost:8000/laundryBookings?apartmentNo=' + String(currentUser))
-    const data = await response.json()
+    const data = await getData(url, laundryBookingsTable, userCondition)
     setLaundryBookings(data)
-  }, [currentUser])
+  }, [userCondition])
 
   /**
    * @method removeBooking is a async function that removes the booking for a specifik user from the DB
@@ -69,14 +72,7 @@ export default function Profile () {
    */
   const removeBooking = async (e) => {
     const id = String(e)
-    fetch('http://localhost:8000/laundryBookings/' + id, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(res => console.log(res))
+    deleteData(url, laundryBookingsTable, id)
     toggleShowToast()
   }
 

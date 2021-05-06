@@ -3,13 +3,14 @@ import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import Emailer from '../../Emailer'
+import { getData, postData } from '../../Fetcher'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
 let startTime = new Date()
 let endTime = new Date()
-const url = 'http://localhost:8000/laundryBookings/'
-const fetch = window.fetch
+const url = 'http://localhost:8000/'
+const laundryBookingsTable = 'laundryBookings/'
 const localStorage = window.localStorage
 
 export default function LaundryBooking () {
@@ -22,8 +23,7 @@ export default function LaundryBooking () {
 
   // Fetches the bookings from the api
   const fetchBookings = async () => {
-    const response = await fetch(url)
-    const data = await response.json()
+    const data = await getData(url, laundryBookingsTable)
     setBookings(data)
   }
 
@@ -45,20 +45,8 @@ export default function LaundryBooking () {
   }
 
   // Posts the previously created booking
-  const postBooking = async (postData) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    }
-    const response = await fetch(url, requestOptions)
-
-    const data = await response.json()
-
-    console.log(data)
+  const postBooking = async (pData) => {
+    postData(url, laundryBookingsTable, pData)
   }
 
   const handleModalConfirmation = () => {

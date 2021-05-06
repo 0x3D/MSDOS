@@ -4,9 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/login.css'
 import { Redirect } from 'react-router-dom'
 import { useAuth } from '../LoginBackend'
-
-// Use fetch from webbrowser.
-const fetch = window.fetch
+import { getData } from '../Fetcher'
 
 /**
 * Loginpage to login user. Uses loginbackend to login user. Also checks if
@@ -27,30 +25,23 @@ export default function Login (props) {
   const alertShow = () => setAlert(true)
   const alertClose = () => setAlert(false)
   const referrer = document.referrer || '/'
-  const url = 'http://localhost:8000/users?'
+  const url = 'http://localhost:8000/'
+  const userTable = 'users?'
+  const userCondition = 'apartmentNo=' + username
 
   if (isLoggedIn) {
     return <Redirect path={referrer} />
   }
 
   const handleLogin = async (e) => {
-    // TODO: Add token here
-    fetch(url + 'apartmentNo=' + username).then(
-      response => response.json()
-    ).then(json => {
-      console.log(json)
-      if (json['0'] && json['0'].password === password) {
-        console.log('yippie')
-        // TODO save password hashed
-        // const userTokens = authenticateUser(username, password)
-        basicLogin(json['0'])
-        setLoggedIn(true)
-      } else {
-        console.log('Nay')
-        alertShow()
-      }
-    })
-    // console.log(json)
+    const json = await getData(url, userTable, userCondition)
+    if (json[0] && json[0].password === password) {
+      basicLogin(json[0])
+      setLoggedIn(true)
+    } else {
+      console.log('login failed')
+      alertShow()
+    }
   }
 
   function validateForm () {

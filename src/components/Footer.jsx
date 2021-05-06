@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../styles/Footer.css'
+import { getData } from '../Fetcher'
 
 /**
  * Footer is a react komponent that always will be shown on the website
@@ -10,15 +11,19 @@ export default function Footer () {
 /**
  * @constant fetch is a constant that holds the executed window
  */
-  const fetch = window.fetch
+
+  const url = 'http://localhost:8000/'
+  const usersTable = 'users'
+  const adminCondition = '?role=admin'
 
   const [admins, setAdmins] = useState(null)
 
   const fetchAdmins = useCallback(async () => {
-    const response = await fetch('http://localhost:8000/users?role=admin')
-    const data = await response.json()
+    // const response = await fetch('http://localhost:8000/users?role=admin')
+    // const data = await response.json()
+    const data = await getData(url, usersTable, adminCondition)
     setAdmins(data)
-  }, [fetch])
+  }, [])
 
   /**
    * @method useEffect is a React function that is used to not rerender uneccesary thing
@@ -29,7 +34,6 @@ export default function Footer () {
 
   return (
     <div className='main-footer'>
-      {console.log(admins)}
       <Container>
         <Row>
           <Col md={3} sm={6}>

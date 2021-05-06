@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
+import { getData } from '../../Fetcher'
 
-const fetch = window.fetch
+const url = 'http://localhost:8000/'
+const facilitiestable = 'facilities/'
 
 /**
  * A admin component that gives a overview of all Faciities
@@ -26,10 +28,8 @@ export default function MyFacilities () {
    * @method fetchBookings Fething the facilities data from the database
    */
   const fetchBookings = async () => {
-    const response = await fetch('http://localhost:8000/facilities')
-    const data = await response.json()
+    const data = await getData(url, facilitiestable)
     setFacilities(data)
-    console.log(data)
   }
 
   /**
