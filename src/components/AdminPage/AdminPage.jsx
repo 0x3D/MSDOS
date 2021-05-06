@@ -5,6 +5,7 @@ import HandleBookings from './HandleBookings'
 import HandleUsers from './HandleUsers'
 import MyFacilities from './MyFacilities'
 import BookingHistory from './BookingHistory'
+import BookingSettings from './BookingSettings'
 
 /**
  * The AdminPage component is the component that gather all things a admin can do
@@ -59,6 +60,8 @@ export default function AdminPage () {
      */
   const bookingHistory = <BookingHistory />
 
+  const bookingSettings = <BookingSettings/>
+
   /**
  * handelShow is a method that does the logic of which admin-component which is showing
  * Use @method setSelectedModal to set the selectedmodal
@@ -70,6 +73,7 @@ export default function AdminPage () {
     if (modal === 'handle-users') { setSelectedModal(handleUsers) }
     if (modal === 'add-fac') { setSelectedModal(addFacility) }
     if (modal === 'book-hist') { setSelectedModal(bookingHistory) }
+    if (modal === 'book-settings') { setSelectedModal(bookingSettings) }
     setShow(true)
   }
   /**
@@ -110,6 +114,12 @@ export default function AdminPage () {
               <ListGroup.Item>
                 <Button id='book-hist' onClick={handleShow} size='lg' block>
                   Bokningshistorik
+                </Button>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
+                <Button id='book-settings' onClick={handleShow} size='lg' block>
+                  Bokningsinställningar
                 </Button>
               </ListGroup.Item>
 
