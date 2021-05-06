@@ -7,21 +7,16 @@ import { Button, Modal } from 'react-bootstrap'
 
 export default function RoomBooking() {
     const [bookings, setBookings] = useState([{
-        start_time: "2021-05-11",
-        end_time: "2021-05-11",
+        start_time: "2021-05-11 08:00:00",
+        end_time: "2021-05-11 09:00:00",
         apartmentNo: 3,
         id: 14
     }])
-    const openHours = [[8,9]]
+    
+    const openHours = [[8,13]]
 
     const handleChosenDate = (date) => {
         console.log(date)
-        setBookings([{
-            start_time: "2021-05-11 08:00:00",
-            end_time: "2021-05-11 9:00:00",
-            apartmentNo: 3,
-            id: 14
-        }])
         console.log(bookings)
     }
 
@@ -32,6 +27,7 @@ export default function RoomBooking() {
                 disableHistory
                 openHours={openHours}
                 bookings={bookings}
+                timeSlot={30}
                 onDateFunction={handleChosenDate}
             />
         </>
