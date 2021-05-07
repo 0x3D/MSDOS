@@ -40,7 +40,7 @@
 .adminListGroup button{
   margin: 10px;
   margin-inline: 0px;
-  background-color: var(--shade3-color)
+  background-color: var(--title-color-light)
 }
 
 .adminListGroup button:hover{
@@ -52,7 +52,7 @@
 }
 
 .handleUsersTop{
-  background-color: var(--shade3-color)
+  background-color: var(--title-color-light)
 }
 
 .taBortAnvändare button{
@@ -69,4 +69,21 @@
 
 .handleUsersTitle{
   color: var(--table2-color);
+}
+
+.addFacilityTop{
+  background-color: var(--title-color-light)
+}
+
+.addFacility{
+  background-color: var(--title-color-light)
+}
+
+.card-header-warning{
+  background-color: cyan!important
+  
+}
+
+.handleFacilitiesBody{
+  background-color: var(--shade6-color)
 }

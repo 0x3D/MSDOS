@@ -137,7 +137,7 @@ export default function Profile () {
                 <>
                   <Card.Text className='border' key={row.start_time}>
                     <b>StartTime</b> : {row.start_time} <br /> <b>Sluttid</b> : {row.end_time} <br />
-                    <Button
+                    <Button className="taBortAnvändare"
                       variant='danger' onClick={(e) => {
                         removeBooking(row.id)
                       }}

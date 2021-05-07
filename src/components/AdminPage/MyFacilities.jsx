@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
+import { Button, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
+import { Container, Row, Col, Toast } from 'react-bootstrap'
+import CheckBox from '../../assets/greenCheck.png'
+
 
 /**
  * A admin component that gives a overview of all Faciities
@@ -23,12 +27,12 @@ export default function MyFacilities () {
   useEffect(() => {
     fetchBookings()
   }, [])
-
+  
   return (
-    <div className='AddFacility'>
-      <Card>
-        <Card.Header as='h3'> <b>Faciliteter</b> </Card.Header> <br />
-        <ListGroup variant='flush'>
+    <div>
+      <Card >
+        <Card.Header as='h3'> <b class="card-header card-header-warning" id="card-header-color">Faciliteter</b> </Card.Header> <br />
+        <ListGroup>
           {!facilities
             ? (<h1>loading...</h1>)
             : (<> {
@@ -45,4 +49,5 @@ export default function MyFacilities () {
       </Card>
     </div>
   )
+  
 }

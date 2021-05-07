@@ -95,15 +95,15 @@ export default function HandleBookings () {
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
-              <TableCell align='left'><h3>Start Tid</h3></TableCell>
-              <TableCell align='center'><h3>Slut Tid</h3></TableCell>
-              <TableCell align='center'><h3>Lägenhetsnummer</h3></TableCell>
-              <TableCell align='center'><h3>Ta bort bokning</h3></TableCell>
+          <TableHead className="handleUsersTop">
+            <TableRow >
+              <TableCell align='left'><h3 className="handleUsersTitle">Start Tid</h3></TableCell>
+              <TableCell align='center'><h3 className="handleUsersTitle">Slut Tid</h3></TableCell>
+              <TableCell align='center'><h3 className="handleUsersTitle">Lägenhetsnummer</h3></TableCell>
+              <TableCell align='center'><h3 className="handleUsersTitle"> Ta bort bokning</h3></TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className="handleUsersBody">
 
             {!laundryBookings
               ? (<h1>loading...</h1>)
@@ -120,8 +120,8 @@ export default function HandleBookings () {
                       <TableCell align='center'>
                         {row.apartmentNo}
                       </TableCell>
-                      <TableCell> <Button
-                        variant='contained' color='secondary' onClick={(e) => {
+                      <TableCell className="taBortAnvändare"> <Button
+                        variant='contained'  onClick={(e) => {
                           removeBooking(row.id)
                         }}
                                   > Ta bort bokning
