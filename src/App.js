@@ -2,7 +2,7 @@ import './styles/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Booking from './Booking'
-import React, {} from 'react'
+import React, { } from 'react'
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
@@ -10,6 +10,7 @@ import Home from './Home'
 import Profile from './components/Profile'
 import AuthDataProvider from './LoginBackend'
 import { IconContext } from 'react-icons'
+import Footer from './components/Footer'
 
 // const url = 'http://localhost:8000/logins'
 const localStorage = window.localStorage
@@ -65,16 +66,19 @@ function App () {
         <Router>
           <AuthDataProvider>
             <NavigationBar />
-            <Switch>
-              <Route exact path='/home' component={Home} />
-              <PrivateRoute exact path='/booking' component={Booking} />
-              <PrivateRoute exact path='/profile' component={Profile} />
-              <Redirect exact from='/' to='/booking' />
-              <Route path='/admin' component={AdminPage} />
-              <Route path='/' component={ErrorPage} />
-            </Switch>
+            <div className='bodyWrapper'>
+              <Switch>
+                <Route exact path='/home' component={Home} />
+                <PrivateRoute exact path='/booking' component={Booking} />
+                <PrivateRoute exact path='/profile' component={Profile} />
+                <Redirect exact from='/' to='/booking' />
+                <Route path='/admin' component={AdminPage} />
+                <Route path='/' component={ErrorPage} />
+              </Switch>
+            </div>
           </AuthDataProvider>
         </Router>
+        <Footer />
       </IconContext.Provider>
     </>
   )

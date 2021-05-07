@@ -1,0 +1,20 @@
+.main-footer {
+    background-color: var(--bg-color);
+    margin-top: 5em;
+}
+
+.main-footer h4 {
+    margin: 5px;
+    font-size: medium;
+    color: var(--text-color);
+}
+
+.main-footer a {
+    margin: 5px;
+    font-size: small;
+    color: var(--text-color-light);
+}
+
+.footer-buttom a {
+    font-size: large;
+}

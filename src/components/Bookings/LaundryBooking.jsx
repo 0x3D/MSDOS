@@ -12,7 +12,7 @@ const url = 'http://localhost:8000/laundryBookings/'
 const fetch = window.fetch
 const localStorage = window.localStorage
 
-export default function LaundryBooking () {
+export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
   // Booked times
   const [bookings, setBookings] = useState([])
 
@@ -46,6 +46,11 @@ export default function LaundryBooking () {
 
   // Posts the previously created booking
   const postBooking = async (postData) => {
+    if (temporaryBookingId !== undefined) {
+      removeFunction(temporaryBookingId)
+      window.location.reload()
+    }
+
     const requestOptions = {
       method: 'POST',
       headers: {

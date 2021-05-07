@@ -8,6 +8,8 @@ ___
 ___
 
 ## Vad jag vill lära mig och förstå bättre
+Från förra veckan när jag sa att lära om vad agilt arbetssätt egentligen är tycker jag att jag har fått lite bättre förståelse kring.
+
 
 Eftersom vi bestämt att vi ska göra en applikation som har ett grafiskt gränssnitt kommer vi att behöva använda oss av __CSS__.
 Min tidigare erfarenhet av CSS är inte stor, har bara en ungefärlig bild hur man använder det. Vad jag vill förstå bättre är vad man kan åstadkomma med CSS och såklart hur.
@@ -21,7 +23,8 @@ ___
 Hur jag ska lära mig och förstå detta är genom att kolla youtubeklipp om CSS
 samt försöka kolla på [w3schools](https://www.w3schools.com/) som visar bra hur man gör.
 
-## Hur jag kan hjälpa någon eller hela gruppen lära sig något nytt.
+## Hur jag kan hjälpa någon eller hela gruppen lära sig något nytt. 
+Att ta med från förra veckan var att visade jag de gruppmedlemmar om hur vi ska använda git.
 
 Där vi gör vår prototyp av hur designen ska se ut av applikationen kommer vi följa en
 del __Designmönster__. Viktigt är att identifiera dem så att man gör dem på rätt
@@ -32,6 +35,7 @@ med namnet på designmönstret samt i kommentaren länka till en hemsida om
 information om just det designmöstret. Självklart också under tillfälle när vi jobbar inne i Figma informera om de designmönstrerna vi stöter på.
 
 ## Mitt bidrag till gruppens arbete av Scrum
+Från förra veckan tycker jag att jag har fått lite mer koll om vad som ska vara med på en sprintplanering. Men mer kunskap behövs inom detta.
 
 __Scrumboard__ gicks igenom föreläsningen 31/3 där ni visade att man kan använda
 __Trello__. Mitt bidrag till gruppen är att sätta upp en Trello, samt
