@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Alert } from 'react-bootstrap'
 import Emailer from '../../Emailer'
 // import { isDOMComponentElement } from 'react-dom/test-utils'
 
@@ -27,6 +27,10 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   const [showConfirmation, setShowModal] = useState(false)
 
   const handleClose = () => setShowModal(false)
+
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
+
+  const [maxAmountState, setMaxAmountState] = useState('n/a')
 
   // Fetches the bookings from the api
   const fetchBookings = async () => {
@@ -58,8 +62,11 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
       Emailer(postData, 'LAUNDRY')
     } else {
       // TODO, Make this prettier
-      window.alert('Woops, du har bokat för många tider, ' + maxAmount +
-      ' är max. \n Avboka en tid och försök igen')
+      setMaxAmountState(maxAmount)
+      await fetchBookings()
+      throw new Error('Booking failure, too many bookings')
+      // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
+      // ' är max. \n Avboka en tid och försök igen')
     }
     await fetchBookings()
   }
@@ -87,10 +94,19 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   }
 
   const handleModalConfirmation = () => {
-    setShowModal(false)
-
     // om bekräftat körs denna för att "spara bokningen"
+    let failureFlag = false
     newBooking(startTime, endTime)
+      .catch((err) => {
+        console.error(err)
+        setShowErrorAlert(true)
+        failureFlag = true
+        // This has to be here otherwise it instantly close modal
+        setShowModal(failureFlag)
+      })
+    if (failureFlag === false) {
+      setShowModal(failureFlag)
+    }
   }
 
   const handleChosenTime = (chosenStartTime) => {
@@ -124,6 +140,14 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
           <Modal.Title>Bekräfta din bokning</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Alert show={showErrorAlert} variant='danger'>
+            <Alert.Heading>Du har bokat för många tider</Alert.Heading>
+            <p>
+              Försök igen efter du har avbokat en tid.
+              Max antal bokningar är {maxAmountState}
+            </p>
+            <hr />
+          </Alert>
           Bekräfta din bokning av tvättid.
           <br />
           Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(

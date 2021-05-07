@@ -2,7 +2,6 @@ import { Form, Row, Col } from 'react-bootstrap'
 
 const localStorage = window.localStorage
 
-
 export default function BookingSettings () {
   const settings = {
     laundryTime: 2,
@@ -38,7 +37,7 @@ export default function BookingSettings () {
             Tvättstuga max antal bokade tider :
           </Form.Label>
           <Col sm='9'>
-            <Form.Control as='select' onChange={handleLaundryChange}>
+            <Form.Control as='select' value={settings.laundryTime} onChange={handleLaundryChange}>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -52,7 +51,7 @@ export default function BookingSettings () {
             Gym max antal bokade tider :
           </Form.Label>
           <Col sm='9'>
-            <Form.Control as='select' onChange={handleGymChange}>
+            <Form.Control as='select' value={settings.gymTime} onChange={handleGymChange}>
               <option>1</option>
               <option>2</option>
               <option>3</option>
