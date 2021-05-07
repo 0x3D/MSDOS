@@ -168,7 +168,7 @@ export default function GymBooking () {
     } else if (differenceInMinutes(time, startTime) > maxGymSessionTime * 60 || time < startTime) {
       clearTimeInterval()
     } else if (isEqual(time, startTime)) {
-      return
+      return null
     } else {
       setEndTime(time)
       setHasChosenTime(true)
