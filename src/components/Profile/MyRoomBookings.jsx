@@ -12,22 +12,22 @@ import {
   Modal
 } from 'react-bootstrap'
 
-export default function MyLaundryBookings ({ loggedIn }) {
+export default function MyRoomBookings ({ loggedIn }) {
   /**
      * Constants for the fetcher methods
      */
   const url = 'http://localhost:8000/'
-  const laundryBookingsTable = 'laundryBookings/'
+  const roomBookingTable = 'roomBookings/'
   const userCondition = '?apartmentNo=' + String(loggedIn)
 
   /**
-     * laundryBookings is a variables, and setLaundryBookings is a set-method for the variable
+     * roomBookings is a variables, and setRoomBookings is a set-method for the variable
      * Usestate is the default value
-     * @constant laundryBookings holds the data
-     * @method setLaundryBookings sets the data
+     * @constant roomBookings holds the data
+     * @method setRoomBookings sets the data
      * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
      */
-  const [laundryBookings, setLaundryBookings] = useState(null)
+  const [roomBookings, setRoomBookings] = useState(null)
 
   /**
      * showToast is a boolean, and setShowToast is a set-method for the boolean
@@ -77,7 +77,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
     */
   const removeBooking = async (e) => {
     const id = String(e)
-    deleteData(url, laundryBookingsTable, id)
+    deleteData(url, roomBookingTable, id)
     toggleShowToast()
   }
 
@@ -96,8 +96,8 @@ export default function MyLaundryBookings ({ loggedIn }) {
     * @constant data is the data we formatting to a JSON
     */
   const fetchBookings = useCallback(async () => {
-    const data = await getData(url, laundryBookingsTable, userCondition)
-    setLaundryBookings(data)
+    const data = await getData(url, roomBookingTable, userCondition)
+    setRoomBookings(data)
   }, [userCondition])
 
   /**
@@ -139,16 +139,16 @@ export default function MyLaundryBookings ({ loggedIn }) {
         </Toast>
       </div>
 
-      {!laundryBookings
+      {!roomBookings
         ? (<h1>loading...</h1>)
         : (
           <Card>
             <Card.Header as='h3'>
               {' '}
-              <b>Mina tvättbokningar</b>{' '}
+              <b>Mina lokalbokningar</b>{' '}
             </Card.Header>{' '}
             <br />
-            {laundryBookings.map((row) => (
+            {roomBookings.map((row) => (
               <Card.Text className='border' key={row.start_time}>
                 <b>Starttid</b> : {row.start_time} <br /> <b>Sluttid</b> :{' '}
                 {row.end_time} <br />
@@ -180,7 +180,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
           <Modal.Title> Välj ny tid för att redigera din bokning</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
+          FÖR TILLFÄLET LIGGER LaundryBookings HÄR MEN FINA ROOMBOOKINGS SKAA IN HÄR SEN
           <LaundryBooking
             removeFunction={removeBooking}
             temporaryBookingId={tempBookingId}

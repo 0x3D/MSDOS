@@ -27,6 +27,9 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
     setBookings(data)
   }
 
+  /**
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
   useEffect(() => {
     fetchBookings()
   }, [])
@@ -46,6 +49,10 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
+    if (temporaryBookingId !== undefined) {
+      removeFunction(temporaryBookingId)
+      window.location.reload()
+    }
     postData(url, laundryBookingsTable, pData)
   }
 

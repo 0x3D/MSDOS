@@ -136,6 +136,10 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
+    if (temporaryBookingId !== undefined) {
+      removeFunction(temporaryBookingId)
+      window.location.reload()
+    }
     postData(url, gymBokingTable, pData)
   }
 
