@@ -14,7 +14,7 @@ const localStorage = window.localStorage
  *
  * @returns The HTML to be rendered
  */
-export default function GymBooking () {
+export default function GymBooking ({ removeFunction, temporaryBookingId }) {
   /**
      * Time in minutes for one gym section
      * @const {integer}
