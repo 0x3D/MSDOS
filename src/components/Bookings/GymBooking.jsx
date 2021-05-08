@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import TimeCalendar from 'react-timecalendar'
-import { format, addMinutes, differenceInMinutes } from 'date-fns'
+import { format, addMinutes, differenceInMinutes, isEqual } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
@@ -160,6 +160,8 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
       setEndTime(time)
     } else if (differenceInMinutes(time, startTime) > maxGymSessionTime * 60 || time < startTime) {
       clearTimeInterval()
+    } else if (isEqual(time, startTime)) {
+      return null
     } else {
       setEndTime(time)
       setHasChosenTime(true)

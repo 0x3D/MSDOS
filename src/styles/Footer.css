@@ -1,10 +1,6 @@
 .main-footer {
     background-color: var(--bg-color);
-    position: relative;
-    margin-top: 10%;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    margin-top: 5em;
 }
 
 .main-footer h4 {
