@@ -1,32 +1,46 @@
 import { Form, Row, Col } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
 
 const localStorage = window.localStorage
 
 export default function BookingSettings () {
-  const settings = {
+  const [settings, setSettings] = useState({
     laundryTime: 2,
     gymTime: 1
-  }
+  })
+  useEffect(() => {
+    if (localStorage.getItem('settings')) {
+      setSettings({
+        laundryTime: JSON.parse(localStorage.getItem('settings')).laundryTime,
+        gymTime: JSON.parse(localStorage.getItem('settings')).gymTime
+      })
+    }
+  }, [])
 
   // If settings already exist load them
-  if (localStorage.getItem('settings')) {
-    settings.laundryTime = JSON.parse(localStorage.getItem('settings')).laundryTime
-    settings.gymTime = JSON.parse(localStorage.getItem('settings')).gymTime
-  }
+
   // todo: Load changes from settings1
 
   const handleLaundryChange = e => {
     e.preventDefault()
     // TODO  Check if valid here.
-    settings.laundryTime = e.target.value
+    setSettings({
+      laundryTime: e.target.value,
+      gymTime: settings.gymTime
+    })
+    // settings.laundryTime = e.target.value
     localStorage.setItem('settings', JSON.stringify(settings))
   }
 
   const handleGymChange = e => {
     e.preventDefault()
     // TODO  Check if valid here.
-    settings.gymTime = e.target.value
+    setSettings({
+      laundryTime: settings.laundryTime,
+      gymTime: e.target.value
+    })
     localStorage.setItem('settings', JSON.stringify(settings))
+    e.value = e.target.value
   }
   // defaultValue={this.state.selectValue}
   return (
