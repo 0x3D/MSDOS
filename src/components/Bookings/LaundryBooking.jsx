@@ -14,7 +14,7 @@ const laundryBookingsTable = 'laundryBookings/'
 const localStorage = window.localStorage
 
 const getAmountOfBookings = async () => {
-  const url = 'http://localhost:8000/gymBookings'
+  const url = 'http://localhost:8000/laundryBookings'
   const datatable = '?apartmentNo='
   const condition = JSON.parse(localStorage.getItem('tokens')).apartmentNo
   const data = await getData(url, datatable, condition)
