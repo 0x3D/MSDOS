@@ -8,6 +8,9 @@ ___
 ___
 
 ## Vad jag vill lära mig och förstå bättre
+Förra veckan skrev jag här att få bättre förståelse inom css vilket var något jag la mycket tid på denna vecka 
+vilket resultera i att jag fick bra förståelse hur jag ska använda det.
+
 Eftersom vi kommer visualisera ganska enkel data(ex. namn, lägenhetsnummer etc)
 kommer vi till en början göra så att man kan hämta värden samt skriva och ändra i en textfil. Vad
 jag vill lära mig och förstå bättre är hur man på ett bra sätt sätter upp en
