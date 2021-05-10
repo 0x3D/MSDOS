@@ -12,8 +12,10 @@ import {
 } from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
+import { getData, deleteData } from '../../Fetcher'
 
-const fetch = window.fetch
+const url = 'http://localhost:8000/'
+const laundryBokingTable = 'laundryBookings/'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -68,35 +70,26 @@ export default function HandleBookings () {
    * Fetches the bookings from the api
    */
   const fetchBookings = async () => {
-    const response = await fetch('http://localhost:8000/laundryBookings')
-    const data = await response.json()
+    const data = await getData(url, laundryBokingTable)
     setLaundryBookings(data)
   }
-  /**
-   * @method useEffect is a React function that is used to not rerender uneccesary thing
-   */
-  useEffect(() => {
-    fetchBookings()
-  }, [])
 
   /**
    * @method removeBooking is a async function that remove a booking from the DB
    * @param {is the event} e
    */
   const removeBooking = async (e) => {
-    console.log(e)
     const id = String(e)
-
-    fetch('http://localhost:8000/laundryBookings/' + id, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
+    deleteData(url, laundryBokingTable, id)
     toggleShowToast()
   }
+
+  /**
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
+  useEffect(() => {
+    fetchBookings()
+  }, [])
 
   return (
     <div>

@@ -3,20 +3,21 @@ import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal, Alert } from 'react-bootstrap'
 import Emailer from '../../Emailer'
-// import { isDOMComponentElement } from 'react-dom/test-utils'
+import { getData, postData } from '../../Fetcher'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
 let startTime = new Date()
 let endTime = new Date()
-const url = 'http://localhost:8000/laundryBookings/'
-const fetch = window.fetch
+const url = 'http://localhost:8000/'
+const laundryBookingsTable = 'laundryBookings/'
 const localStorage = window.localStorage
 
 const getAmountOfBookings = async () => {
-  const response = await fetch(url + '?apartmentNo=' + JSON.parse(localStorage.getItem('tokens')).apartmentNo)
-  const data = await response.json()
-  // console.log(data)
+  const url = 'http://localhost:8000/gymBookings'
+  const datatable = '?apartmentNo='
+  const condition = JSON.parse(localStorage.getItem('tokens')).apartmentNo
+  const data = await getData(url, datatable, condition)
   return data.length
 }
 
@@ -34,11 +35,13 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
   // Fetches the bookings from the api
   const fetchBookings = async () => {
-    const response = await fetch(url)
-    const data = await response.json()
+    const data = await getData(url, laundryBookingsTable)
     setBookings(data)
   }
 
+  /**
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
   useEffect(() => {
     fetchBookings()
   }, [])
@@ -72,25 +75,12 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   }
 
   // Posts the previously created booking
-  const postBooking = async (postData) => {
+  const postBooking = async (pData) => {
     if (temporaryBookingId !== undefined) {
       removeFunction(temporaryBookingId)
       window.location.reload()
     }
-
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    }
-    const response = await fetch(url, requestOptions)
-
-    const data = await response.json()
-
-    console.log(data)
+    postData(url, laundryBookingsTable, pData)
   }
 
   const handleModalConfirmation = () => {
