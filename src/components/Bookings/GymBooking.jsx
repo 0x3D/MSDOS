@@ -1,20 +1,28 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addMinutes, differenceInMinutes, isEqual } from 'date-fns'
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Alert } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
+import { getData, postData } from '../../Fetcher'
 
-const fetch = window.fetch
 const alert = window.alert
 const localStorage = window.localStorage
+
+const getAmountOfBookings = async () => {
+  const url = 'http://localhost:8000/gymBookings'
+  const datatable = '?apartmentNo='
+  const condition = JSON.parse(localStorage.getItem('tokens')).apartmentNo
+  const data = await getData(url, datatable, condition)
+  return data.length
+}
 
 /**
  * The react subtab component for booking the gym.
  *
  * @returns The HTML to be rendered
  */
-export default function GymBooking () {
+export default function GymBooking ({ removeFunction, temporaryBookingId }) {
   /**
      * Time in minutes for one gym section
      * @const {integer}
@@ -31,7 +39,13 @@ export default function GymBooking () {
      * Open hours for the gym
      * @const {string}
      */
-  const url = 'http://localhost:8000/gymBookings/'
+  const url = 'http://localhost:8000/'
+
+  /**
+     * Table gymBookings
+     * @const {string}
+     */
+  const gymBokingTable = 'gymBookings/'
 
   /**
      * Open hours for the gym
@@ -45,6 +59,10 @@ export default function GymBooking () {
      * @const {array}
      */
   const [bookings, setBookings] = useState([])
+
+  const [maxAmountState, setMaxAmountState] = useState('n/a')
+
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
 
   /**
      * State wether to show the confirmation for the booking or not.
@@ -88,11 +106,8 @@ export default function GymBooking () {
      * Functinon to fetch the booked gymtimes from the database
      */
   const fetchBookings = useCallback(async () => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => {
-        parseData(json)
-      })
+    const json = await getData(url, gymBokingTable)
+    parseData(json)
   }, [])
 
   /**
@@ -104,7 +119,6 @@ export default function GymBooking () {
     bookings.forEach((booking) => {
       booking.end_time = JSON.stringify(addMinutes(new Date(booking.end_time), 1)).replace(/"/g, '')
     })
-    console.log(bookings)
     setBookings(bookings)
   }
 
@@ -125,33 +139,52 @@ export default function GymBooking () {
         end_time: endTime,
         apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
       }
-      await postBooking(bookingData)
-      Emailer(bookingData, 'GYM')
+
+      const amountOfBookings = await getAmountOfBookings()
+      let maxAmount = 2
+      if (localStorage.getItem('settings')) {
+        maxAmount = JSON.parse(localStorage.getItem('settings')).gymTime
+      }
+      if (amountOfBookings < maxAmount) {
+        // Success
+        await postBooking(bookingData)
+        Emailer(bookingData, 'GYM')
+      } else {
+        setMaxAmountState(maxAmount)
+        await fetchBookings()
+        throw new Error('Booking failure, too many bookings')
+        // TODO, Make this prettier
+      // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
+        // ' är max. \n Avboka en tid och försök igen')
+      }
     }
     await fetchBookings()
   }
 
   // Posts the previously created booking
-  const postBooking = async (postData) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
+  const postBooking = async (pData) => {
+    if (temporaryBookingId !== undefined) {
+      removeFunction(temporaryBookingId)
+      window.location.reload()
     }
-    const response = await fetch(url, requestOptions)
-    const data = await response.json()
-    console.log(data)
+    postData(url, gymBokingTable, pData)
   }
 
   // Handles the "book" button on the modal
   const handleModalConfirmation = () => {
-    setShowModal(false)
-
-    // om bekräftat körs denna för att "spara bokningen"
+    let failureFlag = false
+    // To 'save' booking and catch error.
     newBooking(startTime, endTime)
+      .catch((err) => {
+        console.error(err)
+        setShowErrorAlert(true)
+        failureFlag = true
+        // This has to be here otherwise it instantly close modal
+        setShowModal(failureFlag)
+      })
+    if (failureFlag === false) {
+      setShowModal(failureFlag)
+    }
 
     clearTimeInterval()
   }
@@ -219,6 +252,14 @@ export default function GymBooking () {
         <Modal.Header closeButton>
           <Modal.Title>Bekräfta din bokning</Modal.Title>
         </Modal.Header>
+        <Alert show={showErrorAlert} variant='danger'>
+          <Alert.Heading>Du har bokat för många tider</Alert.Heading>
+          <p>
+            Försök igen efter du har avbokat en tid.
+            Max antal bokningar är {maxAmountState}
+          </p>
+          <hr />
+        </Alert>
         {!hasChosenTime
           ? (<p>Var vänlig välj tider innan du bokar</p>)
           : (

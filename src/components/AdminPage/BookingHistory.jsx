@@ -13,11 +13,10 @@ import {
 } from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
+import { getData, deleteData } from '../../Fetcher'
 
-/**
- * @constant fetch is a constant that holds the executed window
- */
-const fetch = window.fetch
+const url = 'http://localhost:8000/'
+const laundryTable = 'laundryBookings/'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -76,14 +75,10 @@ export default function BookingHistory () {
    * Fetches the bookings from the api
    */
   const fetchBookings = async () => {
-    const response = await fetch('http://localhost:8000/laundryBookings')
-    const data = await response.json()
-    console.log(data)
-
+    const data = await getData(url, laundryTable)
     const historyArray = []
     for (let i = 0; i < data.length; i++) {
       if (isPast(new Date(data[i].end_time))) {
-        console.log(1)
         historyArray.push(data[i])
       }
     }
@@ -95,16 +90,8 @@ export default function BookingHistory () {
    * @param {is the event} e
    */
   const clearBookingHistory = async () => {
-    console.log('m called')
     for (let i = 0; i < bookingHistory.length; i++) {
-      fetch('http://localhost:8000/laundryBookings/' + bookingHistory[i].id, {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-        .then((res) => res.json())
-        .then((res) => console.log(res))
+      deleteData(url, laundryTable, bookingHistory[i].id)
     }
     toggleShowToast()
   }

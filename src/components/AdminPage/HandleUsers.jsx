@@ -12,8 +12,9 @@ import {
 } from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
+import { getData, deleteData } from '../../Fetcher'
 
-const fetch = window.fetch
+const url = 'http://localhost:8000/'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -67,8 +68,7 @@ export default function HandleUsers () {
    * Fething the users data
    */
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:8000/users')
-    const data = await response.json()
+    const data = await getData(url, 'users/')
     setUsers(data)
   }
 
@@ -84,16 +84,8 @@ export default function HandleUsers () {
    * @param {is the event} e
    */
   const removeUser = async (e) => {
-    console.log('m called')
     const id = String(e)
-    fetch('http://localhost:8000/users/' + id, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
+    deleteData(url, 'users/', id)
     toggleShowToast()
   }
 
