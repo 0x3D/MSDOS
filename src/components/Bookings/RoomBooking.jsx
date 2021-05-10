@@ -3,15 +3,16 @@ import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import Emailer from '../../Emailer'
+import { getData, postData } from '../../Fetcher'
 
 
 
-export default function RoomBooking() {
+export default function RoomBooking({ removeFunction, temporaryBookingId }) {
     const [bookings, setBookings] = useState([])
     const [showConfirmation, setShowModal] = useState(false)
     const handleClose = () => setShowModal(false)
     const [chosenDate, setChosenDate] = useState(new Date())
-    const url = 'http://localhost:8000/roomBookings/'
+    const url = 'http://localhost:8000/'
 
     const openHours = [[8, 13]]
 
@@ -42,13 +43,11 @@ export default function RoomBooking() {
         //Emailer(postData, 'ROOM')
     }
 
+
     // Fetches bookings from the database
     const fetchBookings = useCallback(async () => {
-        fetch(url)
-            .then((response) => response.json())
-            .then((json) => {
-                setBookings(json)
-            })
+        const data = await getData(url, 'roomBookings')
+        setBookings(data)
     }, [])
 
 
@@ -56,19 +55,14 @@ export default function RoomBooking() {
         fetchBookings()
     }, [fetchBookings])
 
-    // Posts the new booking to the database
-    const postBooking = async (postData) => {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
+
+    // Posts the previously created booking
+    const postBooking = async (data) => {
+        if (temporaryBookingId !== undefined) {
+            removeFunction(temporaryBookingId)
+            window.location.reload()
         }
-        const response = await fetch(url, requestOptions)
-        const data = await response.json()
-        console.log(data)
+        postData(url, 'roomBookings', data)
     }
 
 
