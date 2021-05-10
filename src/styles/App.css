@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-/* Här kan vi hämta färger med hjälp av 'var(--main-color)' */
+/* Get colors using 'var(--main-color)' */
 :root {
   --main-color: #65ca6e8f;
   --secendary-color: rgb(185, 137, 128);
@@ -62,11 +62,11 @@
   background-color: var(--title-color-light)
 }
 
-.taBortAnvändare button{
+.removeUser button{
   background-color: var(--remove-button)
 }
 
-.taBortAnvändare button:hover{
+.removeUser button:hover{
   background-color: var(--remove-hover-button)
 }
 

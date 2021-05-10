@@ -140,7 +140,7 @@ export default function HandleBookings () {
                       </TableCell>
                       <TableCell align='center'>{row.end_time}</TableCell>
                       <TableCell align='center'>{row.apartmentNo}</TableCell>
-                      <TableCell className='taBortAnvändare'>
+                      <TableCell className='removeUser'>
                         {' '}
                         <Button
                           variant='contained'

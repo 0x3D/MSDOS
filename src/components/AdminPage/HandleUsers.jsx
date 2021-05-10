@@ -135,7 +135,7 @@ export default function HandleUsers () {
                         {row.apartmentNo}
                       </TableCell>
                       <TableCell align='center'>{row.email}</TableCell>
-                      <TableCell className='taBortAnvändare' align='center'>
+                      <TableCell className='removeUser' align='center'>
                         <Button
                           variant='contained'
                           color='secondary'

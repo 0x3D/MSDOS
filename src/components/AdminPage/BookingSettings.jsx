@@ -2,6 +2,7 @@ import { Form, Row, Col } from 'react-bootstrap'
 import React, { useState, useEffect } from 'react'
 
 const localStorage = window.localStorage
+const textAlignRight = { 'text-align': 'right' }
 
 export default function BookingSettings () {
   const [settings, setSettings] = useState({
@@ -47,7 +48,7 @@ export default function BookingSettings () {
     <>
       <Form>
         <Form.Group as={Row} controlId='laundryBookingAmount'>
-          <Form.Label column sm='3'>
+          <Form.Label style={textAlignRight} column sm='3'>
             Tvättstuga max antal bokade tider :
           </Form.Label>
           <Col sm='9'>
@@ -61,7 +62,7 @@ export default function BookingSettings () {
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId='gymBookingAmount'>
-          <Form.Label column sm='3'>
+          <Form.Label style={textAlignRight} column sm='3'>
             Gym max antal bokade tider :
           </Form.Label>
           <Col sm='9'>
