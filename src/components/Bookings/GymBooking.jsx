@@ -1,13 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addMinutes, differenceInMinutes, isEqual } from 'date-fns'
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Alert } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
 import { getData, postData } from '../../Fetcher'
 
 const alert = window.alert
 const localStorage = window.localStorage
+
+const getAmountOfBookings = async () => {
+  const url = 'http://localhost:8000/gymBookings'
+  const datatable = '?apartmentNo='
+  const condition = JSON.parse(localStorage.getItem('tokens')).apartmentNo
+  const data = await getData(url, datatable, condition)
+  return data.length
+}
 
 /**
  * The react subtab component for booking the gym.
@@ -51,6 +59,10 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
      * @const {array}
      */
   const [bookings, setBookings] = useState([])
+
+  const [maxAmountState, setMaxAmountState] = useState('n/a')
+
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
 
   /**
      * State wether to show the confirmation for the booking or not.
@@ -128,8 +140,24 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
         end_time: endTime,
         apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
       }
-      await postBooking(bookingData)
-      Emailer(bookingData, 'GYM')
+
+      const amountOfBookings = await getAmountOfBookings()
+      let maxAmount = 2
+      if (localStorage.getItem('settings')) {
+        maxAmount = JSON.parse(localStorage.getItem('settings')).gymTime
+      }
+      if (amountOfBookings < maxAmount) {
+        // Success
+        await postBooking(bookingData)
+        Emailer(bookingData, 'GYM')
+      } else {
+        setMaxAmountState(maxAmount)
+        await fetchBookings()
+        throw new Error('Booking failure, too many bookings')
+        // TODO, Make this prettier
+      // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
+        // ' är max. \n Avboka en tid och försök igen')
+      }
     }
     await fetchBookings()
   }
@@ -145,10 +173,19 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
 
   // Handles the "book" button on the modal
   const handleModalConfirmation = () => {
-    setShowModal(false)
-
-    // om bekräftat körs denna för att "spara bokningen"
+    let failureFlag = false
+    // To 'save' booking and catch error.
     newBooking(startTime, endTime)
+      .catch((err) => {
+        console.error(err)
+        setShowErrorAlert(true)
+        failureFlag = true
+        // This has to be here otherwise it instantly close modal
+        setShowModal(failureFlag)
+      })
+    if (failureFlag === false) {
+      setShowModal(failureFlag)
+    }
 
     clearTimeInterval()
   }
@@ -216,6 +253,14 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
         <Modal.Header closeButton>
           <Modal.Title>Bekräfta din bokning</Modal.Title>
         </Modal.Header>
+        <Alert show={showErrorAlert} variant='danger'>
+          <Alert.Heading>Du har bokat för många tider</Alert.Heading>
+          <p>
+            Försök igen efter du har avbokat en tid.
+            Max antal bokningar är {maxAmountState}
+          </p>
+          <hr />
+        </Alert>
         {!hasChosenTime
           ? (<p>Var vänlig välj tider innan du bokar</p>)
           : (
