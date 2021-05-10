@@ -1,15 +1,17 @@
 // Backend
-import React, { createContext, useState, useEffect, useMemo, useContext } from 'react'
+import React, { createContext, useState, useEffect, useContext } from 'react'
 
 export const AuthDataContext = createContext(null)
+const localStorage = window.localStorage
 
 // This const is to have an empty object if no login
 const INITAUTHDATA = {}
-const localStorage = window.localStorage
 
-// If a login already exists, get it from localstorage
+/**
+ * Get data from localstorage
+ * @returns {} if user is not logged in, user tokens if logged in
+ */
 export const getAuthData = () => {
-  // Save cookie if browser allows.
   if (localStorage.getItem('tokens')) {
     const existingTokens = JSON.parse(localStorage.getItem('tokens'))
     return existingTokens
@@ -22,7 +24,10 @@ export const authenticateUser = (username, password) => {
   return { username, password }
 }
 
-// This is a REACT component that should give functions to logout and login
+/**
+ * @param {*} props the props that this component inherits
+ * @returns A REACT component that has functions to login and logout. Also sets authdata
+ */
 const AuthDataProvider = (props) => {
   const [authData, setAuthData] = useState(INITAUTHDATA)
 
@@ -49,7 +54,9 @@ const AuthDataProvider = (props) => {
   return <AuthDataContext.Provider value={{ authData, basicLogin, basicLogout }} {...props} />
 }
 
-// Hook to get Authenticated
+/**
+ * @returns Hook to use ReactContext to get login info.
+ */
 export function useAuth () {
   return useContext(AuthDataContext)
 }

@@ -8,13 +8,16 @@ import { MdAssignment } from 'react-icons/md'
 import { BiUserCircle, BiLogIn, BiLogOut } from 'react-icons/bi'
 import { useAuth } from '../LoginBackend'
 
+/**
+ * Wrapper around navbar. Used on every site.
+ * @returns A react component that is the navigation bar at the top of every page.
+ */
 export default function NavigationBar () {
   const whiteText = { color: 'white' }
   const { basicLogout } = useAuth()
-  // const backend = new LoginBackend()
   const history = useHistory()
   const handleLogOut = (e) => {
-    const result = basicLogout()
+    basicLogout()
     history.push('/')
   }
 

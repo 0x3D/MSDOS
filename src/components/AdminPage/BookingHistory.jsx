@@ -1,12 +1,26 @@
-import { isPast,format } from 'date-fns'
+import { isPast } from 'date-fns'
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@material-ui/core/'
+import {
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button
+} from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
-import CheckBox from '../../assets/greenCheck.png'
+import { FaCheck } from 'react-icons/fa'
+import { getData, deleteData } from '../../Fetcher'
+
+const url = 'http://localhost:8000/'
+const laundryTable = 'laundryBookings/'
 
 /**
  * @constant useStyles is used to set the width of the table created
- * @see [Materia-UI](https://material-ui.com/styles/basics/)
+ * @see {@link[Materia-UI](https://material-ui.com/styles/basics/)}
  */
 const useStyles = makeStyles({
   table: {
@@ -23,57 +37,68 @@ const useStyles = makeStyles({
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function BookingHistory () {
-
-  const dateformat = 'yyyy-MM-dd HH:mm:ss' 
+  // const dateformat = 'yyyy-MM-dd HH:mm:ss'
 
   /**
-      * @constant classes is to set the styles in the returned Component
-      */
+   * @constant classes is to set the styles in the returned Component
+   */
   const classes = useStyles()
 
+  /**
+  * bookingHistory is a variable, and setBookingHistory is a set-method for the variable
+  * Usestate is the default value
+  *
+  * @constant bookingHistory holds the bookings that tha date is past time
+  * @method setLaundryBookings setThe data to the variable
+  * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+  */
   const [bookingHistory, setBookingHistory] = useState(null)
 
+  /**
+   * showToast is a variable, and setShowToast is a set-method for the variable
+   * Usestate is the default value
+   *
+   * @constant showToast is a boolean that tells us if the Toast is showing or not
+   * @method setShowToast sets the boolean value
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
   const [showToast, setShowToast] = useState(false)
-  const toggleShowToast = () => { setShowToast(!showToast) }
+
+  /**
+   * @method toggleShowToast is a method that handle the the @method setShowToast setter
+   */
+  const toggleShowToast = () => {
+    setShowToast(!showToast)
+  }
 
   /**
    * Fetches the bookings from the api
    */
   const fetchBookings = async () => {
-    const date = new Date()
-    const formatedDate = format(date, dateformat) 
-    const response = await fetch('http://localhost:8000/laundryBookings')
-    const data = await response.json()
-    console.log(data)
-    
+    const data = await getData(url, laundryTable)
     const historyArray = []
-    for( let i= 0; i< data.length; i++) {
-      if (isPast( new Date (data[i].end_time))) {
-        console.log(1)
+    for (let i = 0; i < data.length; i++) {
+      if (isPast(new Date(data[i].end_time))) {
         historyArray.push(data[i])
       }
     }
     setBookingHistory(historyArray)
   }
 
+  /**
+   * @method clearBookingHistory is a async function that cleares tha past time bookings from the DB
+   * @param {is the event} e
+   */
   const clearBookingHistory = async () => {
-    console.log('m called')
     for (let i = 0; i < bookingHistory.length; i++) {
-      fetch('http://localhost:8000/laundryBookings/' + bookingHistory[i].id, {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-        .then(res => res.json())
-        .then(res => console.log(res))
+      deleteData(url, laundryTable, bookingHistory[i].id)
     }
     toggleShowToast()
   }
 
   /**
-     * useEffect is a React function that is used to not rerender uneccesary thing
-     */
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
   useEffect(() => {
     fetchBookings()
   }, [])
@@ -86,10 +111,13 @@ export default function BookingHistory () {
           <Col md={{ span: 4, offset: 4 }}>
             <Toast show={showToast} onClose={toggleShowToast}>
               <Toast.Header>
-                <img width='35px' src={CheckBox} alt='' />
+                <FaCheck size='2em' />
                 <strong className='mr-auto'>Historik rensad</strong>
               </Toast.Header>
-              <Toast.Body>Bokningshistoriken har blivit rensad, uppdatera sidan för att se ändringar</Toast.Body>
+              <Toast.Body>
+                Bokningshistoriken har blivit rensad, uppdatera sidan för att se
+                ändringar
+              </Toast.Body>
             </Toast>
           </Col>
         </Row>
@@ -97,7 +125,10 @@ export default function BookingHistory () {
 
       <TableContainer component={Paper}>
         <Button
-          variant='contained' color='secondary' fullWidth='true' onClick={(e) => {
+          variant='contained'
+          color='secondary'
+          fullWidth='true'
+          onClick={(e) => {
             clearBookingHistory()
           }}
         >
@@ -106,13 +137,18 @@ export default function BookingHistory () {
         <Table className={classes.table} aria-label='simple table'>
           <TableHead>
             <TableRow style={{ backgroundColor: 'LightGrey' }}>
-              <TableCell align='left'><h3>Start Tid</h3></TableCell>
-              <TableCell align='center'><h3>Slut Tid</h3></TableCell>
-              <TableCell align='center'><h3>Lägenhetsnummer</h3></TableCell>
+              <TableCell align='left'>
+                <h3>Starttid</h3>
+              </TableCell>
+              <TableCell align='center'>
+                <h3>Sluttid</h3>
+              </TableCell>
+              <TableCell align='center'>
+                <h3>Lägenhetsnummer</h3>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-
             {!bookingHistory
               ? (<h1>loading...</h1>)
               : (
@@ -122,14 +158,11 @@ export default function BookingHistory () {
                       <TableCell component='th' scope='row'>
                         {row.start_time}
                       </TableCell>
-                      <TableCell align='center'>
-                        {row.end_time}
-                      </TableCell>
-                      <TableCell align='center'>
-                        {row.apartmentNo}
-                      </TableCell>
+                      <TableCell align='center'>{row.end_time}</TableCell>
+                      <TableCell align='center'>{row.apartmentNo}</TableCell>
                       <TableCell />
-                    </TableRow>))}
+                    </TableRow>
+                  ))}
                 </>
                 )}
           </TableBody>

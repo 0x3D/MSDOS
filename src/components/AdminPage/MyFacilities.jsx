@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
-import { Button, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
-import { Container, Row, Col, Toast } from 'react-bootstrap'
-import CheckBox from '../../assets/greenCheck.png'
+import { getData } from '../../Fetcher'
 
+const url = 'http://localhost:8000/'
+const facilitiestable = 'facilities/'
 
 /**
  * A admin component that gives a overview of all Faciities
@@ -15,39 +15,51 @@ import CheckBox from '../../assets/greenCheck.png'
  * @author [Axel Hertzberg](https://github.com/axelhertzberg)
  */
 export default function MyFacilities () {
+  /**
+   * facilities is a variables, and setFacilities is a set-method for the variable
+   * Usestate is the default value
+   * @constant facilities holds the values of the facilities
+   * @method setFacilities is a setter for the users constant
+   * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
+   */
   const [facilities, setFacilities] = useState(null)
 
+  /**
+   * @method fetchBookings Fething the facilities data from the database
+   */
   const fetchBookings = async () => {
-    const response = await fetch('http://localhost:8000/facilities')
-    const data = await response.json()
+    const data = await getData(url, facilitiestable)
     setFacilities(data)
-    console.log(data)
   }
 
+  /**
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
   useEffect(() => {
     fetchBookings()
   }, [])
-  
+
   return (
     <div>
-      <Card >
-        <Card.Header as='h3'> <b class="card-header card-header-warning" id="card-header-color">Faciliteter</b> </Card.Header> <br />
+      <Card>
+        <Card.Header as='h3'> <b class='card-header card-header-warning' id='card-header-color'>Faciliteter</b> </Card.Header> <br />
         <ListGroup>
           {!facilities
             ? (<h1>loading...</h1>)
-            : (<> {
+            : (
+              <> {
               facilities.map((row) => (
-                <>
-                  
-                    <ListGroup.Item key={row.fac} >{row.fac}</ListGroup.Item>
-                  
-                </>
+                <React.Fragment key={row.fac}>
+
+                  <ListGroup.Item key={row.fac}>{row.fac}</ListGroup.Item>
+
+                </React.Fragment>
               ))
             }
-            </>)}
+              </>
+              )}
         </ListGroup>
       </Card>
     </div>
   )
-  
 }

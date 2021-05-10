@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Button, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/'
+import {
+  Button,
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper
+} from '@material-ui/core/'
 import { Container, Row, Col, Toast } from 'react-bootstrap'
-import CheckBox from '../../assets/greenCheck.png'
+import { FaCheck } from 'react-icons/fa'
+import { getData, deleteData } from '../../Fetcher'
+
+const url = 'http://localhost:8000/'
 
 /**
  * @constant useStyles is used to set the width of the table created
@@ -11,8 +24,7 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650
   }
-}
-)
+})
 
 /**
  * A admin component that gives a overview of all Users
@@ -27,8 +39,8 @@ export default function HandleUsers () {
   /**
    * users is a variables, and setUsers is a set-method for the variable
    * Usestate is the default value
-   * @constant users
-   * @method setUsers
+   * @constant users holds the values of the users
+   * @method setUsers is a setter for the users constant
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [users, setUsers] = useState(null)
@@ -39,7 +51,13 @@ export default function HandleUsers () {
    * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
    */
   const [showToast, setShowToast] = useState(false)
-  const toggleShowToast = () => { setShowToast(!showToast) }
+
+  /**
+   * @method toggleShowToast is a method that handle the the @method setShowToast setter
+   */
+  const toggleShowToast = () => {
+    setShowToast(!showToast)
+  }
 
   /**
    * @constant classes is to set the styles in the returned Component
@@ -50,29 +68,24 @@ export default function HandleUsers () {
    * Fething the users data
    */
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:8000/users')
-    const data = await response.json()
+    const data = await getData(url, 'users/')
     setUsers(data)
   }
 
   /**
- * useEffect is a React function that is used to not rerender uneccesary thing
- */
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
   useEffect(() => {
     fetchUsers()
   }, [])
 
+  /**
+   * @method removeUser is a async function that removes the user from the DB
+   * @param {is the event} e
+   */
   const removeUser = async (e) => {
-    console.log('m called')
     const id = String(e)
-    fetch('http://localhost:8000/users/' + id, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(res => console.log(res))
+    deleteData(url, 'users/', id)
     toggleShowToast()
   }
 
@@ -83,26 +96,35 @@ export default function HandleUsers () {
           <Col md={{ span: 4, offset: 4 }}>
             <Toast show={showToast} onClose={toggleShowToast}>
               <Toast.Header>
-                <img width='35px' src={CheckBox} alt='' />
-                <strong className='mr-auto'>Bokning borttagen</strong>
-
+                <FaCheck size='2em' />
+                <strong className='mr-auto'>Användare borttagen</strong>
               </Toast.Header>
-              <Toast.Body> Användaren har blivit borttagen! Uppdatera sidan för att se resultat </Toast.Body>
+              <Toast.Body>
+                {' '}
+                Användaren har blivit borttagen! Uppdatera sidan för att se
+                resultat{' '}
+              </Toast.Body>
             </Toast>
           </Col>
         </Row>
       </Container>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead className="handleUsersTop">
-            <TableRow>
-              <TableCell ><h2 className="handleUsersTitle">Lägenhetsnummer</h2></TableCell>
-              <TableCell align='center'><h2 className="handleUsersTitle">Email</h2></TableCell>
-              <TableCell align='center'><h2> {/** SKA VARA TOM */} </h2></TableCell>
+          <TableHead className='handleUsersTop'>
+            <TableRow style={{ backgroundColor: 'LightGrey' }}>
+              <TableCell>
+                <h2 className='handleUsersTitle'>Lägenhetsnummer</h2>
+              </TableCell>
+              <TableCell align='center'>
+                <h2 className='handleUsersTitle'>Email</h2>
+              </TableCell>
+              <TableCell align='center'>
+                <h2> {/** SKA VARA TOM */} </h2>
+              </TableCell>
             </TableRow>
           </TableHead>
 
-          <TableBody className="handleUsersBody">
+          <TableBody className='handleUsersBody'>
             {!users
               ? (<h1>loading...</h1>)
               : (
@@ -112,18 +134,21 @@ export default function HandleUsers () {
                       <TableCell align='center' scope='row'>
                         {row.apartmentNo}
                       </TableCell>
-                      <TableCell align='center'>
-                        {row.email}
-                      </TableCell>
-                      <TableCell className="taBortAnvändare"  align='center'>
+                      <TableCell align='center'>{row.email}</TableCell>
+                      <TableCell className='taBortAnvändare' align='center'>
                         <Button
-                         variant='contained' onClick={(e) => {
+                          variant='contained'
+                          color='secondary'
+                          onClick={(e) => {
                             removeUser(row.id)
                           }}
-                        > Ta bort användare
+                        >
+                          {' '}
+                          Ta bort användare
                         </Button>
                       </TableCell>
-                    </TableRow>))}
+                    </TableRow>
+                  ))}
                 </>
                 )}
           </TableBody>

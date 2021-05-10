@@ -1,72 +1,102 @@
 import React, { useState, useEffect } from 'react'
 import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
-import { Button, Modal } from 'react-bootstrap'
-
+import { Button, Modal, Alert } from 'react-bootstrap'
+import Emailer from '../../Emailer'
+import { getData, postData } from '../../Fetcher'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
 let startTime = new Date()
 let endTime = new Date()
-const laundryUrl = 'http://localhost:8000/laundryBookings/'
-const historyUrl = 'http://localhost:8000/bookingHistory/'
+const url = 'http://localhost:8000/'
+const laundryBookingsTable = 'laundryBookings/'
+const localStorage = window.localStorage
 
-export default function LaundryBooking () {
+const getAmountOfBookings = async () => {
+  const url = 'http://localhost:8000/laundryBookings'
+  const datatable = '?apartmentNo='
+  const condition = JSON.parse(localStorage.getItem('tokens')).apartmentNo
+  const data = await getData(url, datatable, condition)
+  return data.length
+}
+
+export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
   // Booked times
-  const [bookings, setBookings] = useState(null)
+  const [bookings, setBookings] = useState([])
 
   const [showConfirmation, setShowModal] = useState(false)
 
   const handleClose = () => setShowModal(false)
 
+  const [showErrorAlert, setShowErrorAlert] = useState(false)
+
+  const [maxAmountState, setMaxAmountState] = useState('n/a')
+
   // Fetches the bookings from the api
   const fetchBookings = async () => {
-    const laundryRespons = await fetch(laundryUrl)
-    const laundryData = await laundryRespons.json()
-    setBookings(laundryData)
+    const data = await getData(url, laundryBookingsTable)
+    setBookings(data)
   }
 
+  /**
+   * @method useEffect is a React function that is used to not rerender uneccesary thing
+   */
   useEffect(() => {
     fetchBookings()
   }, [])
 
   // Creates a new booking
   const newBooking = async (sTime, eTime) => {
-    const dateformat = 'yyyy-MM-dd HH:mm:ss'
-
     const postData = {
-      start_time: format(sTime, dateformat),
-      end_time: format(eTime, dateformat),
+      start_time: sTime,
+      end_time: eTime,
       apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
     }
 
-    await postBooking(postData)
+    const amountOfBookings = await getAmountOfBookings()
+    let maxAmount = 2
+    if (localStorage.getItem('settings')) {
+      maxAmount = JSON.parse(localStorage.getItem('settings')).laundryTime
+    }
+    if (amountOfBookings < maxAmount) {
+      // Success
+      await postBooking(postData)
+      Emailer(postData, 'LAUNDRY')
+    } else {
+      // TODO, Make this prettier
+      setMaxAmountState(maxAmount)
+      await fetchBookings()
+      throw new Error('Booking failure, too many bookings')
+      // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
+      // ' är max. \n Avboka en tid och försök igen')
+    }
     await fetchBookings()
   }
 
   // Posts the previously created booking
-  const postBooking = async (postData) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
+  const postBooking = async (pData) => {
+    if (temporaryBookingId !== undefined) {
+      removeFunction(temporaryBookingId)
+      window.location.reload()
     }
-    const laundryResponse = await fetch(laundryUrl, requestOptions)
-  
-    const laundryData = await laundryResponse.json()
-    
-    console.log(laundryData)
-  
+    postData(url, laundryBookingsTable, pData)
   }
 
   const handleModalConfirmation = () => {
-    setShowModal(false)
-
     // om bekräftat körs denna för att "spara bokningen"
+    let failureFlag = false
     newBooking(startTime, endTime)
+      .catch((err) => {
+        console.error(err)
+        setShowErrorAlert(true)
+        failureFlag = true
+        // This has to be here otherwise it instantly close modal
+        setShowModal(failureFlag)
+      })
+    if (failureFlag === false) {
+      setShowModal(failureFlag)
+    }
   }
 
   const handleChosenTime = (chosenStartTime) => {
@@ -76,8 +106,6 @@ export default function LaundryBooking () {
     // Show modal for further confirmation
     setShowModal(true)
   }
-
-  //        <Image src="favicon.ico" className="rounded float-left" width="35px" />
 
   return (
     <>
@@ -102,6 +130,14 @@ export default function LaundryBooking () {
           <Modal.Title>Bekräfta din bokning</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Alert show={showErrorAlert} variant='danger'>
+            <Alert.Heading>Du har bokat för många tider</Alert.Heading>
+            <p>
+              Försök igen efter du har avbokat en tid.
+              Max antal bokningar är {maxAmountState}
+            </p>
+            <hr />
+          </Alert>
           Bekräfta din bokning av tvättid.
           <br />
           Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(

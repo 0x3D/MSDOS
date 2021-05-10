@@ -8,8 +8,8 @@ before_install:
 install: 
   - "npm install --legacy-peer-deps"
 script: 
+  - "./start_jsonplaceholder.sh"
   - "npm test"
-  - "npx standard"
   - "npm run build"
 arch: amd64          # optional, this is default, routes to a full VM
 os: linux            # optional, this is default
