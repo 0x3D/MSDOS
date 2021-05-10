@@ -105,7 +105,6 @@ export default function BookingHistory () {
 
   return (
     <div>
-      {console.log(bookingHistory)}
       <Container>
         <Row>
           <Col md={{ span: 4, offset: 4 }}>
