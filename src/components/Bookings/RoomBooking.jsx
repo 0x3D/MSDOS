@@ -17,7 +17,6 @@ export default function RoomBooking({ removeFunction, temporaryBookingId }) {
     const openHours = [[8, 13]]
 
     const handleChosenDate = (date) => {
-        console.log(date)
         setChosenDate(date)
         setShowModal(true)
     }
@@ -37,10 +36,11 @@ export default function RoomBooking({ removeFunction, temporaryBookingId }) {
             end_time: chosenDate,
             apartmentNo: JSON.parse(localStorage.getItem('tokens')).apartmentNo
         }
-
         await postBooking(postData)
         await fetchBookings()
-        //Emailer(postData, 'ROOM')
+
+        //Sends email confiramtion when a time is booked
+        Emailer(postData, 'room')
     }
 
 
