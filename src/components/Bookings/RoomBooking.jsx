@@ -17,7 +17,7 @@ export default function RoomBooking() {
 
     const handleChosenDate = (date) => {
         console.log(date)
-        setChosenDate(addHours(date, 0))
+        setChosenDate(date)
         setShowModal(true)
     }
 
