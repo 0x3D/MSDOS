@@ -13,7 +13,7 @@ export default function Footer () {
  */
 
   const url = 'http://localhost:8000/'
-  const usersTable = 'users'
+  const usersTable = 'users/'
   const adminCondition = '?role=admin'
 
   const [admins, setAdmins] = useState(null)
