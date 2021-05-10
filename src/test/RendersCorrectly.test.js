@@ -35,12 +35,12 @@ it('Login renders correctly', () => {
 })
 
 it('AdminPage renders correctly', () => {
-    const renderer = new ShallowRenderer()
-    renderer.render(<AdminPage />)
-    const result = renderer.getRenderOutput()
-    expect(result).toMatchSnapshot()
+  const renderer = new ShallowRenderer()
+  renderer.render(<AdminPage />)
+  const result = renderer.getRenderOutput()
+  expect(result).toMatchSnapshot()
 })
-  
+
 it('Profile renders correctly', () => {
   const renderer = new ShallowRenderer()
   renderer.render(<Profile />)
