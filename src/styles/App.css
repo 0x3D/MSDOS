@@ -8,6 +8,13 @@
   --main-color: #65ca6e8f;
   --secendary-color: rgb(185, 137, 128);
 
+  /* Color scheme for application */
+  --slate-gray: #627c85ff;
+  --alice-blue: #e1eff6ff;
+  --english-vermillion: #d33e43ff;
+  --raisin-black: #1c1d21ff;
+  --blue-ncs: #2e86abff;
+
   --title-color-dark:  #464646;
   --title-color-light:  #072C61;
   --shade3-color:  #0E57C5;
