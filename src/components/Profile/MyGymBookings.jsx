@@ -176,7 +176,6 @@ export default function MyGymBookings ({ loggedIn }) {
             )}
 
         <Modal size='xl' show={showModal} onHide={handleClose}>
-          {console.log(tempBookingId)}
           <Modal.Header closeButton>
             <Modal.Title> Välj ny tid för att redigera din bokning</Modal.Title>
           </Modal.Header>
