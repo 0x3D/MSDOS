@@ -1,12 +1,12 @@
-# MSDOS Projekt i DAT257
-___
+# MSDOS
+Project in DAT257 Agile software project management
 
 ## Starta applicationen
 ___
 
 First of all you need to install node on your system. You can do that by
-visit [Nodes website linked here](https://nodejs.org/en/ "Google's Homepage") and choose the
-__*LTS*__ version. 
+visit [Nodes website linked here](https://nodejs.org/en/ "Google's Homepage") and download the
+__*LTS*__ version and follow the instructions on the website. Or you can check the video further down here in the readmefile.
 
 Check that you have node b typing:
 
@@ -19,8 +19,8 @@ and
 ```
 npm -version
 ```
-
-Have trouble installing node on your computer? Then we want you to watch this video:
+---
+#### Have trouble installing node on your computer? Then we want you to watch this video where they wil show you how to install it!
 
 [![Watch this video to install node](http://img.youtube.com/vi/AuCuHvgOeBY/0.jpg)](http://www.youtube.com/watch?v=AuCuHvgOeBY)
 
