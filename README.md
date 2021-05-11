@@ -8,7 +8,15 @@ First of all you need to install node on your system. You can do that by
 visit [Nodes website linked here](https://nodejs.org/en/ "Google's Homepage") and download the
 __*LTS*__ version and follow the instructions on the website. Or you can check the video further down here in the readmefile.
 
-Check that you have node b typing:
+---
+#### Have trouble installing node on your computer? Then we want you to watch this video where they wil show you how to install it!
+
+[![Watch this video to install node](http://img.youtube.com/vi/AuCuHvgOeBY/0.jpg)](http://www.youtube.com/watch?v=AuCuHvgOeBY)
+
+___
+
+
+#### Check that you have node b typing:
 
 ```
 node -version
@@ -19,22 +27,29 @@ and
 ```
 npm -version
 ```
----
-#### Have trouble installing node on your computer? Then we want you to watch this video where they wil show you how to install it!
-
-[![Watch this video to install node](http://img.youtube.com/vi/AuCuHvgOeBY/0.jpg)](http://www.youtube.com/watch?v=AuCuHvgOeBY)
-
-
 ___
+
 ### When you have node installed
 
-__Now__ make sure you are in the __MSDOS__ directory. Start by typing the command:
+Its now time to clone the repository, and you do that by open a termnal and cd to a folder or location
+were you want to save this applikation. When you have found a plave then you will enter the command below in the terminal:
+
+```
+git clone https://github.com/0x3D/MSDOS.git
+```
+
+__Now__ make sure you are in the __MSDOS__ directory. Do that by open a terminal and cd to were you cloned the repository adn type in:
+
+```
+cd MSDOS
+```
+You can now run the command below to be able to start the project
 
 ```
 npm install
 ```
 This will take a while first time starting the project. So in the mean time you can open an other
-terminal and type
+terminal and type in:
 
 ```
 cd jsonPaceHolder
