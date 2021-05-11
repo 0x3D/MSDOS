@@ -1,10 +1,11 @@
 import React from 'react'
 import { Container, Tabs, Tab } from 'react-bootstrap'
 import { MdLocalLaundryService } from 'react-icons/md'
-import LaundryBooking from './components/Bookings/LaundryBooking'
 import { CgGym } from 'react-icons/cg'
 import { BiBuildings } from 'react-icons/bi'
+import LaundryBooking from './components/Bookings/LaundryBooking'
 import GymBooking from './components/Bookings/GymBooking'
+import RoomBooking from './components/Bookings/RoomBooking'
 
 /**
  * This is a container that contains the components Laundry booking and gymbooking in tabs.
@@ -28,6 +29,9 @@ export default function Booking () {
           </Tab>
           <Tab eventKey='lokaler' title={<span> <BiBuildings size='2em' /> Lokaler</span>}>
             {/* Create component for booking lokaler */}
+            <div className='border-bottom border-left border-right'>
+              <RoomBooking />
+            </div>
           </Tab>
         </Tabs>
       </Container>

@@ -119,7 +119,6 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
     bookings.forEach((booking) => {
       booking.end_time = JSON.stringify(addMinutes(new Date(booking.end_time), 1)).replace(/"/g, '')
     })
-    console.log(bookings)
     setBookings(bookings)
   }
 
