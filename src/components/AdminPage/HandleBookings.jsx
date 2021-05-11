@@ -112,23 +112,23 @@ export default function HandleBookings () {
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead className='handleUsersTop'>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
+          <TableHead className="handleBookingTop">
+            <TableRow>
               <TableCell align='left'>
-                <h3 className='handleUsersTitle'>Start Tid</h3>
+                <h3 className='handleBookingTitle'>Start Tid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleUsersTitle'>Slut Tid</h3>
+                <h3 className='handleBookingTitle'>Slut Tid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleUsersTitle'>Lägenhetsnummer</h3>
+                <h3 className='handleBookingTitle'>Lägenhetsnummer</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleUsersTitle'>Ta bort bokning</h3>
+                <h3 className='handleBookingTitle'>Ta bort bokning</h3>
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody className='handleUsersBody'>
+          <TableBody className='handleBookingBody'>
             {!laundryBookings
               ? (<h1>loading...</h1>)
               : (

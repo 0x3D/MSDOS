@@ -46,7 +46,7 @@ export default function BookingSettings () {
   // defaultValue={this.state.selectValue}
   return (
     <>
-      <Form>
+      <Form className="bookingSettingsBody">
         <Form.Group as={Row} controlId='laundryBookingAmount'>
           <Form.Label style={textAlignRight} column sm='3'>
             Tvättstuga max antal bokade tider :
@@ -66,7 +66,7 @@ export default function BookingSettings () {
             Gym max antal bokade tider :
           </Form.Label>
           <Col sm='9'>
-            <Form.Control as='select' value={settings.gymTime} onChange={handleGymChange}>
+            <Form.Control className="bookingSettingsBody" as='select' value={settings.gymTime} onChange={handleGymChange}>
               <option>1</option>
               <option>2</option>
               <option>3</option>

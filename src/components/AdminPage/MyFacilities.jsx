@@ -1,7 +1,7 @@
+import { blue } from '@material-ui/core/colors'
 import React, { useState, useEffect } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
 import { getData } from '../../Fetcher'
-
 const url = 'http://localhost:8000/'
 const facilitiestable = 'facilities/'
 
@@ -39,11 +39,12 @@ export default function MyFacilities () {
     fetchBookings()
   }, [])
 
+  
   return (
     <div>
-      <Card>
-        <Card.Header as='h3'> <b class='card-header card-header-warning' id='card-header-color'>Faciliteter</b> </Card.Header> <br />
-        <ListGroup>
+       <Card style={{color: 'white'}} as='h3'> <b class='card-header card-header-myFacilities' id='card-header-color'>Faciliteter</b> <br /> 
+       
+        <ListGroup style={{backgroundColor:'blue'}}>
           {!facilities
             ? (<h1>loading...</h1>)
             : (
@@ -63,3 +64,4 @@ export default function MyFacilities () {
     </div>
   )
 }
+

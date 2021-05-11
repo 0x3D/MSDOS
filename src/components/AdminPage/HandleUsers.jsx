@@ -111,7 +111,7 @@ export default function HandleUsers () {
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
           <TableHead className='handleUsersTop'>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
+            <TableRow>
               <TableCell>
                 <h2 className='handleUsersTitle'>Lägenhetsnummer</h2>
               </TableCell>
