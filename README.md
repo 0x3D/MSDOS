@@ -1,9 +1,13 @@
 # MSDOS
-Projekt i DAT257
+Project in DAT257 Agile software project management
 
 ___
+# Documentations
+[SDD](https://docs.google.com/document/d/10WxI5iAu8TZO15gvbfwLmruxEjfIJko6ZJvROlkM9V4/)
+[]
+___
 
-# Starta applicationen
+# Start application
 
 
 ```
