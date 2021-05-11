@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import LaundryBooking from '../Bookings/LaundryBooking'
+import RoomBoking from '../Bookings/RoomBooking'
+import '../../styles/Profile.css'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiFillEdit } from 'react-icons/ai'
 import { FaCheck } from 'react-icons/fa'
@@ -154,6 +155,7 @@ export default function MyRoomBookings ({ loggedIn }) {
                 {row.end_time} <br />
                 <Button
                   className='btn-primary-spacing'
+                  size='sm'
                   variant='danger'
                   onClick={(e) => {
                     removeBooking(row.id)
@@ -164,6 +166,7 @@ export default function MyRoomBookings ({ loggedIn }) {
                 </Button>
                 <Button
                   className='btn-primary-spacing'
+                  size='sm'
                   onClick={(e) => {
                     handleEditBooking(row.id)
                   }}
@@ -180,8 +183,7 @@ export default function MyRoomBookings ({ loggedIn }) {
           <Modal.Title> Välj ny tid för att redigera din bokning</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          FÖR TILLFÄLET LIGGER LaundryBookings HÄR MEN FINA ROOMBOOKINGS SKAA IN HÄR SEN
-          <LaundryBooking
+          <RoomBoking
             removeFunction={removeBooking}
             temporaryBookingId={tempBookingId}
           />
