@@ -21,6 +21,14 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
   const url = 'http://localhost:8000/'
   const localStorage = window.localStorage
 
+  const [showBookingConfirmation, setShowBookingModal] = useState(false)
+
+  const handleBookingClose = () => setShowBookingModal(false)
+
+  const [showRebookingConfirmation, setShowRebookingModal] = useState(false)
+
+  const handleRebookingClose = () => setShowRebookingModal(false)
+
   const openHours = [[8, 13]]
 
   const handleChosenDate = (date) => {
@@ -46,6 +54,10 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
     await postBooking(postData)
     await fetchBookings()
 
+    if(idToRebook == undefined) {
+      setShowBookingModal(true)
+    }
+
     // Sends email confiramtion when a time is booked
     Emailer(postData, 'room')
   }
@@ -66,6 +78,7 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
       // TODO: GÅ via fetcher för removefunction
       removeFunction(idToRebook)
       window.location.reload()
+      setShowRebookingModal(true)
     }
     postData(url, 'roomBookings', data)
   }
@@ -105,6 +118,42 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
           </Button>
           <Button variant='primary' onClick={handleModalConfirmation}>
             Boka
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showBookingConfirmation} onHide={handleBookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Din bokning har gått igenom.
+          <br />
+          Tid: 8.00 - 20.00
+          <br />
+          Dag: {JSON.stringify(format(chosenDate, 'dd/MM-yy')).replace(/"/g, '')}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleBookingClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ombokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Din bokning har gått igenom.
+          <br />
+          Tid: 8.00 - 20.00
+          <br />
+          Dag: {JSON.stringify(format(chosenDate, 'dd/MM-yy')).replace(/"/g, '')}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleRebookingClose}>
+            OK
           </Button>
         </Modal.Footer>
       </Modal>

@@ -33,6 +33,15 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
   const [maxAmountState, setMaxAmountState] = useState('n/a')
 
+
+  const [showBookingConfirmation, setShowBookingModal] = useState(false)
+
+  const handleBookingClose = () => setShowBookingModal(false)
+
+  const [showRebookingConfirmation, setShowRebookingModal] = useState(false)
+
+  const handleRebookingClose = () => setShowRebookingModal(false)
+
   // Fetches the bookings from the api
   const fetchBookings = async () => {
     const data = await getData(url, laundryBookingsTable)
@@ -71,14 +80,22 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
       // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
       // ' är max. \n Avboka en tid och försök igen')
     }
+
     await fetchBookings()
+
+    if(temporaryBookingId == undefined) {
+      setShowBookingModal(true)
+    }
+    
   }
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
     if (temporaryBookingId !== undefined) {
       removeFunction(temporaryBookingId)
-      window.location.reload()
+      //Nedan rad har vi kommenterat bort, hur gör vi med den?
+      //window.location.reload()
+      setShowRebookingModal(true) 
     }
     postData(url, laundryBookingsTable, pData)
   }
@@ -157,6 +174,54 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
           </Button>
         </Modal.Footer>
       </Modal>
+
+
+      {/* Modal for confirmation message after booking */}
+      <Modal show={showBookingConfirmation} onHide={handleBookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Din bokning har gått igenom.
+          <br />
+          Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(
+            /"/g,
+            ''
+          )} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
+          <br />
+          Dag:{' '}
+          {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleBookingClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+        {/* Modal for confirmation message after rebooking */}
+        <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ombokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Din ombokning har gått igenom.
+          <br />
+          Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(
+            /"/g,
+            ''
+          )} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
+          <br />
+          Dag:{' '}
+          {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleRebookingClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
     </>
   )
 }
