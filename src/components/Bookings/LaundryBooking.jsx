@@ -146,7 +146,7 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
           )} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
           <br />
           Dag:{' '}
-          {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+          {JSON.stringify(format(startTime, 'dd/MM - yyyy')).replace(/"/g, '')}
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>

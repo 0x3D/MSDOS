@@ -115,10 +115,10 @@ export default function HandleBookings () {
           <TableHead>
             <TableRow style={{ backgroundColor: 'LightGrey' }}>
               <TableCell align='left'>
-                <h3>Start Tid</h3>
+                <h3>Starttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Slut Tid</h3>
+                <h3>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
                 <h3>Lägenhetsnummer</h3>

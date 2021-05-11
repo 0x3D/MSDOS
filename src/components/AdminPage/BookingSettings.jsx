@@ -48,7 +48,7 @@ export default function BookingSettings () {
       <Form>
         <Form.Group as={Row} controlId='laundryBookingAmount'>
           <Form.Label column sm='3'>
-            Tvättstuga max antal bokade tider :
+            Tvättstuga max antal bokade tider
           </Form.Label>
           <Col sm='9'>
             <Form.Control as='select' value={settings.laundryTime} onChange={handleLaundryChange}>
@@ -62,7 +62,7 @@ export default function BookingSettings () {
         </Form.Group>
         <Form.Group as={Row} controlId='gymBookingAmount'>
           <Form.Label column sm='3'>
-            Gym max antal bokade tider :
+            Gym max antal bokade tider
           </Form.Label>
           <Col sm='9'>
             <Form.Control as='select' value={settings.gymTime} onChange={handleGymChange}>

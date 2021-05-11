@@ -138,7 +138,7 @@ export default function AdminPage () {
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
-            Close
+            Stäng
           </Button>
         </Modal.Footer>
       </Modal>
