@@ -8,7 +8,7 @@ import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
 import Home from './Home'
 import Profile from './components/Profile/Profile'
-import AuthDataProvider from './LoginBackend'
+import AuthDataProvider, {getAuthData} from './LoginBackend'
 import { IconContext } from 'react-icons'
 import Footer from './components/Footer'
 
@@ -32,6 +32,24 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
             )}
     />
   )
+}
+
+const AdminPermissionRoute = ({component: Component, role}) => {
+    role = getAuthData().role
+
+    return (
+      <Route 
+      render={props =>
+        role==='admin' 
+        ? (
+          <Component {...props} />
+          )
+        : (
+            <Redirect to={{ pathname: '/booking', state: { from: props.location } }} />
+          )
+      }
+      />
+    )
 }
 
 /**
@@ -72,7 +90,7 @@ function App () {
                 <PrivateRoute exact path='/booking' component={Booking} />
                 <PrivateRoute exact path='/profile' component={Profile} />
                 <Redirect exact from='/' to='/booking' />
-                <Route path='/admin' component={AdminPage} />
+                <AdminPermissionRoute path='/admin' component={AdminPage} />
                 <Route path='/' component={ErrorPage} />
               </Switch>
             </div>
