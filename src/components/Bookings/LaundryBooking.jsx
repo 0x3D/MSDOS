@@ -22,7 +22,9 @@ const getAmountOfBookings = async () => {
 }
 
 export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
-  // Booked times
+  /**
+    * Function to show the confirmationmodal and possible error message if there are to many bookings
+    */
   const [bookings, setBookings] = useState([])
 
   const [showConfirmation, setShowModal] = useState(false)
@@ -32,7 +34,6 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
 
   const [maxAmountState, setMaxAmountState] = useState('n/a')
-
 
   const [showBookingConfirmation, setShowBookingModal] = useState(false)
 
@@ -83,7 +84,8 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
     await fetchBookings()
 
-    if(temporaryBookingId == undefined) {
+    //IF-sats som ser till att två moduler inte visas när en ombokning görs
+    if(temporaryBookingId === undefined) {
       setShowBookingModal(true)
     }
     
@@ -93,7 +95,6 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   const postBooking = async (pData) => {
     if (temporaryBookingId !== undefined) {
       removeFunction(temporaryBookingId)
-      //Nedan rad har vi kommenterat bort, hur gör vi med den?
       //window.location.reload()
       setShowRebookingModal(true) 
     }
@@ -216,7 +217,7 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
           {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleRebookingClose}>
+          <Button variant='secondary' onClick={(e)=>{window.location.reload()}}>
             OK
           </Button>
         </Modal.Footer>

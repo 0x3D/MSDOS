@@ -20,7 +20,9 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
   const [chosenDate, setChosenDate] = useState(new Date())
   const url = 'http://localhost:8000/'
   const localStorage = window.localStorage
-
+/**
+    * Function to show the confirmationmodal and possible error message if there are to many bookings
+    */
   const [showBookingConfirmation, setShowBookingModal] = useState(false)
 
   const handleBookingClose = () => setShowBookingModal(false)
@@ -54,7 +56,8 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
     await postBooking(postData)
     await fetchBookings()
 
-    if(idToRebook == undefined) {
+    //IF-sats som ser till att två moduler inte visas när en ombokning görs
+    if(idToRebook === undefined) {
       setShowBookingModal(true)
     }
 
@@ -100,7 +103,7 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
         bookings={bookings}
         onDateFunction={handleChosenDate}
       />
-
+      {/* Modal for confirmation of booking */}
       <Modal show={showConfirmation} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Bekräfta din bokning</Modal.Title>
@@ -122,6 +125,7 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
         </Modal.Footer>
       </Modal>
 
+      {/* Modal for confirmation message after booking */}
       <Modal show={showBookingConfirmation} onHide={handleBookingClose}>
         <Modal.Header closeButton>
           <Modal.Title>Bokningsbekräftelse</Modal.Title>
@@ -140,12 +144,13 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
         </Modal.Footer>
       </Modal>
 
+      {/* Modal for confirmation message after rebooking */}
       <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
         <Modal.Header closeButton>
           <Modal.Title>Ombokningsbekräftelse</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Din bokning har gått igenom.
+          Din ombokning har gått igenom.
           <br />
           Tid: 8.00 - 20.00
           <br />

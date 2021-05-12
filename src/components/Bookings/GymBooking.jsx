@@ -168,7 +168,8 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
    }
    await fetchBookings()
  
-   if (temporaryBookingId == undefined) {
+  //IF-sats som ser till att två moduler inte visas när en ombokning görs
+   if (temporaryBookingId === undefined) {
      setShowBookingModal(true)
     
    }
@@ -294,14 +295,15 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
          </Button>
        </Modal.Footer>
      </Modal>
- 
+          
+      {/* Modal for confirmation message after booking */}
      <Modal show={showBookingConfirmation} onHide={handleBookingClose}>
        <Modal.Header closeButton>
-         <Modal.Title>Bekräfta din bokning</Modal.Title>
+         <Modal.Title>Bokningsbekräftelse</Modal.Title>
        </Modal.Header>
        <Modal.Body>
       
-         Bekräfta din bokning av gymtid.
+       Din bokning har gått igenom.
      
        </Modal.Body>
        <Modal.Footer>
@@ -314,11 +316,11 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
  
      <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
        <Modal.Header closeButton>
-         <Modal.Title>Rebookat</Modal.Title>
+         <Modal.Title>Ombokningsbekräftelse</Modal.Title>
        </Modal.Header>
        <Modal.Body>
       
-         Rebookat.
+       Din ombokning har gått igenom.
      
        </Modal.Body>
        <Modal.Footer>
