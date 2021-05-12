@@ -7,31 +7,14 @@ import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
 import PrivateRoute from './components/PrivateRoute'
+import AdminPermissionRoute from './components/AdminPermissionRoute'
 import Home from './Home'
 import Profile from './components/Profile/Profile'
-import AuthDataProvider, { getAuthData } from './LoginBackend'
+import AuthDataProvider from './LoginBackend'
 import { IconContext } from 'react-icons'
 import Footer from './components/Footer'
 
-const AdminPermissionRoute = ({ component: Component, role }) => {
-  role = getAuthData().role
-
-  return (
-    <Route
-      render={props =>
-        role === 'admin'
-          ? (
-            <Component {...props} />
-            )
-          : (
-            <Redirect to={{ pathname: '/booking', state: { from: props.location } }} />
-            )}
-    />
-  )
-}
-
 /**
- *
  *
  * @returns The react-component that gather all react-components we are using
  * with a Router with our own NavigationBar
