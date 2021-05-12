@@ -6,50 +6,28 @@ import React, { } from 'react'
 import ErrorPage from './ErrorPage'
 import NavigationBar from './components/NavigationBar'
 import AdminPage from './components/AdminPage/AdminPage'
+import PrivateRoute from './components/PrivateRoute'
 import Home from './Home'
 import Profile from './components/Profile/Profile'
-import AuthDataProvider, {getAuthData} from './LoginBackend'
+import AuthDataProvider, { getAuthData } from './LoginBackend'
 import { IconContext } from 'react-icons'
 import Footer from './components/Footer'
 
-// const url = 'http://localhost:8000/logins'
-const localStorage = window.localStorage
-
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const tokens = JSON.parse(localStorage.getItem('tokens'))
-  // TODO: Authenticate here As in Login.jsx should probable be refactored.
+const AdminPermissionRoute = ({ component: Component, role }) => {
+  role = getAuthData().role
 
   return (
     <Route
-      {...rest}
       render={props =>
-        tokens
+        role === 'admin'
           ? (
             <Component {...props} />
             )
           : (
-            <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
+            <Redirect to={{ pathname: '/booking', state: { from: props.location } }} />
             )}
     />
   )
-}
-
-const AdminPermissionRoute = ({component: Component, role}) => {
-    role = getAuthData().role
-
-    return (
-      <Route 
-      render={props =>
-        role==='admin' 
-        ? (
-          <Component {...props} />
-          )
-        : (
-            <Redirect to={{ pathname: '/booking', state: { from: props.location } }} />
-          )
-      }
-      />
-    )
 }
 
 /**
