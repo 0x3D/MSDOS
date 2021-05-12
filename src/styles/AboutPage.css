@@ -1,0 +1,9 @@
+.AboutPage-standard {
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.jumbotron {
+    background-image: url(../assets/BrfLemansgatan.jpeg);
+    background-size: fill;
+}

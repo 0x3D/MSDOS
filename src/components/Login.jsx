@@ -56,7 +56,7 @@ export default function Login (props) {
           Du loggades inte in
         </Alert.Heading>
         <p>
-          Du har angivit fel lösenord för ditt lägenhetsnummer
+          Du har angivit fel lösenord till ditt lägenhetsnummer
         </p>
       </Alert>
 
