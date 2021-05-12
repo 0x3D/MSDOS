@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import LaundryBooking from '../Bookings/LaundryBooking'
+import '../../styles/Profile.css'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiFillEdit } from 'react-icons/ai'
 import { FaCheck } from 'react-icons/fa'
@@ -154,6 +155,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
                 {row.end_time} <br />
                 <Button
                   className='btn-primary-spacing'
+                  size='sm'
                   variant='danger'
                   onClick={(e) => {
                     removeBooking(row.id)
@@ -164,6 +166,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
                 </Button>
                 <Button
                   className='btn-primary-spacing'
+                  size='sm'
                   onClick={(e) => {
                     handleEditBooking(row.id)
                   }}
