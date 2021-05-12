@@ -6,7 +6,7 @@ import Logo from '../assets/msdos-logo.png'
 import { BsCalendar } from 'react-icons/bs'
 import { MdAssignment } from 'react-icons/md'
 import { BiUserCircle, BiLogIn, BiLogOut } from 'react-icons/bi'
-import { useAuth } from '../LoginBackend'
+import { useAuth, getAuthData } from '../LoginBackend'
 
 /**
  * Wrapper around navbar. Used on every site.
@@ -16,6 +16,7 @@ export default function NavigationBar () {
   const whiteText = { color: 'white' }
   const { basicLogout } = useAuth()
   const history = useHistory()
+  const loggedInRole = getAuthData().role
   const handleLogOut = (e) => {
     basicLogout()
     history.push('/')
@@ -31,6 +32,10 @@ export default function NavigationBar () {
       <Nav className='mr-auto ml-auto'>
         <Nav.Link as={NavLink} to='/booking' activeStyle={whiteText} activeClassName='selected-tab'><BsCalendar size='1em' /> Boka </Nav.Link>
         <Nav.Link as={NavLink} to='/profile' activeStyle={whiteText} activeClassName='selected-tab'> <MdAssignment size='1.25em' /> Mina bokningar</Nav.Link>
+        {loggedInRole === 'admin' ?
+          (<Nav.Link as={NavLink} to='/admin' activeStyle={whiteText} activeClassName='selected-tab'> <MdAssignment size='1.25em' /> Administratör sidan</Nav.Link>)
+          : <React.Fragment />
+        }
       </Nav>
 
       <Nav>
