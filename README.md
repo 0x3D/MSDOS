@@ -1,4 +1,5 @@
-# MSDOS
+[![Build Status](https://travis-ci.com/0x3D/MSDOS.svg?branch=main)](https://travis-ci.com/0x3D/MSDOS)
+# MSDOS 
 Project in DAT257 Agile software project management
 
 ## Starta applicationen
@@ -104,7 +105,7 @@ if there are any problem accessing the links:
 ## List of the links to the documents
 
 * #### Link to our travis
-    * [![Build Status](https://travis-ci.com/0x3D/MSDOS.svg?branch=main)](https://travis-ci.com/0x3D/MSDOS)
+    * [Travis](https://travis-ci.com/0x3D/MSDOS)
 * #### Link to our SSD 
    * [SDD](https://docs.google.com/document/d/10WxI5iAu8TZO15gvbfwLmruxEjfIJko6ZJvROlkM9V4/)
 * #### Link to our trelloboard
@@ -117,7 +118,7 @@ if there are any problem accessing the links:
     * [Long Term Plan]() 
 * #### Link to our System requirements
     * [System requirments]() 
-* #### Link to our Team Reaflektions
+* #### Link to our Team Reflections
     * [TeamReflektions]() 
 
 
