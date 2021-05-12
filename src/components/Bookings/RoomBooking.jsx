@@ -20,7 +20,7 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
   const [chosenDate, setChosenDate] = useState(new Date())
   const url = 'http://localhost:8000/'
   const localStorage = window.localStorage
-/**
+  /**
     * Function to show the confirmationmodal and possible error message if there are to many bookings
     */
   const [showBookingConfirmation, setShowBookingModal] = useState(false)
@@ -56,8 +56,8 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
     await postBooking(postData)
     await fetchBookings()
 
-    //IF-sats som ser till att två moduler inte visas när en ombokning görs
-    if(idToRebook === undefined) {
+    // IF-sats som ser till att två moduler inte visas när en ombokning görs
+    if (idToRebook === undefined) {
       setShowBookingModal(true)
     }
 

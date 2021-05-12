@@ -84,19 +84,18 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
     await fetchBookings()
 
-    //IF-sats som ser till att två moduler inte visas när en ombokning görs
-    if(temporaryBookingId === undefined) {
+    // IF-sats som ser till att två moduler inte visas när en ombokning görs
+    if (temporaryBookingId === undefined) {
       setShowBookingModal(true)
     }
-    
   }
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
     if (temporaryBookingId !== undefined) {
       removeFunction(temporaryBookingId)
-      //window.location.reload()
-      setShowRebookingModal(true) 
+      // window.location.reload()
+      setShowRebookingModal(true)
     }
     postData(url, laundryBookingsTable, pData)
   }
@@ -176,7 +175,6 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
         </Modal.Footer>
       </Modal>
 
-
       {/* Modal for confirmation message after booking */}
       <Modal show={showBookingConfirmation} onHide={handleBookingClose}>
         <Modal.Header closeButton>
@@ -200,8 +198,8 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
         </Modal.Footer>
       </Modal>
 
-        {/* Modal for confirmation message after rebooking */}
-        <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
+      {/* Modal for confirmation message after rebooking */}
+      <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
         <Modal.Header closeButton>
           <Modal.Title>Ombokningsbekräftelse</Modal.Title>
         </Modal.Header>
@@ -217,7 +215,7 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
           {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={(e)=>{window.location.reload()}}>
+          <Button variant='secondary' onClick={(e) => { window.location.reload() }}>
             OK
           </Button>
         </Modal.Footer>
