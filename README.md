@@ -51,16 +51,7 @@ npm install
 This will take a while first time starting the project. So in the mean time you can open an other
 terminal and type in:
 
-```
-cd jsonPaceHolder
-```
-and then
 
-```
-npm install
-```
-
-This is for the server that runs on your computer.
 
 When everythin is installed correctly without any error messeges, you can now in the first termonal
 where you are in the __MSDOS__ directory typ:
@@ -71,11 +62,12 @@ npm start
 
 This will open your default browser with the react application.
 
-After this you need to start the server.You can do this by going to the directory
-__jsonPlaceHolder__ in the terminal and typing:
+
+
+After this you need to start the server.You can do this by going to the terminal and typing:
 
 ```
-npm run json:server
+npm run json-server
 ```
 
 Now the application is started! If you not have the creaters of the application in contact you can
@@ -97,7 +89,7 @@ ___
 
 We will post links to all the documents with __READ_ONLY ACCSESS__. Please contact us by 
 ```
-axelher@student.chalmers.se
+msdosmsdos1@gmail.com
 ```
 if there are any problem accessing the links:
 
