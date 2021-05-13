@@ -23,8 +23,8 @@ const getAmountOfBookings = async () => {
 
 /**
  * Laundrybooking time-calendar
- * 
- * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id 
+ *
+ * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id
  * @returns React component to book the laundry
  */
 export default function LaundryBooking ({ idToRebook = null }) {

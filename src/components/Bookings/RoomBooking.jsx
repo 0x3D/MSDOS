@@ -13,7 +13,7 @@ import { deleteData, getData, postData } from '../../Fetcher'
  * @param {Integer} idToRebook The id to for the booking to be rebooked
  * @returns A react component with a calendar for booking rooms
  */
-export default function RoomBooking({ idToRebook = null }) {
+export default function RoomBooking ({ idToRebook = null }) {
   const [bookings, setBookings] = useState([])
   const [showConfirmation, setShowModal] = useState(false)
   const handleClose = () => setShowModal(false)
