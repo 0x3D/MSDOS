@@ -10,7 +10,7 @@ export default function CardsUI(props) {
 
     return (
         <div>
-            <Card style={{ flex: 1 }}>
+            <Card style={{ width: '24rem' }}>
                 <Card.Body>
                     <Card.Img src={props.imgsrc}></Card.Img>
                     <Card.Title>

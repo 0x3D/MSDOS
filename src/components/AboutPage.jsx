@@ -30,8 +30,8 @@ export default function AboutPage() {
             </div>
             <div>
                 <Row>
-                    <Col md='sm'>
-                        <CardDeck style={{ display: 'flex', flexDirection: 'row' }}>
+                    <Col md>
+                        <CardDeck>
                             <CardsUI imgsrc={Hello} />
                             <CardsUI imgsrc={codeStock} />
                         </CardDeck>
