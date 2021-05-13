@@ -18,11 +18,12 @@ const getAmountOfBookings = async () => {
 }
 
 /**
- * The react subtab component for booking the gym.
+ * Gymbooking time-calendar
  *
- * @returns The HTML to be rendered
+ * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id
+ * @returns React component to book the gym
  */
-export default function GymBooking ({ idToRebook }) {
+export default function GymBooking ({ idToRebook = null }) {
   /**
      * Time in minutes for one gym section
      * @const {integer}

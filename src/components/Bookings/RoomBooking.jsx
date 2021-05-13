@@ -8,10 +8,10 @@ import { deleteData, getData, postData } from '../../Fetcher'
 // TODO removeFunction ska gå via fetcher istället.
 
 /**
+ * Roombooking time-calendar
  *
- * @param {Function} removeFunction Conditional function, defined when using the component to rebook an already booked time
- * @param {Integer} idToRebook The id to for the booking to be rebooked
- * @returns A react component with a calendar for booking rooms
+ * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id
+ * @returns React component to book the room
  */
 export default function RoomBooking ({ idToRebook = null }) {
   const [bookings, setBookings] = useState([])
