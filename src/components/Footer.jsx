@@ -56,7 +56,7 @@ export default function Footer () {
               <li> <a href='http://localhost:3000/profile'> Mina bokningar</a> </li>
               <li> <a href='http://localhost:3000/home'> Loginsidan</a> </li>
               <li> <a href='http://localhost:3000/admin'> Adminsidan</a> </li>
-              <li> <a href='http://localhost:3000/admin'> Om hemsidan </a> </li>
+              <li> <a href='http://localhost:3000/om'> Om oss </a> </li>
             </ul>
           </Col>
 
