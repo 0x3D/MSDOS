@@ -11,7 +11,7 @@ import Profile from './components/Profile/Profile'
 import AuthDataProvider from './LoginBackend'
 import { IconContext } from 'react-icons'
 import Footer from './components/Footer'
-import AboutPage from './components/AboutPage'
+import AboutPage from './components/About/AboutPage'
 
 // const url = 'http://localhost:8000/logins'
 const localStorage = window.localStorage
@@ -27,10 +27,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         tokens
           ? (
             <Component {...props} />
-          )
+            )
           : (
             <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
-          )}
+            )}
     />
   )
 }
@@ -58,7 +58,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
  * @author [Filip Hansson](https://github.com/filiphan)
  * @author [Oliver Österberg](https://github.com/oliost)
  */
-function App() {
+function App () {
   document.title = 'MSDOS Booking'
   return (
 
