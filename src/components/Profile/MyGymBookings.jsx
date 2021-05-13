@@ -55,7 +55,7 @@ export default function MyGymBookings ({ loggedIn }) {
      * @method setTempBookingId sets the data
      * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
      */
-  const [tempBookingId, setTempBookingId] = useState(null)
+  const [oldBookingId, setOldBookingId] = useState(null)
 
   /**
      * method that handle the Toast
@@ -84,11 +84,11 @@ export default function MyGymBookings ({ loggedIn }) {
 
   /**
      * method that handles the edited booking
-     * @param {event} e
+     * @param @param {Integer} bookingId hold the booking id for the old booking
      */
-  const handleEditBooking = (e) => {
+  const handleEditBooking = (bookingId) => {
+    setOldBookingId(String(bookingId))
     handleShow()
-    setTempBookingId(String(e))
   }
   /**
     * Fetches the gymbookings from jsonPlaceHolder
@@ -149,16 +149,16 @@ export default function MyGymBookings ({ loggedIn }) {
                 <b>Mina gymbokningar</b>{' '}
               </Card.Header>{' '}
               <br />
-              {gymBookings.map((row) => (
-                <Card.Text className='border' key={row.start_time}>
-                  <b>Starttid</b> : {row.start_time} <br /> <b>Sluttid</b> :{' '}
-                  {row.end_time} <br />
+              {gymBookings.map((booking) => (
+                <Card.Text className='border' key={booking.start_time}>
+                  <b>Starttid</b> : {booking.start_time} <br /> <b>Sluttid</b> :{' '}
+                  {booking.end_time} <br />
                   <Button
                     className='btn-primary-spacing'
                     size='sm'
                     variant='danger'
                     onClick={(e) => {
-                      removeBooking(row.id)
+                      removeBooking(booking.id)
                     }}
                   >
                     <BsFillTrashFill size='1.5em' />
@@ -168,7 +168,7 @@ export default function MyGymBookings ({ loggedIn }) {
                     className='btn-primary-spacing'
                     size='sm'
                     onClick={(e) => {
-                      handleEditBooking(row.id)
+                      handleEditBooking(booking.id)
                     }}
                   >
                     <AiFillEdit size='1.5em' /> Redigera bokning
@@ -179,15 +179,13 @@ export default function MyGymBookings ({ loggedIn }) {
             )}
 
         <Modal size='xl' show={showModal} onHide={handleClose}>
-          {console.log(tempBookingId)}
           <Modal.Header closeButton>
             <Modal.Title> Välj ny tid för att redigera din bokning</Modal.Title>
           </Modal.Header>
           <Modal.Body>
 
             <GymBooking
-              removeFunction={removeBooking}
-              temporaryBookingId={tempBookingId}
+              idToRebook={oldBookingId}
             />
           </Modal.Body>
           <Modal.Footer>

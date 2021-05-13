@@ -84,11 +84,12 @@ export default function LaundryBooking ({ idToRebook = null }) {
   const postBooking = async (pData) => {
     // If the booking is a rebooking, delete the old booking
     if (idToRebook) {
-      deleteData(url, laundryBookingsTable, idToRebook)
+      await deleteData(url, laundryBookingsTable, idToRebook)
+      await postData(url, laundryBookingsTable, pData)
       window.location.reload()
+    } else {
+      await postData(url, laundryBookingsTable, pData)
     }
-    
-    postData(url, laundryBookingsTable, pData)
   }
 
   const handleModalConfirmation = () => {

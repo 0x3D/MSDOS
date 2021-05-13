@@ -49,7 +49,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
   const [showModal, setShowModal] = useState(false)
 
   /**
-     * tempBookingId is a variables, and setTempBookingId is a set-method for the variable
+     * oldBookingId is a variables, and setOldBookingId is a set-method for the variable
      * Usestate is the default value
      * @constant oldBookingId holds the data
      * @method setOldBookingId sets the data
@@ -84,7 +84,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
 
   /**
      * method that handles the edited booking
-     * @param {event} bookingId hold the booking id for the old booking
+     * @param {Integer} bookingId hold the booking id for the old booking
      */
   const handleEditBooking = (bookingId) => {
     setOldBookingId(String(bookingId))
@@ -149,6 +149,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
               <b>Mina tvättbokningar</b>{' '}
             </Card.Header>{' '}
             <br />
+            {console.log(laundryBookings)}
             {laundryBookings.map((booking) => (
               <Card.Text className='border' key={booking.start_time}>
                 <b>Starttid</b> : {booking.start_time} <br /> <b>Sluttid</b> :{' '}
@@ -183,7 +184,6 @@ export default function MyLaundryBookings ({ loggedIn }) {
           <Modal.Title> Välj ny tid för att redigera din bokning</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
           <LaundryBooking
             idToRebook={oldBookingId}
           />

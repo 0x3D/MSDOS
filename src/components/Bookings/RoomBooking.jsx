@@ -3,7 +3,7 @@ import TimeCalendar from 'react-timecalendar'
 import { format } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import Emailer from '../../Emailer'
-import { getData, postData } from '../../Fetcher'
+import { deleteData, getData, postData } from '../../Fetcher'
 
 // TODO removeFunction ska gå via fetcher istället.
 
@@ -13,7 +13,7 @@ import { getData, postData } from '../../Fetcher'
  * @param {Integer} idToRebook The id to for the booking to be rebooked
  * @returns A react component with a calendar for booking rooms
  */
-export default function RoomBooking ({ removeFunction, idToRebook }) {
+export default function RoomBooking({ idToRebook = null }) {
   const [bookings, setBookings] = useState([])
   const [showConfirmation, setShowModal] = useState(false)
   const handleClose = () => setShowModal(false)
@@ -62,12 +62,14 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
 
   // Posts the previously created booking
   const postBooking = async (data) => {
-    if (idToRebook !== undefined) {
-      // TODO: GÅ via fetcher för removefunction
-      removeFunction(idToRebook)
+    // If the booking is a rebooking, delete the old booking
+    if (idToRebook) {
+      await deleteData(url, 'roomBookings/', idToRebook)
+      await postData(url, 'roomBookings', data)
       window.location.reload()
+    } else {
+      await postData(url, 'roomBookings', data)
     }
-    postData(url, 'roomBookings', data)
   }
 
   return (
@@ -80,13 +82,15 @@ export default function RoomBooking ({ removeFunction, idToRebook }) {
         </ol>
       </div>
 
-      <TimeCalendar
-        clickable
-        disableHistory
-        openHours={openHours}
-        bookings={bookings}
-        onDateFunction={handleChosenDate}
-      />
+      <div className='border-top'>
+        <TimeCalendar
+          clickable
+          disableHistory
+          openHours={openHours}
+          bookings={bookings}
+          onDateFunction={handleChosenDate}
+        />
+      </div>
 
       <Modal show={showConfirmation} onHide={handleClose}>
         <Modal.Header closeButton>

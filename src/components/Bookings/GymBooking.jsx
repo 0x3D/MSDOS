@@ -4,7 +4,7 @@ import { format, addMinutes, differenceInMinutes, isEqual } from 'date-fns'
 import { Button, Modal, Alert } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
-import { getData, postData } from '../../Fetcher'
+import { getData, postData, deleteData } from '../../Fetcher'
 
 const alert = window.alert
 const localStorage = window.localStorage
@@ -22,7 +22,7 @@ const getAmountOfBookings = async () => {
  *
  * @returns The HTML to be rendered
  */
-export default function GymBooking ({ removeFunction, temporaryBookingId }) {
+export default function GymBooking ({ idToRebook }) {
   /**
      * Time in minutes for one gym section
      * @const {integer}
@@ -145,7 +145,7 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
       if (localStorage.getItem('settings')) {
         maxAmount = JSON.parse(localStorage.getItem('settings')).gymTime
       }
-      if (amountOfBookings < maxAmount) {
+      if (amountOfBookings < maxAmount || idToRebook) {
         // Success
         await postBooking(bookingData)
         Emailer(bookingData, 'GYM')
@@ -163,11 +163,13 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
-    if (temporaryBookingId !== undefined) {
-      removeFunction(temporaryBookingId)
+    if (idToRebook) {
+      await deleteData(url, 'gymBookings/', idToRebook)
+      await postData(url, gymBokingTable, pData)
       window.location.reload()
+    } else {
+      await postData(url, gymBokingTable, pData)
     }
-    postData(url, gymBokingTable, pData)
   }
 
   // Handles the "book" button on the modal
