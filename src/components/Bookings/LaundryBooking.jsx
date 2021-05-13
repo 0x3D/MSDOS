@@ -3,7 +3,7 @@ import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal, Alert } from 'react-bootstrap'
 import Emailer from '../../Emailer'
-import { getData, postData } from '../../Fetcher'
+import { deleteData, getData, postData } from '../../Fetcher'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
@@ -21,7 +21,13 @@ const getAmountOfBookings = async () => {
   return data.length
 }
 
-export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
+/**
+ * Laundrybooking time-calendar
+ * 
+ * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id 
+ * @returns React component to book the laundry
+ */
+export default function LaundryBooking ({ idToRebook = null }) {
   // Booked times
   const [bookings, setBookings] = useState([])
 
@@ -59,7 +65,7 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
     if (localStorage.getItem('settings')) {
       maxAmount = JSON.parse(localStorage.getItem('settings')).laundryTime
     }
-    if (amountOfBookings < maxAmount) {
+    if (amountOfBookings < maxAmount || idToRebook) {
       // Success
       await postBooking(postData)
       Emailer(postData, 'LAUNDRY')
@@ -76,10 +82,12 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
-    if (temporaryBookingId !== undefined) {
-      removeFunction(temporaryBookingId)
+    // If the booking is a rebooking, delete the old booking
+    if (idToRebook) {
+      deleteData(url, laundryBookingsTable, idToRebook)
       window.location.reload()
     }
+    
     postData(url, laundryBookingsTable, pData)
   }
 
