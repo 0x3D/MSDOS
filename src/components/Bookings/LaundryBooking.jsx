@@ -21,7 +21,7 @@ const getAmountOfBookings = async () => {
   return data.length
 }
 
-export default function LaundryBooking({ removeFunction, temporaryBookingId }) {
+export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
   // Booked times
   const [bookings, setBookings] = useState([])
 
