@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import Loader from './Loader'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../styles/Footer.css'
 import { getData } from '../Fetcher'
@@ -72,7 +73,7 @@ export default function Footer () {
             <ul className='list-unstyled'>
 
               {!admins
-                ? (<h4>loading...</h4>)
+                ? (<Loader />)
                 : (
                   <>
                     {admins.map((row) =>

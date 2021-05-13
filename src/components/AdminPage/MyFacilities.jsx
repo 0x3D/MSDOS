@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import { Card, ListGroup } from 'react-bootstrap'
 import { getData } from '../../Fetcher'
 
@@ -45,7 +46,7 @@ export default function MyFacilities () {
         <Card.Header as='h3'> <b>Faciliteter</b> </Card.Header> <br />
         <ListGroup variant='flush'>
           {!facilities
-            ? (<h1>loading...</h1>)
+            ? (<Loader />)
             : (
               <> {
               facilities.map((row) => (
