@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, ListGroup, Modal, Button, Image, Card, CardGroup, CardDeck } from 'react-bootstrap'
+import { Image, CardDeck } from 'react-bootstrap'
 import '../styles/AboutPage.css'
 import '../styles/App.css'
 import House from '../assets/BrfLemansgatan.jpeg'

@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
-import { Card, Container } from 'react-bootstrap'
+import React from 'react'
+import { Card } from 'react-bootstrap'
 import '../styles/Cards.css'
 
 export default function CardsUI(props) {
-
-
 
     return (
         <div className='mx-auto'>
