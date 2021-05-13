@@ -2,24 +2,24 @@ import React, { Component } from 'react'
 import { Card, Container } from 'react-bootstrap'
 import '../styles/Cards.css'
 
-
-
 export default function CardsUI(props) {
 
 
 
     return (
-        <div>
-            <Card style={{ width: '24rem' }}>
+        <div className='mx-auto'>
+            <Card className='card' className="shadow-lg p-3 mb-5 bg-white rounded" style={{ width: '30rem' }}>
                 <Card.Body>
-                    <Card.Img src={props.imgsrc}></Card.Img>
+                    <Card.Img className='card-img-top' src={props.imgsrc}></Card.Img>
                     <Card.Title>
-                        This is a title
-                     </Card.Title>
-                    <Card.Text>
-                        The most obvious one difference is the syntax. A functional component is just a plain JavaScript function which accepts props as an argument and returns a React element. A class component requires you to extend from React. Component and create a render function which returns a React element.
-                    </Card.Text>
-                    <Card.Footer> här ska vi ha en länk till något gött </Card.Footer>
+                        <h4>
+                            {props.cardTitle}
+                        </h4>
+                    </Card.Title>
+                    <Card.Text className='md-text'> {props.cardText} </Card.Text>
+                    <Card.Footer>
+                        <Card.Link href='https://github.com/0x3D/MSDOS'> Github </Card.Link>
+                    </Card.Footer>
                 </Card.Body>
             </Card>
 

@@ -9,5 +9,11 @@
 
 .card-img-top{
     transform: scale(1);
+    max-height: 250px;
 }
+.card {
+    height: auto;
+    width: auto;
+    justify-content:space-between;
+  }
 
