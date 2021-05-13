@@ -21,7 +21,7 @@ const getAmountOfBookings = async () => {
   return data.length
 }
 
-export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
+export default function LaundryBooking({ removeFunction, temporaryBookingId }) {
   // Booked times
   const [bookings, setBookings] = useState([])
 
@@ -109,12 +109,18 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
   return (
     <>
-      <div>
-        <h4 className='text-center'>Välj dag för att boka tvättid</h4>
+      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina tvätttider</h4>
+      <div className='w-50 ml-auto mr-auto mb-4'>
+        <ol className='instructionsList'>
+          <li>Välj ett datum</li>
+          <li>Välj en tid genom att klicka på 'Select Time'</li>
+          <li>Klicka på önskad tid</li>
+          <li>Bekräfta bokning i rutan som kommer upp</li>
+        </ol>
       </div>
-      <div>
+
+      <div className='border-top'>
         <TimeCalendar
-          className='border-top'
           clickable
           openHours={openHours}
           disableHistory
