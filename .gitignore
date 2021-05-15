@@ -406,5 +406,5 @@ hs_err_pid*
 ./javaserver/buildNumber.properties
 ./javaserver/.mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
-./javaserver/.mvn/wrapper/maven-wrapper.jar
 
+./javaserver/.mvn/wrapper/maven-wrapper.jar
