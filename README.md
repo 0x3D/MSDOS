@@ -105,17 +105,17 @@ if there are any problem accessing the links:
 * #### Link to our KPI:s
     * [KPI:S](https://docs.google.com/spreadsheets/d/19sw7GOvUq1my6g6EroXL_tPxFDV5BKMC786YRKnv_QI/edit?usp=sharing) 
 * #### Link to our Project Scope
-    * [Project Scope]() 
+    * [Project Scope](https://docs.google.com/document/d/1fYLQ0xAVWN6-cZu1c0_JtMYRXMgMFCtFC16pzz4NYeY/edit?usp=sharing) 
 * #### Link to our Long term plan
-    * [Long Term Plan]() 
+    * [Long Term Plan](https://docs.google.com/spreadsheets/d/1x53tBOJ7qwUyOwf7VgZEqy5vlHOlxTxEDlBvMf7hbvg/edit?usp=sharing) 
 * #### Link to our System requirements
-    * [System requirments]() 
+    * [System requirments](https://docs.google.com/document/d/1EbG7kYNtikYl7S3jrPMdUNKbx4WJ4uxaDX2bVJyrBMA/edit?usp=sharing ) 
 * #### Link to our Team Reflections
-    * [TeamReflektions]() 
+    * [TeamReflektions](https://drive.google.com/drive/folders/1f-5Oz8pCtOLcliA5kxH_a1jNeqC-kHbm?usp=sharing) 
 
 
 ___
 
 ## DependencyGraph
 
-![Dependenct grapgh ](./docs/dependencygraph.png)
+![Dependenct grapgh](./docs/dependencygraph.png)
