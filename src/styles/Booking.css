@@ -1,0 +1,42 @@
+.instruction-container{
+    margin: 2% auto;
+    background-color: var(--shade5-color);
+    width: max-content;
+    border-style: double;
+    border-width: thick;
+    
+}
+
+.instruction-container h4 {
+    border-style: solid;
+    border-radius: 10px;
+    font-weight: bolder;
+    opacity: 0.7;
+    /* background-color: var(--table1-color); */
+}
+
+.instruction-container ol {
+    font-weight: bold;
+}
+
+.header.row.flex-middle{
+    background-color: var(--shade4-color);
+}
+
+.days.row {
+     background-color: var(--shade5-color);
+}
+
+.days.row div {
+    font-weight: bold;
+    font-size: medium;
+}
+
+.body div .row {
+    background-color: var(--calander-color) !important;
+}
+
+.timeSelector {
+    background-color: var(--shade4-color)!important;
+    font-size: large!important;
+}

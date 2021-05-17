@@ -23,8 +23,8 @@ export default function NavigationBar () {
   }
 
   return (
-    <Navbar sticky='top' bg='dark' variant='dark'>
-
+    <Navbar sticky='top' >
+      {/* bg='dark' variant='dark' */}
       <Link to='/booking'>
         <img width='42px' height='auto' className='img-responsive' src={Logo} alt='logo' />
       </Link>

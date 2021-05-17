@@ -53,7 +53,7 @@ export default function Profile () {
     <>
       <div>
         <Container>
-          <Row>
+          <Row className="loggin-info">
             <Col>
               <h3>
                 <h3>

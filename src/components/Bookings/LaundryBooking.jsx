@@ -4,6 +4,7 @@ import { format, addHours } from 'date-fns'
 import { Button, Modal, Alert } from 'react-bootstrap'
 import Emailer from '../../Emailer'
 import { deleteData, getData, postData } from '../../Fetcher'
+import '../../styles/Booking.css'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
@@ -134,6 +135,7 @@ export default function LaundryBooking ({ idToRebook = null }) {
 
   return (
     <>
+    <div className="instruction-container">
       <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina tvättider</h4>
       <div className='w-50 ml-auto mr-auto mb-4'>
         <ol className='instructionsList'>
@@ -143,7 +145,7 @@ export default function LaundryBooking ({ idToRebook = null }) {
           <li>Bekräfta bokning i rutan som kommer upp</li>
         </ol>
       </div>
-
+      </div>
       <div className='border-top'>
         <TimeCalendar
           clickable
