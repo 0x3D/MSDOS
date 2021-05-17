@@ -94,7 +94,6 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   const postBooking = async (pData) => {
     if (temporaryBookingId !== undefined) {
       removeFunction(temporaryBookingId)
-      // window.location.reload()
       setShowRebookingModal(true)
     }
     postData(url, laundryBookingsTable, pData)
