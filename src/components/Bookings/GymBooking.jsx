@@ -18,46 +18,46 @@ const getAmountOfBookings = async () => {
 }
 
 /**
- * The react subtab component for booking the gym.
- *
- * @returns The HTML to be rendered
- */
+* The react subtab component for booking the gym.
+*
+* @returns The HTML to be rendered
+*/
 export default function GymBooking ({ removeFunction, temporaryBookingId }) {
   /**
-     * Time in minutes for one gym section
-     * @const {integer}
-     */
+    * Time in minutes for one gym section
+    * @const {integer}
+    */
   const gymSections = 30
 
   /**
-     * Open hours for the gym
-     * @const {array}
-     */
+    * Open hours for the gym
+    * @const {array}
+    */
   const openHours = [[8, 22.5]]
 
   /**
-     * Open hours for the gym
-     * @const {string}
-     */
+    * Open hours for the gym
+    * @const {string}
+    */
   const url = 'http://localhost:8000/'
 
   /**
-     * Table gymBookings
-     * @const {string}
-     */
+    * Table gymBookings
+    * @const {string}
+    */
   const gymBokingTable = 'gymBookings/'
 
   /**
-     * Open hours for the gym
-     * @const {string}
-     */
+    * Open hours for the gym
+    * @const {string}
+    */
   const maxGymSessionTime = 3
 
   /**
-     * State for the currently booked gym times.
-     *
-     * @const {array}
-     */
+    * State for the currently booked gym times.
+    *
+    * @const {array}
+    */
   const [bookings, setBookings] = useState([])
 
   const [maxAmountState, setMaxAmountState] = useState('n/a')
@@ -65,56 +65,64 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
   const [showErrorAlert, setShowErrorAlert] = useState(false)
 
   /**
-     * State wether to show the confirmation for the booking or not.
-     *
-     * @const {boolean}
-     */
+    * State wether to show the confirmation for the booking or not.
+    *
+    * @const {boolean}
+    */
   const [showConfirmation, setShowModal] = useState(false)
 
   /**
-     * State which tells if the user has chosen a time or not.
-     *
-     * @const {boolean}
-     */
+    * State which tells if the user has chosen a time or not.
+    *
+    * @const {boolean}
+    */
   const [hasChosenTime, setHasChosenTime] = useState(false)
 
   /**
-     * State which holds the user picked for start time the gym session.
-     *
-     * @const {object}
-     */
+    * State which holds the user picked for start time the gym session.
+    *
+    * @const {object}
+    */
   const [startTime, setStartTime] = useState('')
 
   /**
-     * State which holds the user picked end time for the gym session.
-     *
-     * @const {object}
-     */
+    * State which holds the user picked end time for the gym session.
+    *
+    * @const {object}
+    */
   const [endTime, setEndTime] = useState('')
 
   /**
-     * Function to close the confirmationmodal
-     */
+    * Function to close the confirmationmodal
+    */
   const handleClose = () => setShowModal(false)
 
   /**
-     * Function to show the confirmationmodal
-     */
+    * Function to show the confirmationmodal
+    */
   const handleShow = () => setShowModal(true)
 
+  const [showBookingConfirmation, setShowBookingModal] = useState(false)
+
+  const handleBookingClose = () => setShowBookingModal(false)
+
+  const [showRebookingConfirmation, setShowRebookingModal] = useState(false)
+
+  const handleRebookingClose = () => setShowRebookingModal(false)
+
   /**
-     * Functinon to fetch the booked gymtimes from the database
-     */
+    * Functinon to fetch the booked gymtimes from the database
+    */
   const fetchBookings = useCallback(async () => {
     const json = await getData(url, gymBokingTable)
     parseData(json)
   }, [])
 
   /**
-     * Functinon to parse the fetched data from the database
-     *
-     * @param {object} bookings The fetched data from the database
-     */
+    * Functinon to parse the fetched data from the database
+    *
+    * @param {object} bookings The fetched data from the database
+    */
   const parseData = (bookings) => {
     bookings.forEach((booking) => {
       booking.end_time = JSON.stringify(addMinutes(new Date(booking.end_time), 1)).replace(/"/g, '')
@@ -123,8 +131,8 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
   }
 
   /**
-     * React hook to fetch the
-     */
+    * React hook to fetch the
+    */
   useEffect(() => {
     fetchBookings()
   }, [fetchBookings])
@@ -154,11 +162,16 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
         await fetchBookings()
         throw new Error('Booking failure, too many bookings')
         // TODO, Make this prettier
-      // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
+        // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
         // ' är max. \n Avboka en tid och försök igen')
       }
     }
     await fetchBookings()
+
+    // IF-sats som ser till att två moduler inte visas när en ombokning görs
+    if (temporaryBookingId === undefined) {
+      setShowBookingModal(true)
+    }
   }
 
   // Posts the previously created booking
@@ -166,6 +179,7 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
     if (temporaryBookingId !== undefined) {
       removeFunction(temporaryBookingId)
       window.location.reload()
+      setShowRebookingModal(true)
     }
     postData(url, gymBokingTable, pData)
   }
@@ -190,10 +204,10 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
   }
 
   /**
-     * Handles and decides if the picked time is a starttime or an endtime.
-     *
-     * @param {Date} time Date-fns object
-     */
+    * Handles and decides if the picked time is a starttime or an endtime.
+    *
+    * @param {Date} time Date-fns object
+    */
   const handleChosenTime = (time) => {
     if (startTime === '') {
       setStartTime(time)
@@ -278,6 +292,41 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
           <Button variant='primary' onClick={handleModalConfirmation}>
             Boka
           </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal for confirmation message after booking */}
+      <Modal show={showBookingConfirmation} onHide={handleBookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
+          Din bokning har gått igenom.
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleBookingClose}>
+            Stäng
+          </Button>
+
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ombokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
+          Din ombokning har gått igenom.
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleBookingClose}>
+            Stäng
+          </Button>
+
         </Modal.Footer>
       </Modal>
     </>

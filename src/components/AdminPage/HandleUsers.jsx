@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import {
   Button,
   makeStyles,
@@ -126,7 +127,7 @@ export default function HandleUsers () {
 
           <TableBody>
             {!users
-              ? (<h1>loading...</h1>)
+              ? (<Loader />)
               : (
                 <>
                   {users.map((row) => (

@@ -1,5 +1,6 @@
 import { isPast } from 'date-fns'
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import {
   makeStyles,
   Table,
@@ -150,7 +151,7 @@ export default function BookingHistory () {
           </TableHead>
           <TableBody>
             {!bookingHistory
-              ? (<h1>loading...</h1>)
+              ? (<Loader />)
               : (
                 <>
                   {bookingHistory.map((row) => (
