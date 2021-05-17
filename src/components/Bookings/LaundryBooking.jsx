@@ -125,7 +125,7 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
   return (
     <>
-      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina tvätttider</h4>
+      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina tvättider</h4>
       <div className='w-50 ml-auto mr-auto mb-4'>
         <ol className='instructionsList'>
           <li>Välj ett datum</li>
