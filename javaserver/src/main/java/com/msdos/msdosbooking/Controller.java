@@ -26,36 +26,36 @@ public class Controller {
     return "MS DOS BOOKING SYSTEM (API)";
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
   @GetMapping("/roomBookings")
   public String roomBookings(
       @RequestParam Optional<String> start_time,
       @RequestParam Optional<String> end_time,
       @RequestParam Optional<Integer> apartmentNo,
       @RequestParam Optional<Integer> id) {
-    String response = getResponse(apartmentNo,"RoomBookings");
+    String response = getResponse(apartmentNo, "RoomBookings");
     return response;
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
   @GetMapping("/gymBookings")
   public String gymBookings(
       @RequestParam Optional<String> start_time,
       @RequestParam Optional<String> end_time,
       @RequestParam Optional<Integer> apartmentNo,
       @RequestParam Optional<Integer> id) {
-    String response = getResponse(apartmentNo,"GymBookings");
+    String response = getResponse(apartmentNo, "GymBookings");
     return response;
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
   @GetMapping("/laundryBookings")
   public String getLaundryBookings(
       @RequestParam Optional<String> start_time,
       @RequestParam Optional<String> end_time,
       @RequestParam Optional<Integer> apartmentNo,
       @RequestParam Optional<Integer> id) {
-    String response = getResponse(apartmentNo,"LaundryBookings");
+    String response = getResponse(apartmentNo, "LaundryBookings");
     return response;
   }
 
@@ -63,40 +63,41 @@ public class Controller {
     String response;
     if (apartmentNo.isPresent()) {
       String sql =
-          "SELECT jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id)) FROM " + table + " WHERE apartment_no = ?;";
+          "SELECT jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id)) FROM "
+              + table
+              + " WHERE apartment_no = ?;";
       response = jdbcTemplate.queryForObject(sql, String.class, apartmentNo.get());
-    }
-    else {
-      String sql = "SELECT jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id)) FROM " + table + ";";
+    } else {
+      String sql =
+          "SELECT jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id)) FROM "
+              + table
+              + ";";
       response = jdbcTemplate.queryForObject(sql, String.class);
     }
-    if (response == null){ //No entries in SQL
+    if (response == null) { // No entries in SQL
       response = "[]";
     }
     return response;
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
   @PostMapping("/laundryBookings")
-  public String postLaundryBookings(
-          @RequestBody String requestBody) {
-    addToTable(requestBody,"LaundryBookings");
+  public String postLaundryBookings(@RequestBody String requestBody) {
+    addToTable(requestBody, "LaundryBookings");
     return "Updated database with new LaundryBooking";
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
   @PostMapping("/roomBookings")
-  public String postRoomBookings(
-          @RequestBody String requestBody) {
-    addToTable(requestBody,"roomBookings");
+  public String postRoomBookings(@RequestBody String requestBody) {
+    addToTable(requestBody, "roomBookings");
     return "Updated database with new Roombooking";
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
   @PostMapping("/gymBookings")
-  public String postGymBookings(
-          @RequestBody String requestBody) {
-    addToTable(requestBody,"GymBookings");
+  public String postGymBookings(@RequestBody String requestBody) {
+    addToTable(requestBody, "GymBookings");
     return "Updated database with new GymBooking";
   }
 
@@ -110,12 +111,79 @@ public class Controller {
     Instant i2 = Instant.from(ta2);
     Timestamp end_time = Timestamp.from(i2);
     int apartmentNo = obj.getInt("apartmentNo");
-    jdbcTemplate.update("INSERT INTO " + table + " VALUES (?,?,?,?)",start_time,end_time,apartmentNo,22);
+    jdbcTemplate.update(
+        "INSERT INTO " + table + " VALUES (?,?,?,?)", start_time, end_time, apartmentNo, Math.abs(requestBody.hashCode())); // TODO: This should generate some id
     System.out.println("Updating laundrybookings");
   }
 
+  @CrossOrigin
+  @DeleteMapping("/gymBookings/{someID}")
+  public void deleteGymBooking(
+          @PathVariable(value="someID") Optional<Integer> id
+  ){
+    id.ifPresent(integer -> deleteFromTable("GymBookings", integer));
+  }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
+  @DeleteMapping("/laundryBookings/{someID}")
+  public void deleteLaundryBooking(
+          @PathVariable(value="someID") Optional<Integer> id
+  ){
+    id.ifPresent(integer -> deleteFromTable("LaundryBookings", integer));
+  }
+
+  @CrossOrigin
+  @DeleteMapping("/roomBookings/{someID}")
+  public void deleteRoomBooking(
+          @PathVariable(value="someID") Optional<Integer> id
+  ){
+    id.ifPresent(integer -> deleteFromTable("RoomBookings", integer));
+  }
+
+  private void deleteFromTable(String table, int id){
+    jdbcTemplate.update(
+            "DELETE FROM " + table + " WHERE id = ?;", id);
+    System.out.println("Deleting " + id + "from " + table);
+  }
+
+  @CrossOrigin
+  @DeleteMapping("/users/{someID}")
+  public String deleteUsers(@PathVariable(value="someID") Optional<Integer> id, @RequestParam Optional<Integer> apartmentNo) {
+    String status = null;
+    if (apartmentNo.isPresent()) {
+      int statusCode =
+              jdbcTemplate.update(
+                      "DELETE FROM users WHERE apartment_no = ?", apartmentNo.get());
+      status=String.valueOf(statusCode);
+    } else if (id.isPresent()){
+      int statusCode = jdbcTemplate.update(
+              "DELETE FROM users WHERE id = ?", id.get());
+      status=String.valueOf(statusCode);
+    } else {
+      status = "Failed to delete check apartment number";
+    }
+
+    return status;
+  }
+
+  @CrossOrigin
+  @PostMapping("/users")
+  public boolean addUser(
+          @RequestBody String requestBody
+  ){
+    JSONObject obj = new JSONObject(requestBody);
+    int apartment_no = obj.getInt("apartmentNo");
+    String email = obj.getString("email");
+    String password = obj.getString("password");
+    int id = obj.getInt("id");
+    String role = obj.getString("role");
+    int status = jdbcTemplate.update(
+            "INSERT INTO users VALUES (?,?,?,?,?)", apartment_no,email,password,id,role);
+    return status == 1;
+  }
+
+
+  @CrossOrigin
   @GetMapping("/users")
   public String users(
       @RequestParam Optional<Integer> apartmentNo,
@@ -129,10 +197,11 @@ public class Controller {
     return sql;
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin
   @GetMapping("facilities")
-  public String getFacilities(){
-    return jdbcTemplate.queryForObject("SELECT jsonb_agg(jsonb_build_object('fac',name)) FROM facilities;",String.class);
+  public String getFacilities() {
+    return jdbcTemplate.queryForObject(
+        "SELECT jsonb_agg(jsonb_build_object('fac',name)) FROM facilities;", String.class);
   }
 
   private String getUserSqlQuery(
@@ -144,21 +213,29 @@ public class Controller {
     String result;
     StringBuilder sb =
         new StringBuilder(
-            "SELECT jsonb_agg(jsonb_build_object('apartmentNo',apartment_no,'email',email,'password',password,'role',role)) FROM Users");
+            "SELECT jsonb_agg(jsonb_build_object('apartmentNo',apartment_no,'email',email,'password',password,'role',role,'id',id)) FROM Users");
     if (apartmentNo.isPresent()) {
       sb.append(" WHERE apartment_no = ?;");
       result = jdbcTemplate.queryForObject(sb.toString(), String.class, apartmentNo.get());
-
     } else if (role.isPresent()) {
       sb.append(" WHERE role = ?;");
       result = jdbcTemplate.queryForObject(sb.toString(), String.class, role.get());
-    } else {
+    } else if (id.isPresent()){
+      sb.append(" WHERE id = ?;");
+      result = jdbcTemplate.queryForObject(sb.toString(), String.class, role.get());
+    }
+    else {
       sb.append(';');
       result = jdbcTemplate.queryForObject(sb.toString(), String.class);
     }
     // The thought here is to append all the given parameters to give complex
     // result, can be done with if statement
     // sb.append("1=1;")
+
+    // Shouldn't return null. Empty json array instead
+    if(result == null){
+      result = "[]";
+    }
 
     System.out.println(sb.toString());
     return result;
