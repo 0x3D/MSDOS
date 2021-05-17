@@ -180,10 +180,11 @@ export default function GymBooking ({ idToRebook = null }) {
     if (idToRebook) {
       await deleteData(url, 'gymBookings/', idToRebook)
       await postData(url, gymBokingTable, pData)
+      await fetchBookings()
       setShowRebookingModal(true)
-      window.location.reload()
     } else {
       await postData(url, gymBokingTable, pData)
+      await fetchBookings()
     }
   }
 
@@ -326,7 +327,7 @@ export default function GymBooking ({ idToRebook = null }) {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleBookingClose}>
+          <Button variant='secondary' onClick={(e) => { window.location.reload() }}>
             Stäng
           </Button>
 

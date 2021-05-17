@@ -100,10 +100,11 @@ export default function LaundryBooking ({ idToRebook = null }) {
     if (idToRebook) {
       await deleteData(url, laundryBookingsTable, idToRebook)
       await postData(url, laundryBookingsTable, pData)
-      window.location.reload()
+      await fetchBookings()
       setShowRebookingModal(true)
     } else {
       await postData(url, laundryBookingsTable, pData)
+      await fetchBookings()
     }
   }
 

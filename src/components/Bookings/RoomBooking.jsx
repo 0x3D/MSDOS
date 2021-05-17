@@ -81,10 +81,11 @@ export default function RoomBooking ({ idToRebook = null }) {
     if (idToRebook) {
       await deleteData(url, 'roomBookings/', idToRebook)
       await postData(url, 'roomBookings', data)
+      await fetchBookings()
       setShowRebookingModal(true)
-      window.location.reload()
     } else {
       await postData(url, 'roomBookings', data)
+      await fetchBookings()
     }
   }
 
@@ -161,7 +162,7 @@ export default function RoomBooking ({ idToRebook = null }) {
           Dag: {JSON.stringify(format(chosenDate, 'dd/MM-yy')).replace(/"/g, '')}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleRebookingClose}>
+          <Button variant='secondary' onClick={(e) => { window.location.reload() }}>
             OK
           </Button>
         </Modal.Footer>
