@@ -56,16 +56,16 @@ export default function Login (props) {
           Du loggades inte in
         </Alert.Heading>
         <p>
-          Du har angivit fel lösenord för ditt lägenhetsnummer
+          Kontrollera användarnamn och lösenord och försök igen.
         </p>
       </Alert>
 
       {isLoggedIn ? <Redirect exact path='/booking' /> : <h1> &nbsp;</h1>}
       <Modal show={showHelp} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Help</Modal.Title>
+          <Modal.Title>Hjälp</Modal.Title>
         </Modal.Header>
-        <Modal.Body>To create a login ask your administrator</Modal.Body>
+        <Modal.Body>Kontakta din administratör för att skapa en konto.</Modal.Body>
         <Modal.Footer>
           <Button onClick={handleClose}>Close</Button>
         </Modal.Footer>
