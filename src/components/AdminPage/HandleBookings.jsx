@@ -115,16 +115,16 @@ export default function HandleBookings () {
           <TableHead className="handleBookingTop">
             <TableRow>
               <TableCell align='left'>
-                <h3 className='handleBookingTitle'>Start Tid</h3>
+                <h3 className='handleBookingStart'>Start Tid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleBookingTitle'>Slut Tid</h3>
+                <h3 className='handleBookingSlut'>Slut Tid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleBookingTitle'>Lägenhetsnummer</h3>
+                <h3 className='handleBookingLGHnr'>Lägenhetsnummer</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleBookingTitle'>Ta bort bokning</h3>
+                <h3 className='handleBookingTaBort'>Ta bort bokning</h3>
               </TableCell>
             </TableRow>
           </TableHead>

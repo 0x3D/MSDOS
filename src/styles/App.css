@@ -83,11 +83,27 @@
 }
 
 
-.handleUsersTitle{
+.handleUsersEmail{
   color: var(--table2-color);
 }
 
-.handleBookingTitle{
+.handleUsersLGHnr{
+  color: var(--table2-color);
+}
+
+.handleBookingStart{
+  color: var(--table2-color);
+}
+
+.handleBookingSlut{
+  color: var(--table2-color);
+}
+
+.handleBookingLGHnr{
+  color: var(--table2-color);
+}
+
+.handleBookingTaBort{
   color: var(--table2-color);
 }
 
@@ -105,8 +121,9 @@
 }
 
 .handleFacilitiesBody{
-  background-color: var(--shade6-color)
+  background-color: var(--shade6-color);
 }
+
 .bodyWrapper {
   min-height: 70vh;
 }
@@ -124,7 +141,15 @@ html,body{
   background-color: var(--title-color-light)
 }
 
-.bookingHistoryTitle{
+.bookingHistoryStart{
+  color: var(--table2-color);
+}
+
+.bookingHistorySlut{
+  color: var(--table2-color);
+}
+
+.bookingHistoryLGHnr{
   color: var(--table2-color);
 }
 
@@ -141,5 +166,13 @@ html,body{
 }
 
 .bookingSettingsBody{
-  background-color: var(--shade6-color)
+  background-color: var(--title-color-light);
+}
+
+.login button{
+  background-color: var(--shade4-color)
+}
+
+.login button :hover{
+  background-color: var(--title-color-light)
 }

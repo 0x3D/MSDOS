@@ -138,13 +138,13 @@ export default function BookingHistory () {
           <TableHead className="bookingHistoryTop" >
             <TableRow >
               <TableCell align='left'>
-                <h3 className="bookingHistoryTitle">Starttid</h3>
+                <h3 className="bookingHistoryStart">Starttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className="bookingHistoryTitle">Sluttid</h3>
+                <h3 className="bookingHistorySlut">Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className="bookingHistoryTitle">Lägenhetsnummer</h3>
+                <h3 className="bookingHistoryLGHnr">Lägenhetsnummer</h3>
               </TableCell>
             </TableRow>
           </TableHead>

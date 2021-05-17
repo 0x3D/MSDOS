@@ -142,8 +142,8 @@ export default function MyRoomBookings ({ loggedIn }) {
       {!roomBookings
         ? (<h1>loading...</h1>)
         : (
-          <Card>
-            <Card.Header as='h3'>
+          <Card  style={{color: 'white', backgroundColor:'var(--shade6-color)'}}>
+            <Card.Header style={{backgroundColor:'var(--title-color-light)'}}  as='h3'>
               {' '}
               <b>Mina lokalbokningar</b>{' '}
             </Card.Header>{' '}

@@ -113,10 +113,10 @@ export default function HandleUsers () {
           <TableHead className='handleUsersTop'>
             <TableRow>
               <TableCell>
-                <h2 className='handleUsersTitle'>Lägenhetsnummer</h2>
+                <h2 className='handleUsersLGHnr'>Lägenhetsnummer</h2>
               </TableCell>
               <TableCell align='center'>
-                <h2 className='handleUsersTitle'>Email</h2>
+                <h2 className='handleUsersEmail'>Email</h2>
               </TableCell>
               <TableCell align='center'>
                 <h2> {/** SKA VARA TOM */} </h2>

@@ -142,17 +142,17 @@ export default function MyLaundryBookings ({ loggedIn }) {
       {!laundryBookings
         ? (<h1>loading...</h1>)
         : (
-          <Card>
-            <Card.Header as='h3'>
+          <Card  style={{color: 'white', backgroundColor:'var(--shade6-color)'}}>
+            <Card.Header style={{backgroundColor:'var(--title-color-light)'}}  as='h3'>
               {' '}
-              <b>Mina tvättbokningar</b>{' '}
+              <b> Mina tvättbokningar</b>{' '}
             </Card.Header>{' '}
             <br />
             {laundryBookings.map((row) => (
               <Card.Text className='border' key={row.start_time}>
                 <b>Starttid</b> : {row.start_time} <br /> <b>Sluttid</b> :{' '}
                 {row.end_time} <br />
-                <Button
+                <Button 
                   className='btn-primary-spacing'
                   variant='danger'
                   onClick={(e) => {
