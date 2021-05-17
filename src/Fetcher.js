@@ -20,7 +20,6 @@ export const deleteData = async (url, dataTable, condition) => {
     }
   })
     .then((res) => res.json())
-    .then((res) => console.log(res))
 }
 
 export const postData = async (url, dataTable, data) => {
@@ -33,5 +32,4 @@ export const postData = async (url, dataTable, data) => {
     body: JSON.stringify(data)
   })
     .then((res) => res.json())
-    .then((res) => console.log(res))
 }

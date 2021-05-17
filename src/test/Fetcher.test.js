@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
-import { getData } from '../Fetcher'
+import { getData, deleteData, postData } from '../Fetcher'
 
 test('Should fetch a user with apartmentNumber 3', async () => {
   const url = 'http://localhost:8000/'
@@ -47,4 +47,22 @@ test('Shouldent fetch a user at all with this conditions', async () => {
   const condition = '?apartmentNo=70'
   const data = await getData(url, table, condition)
   expect(data).toEqual([])
+})
+
+test('This test testing both add user and remove user', async () => {
+  const url = 'http://localhost:8000/'
+  const table = 'users/'
+  const getCondition = '?apartmentNo=999'
+  const deleteCondition = '999'
+  let pdata = {
+    "apartmentNo": 999,
+    "email": "ninenine@gmail.com",
+    "password": "nineninepassword",
+    "id": 999,
+    "role": "user"
+  }
+  await postData(url, table, pdata)
+  expect(await getData(url,table,getCondition)).toEqual([pdata])
+  await getData(url, table, getCondition).then(deleteData(url, table, deleteCondition))
+  expect(await getData(url, table, getCondition)).toEqual([])
 })
