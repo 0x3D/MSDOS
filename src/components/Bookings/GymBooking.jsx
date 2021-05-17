@@ -18,20 +18,12 @@ const getAmountOfBookings = async () => {
 }
 
 /**
-<<<<<<< HEAD
  * Gymbooking time-calendar
  *
  * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id
  * @returns React component to book the gym
  */
 export default function GymBooking ({ idToRebook = null }) {
-=======
-* The react subtab component for booking the gym.
-*
-* @returns The HTML to be rendered
-*/
-export default function GymBooking ({ removeFunction, temporaryBookingId }) {
->>>>>>> main
   /**
     * Time in minutes for one gym section
     * @const {integer}
@@ -178,7 +170,7 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
     await fetchBookings()
 
     // IF-sats som ser till att två moduler inte visas när en ombokning görs
-    if (temporaryBookingId === undefined) {
+    if (!idToRebook) {
       setShowBookingModal(true)
     }
   }

@@ -89,7 +89,7 @@ export default function LaundryBooking ({ idToRebook = null }) {
     await fetchBookings()
 
     // Check so that the app doesn't open 2 modals when doing a rebooking
-    if (temporaryBookingId === undefined) {
+    if (!idToRebook) {
       setShowBookingModal(true)
     }
   }
@@ -100,8 +100,8 @@ export default function LaundryBooking ({ idToRebook = null }) {
     if (idToRebook) {
       await deleteData(url, laundryBookingsTable, idToRebook)
       await postData(url, laundryBookingsTable, pData)
-      setShowRebookingModal(true)
       window.location.reload()
+      setShowRebookingModal(true)
     } else {
       await postData(url, laundryBookingsTable, pData)
     }
