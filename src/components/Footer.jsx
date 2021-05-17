@@ -7,10 +7,10 @@ import { getData } from '../Fetcher'
  * Footer is a react komponent that always will be shown on the website
  * @returns a footer as a react-component
  */
-export default function Footer () {
-/**
- * @constant fetch is a constant that holds the executed window
- */
+export default function Footer() {
+  /**
+   * @constant fetch is a constant that holds the executed window
+   */
 
   const url = 'http://localhost:8000/'
   const usersTable = 'users/'
@@ -56,7 +56,7 @@ export default function Footer () {
               <li> <a href='http://localhost:3000/profile'> Mina bokningar</a> </li>
               <li> <a href='http://localhost:3000/home'> Loginsidan</a> </li>
               <li> <a href='http://localhost:3000/admin'> Adminsidan</a> </li>
-              <li> <a href='http://localhost:3000/om'> Om oss </a> </li>
+              <li> <a href='http://localhost:3000/about'> Om oss </a> </li>
             </ul>
           </Col>
 
@@ -79,7 +79,7 @@ export default function Footer () {
                       <li key={row.id}><a href={'mailto: ' + row.email} target='_blank' rel='noreferrer'>{row.email}</a></li>
                     )}
                   </>
-                  )}
+                )}
             </ul>
           </Col>
         </Row>

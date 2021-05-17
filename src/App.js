@@ -73,7 +73,7 @@ function App () {
                 <PrivateRoute exact path='/booking' component={Booking} />
                 <PrivateRoute exact path='/profile' component={Profile} />
                 <Redirect exact from='/' to='/booking' />
-                <Route path='/om' component={AboutPage} />
+                <Route path='/about' component={AboutPage} />
                 <Route path='/admin' component={AdminPage} />
                 <Route path='/' component={ErrorPage} />
               </Switch>
