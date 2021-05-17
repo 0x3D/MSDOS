@@ -50,13 +50,13 @@ export default function MyLaundryBookings ({ loggedIn }) {
   const [showModal, setShowModal] = useState(false)
 
   /**
-     * tempBookingId is a variables, and setTempBookingId is a set-method for the variable
+     * oldBookingId is a variable, and setOldBookingId is a set-method for the variable
      * Usestate is the default value
-     * @constant tempBookingId holds the data
-     * @method setTempBookingId sets the data
+     * @constant oldBookingId holds the id for the old booking to be edited
+     * @method setOldBookingId sets the id for the old booking to be edited
      * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
      */
-  const [tempBookingId, setTempBookingId] = useState(null)
+  const [oldBookingId, setOldBookingId] = useState(null)
 
   /**
      * method that handle the Toast
@@ -85,11 +85,11 @@ export default function MyLaundryBookings ({ loggedIn }) {
 
   /**
      * method that handles the edited booking
-     * @param {event} e
+     * @param {Integer} bookingId hold the booking id for the booking to be edited
      */
-  const handleEditBooking = (e) => {
+  const handleEditBooking = (bookingId) => {
+    setOldBookingId(String(bookingId))
     handleShow()
-    setTempBookingId(String(e))
   }
 
   /**
@@ -150,16 +150,16 @@ export default function MyLaundryBookings ({ loggedIn }) {
               <b>Mina tvättbokningar</b>{' '}
             </Card.Header>{' '}
             <br />
-            {laundryBookings.map((row) => (
-              <Card.Text className='border' key={row.start_time}>
-                <b>Starttid</b> : {row.start_time} <br /> <b>Sluttid</b> :{' '}
-                {row.end_time} <br />
+            {laundryBookings.map((booking) => (
+              <Card.Text className='border' key={booking.start_time}>
+                <b>Starttid</b> : {booking.start_time} <br /> <b>Sluttid</b> :{' '}
+                {booking.end_time} <br />
                 <Button
                   className='btn-primary-spacing'
                   size='sm'
                   variant='danger'
                   onClick={(e) => {
-                    removeBooking(row.id)
+                    removeBooking(booking.id)
                   }}
                 >
                   <BsFillTrashFill size='1.5em' />
@@ -169,7 +169,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
                   className='btn-primary-spacing'
                   size='sm'
                   onClick={(e) => {
-                    handleEditBooking(row.id)
+                    handleEditBooking(booking.id)
                   }}
                 >
                   <AiFillEdit size='1.5em' /> Redigera bokning
@@ -184,10 +184,8 @@ export default function MyLaundryBookings ({ loggedIn }) {
           <Modal.Title> Välj ny tid för att redigera din bokning</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
           <LaundryBooking
-            removeFunction={removeBooking}
-            temporaryBookingId={tempBookingId}
+            idToRebook={oldBookingId}
           />
         </Modal.Body>
         <Modal.Footer>
