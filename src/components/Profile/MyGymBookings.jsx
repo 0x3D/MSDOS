@@ -83,7 +83,7 @@ export default function MyGymBookings ({ loggedIn }) {
   }
 
   /**
-     * method that shows a modal for rekooking an already booked time 
+     * method that shows a modal for rekooking an already booked time
      * @param @param {Integer} bookingId holds the booking id for the old booking
      */
   const handleEditBooking = (bookingId) => {
