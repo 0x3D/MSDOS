@@ -2,7 +2,7 @@
 # MSDOS 
 Project in DAT257 Agile software project management
 
-## Starta applicationen
+## Start the applicationen
 ___
 
 First of all you need to install node on your system. You can do that by
