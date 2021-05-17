@@ -46,13 +46,13 @@ export default function BookingSettings () {
   // defaultValue={this.state.selectValue}
   return (
     <>
-      <Form style={{ color: 'white'}} className="bookingSettingsBody">
+      <Form style={{ color: 'white' }} className='bookingSettingsBody'>
         <Form.Group as={Row} controlId='laundryBookingAmount'>
           <Form.Label style={textAlignRight} column sm='3'>
             Tvättstuga max antal bokade tider :
           </Form.Label>
           <Col sm='9'>
-            <Form.Control style={{backgroundColor:'var(--shade6-color)'}} as='select' value={settings.laundryTime} onChange={handleLaundryChange}>
+            <Form.Control style={{ backgroundColor: 'var(--shade6-color)' }} as='select' value={settings.laundryTime} onChange={handleLaundryChange}>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -66,7 +66,7 @@ export default function BookingSettings () {
             Gym max antal bokade tider :
           </Form.Label>
           <Col sm='9'>
-            <Form.Control style={{backgroundColor:'var(--shade6-color)'}} as='select' value={settings.gymTime} onChange={handleGymChange}>
+            <Form.Control style={{ backgroundColor: 'var(--shade6-color)' }} as='select' value={settings.gymTime} onChange={handleGymChange}>
               <option>1</option>
               <option>2</option>
               <option>3</option>

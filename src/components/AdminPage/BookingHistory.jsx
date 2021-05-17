@@ -124,7 +124,7 @@ export default function BookingHistory () {
         </Row>
       </Container>
 
-      <TableContainer className="bookingHistory" component={Paper}>
+      <TableContainer className='bookingHistory' component={Paper}>
         <Button
           variant='contained'
           color='secondary'
@@ -136,20 +136,20 @@ export default function BookingHistory () {
           Rensa bokningshistorik
         </Button>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead className="bookingHistoryTop" >
-            <TableRow >
+          <TableHead className='bookingHistoryTop'>
+            <TableRow>
               <TableCell align='left'>
-                <h3 className="bookingHistoryStart">Starttid</h3>
+                <h3 className='bookingHistoryStart'>Starttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className="bookingHistorySlut">Sluttid</h3>
+                <h3 className='bookingHistorySlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className="bookingHistoryLGHnr">Lägenhetsnummer</h3>
+                <h3 className='bookingHistoryLGHnr'>Lägenhetsnummer</h3>
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody className="bookingHistoryBody">
+          <TableBody className='bookingHistoryBody'>
             {!bookingHistory
               ? (<Loader />)
               : (

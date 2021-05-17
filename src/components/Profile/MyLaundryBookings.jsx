@@ -144,8 +144,8 @@ export default function MyLaundryBookings ({ loggedIn }) {
       {!laundryBookings
         ? (<Loader />)
         : (
-          <Card  style={{color: 'white', backgroundColor:'var(--shade6-color)'}}>
-            <Card.Header style={{backgroundColor:'var(--title-color-light)'}}  as='h3'>
+          <Card style={{ color: 'white', backgroundColor: 'var(--shade6-color)' }}>
+            <Card.Header style={{ backgroundColor: 'var(--title-color-light)' }} as='h3'>
               {' '}
               <b> Mina tvättbokningar</b>{' '}
             </Card.Header>{' '}

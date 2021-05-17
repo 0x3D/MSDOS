@@ -113,7 +113,7 @@ export default function HandleBookings () {
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead className="handleBookingTop">
+          <TableHead className='handleBookingTop'>
             <TableRow>
               <TableCell align='left'>
                 <h3 className='handleBookingStart'>Start Tid</h3>

@@ -1,4 +1,3 @@
-import { blue } from '@material-ui/core/colors'
 import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 import { Card, ListGroup } from 'react-bootstrap'
@@ -42,12 +41,11 @@ export default function MyFacilities () {
     fetchBookings()
   }, [])
 
-  
   return (
     <div>
-       <Card style={{color: 'white', backgroundColor:'var(--shade6-color)'}} as='h3'> <b class='card-header card-header-myFacilities' id='card-header-color'>Faciliteter</b> <br /> 
-       
-        <ListGroup style={{backgroundColor:'var(--shade6-color)'}}>
+      <Card style={{ color: 'white', backgroundColor: 'var(--shade6-color)' }} as='h3'> <b class='card-header card-header-myFacilities' id='card-header-color'>Faciliteter</b> <br />
+
+        <ListGroup style={{ backgroundColor: 'var(--shade6-color)' }}>
           {!facilities
             ? (<Loader />)
             : (
@@ -55,7 +53,7 @@ export default function MyFacilities () {
               facilities.map((row) => (
                 <React.Fragment key={row.fac}>
 
-                  <ListGroup.Item style={{backgroundColor:'var(--shade6-color)'}} key={row.fac}>{row.fac}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: 'var(--shade6-color)' }} key={row.fac}>{row.fac}</ListGroup.Item>
 
                 </React.Fragment>
               ))
@@ -67,4 +65,3 @@ export default function MyFacilities () {
     </div>
   )
 }
-
