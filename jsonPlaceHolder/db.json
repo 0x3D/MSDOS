@@ -481,6 +481,12 @@
       "apartmentNo": 53,
       "id": 7
     },
+    {
+      "start_time": "2021-05-20T11:00:00.000Z",
+      "end_time": "2021-05-20T11:30:00.000Z",
+      "apartmentNo": 1,
+      "id": 8
+    }
   ],
   "roomBookings": [
     {

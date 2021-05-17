@@ -37,7 +37,7 @@ import AboutPage from './components/About/AboutPage'
  * @author [Filip Hansson](https://github.com/filiphan)
  * @author [Oliver Österberg](https://github.com/oliost)
  */
-function App () {
+function App() {
   document.title = 'MSDOS Booking'
   return (
 
