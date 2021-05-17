@@ -7,7 +7,7 @@ import { getData } from '../Fetcher'
  * Footer is a react komponent that always will be shown on the website
  * @returns a footer as a react-component
  */
-export default function Footer() {
+export default function Footer () {
   /**
    * @constant fetch is a constant that holds the executed window
    */
@@ -79,7 +79,7 @@ export default function Footer() {
                       <li key={row.id}><a href={'mailto: ' + row.email} target='_blank' rel='noreferrer'>{row.email}</a></li>
                     )}
                   </>
-                )}
+                  )}
             </ul>
           </Col>
         </Row>

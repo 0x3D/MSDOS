@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import '../../styles/Cards.css'
 
-export default function CardsUI(props) {
+export default function CardsUI (props) {
   return (
     <div className='mx-auto'>
       <Card className='shadow-lg p-3 mb-5 bg-white rounded' style={{ width: '30rem' }}>
@@ -15,7 +15,7 @@ export default function CardsUI(props) {
           </Card.Title>
           <Card.Text className='md-text'> {props.cardText} </Card.Text>
           <Card.Footer>
-            <Card.Link href={props.linkURL} > {props.linkName} </Card.Link>
+            <Card.Link href={props.linkURL}> {props.linkName} </Card.Link>
           </Card.Footer>
         </Card.Body>
       </Card>

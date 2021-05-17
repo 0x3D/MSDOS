@@ -13,7 +13,7 @@ import { getData } from '../Fetcher'
 * @param {*} props
 * @returns React component with the login page.
 */
-export default function Login(props) {
+export default function Login (props) {
   const { basicLogin } = useAuth()
   const [isLoggedIn, setLoggedIn] = useState(false)
   const [username, setUsername] = useState('')
@@ -44,7 +44,7 @@ export default function Login(props) {
     }
   }
 
-  function validateForm() {
+  function validateForm () {
     // TODO: Add check for password security and proper email here
     return username.length > 0 && password.length > 0
   }

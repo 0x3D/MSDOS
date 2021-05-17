@@ -8,19 +8,23 @@ import codeStock from '../../assets/stockCodePic.jpeg'
 import Hello from '../../assets/hello.jpg'
 import CardsUI from './CardsUI'
 
-export default function AboutPage() {
+export default function AboutPage () {
   /**
      * This is the about page where we have gathered information about the project.
      */
 
+  /**
+   * Here we have gathered information that is supposed to appear on the specific cards
+   */
+
   const contactUsString = 'Är du intresserad av vår applikation och vill komma i kontakt med oss? Följ länken nedan!'
   const contactUsTitle = 'Kontakta oss'
-  const contactUsLinkURL = "mailto: msdosmsdos1@gmail.com'"
+  const contactUsLinkURL = 'mailto: msdosmsdos1@gmail.com'
 
   const sourceCodeTitle = 'Källkod'
   const sourceCode = 'Vill du veta mer om projektet? Följ länken för att komma till vårt GitHub repo'
-  const sourceCodeLink = "https://github.com/0x3D/MSDOS"
-  const sourceCodeLinkName = "Github"
+  const sourceCodeLink = 'https://github.com/0x3D/MSDOS'
+  const sourceCodeLinkName = 'Github'
 
   return (
     <div>
