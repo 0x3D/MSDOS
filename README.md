@@ -1,7 +1,8 @@
-# MSDOS
+[![Build Status](https://travis-ci.com/0x3D/MSDOS.svg?branch=main)](https://travis-ci.com/0x3D/MSDOS)
+# MSDOS 
 Project in DAT257 Agile software project management
 
-## Starta applicationen
+## Start the applicationen
 ___
 
 First of all you need to install node on your system. You can do that by
@@ -51,16 +52,7 @@ npm install
 This will take a while first time starting the project. So in the mean time you can open an other
 terminal and type in:
 
-```
-cd jsonPaceHolder
-```
-and then
 
-```
-npm install
-```
-
-This is for the server that runs on your computer.
 
 When everythin is installed correctly without any error messeges, you can now in the first termonal
 where you are in the __MSDOS__ directory typ:
@@ -71,11 +63,12 @@ npm start
 
 This will open your default browser with the react application.
 
-After this you need to start the server.You can do this by going to the directory
-__jsonPlaceHolder__ in the terminal and typing:
+
+
+After this you need to start the server.You can do this by going to the terminal and typing:
 
 ```
-npm run json:server
+npm run json-server
 ```
 
 Now the application is started! If you not have the creaters of the application in contact you can
@@ -97,14 +90,14 @@ ___
 
 We will post links to all the documents with __READ_ONLY ACCSESS__. Please contact us by 
 ```
-axelher@student.chalmers.se
+msdosmsdos1@gmail.com
 ```
 if there are any problem accessing the links:
 
 ## List of the links to the documents
 
 * #### Link to our travis
-    * [![Build Status](https://travis-ci.com/0x3D/MSDOS.svg?branch=main)](https://travis-ci.com/0x3D/MSDOS)
+    * [Travis](https://travis-ci.com/0x3D/MSDOS)
 * #### Link to our SSD 
    * [SDD](https://docs.google.com/document/d/10WxI5iAu8TZO15gvbfwLmruxEjfIJko6ZJvROlkM9V4/)
 * #### Link to our trelloboard
@@ -112,17 +105,17 @@ if there are any problem accessing the links:
 * #### Link to our KPI:s
     * [KPI:S](https://docs.google.com/spreadsheets/d/19sw7GOvUq1my6g6EroXL_tPxFDV5BKMC786YRKnv_QI/edit?usp=sharing) 
 * #### Link to our Project Scope
-    * [Project Scope]() 
+    * [Project Scope](https://docs.google.com/document/d/1fYLQ0xAVWN6-cZu1c0_JtMYRXMgMFCtFC16pzz4NYeY/edit?usp=sharing) 
 * #### Link to our Long term plan
-    * [Long Term Plan]() 
+    * [Long Term Plan](https://docs.google.com/spreadsheets/d/1x53tBOJ7qwUyOwf7VgZEqy5vlHOlxTxEDlBvMf7hbvg/edit?usp=sharing) 
 * #### Link to our System requirements
-    * [System requirments]() 
-* #### Link to our Team Reaflektions
-    * [TeamReflektions]() 
+    * [System requirments](https://docs.google.com/document/d/1EbG7kYNtikYl7S3jrPMdUNKbx4WJ4uxaDX2bVJyrBMA/edit?usp=sharing ) 
+* #### Link to our Team Reflections
+    * [TeamReflektions](https://drive.google.com/drive/folders/1f-5Oz8pCtOLcliA5kxH_a1jNeqC-kHbm?usp=sharing) 
 
 
 ___
 
 ## DependencyGraph
 
-![Dependenct grapgh ](./docs/dependencygraph.png)
+![Dependenct grapgh](./docs/dependencygraph.png)
