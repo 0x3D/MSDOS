@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import {
   makeStyles,
   Table,
@@ -130,7 +131,7 @@ export default function HandleBookings () {
           </TableHead>
           <TableBody>
             {!laundryBookings
-              ? (<h1>loading...</h1>)
+              ? (<Loader />)
               : (
                 <>
                   {laundryBookings.map((row) => (
