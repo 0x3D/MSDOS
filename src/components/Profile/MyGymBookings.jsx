@@ -83,13 +83,14 @@ export default function MyGymBookings ({ loggedIn }) {
   }
 
   /**
-     * method that handles the edited booking
-     * @param @param {Integer} bookingId hold the booking id for the old booking
+     * method that shows a modal for rekooking an already booked time 
+     * @param @param {Integer} bookingId holds the booking id for the old booking
      */
   const handleEditBooking = (bookingId) => {
     setOldBookingId(String(bookingId))
     handleShow()
   }
+
   /**
     * Fetches the gymbookings from jsonPlaceHolder
     * @constant response is what the jsonplaceholder gives us

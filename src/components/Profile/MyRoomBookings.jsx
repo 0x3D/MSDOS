@@ -49,10 +49,10 @@ export default function MyRoomBookings ({ loggedIn }) {
   const [showModal, setShowModal] = useState(false)
 
   /**
-     * oldBookingId is a variables, and setOldBookingId is a set-method for the variable
+     * oldBookingId is a variable, and setOldBookingId is a set-method for the variable
      * Usestate is the default value
-     * @constant oldBookingId holds the data
-     * @method setOldBookingId sets the data
+     * @constant oldBookingId holds the id for the old booking to be edited
+     * @method setOldBookingId sets the id for the old booking to be edited
      * @see [reactjs](https://reactjs.org/docs/hooks-state.html)
      */
   const [oldBookingId, setOldBookingId] = useState(null)
@@ -149,7 +149,6 @@ export default function MyRoomBookings ({ loggedIn }) {
               <b>Mina lokalbokningar</b>{' '}
             </Card.Header>{' '}
             <br />
-            {console.log(roomBookings)}
             {roomBookings.map((booking) => (
               <Card.Text className='border' key={booking.start_time}>
                 <b>Starttid</b> : {booking.start_time} <br /> <b>Sluttid</b> :{' '}
