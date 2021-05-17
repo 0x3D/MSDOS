@@ -84,7 +84,7 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
     await fetchBookings()
 
-    // IF-sats som ser till att två moduler inte visas när en ombokning görs
+    // Check so that the app doesn't open 2 modals when doing a rebooking
     if (temporaryBookingId === undefined) {
       setShowBookingModal(true)
     }
