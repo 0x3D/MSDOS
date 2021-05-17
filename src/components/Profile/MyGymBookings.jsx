@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
+import Loader from '../Loader'
 import GymBooking from '../Bookings/GymBooking'
 import '../../styles/Profile.css'
 import { BsFillTrashFill } from 'react-icons/bs'
@@ -141,7 +142,7 @@ export default function MyGymBookings ({ loggedIn }) {
         </div>
 
         {!gymBookings
-          ? (<h1>loading...</h1>)
+          ? (<Loader />)
           : (
             <Card style={{}}>
               <Card.Header as='h3'>

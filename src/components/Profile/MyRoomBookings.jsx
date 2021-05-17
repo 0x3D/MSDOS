@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
+import Loader from '../Loader'
 import RoomBoking from '../Bookings/RoomBooking'
 import '../../styles/Profile.css'
 import { BsFillTrashFill } from 'react-icons/bs'
@@ -141,7 +142,7 @@ export default function MyRoomBookings ({ loggedIn }) {
       </div>
 
       {!roomBookings
-        ? (<h1>loading...</h1>)
+        ? (<Loader />)
         : (
           <Card>
             <Card.Header as='h3'>
