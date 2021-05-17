@@ -5,6 +5,7 @@ import HandleBookings from './HandleBookings'
 import HandleUsers from './HandleUsers'
 import MyFacilities from './MyFacilities'
 import BookingHistory from './BookingHistory'
+import '../../styles/App.css'
 import BookingSettings from './BookingSettings'
 
 /**
@@ -86,13 +87,15 @@ export default function AdminPage () {
   }
 
   return (
-    <div className='AdminPage'>
+
+    <div className='adminTitle'>
       <h1> Adminsida</h1>
       <Container>
         <Row>
           <Col sm={12}>
 
-            <ListGroup>
+            <ListGroup className='adminListGroup'>
+
               <ListGroup.Item>
                 <Button id='handle-bookings' onClick={handleShow} size='lg' block>
                   Hantera bokningar
@@ -144,5 +147,6 @@ export default function AdminPage () {
       </Modal>
 
     </div>
+
   )
 }

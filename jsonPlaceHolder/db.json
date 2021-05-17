@@ -391,13 +391,6 @@
       "password": "kwest@yahoo.com",
       "id": 58,
       "role": "user"
-    },
-    {
-      "apartmentNo": 59,
-      "email": "fae.hyatt@hotmail.com",
-      "password": "fae.hyatt@hotmail.com",
-      "id": 59,
-      "role": "user"
     }
   ],
   "laundryBookings": [
@@ -454,6 +447,18 @@
       "end_time": "2021-05-18T09:00:00.000Z",
       "apartmentNo": 3,
       "id": 9
+    },
+    {
+      "start_time": "2021-05-10T12:00:00.000Z",
+      "end_time": "2021-05-10T15:00:00.000Z",
+      "apartmentNo": 3,
+      "id": 10
+    },
+    {
+      "start_time": "2021-05-19T12:00:00.000Z",
+      "end_time": "2021-05-19T15:00:00.000Z",
+      "apartmentNo": 1,
+      "id": 11
     }
   ],
   "gymBookings": [

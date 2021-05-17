@@ -98,7 +98,7 @@ export default function Login (props) {
                 placeholder='password'
               />
             </Form.Group>
-            <Row className='justify-content-md-center'>
+            <Row  className='justify-content-md-center' className='login'>
               <Button type='submit' disabled={!validateForm()}>
                 Sign in
               </Button>

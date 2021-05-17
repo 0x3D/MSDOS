@@ -144,10 +144,10 @@ export default function MyLaundryBookings ({ loggedIn }) {
       {!laundryBookings
         ? (<Loader />)
         : (
-          <Card>
-            <Card.Header as='h3'>
+          <Card  style={{color: 'white', backgroundColor:'var(--shade6-color)'}}>
+            <Card.Header style={{backgroundColor:'var(--title-color-light)'}}  as='h3'>
               {' '}
-              <b>Mina tvättbokningar</b>{' '}
+              <b> Mina tvättbokningar</b>{' '}
             </Card.Header>{' '}
             <br />
             {laundryBookings.map((booking) => (
