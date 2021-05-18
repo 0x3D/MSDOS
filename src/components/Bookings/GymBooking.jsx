@@ -286,7 +286,7 @@ export default function GymBooking ({ idToRebook = null }) {
               <br />
               Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, '')} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
               <br />
-              Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+              Dag: {JSON.stringify(format(startTime, 'dd/MM - yyyy')).replace(/"/g, '')}
             </Modal.Body>
             )}
         <Modal.Footer>

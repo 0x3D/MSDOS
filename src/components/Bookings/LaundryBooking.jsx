@@ -177,7 +177,7 @@ export default function LaundryBooking ({ idToRebook = null }) {
           )} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
           <br />
           Dag:{' '}
-          {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+          {JSON.stringify(format(startTime, 'dd/MM - yyyy')).replace(/"/g, '')}
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>

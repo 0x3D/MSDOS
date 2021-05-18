@@ -118,7 +118,7 @@ export default function RoomBooking ({ idToRebook = null }) {
           <br />
           Tid: 8.00 - 20.00
           <br />
-          Dag: {JSON.stringify(format(chosenDate, 'dd/MM-yy')).replace(/"/g, '')}
+          Dag: {JSON.stringify(format(chosenDate, 'dd/MM - yy')).replace(/"/g, '')}
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
