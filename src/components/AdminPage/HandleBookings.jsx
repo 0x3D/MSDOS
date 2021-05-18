@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import {
   makeStyles,
   Table,
@@ -112,25 +113,25 @@ export default function HandleBookings () {
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
+          <TableHead className='handleBookingTop'>
+            <TableRow>
               <TableCell align='left'>
-                <h3>Starttid</h3>
+                <h3 className='handleBookingStart'>Starttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Sluttid</h3>
+                <h3 className='handleBookingSlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Lägenhetsnummer</h3>
+                <h3 className='handleBookingLGHnr'>Lägenhetsnummer</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Ta bort bokning</h3>
+                <h3 className='handleBookingTaBort'>Ta bort bokning</h3>
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className='handleBookingBody'>
             {!laundryBookings
-              ? (<h1>loading...</h1>)
+              ? (<Loader />)
               : (
                 <>
                   {laundryBookings.map((row) => (
@@ -140,7 +141,7 @@ export default function HandleBookings () {
                       </TableCell>
                       <TableCell align='center'>{row.end_time}</TableCell>
                       <TableCell align='center'>{row.apartmentNo}</TableCell>
-                      <TableCell>
+                      <TableCell className='removeUser'>
                         {' '}
                         <Button
                           variant='contained'

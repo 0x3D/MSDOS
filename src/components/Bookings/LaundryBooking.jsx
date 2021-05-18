@@ -3,7 +3,7 @@ import TimeCalendar from 'react-timecalendar'
 import { format, addHours } from 'date-fns'
 import { Button, Modal, Alert } from 'react-bootstrap'
 import Emailer from '../../Emailer'
-import { getData, postData } from '../../Fetcher'
+import { deleteData, getData, postData } from '../../Fetcher'
 
 const laundryTime = 180
 const openHours = [[8, 20]]
@@ -21,7 +21,13 @@ const getAmountOfBookings = async () => {
   return data.length
 }
 
-export default function LaundryBooking ({ removeFunction, temporaryBookingId }) {
+/**
+ * Laundrybooking time-calendar
+ *
+ * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id
+ * @returns React component to book the laundry
+ */
+export default function LaundryBooking ({ idToRebook = null }) {
   // Booked times
   const [bookings, setBookings] = useState([])
 
@@ -32,6 +38,14 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
   const [showErrorAlert, setShowErrorAlert] = useState(false)
 
   const [maxAmountState, setMaxAmountState] = useState('n/a')
+
+  const [showBookingConfirmation, setShowBookingModal] = useState(false)
+
+  const handleBookingClose = () => setShowBookingModal(false)
+
+  const [showRebookingConfirmation, setShowRebookingModal] = useState(false)
+
+  const handleRebookingClose = () => setShowRebookingModal(false)
 
   // Fetches the bookings from the api
   const fetchBookings = async () => {
@@ -59,7 +73,7 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
     if (localStorage.getItem('settings')) {
       maxAmount = JSON.parse(localStorage.getItem('settings')).laundryTime
     }
-    if (amountOfBookings < maxAmount) {
+    if (amountOfBookings < maxAmount || idToRebook) {
       // Success
       await postBooking(postData)
       Emailer(postData, 'LAUNDRY')
@@ -71,16 +85,27 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
       // window.alert('Woops, du har bokat för många tider, ' + maxAmount +
       // ' är max. \n Avboka en tid och försök igen')
     }
+
     await fetchBookings()
+
+    // Check so that the app doesn't open 2 modals when doing a rebooking
+    if (!idToRebook) {
+      setShowBookingModal(true)
+    }
   }
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
-    if (temporaryBookingId !== undefined) {
-      removeFunction(temporaryBookingId)
-      window.location.reload()
+    // If the booking is a rebooking, delete the old booking
+    if (idToRebook) {
+      await deleteData(url, laundryBookingsTable, idToRebook)
+      await postData(url, laundryBookingsTable, pData)
+      await fetchBookings()
+      setShowRebookingModal(true)
+    } else {
+      await postData(url, laundryBookingsTable, pData)
+      await fetchBookings()
     }
-    postData(url, laundryBookingsTable, pData)
   }
 
   const handleModalConfirmation = () => {
@@ -109,12 +134,18 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
 
   return (
     <>
-      <div>
-        <h4 className='text-center'>Välj dag för att boka tvättid</h4>
+      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina tvättider</h4>
+      <div className='w-50 ml-auto mr-auto mb-4'>
+        <ol className='instructionsList'>
+          <li>Välj ett datum</li>
+          <li>Välj en tid genom att klicka på 'Select Time'</li>
+          <li>Klicka på önskad tid</li>
+          <li>Bekräfta bokning i rutan som kommer upp</li>
+        </ol>
       </div>
-      <div>
+
+      <div className='border-top'>
         <TimeCalendar
-          className='border-top'
           clickable
           openHours={openHours}
           disableHistory
@@ -157,6 +188,53 @@ export default function LaundryBooking ({ removeFunction, temporaryBookingId }) 
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/* Modal for confirmation message after booking */}
+      <Modal show={showBookingConfirmation} onHide={handleBookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Din bokning har gått igenom.
+          <br />
+          Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(
+            /"/g,
+            ''
+          )} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
+          <br />
+          Dag:{' '}
+          {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleBookingClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal for confirmation message after rebooking */}
+      <Modal show={showRebookingConfirmation} onHide={handleRebookingClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ombokningsbekräftelse</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Din ombokning har gått igenom.
+          <br />
+          Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(
+            /"/g,
+            ''
+          )} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
+          <br />
+          Dag:{' '}
+          {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={(e) => { window.location.reload() }}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
     </>
   )
 }

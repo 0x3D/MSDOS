@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import Loader from './Loader'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../styles/Footer.css'
 import { getData } from '../Fetcher'
@@ -8,9 +9,9 @@ import { getData } from '../Fetcher'
  * @returns a footer as a react-component
  */
 export default function Footer () {
-/**
- * @constant fetch is a constant that holds the executed window
- */
+  /**
+   * @constant fetch is a constant that holds the executed window
+   */
 
   const url = 'http://localhost:8000/'
   const usersTable = 'users/'
@@ -56,7 +57,7 @@ export default function Footer () {
               <li> <a href='http://localhost:3000/profile'> Mina bokningar</a> </li>
               <li> <a href='http://localhost:3000/home'> Login</a> </li>
               <li> <a href='http://localhost:3000/admin'> Admin</a> </li>
-              <li> <a href='http://localhost:3000/admin'> Om applikation </a> </li>
+              <li> <a href='http://localhost:3000/about'> Om applikation </a> </li>
             </ul>
           </Col>
 
@@ -72,7 +73,7 @@ export default function Footer () {
             <ul className='list-unstyled'>
 
               {!admins
-                ? (<h4>loading...</h4>)
+                ? (<Loader />)
                 : (
                   <>
                     {admins.map((row) =>

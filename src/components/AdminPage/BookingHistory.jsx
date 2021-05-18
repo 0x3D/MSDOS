@@ -1,5 +1,6 @@
 import { isPast } from 'date-fns'
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import {
   makeStyles,
   Table,
@@ -123,7 +124,7 @@ export default function BookingHistory () {
         </Row>
       </Container>
 
-      <TableContainer component={Paper}>
+      <TableContainer className='bookingHistory' component={Paper}>
         <Button
           variant='contained'
           color='secondary'
@@ -135,22 +136,22 @@ export default function BookingHistory () {
           Rensa bokningshistorik
         </Button>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
+          <TableHead className='bookingHistoryTop'>
+            <TableRow>
               <TableCell align='left'>
-                <h3>Starttid</h3>
+                <h3 className='bookingHistoryStart'>Starttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Sluttid</h3>
+                <h3 className='bookingHistorySlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Lägenhetsnummer</h3>
+                <h3 className='bookingHistoryLGHnr'>Lägenhetsnummer</h3>
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className='bookingHistoryBody'>
             {!bookingHistory
-              ? (<h1>loading...</h1>)
+              ? (<Loader />)
               : (
                 <>
                   {bookingHistory.map((row) => (
