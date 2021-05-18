@@ -32,11 +32,15 @@
     margin-bottom: 1%;
 }
 
+.nav-item.nav-link {
+    color: black;
+}
+
 .nav-item.nav-link.active{
     background: var(--shade7-color);
     font-weight: bolder;
     opacity: 0.8;
-
+    color: aliceblue;
 }
 
 .border-bottom.border-left.border-right {

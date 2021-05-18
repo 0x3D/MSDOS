@@ -10,19 +10,19 @@
 
   /* Color scheme for application */
   --slate-gray: #627c85ff;
-  --alice-blue: #e1eff6ff;
+  --alice-blue: rgba(190, 195, 211, 0.808);
   --english-vermillion: #d33e43ff;
   --raisin-black: #1c1d21ff;
   --blue-ncs: #2e86abff;
   --calander-color: rgba(110, 127, 199, 0.116);
   --title-color-dark:  #464646;
-  --title-color-light:  #072c5f;
+  --title-color-light:  #153b70;
   --shade1-color: #4082e441;
-  --shade2-color:  #1c62cc3f;
-  --shade3-color:  #0E57C5;
-  --shade4-color:  #6099f0;
-  --shade5-color:  #84B1F7;
-  --shade6-color:  #ACCBF9;
+  --shade2-color:  #4985df3f;
+  --shade3-color:  #97baee;
+  --shade4-color:  #8db3ec;
+  --shade5-color:  #96baf3;
+  --shade6-color:  #9ab2d6e7;
   --shade7-color: #86afeca4;
   --text-color-black: #000000;
   --text-color-white: #ffffff;
@@ -37,7 +37,7 @@
 }
 
 body{ 
-  background: repeating-linear-gradient(var(--shade2-color), var(--shade1-color));
+  background: var(--alice-blue) !important;
    background-repeat:round; 
 } 
 
@@ -48,6 +48,10 @@ body{
 .adminTitle{
   margin-top: 30px;
   color: var(--title-color-dark);
+}
+
+.list-group-item {
+  background-color: var(--shade4-color) !important;
 }
 
 .adminListGroup button{

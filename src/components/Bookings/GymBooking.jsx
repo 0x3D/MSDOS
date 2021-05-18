@@ -5,6 +5,7 @@ import { Button, Modal, Alert } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
 import { getData, postData, deleteData } from '../../Fetcher'
+import '../../styles/Booking.css'
 
 const alert = window.alert
 const localStorage = window.localStorage
@@ -23,7 +24,7 @@ const getAmountOfBookings = async () => {
  * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id
  * @returns React component to book the gym
  */
-export default function GymBooking ({ idToRebook = null }) {
+export default function GymBooking({ idToRebook = null }) {
   /**
     * Time in minutes for one gym section
     * @const {integer}
@@ -235,23 +236,26 @@ export default function GymBooking ({ idToRebook = null }) {
 
   return (
     <>
-      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina gymtider</h4>
-      <div className='w-50 ml-auto mr-auto mb-4'>
-        <ol className='instructionsList'>
-          <li>Välj ett datum</li>
-          <li>Välj en starttid</li>
-          <li>Välj en sluttid (inom {maxGymSessionTime} timmar)</li>
-          <li>Klicka på boka vald tid</li>
-          <li>Bekräfta bokning i rutan som kommer upp</li>
-        </ol>
+      <div className="instruction-container">
+        <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina gymtider</h4>
+        <div className='w-50 ml-auto mr-auto mb-4'>
+          <ol className='instructionsList'>
+            <li>Välj ett datum</li>
+            <li>Välj en starttid</li>
+            <li>Välj en sluttid (inom {maxGymSessionTime} timmar)</li>
+            <li>Klicka på boka vald tid</li>
+            <li>Bekräfta bokning i rutan som kommer upp</li>
+          </ol>
+        </div>
       </div>
-
-      <Button className='mb-3 mr-5' disabled={!hasChosenTime} variant={hasChosenTime ? ('primary') : ('secondary')} onClick={handleShow}>
-        Boka markerad tid
-      </Button>
-      <Button variant='secondary' className='mb-3 ml-5' onClick={clearTimeInterval}>
-        Rensa markerad tid
-      </Button>
+      <div className="intruction-button">
+        <Button className='mb-3 mr-5' disabled={!hasChosenTime} variant={hasChosenTime ? ('primary') : ('secondary')} onClick={handleShow}>
+          Boka markerad tid
+        </Button>
+        <Button variant='secondary' className='mb-3 ml-5' onClick={clearTimeInterval}>
+          Rensa markerad tid
+        </Button>
+      </div>
       <div className='border-top'>
         <TimeCalendar
           clickable
@@ -288,7 +292,7 @@ export default function GymBooking ({ idToRebook = null }) {
               <br />
               Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
             </Modal.Body>
-            )}
+          )}
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
             Stäng

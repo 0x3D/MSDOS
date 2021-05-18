@@ -1,22 +1,51 @@
 .instruction-container{
-    margin: 2% auto;
+    margin: 0% auto;
     background-color: var(--shade5-color);
-    width: max-content;
     border-style: double;
     border-width: thick;
-    
+    border-color:rgb(243, 231, 231);  
 }
 
 .instruction-container h4 {
-    border-style: solid;
+    background-color: var(--title-color-light);
     border-radius: 10px;
     font-weight: bolder;
     opacity: 0.7;
-    /* background-color: var(--table1-color); */
+    color: aliceblue;
+    margin-bottom: 2%;
+}
+.tab-content{
+    border-style: double;
 }
 
 .instruction-container ol {
     font-weight: bold;
+    
+}
+
+ol li {
+    margin: 2px;
+    border-style: groove;
+    border-width: 0.5px;
+    border-color: rgba(240, 248, 255, 0.308);
+}
+ol li:hover{
+    margin: 2px;
+    border-style: groove;
+    border-width: 0.5px;
+    border-color: rgb(38, 69, 168);
+    cursor:context-menu;
+}
+
+.intruction-button{
+    border-style: double;
+    border-width: thick;
+    border-color:rgb(243, 231, 231);  
+}
+
+.intruction-button button{
+    margin-top: 2%;
+    width: 300px;
 }
 
 .header.row.flex-middle{
@@ -24,15 +53,13 @@
 }
 
 .days.row {
-     background-color: var(--shade5-color);
+    background-color: var(--shade5-color);
+    color: aliceblue;
 }
 
 .days.row div {
     font-weight: bold;
     font-size: medium;
-}
-
-.body div .row {
     background-color: var(--calander-color) !important;
 }
 
@@ -41,16 +68,13 @@
     font-size: large!important;
 }
 
-.timeSelector p{
+button.timeSelector p{
     display: none !important;
 }
 
-.timeSelector button {
+button.timeSelector::after {
     size: 200px !important;
-}
-
-.timeSelector::after {
-    content: 'Välj tid';
+    content: 'Välj denna dag';
     font-size: xx-large;
-    font-weight: 700;
+    font-weight: 400;
 }
