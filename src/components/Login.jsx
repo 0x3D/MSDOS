@@ -56,22 +56,22 @@ export default function Login (props) {
           Du loggades inte in
         </Alert.Heading>
         <p>
-          Du har angivit fel lösenord för ditt lägenhetsnummer
+          Kontrollera användarnamn och lösenord och försök igen.
         </p>
       </Alert>
 
       {isLoggedIn ? <Redirect exact path='/booking' /> : <h1> &nbsp;</h1>}
       <Modal show={showHelp} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Help</Modal.Title>
+          <Modal.Title>Hjälp</Modal.Title>
         </Modal.Header>
-        <Modal.Body>To create a login ask your administrator</Modal.Body>
+        <Modal.Body>Kontakta din administratör för att skapa ett konto</Modal.Body>
         <Modal.Footer>
           <Button onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>
       <Row className='justify-content-md-center'>
-        <Col xs={5} xs-offset={2}>
+        <Col xs={7} xs-offset={2}>
           <Form
             className='loginForm'
             onSubmit={(e) => {
@@ -80,7 +80,7 @@ export default function Login (props) {
             }}
           >
             <Form.Group controlId='formBasicUsername'>
-              <Form.Label> Apartment Number </Form.Label>
+              <Form.Label> Lägenhetsnummer </Form.Label>
               <Form.Control
                 autoFocus
                 type='text'
@@ -90,7 +90,7 @@ export default function Login (props) {
               />
             </Form.Group>
             <Form.Group controlId='formBasicPassword'>
-              <Form.Label> Password </Form.Label>
+              <Form.Label> Lösenord </Form.Label>
               <Form.Control
                 type='password'
                 value={password}
@@ -100,7 +100,7 @@ export default function Login (props) {
             </Form.Group>
             <Row className='justify-content-md-center'>
               <Button type='submit' disabled={!validateForm()}>
-                Sign in
+                Logga in
               </Button>
               <Col xs={1}>&nbsp;</Col>
               <Button
@@ -109,7 +109,7 @@ export default function Login (props) {
                   handleShow()
                 }}
               >
-                Help
+                Hjälp
               </Button>
             </Row>
           </Form>

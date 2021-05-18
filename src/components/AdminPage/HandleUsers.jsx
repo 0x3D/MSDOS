@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import {
   Button,
   makeStyles,
@@ -110,13 +111,13 @@ export default function HandleUsers () {
       </Container>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
+          <TableHead className='handleUsersTop'>
+            <TableRow>
               <TableCell>
-                <h2>Lägenhetsnummer</h2>
+                <h2 className='handleUsersLGHnr'>Lägenhetsnummer</h2>
               </TableCell>
               <TableCell align='center'>
-                <h2>Email</h2>
+                <h2 className='handleUsersEmail'>Email</h2>
               </TableCell>
               <TableCell align='center'>
                 <h2> {/** SKA VARA TOM */} </h2>
@@ -124,9 +125,9 @@ export default function HandleUsers () {
             </TableRow>
           </TableHead>
 
-          <TableBody>
+          <TableBody className='handleUsersBody'>
             {!users
-              ? (<h1>loading...</h1>)
+              ? (<Loader />)
               : (
                 <>
                   {users.map((row) => (
@@ -135,7 +136,7 @@ export default function HandleUsers () {
                         {row.apartmentNo}
                       </TableCell>
                       <TableCell align='center'>{row.email}</TableCell>
-                      <TableCell align='center'>
+                      <TableCell className='removeUser' align='center'>
                         <Button
                           variant='contained'
                           color='secondary'
