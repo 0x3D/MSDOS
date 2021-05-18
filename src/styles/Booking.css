@@ -40,3 +40,17 @@
     background-color: var(--shade4-color)!important;
     font-size: large!important;
 }
+
+.timeSelector p{
+    display: none !important;
+}
+
+.timeSelector button {
+    size: 200px !important;
+}
+
+.timeSelector::after {
+    content: 'Välj tid';
+    font-size: xx-large;
+    font-weight: 700;
+}
