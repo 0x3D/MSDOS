@@ -1,4 +1,14 @@
+
+:root {
+--remove-button: #e64e4e;
+--remove-hover-button: #e47c7c;
+}
+
 .btn-primary-spacing {
 margin: 5px;
 margin-bottom: 5px !important;
 }
+
+.removeBooking button{
+    background-color: var(--remove-button)
+  }

@@ -43,7 +43,7 @@ function App () {
 
     <>
       <IconContext.Provider value={{ color: 'cornflowerblue', size: '50px' }}>
-        <Router>
+        <Router className='namn'>
           <AuthDataProvider>
             <NavigationBar />
             <div className='bodyWrapper'>

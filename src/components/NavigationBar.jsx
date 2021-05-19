@@ -38,9 +38,9 @@ export default function NavigationBar () {
       </Nav>
 
       <Nav>
-        <NavDropdown title={<span> <BiUserCircle size='1.5em' /> My account </span>} variant='dark'>
-          <NavDropdown.Item> <BiLogIn size='1.5em' /> <Link to='/home'>Login</Link></NavDropdown.Item>
-          <NavDropdown.Item onClick={handleLogOut}> <BiLogOut size='1.5em' /> Logout</NavDropdown.Item>
+        <NavDropdown title={<span> <BiUserCircle size='1.5em' /> Mitt konto </span>} variant='dark'>
+          <NavDropdown.Item> <BiLogIn size='1.5em' /> <Link to='/home'>Logga in</Link></NavDropdown.Item>
+          <NavDropdown.Item onClick={handleLogOut}> <BiLogOut size='1.5em' /> Logga ut</NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar>
