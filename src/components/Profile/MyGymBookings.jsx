@@ -13,6 +13,8 @@ import {
   Toast,
   Modal
 } from 'react-bootstrap'
+import { format} from 'date-fns'
+import { sv } from 'date-fns/esm/locale'
 
 export default function MyGymBookings ({ loggedIn }) {
   /**
@@ -109,6 +111,13 @@ export default function MyGymBookings ({ loggedIn }) {
     fetchBookings()
   }, [fetchBookings])
 
+  const formatDate = (dateString) => {
+    let date = new Date(dateString)
+    let form = "H:mm EEEE d/M"
+
+    return format(date, form, {locale: sv})
+  }
+
   return (
     <div>
       <div>
@@ -153,7 +162,7 @@ export default function MyGymBookings ({ loggedIn }) {
               <br />
               {gymBookings.map((booking) => (
                 <Card.Text className='border' key={booking.start_time}>
-                  <b>Starttid</b> : {booking.start_time} <br /> <b>Sluttid</b> :{' '}
+                  <b>Starttid</b> : {formatDate(booking.start_time)} <br /> <b>Sluttid</b> :{' '}
                   {booking.end_time} <br />
                   <Button
                     className='btn-primary-spacing'
