@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import { sv } from 'date-fns/esm/locale'
+import { sv } from 'date-fns/locale'
 
 /**
  * Function to format a date to the format H:mm which looks like 17:32
