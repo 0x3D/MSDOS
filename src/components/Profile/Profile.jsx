@@ -53,7 +53,7 @@ export default function Profile () {
     <>
       <div>
         <Container>
-          <Row className="loggin-info">
+          <Row className='loggin-info'>
             <Col>
               <h3>
                 <h3>
