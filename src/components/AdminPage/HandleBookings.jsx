@@ -116,10 +116,10 @@ export default function HandleBookings () {
           <TableHead className='handleBookingTop'>
             <TableRow>
               <TableCell align='left'>
-                <h3 className='handleBookingStart'>Start Tid</h3>
+                <h3 className='handleBookingStart'>Starttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleBookingSlut'>Slut Tid</h3>
+                <h3 className='handleBookingSlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
                 <h3 className='handleBookingLGHnr'>Lägenhetsnummer</h3>

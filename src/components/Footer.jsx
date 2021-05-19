@@ -53,11 +53,11 @@ export default function Footer () {
           <Col md={3} sm={6}>
             <h4>Länkar </h4>
             <ul className='list-unstyled'>
-              <li> <a href='http://localhost:3000/booking'> Bokningssidan </a> </li>
+              <li> <a href='http://localhost:3000/booking'> Bokning </a> </li>
               <li> <a href='http://localhost:3000/profile'> Mina bokningar</a> </li>
-              <li> <a href='http://localhost:3000/home'> Loginsidan</a> </li>
-              <li> <a href='http://localhost:3000/admin'> Adminsidan</a> </li>
-              <li> <a href='http://localhost:3000/about'> Om oss </a> </li>
+              <li> <a href='http://localhost:3000/home'> Login</a> </li>
+              <li> <a href='http://localhost:3000/admin'> Admin</a> </li>
+              <li> <a href='http://localhost:3000/about'> Om applikation </a> </li>
             </ul>
           </Col>
 
@@ -86,7 +86,7 @@ export default function Footer () {
         </Row>
         <div className='footer-buttom'>
           <p className='text-xs-center'>
-            <a href='https://github.com/0x3D/MSDOS' target='_blank' rel='noreferrer'> &copy;{new Date().getFullYear()} MSDOS- bokningssystem </a>
+            <a href='https://github.com/0x3D/MSDOS' target='_blank' rel='noreferrer'> &copy;{new Date().getFullYear()} MSDOS - bokningssystem </a>
           </p>
         </div>
       </Container>
