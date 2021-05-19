@@ -2,9 +2,9 @@ import { format } from 'date-fns'
 import { sv } from 'date-fns/locale'
 
 /**
- * Function to format a date to the format H:mm which looks like 17:32
+ * Function to format a date to the format H:mm which looks like '17:32', also converts the given time to swedish locale
  *
- * @param {String} dateString A date as a string to extract the time from in swedish locale
+ * @param {String} dateString A date as a string to extract the time from
  * @returns
  */
 export const formatTime = (dateString) => {
@@ -15,9 +15,9 @@ export const formatTime = (dateString) => {
 }
 
 /**
- * Function to format a date to the format  PPPP which looks like Friday, April 29th, 1453
+ * Function to format a date to the format PPPP which looks like 'lördag 15 maj 2021', also converts the given time to swedish locale
  *
- * @param {String} dateString A date as a string to extract the day from in swedish locale
+ * @param {String} dateString A date as a string to extract the day from
  * @returns
  */
 export const formatDay = (dateString) => {
@@ -28,9 +28,9 @@ export const formatDay = (dateString) => {
 }
 
 /**
- * Function to format a date to a human readable date + time
+ * Function to format a date to the format Pp which looks like '2021-05-16 14:00', also converts the given time to swedish locale
  *
- * @param {String} dateString A date as a string to extract the day and time from in swedish locale
+ * @param {String} dateString A date as a string to extract the day and time from
  * @returns
  */
 export const formatDate = (dateString) => {
