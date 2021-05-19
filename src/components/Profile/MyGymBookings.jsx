@@ -7,14 +7,13 @@ import { AiFillEdit } from 'react-icons/ai'
 import { FaCheck } from 'react-icons/fa'
 import { MdRefresh } from 'react-icons/md'
 import { getData, deleteData } from '../../Fetcher'
+import { formatTime, formatDay } from '../../DateFormatter'
 import {
   Card,
   Button,
   Toast,
   Modal
 } from 'react-bootstrap'
-import { format} from 'date-fns'
-import { sv } from 'date-fns/esm/locale'
 
 export default function MyGymBookings ({ loggedIn }) {
   /**
@@ -111,12 +110,7 @@ export default function MyGymBookings ({ loggedIn }) {
     fetchBookings()
   }, [fetchBookings])
 
-  const formatDate = (dateString) => {
-    let date = new Date(dateString)
-    let form = "H:mm EEEE d/M"
 
-    return format(date, form, {locale: sv})
-  }
 
   return (
     <div>
@@ -162,8 +156,10 @@ export default function MyGymBookings ({ loggedIn }) {
               <br />
               {gymBookings.map((booking) => (
                 <Card.Text className='border' key={booking.start_time}>
-                  <b>Starttid</b> : {formatDate(booking.start_time)} <br /> <b>Sluttid</b> :{' '}
-                  {booking.end_time} <br />
+                  <b>Tid : </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
+                  <br/>
+                  <b>Dag : </b> {formatDay(booking.start_time)}
+                  <br/> 
                   <Button
                     className='btn-primary-spacing'
                     size='sm'
