@@ -106,7 +106,6 @@ export default function BookingHistory () {
 
   return (
     <div>
-      {console.log(bookingHistory)}
       <Container>
         <Row>
           <Col md={{ span: 4, offset: 4 }}>
@@ -145,7 +144,7 @@ export default function BookingHistory () {
                 <h3 className='bookingHistorySlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='bookingHistoryLGHnr'>Lägenhetsnummer</h3>
+                <h3 className='bookingHistoryLghNr'>Lägenhetsnummer</h3>
               </TableCell>
             </TableRow>
           </TableHead>

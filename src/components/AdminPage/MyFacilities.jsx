@@ -43,18 +43,18 @@ export default function MyFacilities () {
 
   return (
     <div>
-      <Card style={{ color: 'white', backgroundColor: 'var(--shade6-color)' }} as='h3'> <b class='card-header card-header-myFacilities' id='card-header-color'>Faciliteter</b> <br />
+      <div fac-header> </div>
+      <Card style={{ color: 'white', backgroundColor: 'var(--c3-color)'}}> 
 
-        <ListGroup style={{ backgroundColor: 'var(--shade6-color)' }}>
+        <Card.Header className="fac-div-border"> <div><h3 className="fac-header"><b>Faciliteter</b></h3></div></Card.Header>
+        <ListGroup style={{ backgroundColor: 'var(--c3-color)' }}>
           {!facilities
             ? (<Loader />)
             : (
               <> {
               facilities.map((row) => (
                 <React.Fragment key={row.fac}>
-
-                  <ListGroup.Item style={{ backgroundColor: 'var(--shade6-color)' }} key={row.fac}>{row.fac}</ListGroup.Item>
-
+                  <ListGroup.Item style={{ backgroundColor: 'var(--c3-color)' }} key={row.fac}>{row.fac}</ListGroup.Item>
                 </React.Fragment>
               ))
             }

@@ -22,7 +22,7 @@
   --shade3-color:  #ffffff;
   --shade4-color:  #cbd2db;
   --shade5-color:  #ffffff;
-  --shade6-color:  #ffffff;
+  --shade6-color:  #ff0000;
   --shade7-color: #ffffff;
   --text-color-black: #000000;
   --text-color-white: #ffffff;
@@ -56,7 +56,8 @@ body{
 }
 
 .list-group-item {
-  background-color: var(--shade4-color) !important;
+  background-color: var(--c4-color) !important;
+  color: var(--c2-color);
 }
 
 .adminListGroup button{
@@ -78,8 +79,8 @@ body{
   background-color: var(--title-color-light)
 }
 
-.handleBookingTop{
-  background-color: var(--title-color-light)
+.handleUsersLghNr {
+  color: var(--c2-color);
 }
 
 .removeUser button{
@@ -91,53 +92,37 @@ body{
 }
 
 .handleUsersBody{
-  background-color: var(--shade6-color)
+  background-color: var(--c4-color)
 }
 
-.handleBookingBody{
-  background-color: var(--shade6-color)
+/* HandleBookings css */
+.handleBookingLghNr, .handleBookingSlut, .handleBookingStart, .handleUsersEmail, .handleBookingTaBort {
+  color: var(--c2-color) !important;
 }
 
-
-.handleUsersEmail{
-  color: var(--table2-color);
+.handleBookingTop{
+  background-color: var(--c4-color)
 }
 
-.handleUsersLGHnr{
-  color: var(--table2-color);
-}
-
-.handleBookingStart{
-  color: var(--table2-color);
-}
-
-.handleBookingSlut{
-  color: var(--table2-color);
-}
-
-.handleBookingLGHnr{
-  color: var(--table2-color);
-}
-
-.handleBookingTaBort{
-  color: var(--table2-color);
-}
-
-.addFacilityTop{
-  background-color: var(--title-color-light)
-}
-
+/*Facilities admin*/
 .addFacility{
   background-color: var(--title-color-light)
 }
 
-.card-header-myFacilities{
-  background-color: var(--title-color-light)!important
-  
+.fac-div-border {
+  background-color: var(--c3-color);
+  border-style: ridge;
+  border-width: 10px;
+  border-color: var(--c4-color);
 }
 
+.fac-div-border h3{
+  margin-bottom: 0;
+}
+
+
 .handleFacilitiesBody{
-  background-color: var(--shade6-color);
+  background-color: var(--c4-color);
 }
 
 .bodyWrapper {
@@ -160,20 +145,12 @@ html,body{
   background-color: var(--title-color-light)
 }
 
-.bookingHistoryStart{
-  color: var(--table2-color);
-}
-
-.bookingHistorySlut{
-  color: var(--table2-color);
-}
-
-.bookingHistoryLGHnr{
-  color: var(--table2-color);
+.bookingHistoryLghNr, .bookingHistorySlut, .bookingHistoryStart{
+  color: var(--c2-color) !important;
 }
 
 .bookingHistoryBody{
-  background-color: var(--shade6-color)
+  background-color: var(--c4-color)
 }
 
 .bookingHistory button{
@@ -185,7 +162,21 @@ html,body{
 }
 
 .bookingSettingsBody{
-  background-color: var(--title-color-light);
+  background-color: var(--c3-color);
+}
+
+.bookingSettingsBody label{
+  color: var(--c2-color);
+  font-size: large;
+  font-weight: bold;
+}
+
+.MuiTableRow-root.MuiTableRow-head {
+  background-color: var(--c3-color);
+  border-style: ridge;
+  border-width: 10px;
+  border-color: var(--c4-color);
+  border-bottom-style: none;
 }
 
 .login button{

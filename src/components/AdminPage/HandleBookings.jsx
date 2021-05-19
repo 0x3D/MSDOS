@@ -114,7 +114,7 @@ export default function HandleBookings () {
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
           <TableHead className='handleBookingTop'>
-            <TableRow>
+            <TableRow className="Table-rubric">
               <TableCell align='left'>
                 <h3 className='handleBookingStart'>Starttid</h3>
               </TableCell>
@@ -122,7 +122,7 @@ export default function HandleBookings () {
                 <h3 className='handleBookingSlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='handleBookingLGHnr'>Lägenhetsnummer</h3>
+                <h3 className='handleBookingLghNr'>Lägenhetsnummer</h3>
               </TableCell>
               <TableCell align='center'>
                 <h3 className='handleBookingTaBort'>Ta bort bokning</h3>
