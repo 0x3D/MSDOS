@@ -153,10 +153,10 @@ export default function MyRoomBookings ({ loggedIn }) {
             <br />
             {roomBookings.map((booking) => (
               <Card.Text className='border' key={booking.start_time}>
-                  <b>Tid : </b> 8.00 - 20.00
-                  <br/>
-                  <b>Dag : </b> {formatDay(booking.start_time)}
-                  <br/> 
+                <b>Tid : </b> 8.00 - 20.00
+                <br />
+                <b>Dag : </b> {formatDay(booking.start_time)}
+                <br />
                 <Button
                   className='btn-primary-spacing'
                   size='sm'

@@ -153,10 +153,10 @@ export default function MyLaundryBookings ({ loggedIn }) {
             <br />
             {laundryBookings.map((booking) => (
               <Card.Text className='border' key={booking.start_time}>
-                  <b>Tid : </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
-                  <br/>
-                  <b>Dag : </b> {formatDay(booking.start_time)}
-                  <br/> 
+                <b>Tid : </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
+                <br />
+                <b>Dag : </b> {formatDay(booking.start_time)}
+                <br />
                 <Button
                   className='btn-primary-spacing'
                   size='sm'

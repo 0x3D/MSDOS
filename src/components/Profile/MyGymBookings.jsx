@@ -110,8 +110,6 @@ export default function MyGymBookings ({ loggedIn }) {
     fetchBookings()
   }, [fetchBookings])
 
-
-
   return (
     <div>
       <div>
@@ -157,9 +155,9 @@ export default function MyGymBookings ({ loggedIn }) {
               {gymBookings.map((booking) => (
                 <Card.Text className='border' key={booking.start_time}>
                   <b>Tid : </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
-                  <br/>
+                  <br />
                   <b>Dag : </b> {formatDay(booking.start_time)}
-                  <br/> 
+                  <br />
                   <Button
                     className='btn-primary-spacing'
                     size='sm'
