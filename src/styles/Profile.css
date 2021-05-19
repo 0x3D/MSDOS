@@ -14,5 +14,18 @@ margin-bottom: 5px !important;
   border-width: thin;
   border-radius: 10px;
   border-color: rgba(0, 0, 0, 0.055);
-  background-color: var(--shade6-color);
+  background-color: var(--c4-color);
+  color: var(--c2-color);
+}
+
+.border {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-size: large !important;
+}
+
+.profile-container {
+  border-style: ridge;
+  border-width: 20px;
+  border-color: var(--c4-color);  
 }
