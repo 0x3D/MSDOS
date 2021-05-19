@@ -2,7 +2,7 @@ import { format } from 'date-fns'
 import { sv } from 'date-fns/esm/locale'
 
 /**
- * Function to format a date to a human readable time
+ * Function to format a date to the format H:mm which looks like 17:32
  *
  * @param {String} dateString A date as a string to extract the time from in swedish locale
  * @returns
