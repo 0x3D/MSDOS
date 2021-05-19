@@ -15,7 +15,7 @@ export const formatTime = (dateString) => {
 }
 
 /**
- * Function to format a date to a human readable day
+ * Function to format a date to the format  PPPP which looks like Friday, April 29th, 1453
  *
  * @param {String} dateString A date as a string to extract the day from in swedish locale
  * @returns
