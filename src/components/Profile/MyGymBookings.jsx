@@ -146,7 +146,7 @@ export default function MyGymBookings ({ loggedIn }) {
           ? (<Loader />)
           : (
             <Card style={{ color: 'white', backgroundColor: 'var(--c4-color)' }}>
-              <Card.Header style={{ color:'var(--c2-color)', backgroundColor: 'var(--c3-color)' }} as='h3'>
+              <Card.Header style={{ color: 'var(--c2-color)', backgroundColor: 'var(--c3-color)' }} as='h3'>
                 {' '}
                 <b>Mina gymbokningar</b>{' '}
               </Card.Header>{' '}

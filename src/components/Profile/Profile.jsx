@@ -77,16 +77,16 @@ export default function Profile () {
             </Col>
           </Row>
 
-          <div className="profile-container">
-          <Row>
-            <Col style={{ margin: '20px' }}>  <MyLaundryBookings loggedIn={currentUser} /> </Col>
-          </Row>
-          <Row>
-            <Col style={{ margin: '20px' }}>  <MyGymBookings loggedIn={currentUser} /> </Col>
-          </Row>
-          <Row>
-            <Col style={{ margin: '20px' }}> <MyRoomBookings loggedIn={currentUser} /> </Col>
-          </Row>
+          <div className='profile-container'>
+            <Row>
+              <Col style={{ margin: '20px' }}>  <MyLaundryBookings loggedIn={currentUser} /> </Col>
+            </Row>
+            <Row>
+              <Col style={{ margin: '20px' }}>  <MyGymBookings loggedIn={currentUser} /> </Col>
+            </Row>
+            <Row>
+              <Col style={{ margin: '20px' }}> <MyRoomBookings loggedIn={currentUser} /> </Col>
+            </Row>
           </div>
         </Container>
       </div>

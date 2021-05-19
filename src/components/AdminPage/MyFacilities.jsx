@@ -44,9 +44,9 @@ export default function MyFacilities () {
   return (
     <div>
       <div fac-header> </div>
-      <Card style={{ color: 'white', backgroundColor: 'var(--c3-color)'}}> 
+      <Card style={{ color: 'white', backgroundColor: 'var(--c3-color)' }}>
 
-        <Card.Header className="fac-div-border"> <div><h3 className="fac-header"><b>Faciliteter</b></h3></div></Card.Header>
+        <Card.Header className='fac-div-border'> <div><h3 className='fac-header'><b>Faciliteter</b></h3></div></Card.Header>
         <ListGroup style={{ backgroundColor: 'var(--c3-color)' }}>
           {!facilities
             ? (<Loader />)
