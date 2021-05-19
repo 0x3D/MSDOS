@@ -1,8 +1,9 @@
 .selected-tab {
-    background-color: var(--shade7-color);
-    border-radius: 20px;
+    background-color: var(--c3-color);
+    border-radius: 7.5px;
     font-weight: 900;
     opacity: 0.9;
+    color: var(--c2-color) !important;
 }
 
 .subnav {
@@ -37,10 +38,10 @@
 }
 
 .nav-item.nav-link.active{
-    background: var(--shade7-color);
+    background: var(--c3-color);
     font-weight: bolder;
     opacity: 0.8;
-    color: aliceblue;
+    color: var(--c2-color);
 }
 
 .border-bottom.border-left.border-right {

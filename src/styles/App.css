@@ -16,38 +16,43 @@
   --blue-ncs: #2e86abff;
   --calander-color: rgba(110, 127, 199, 0.116);
   --title-color-dark:  #464646;
-  --title-color-light:  #153b70;
-  --shade1-color: #4082e441;
-  --shade2-color:  #4985df3f;
-  --shade3-color:  #97baee;
-  --shade4-color:  #8db3ec;
-  --shade5-color:  #96baf3;
-  --shade6-color:  #9ab2d6e7;
-  --shade7-color: #86afeca4;
+  --title-color-light:  #ffffff;
+  --shade1-color: #ffffff;
+  --shade2-color:  #ffffff;
+  --shade3-color:  #ffffff;
+  --shade4-color:  #cbd2db;
+  --shade5-color:  #ffffff;
+  --shade6-color:  #ffffff;
+  --shade7-color: #ffffff;
   --text-color-black: #000000;
   --text-color-white: #ffffff;
   --table1-color: #ACCBF9;
   --table2-color: #ffffff;
   --border-color: #000000;
-  --background-color: #aaccfc;
+  --background-color: #ffffff;
   --remove-button: #e64e4e;
   --remove-hover-button: #e47c7c;
-  --remove-hove: 
+  --remove-hove: ;
+  /* Discreete Palette */
+  --c1-color: #B4B4CF;
+  --c2-color: #7589F3;
+  --c3-color: #F8F8FF;
+  --c4-color: #cbd2db;
 
 }
 
 body{ 
-  background: var(--alice-blue) !important;
+  background: var(--c3-color) !important;
    background-repeat:round; 
 } 
 
 .namn{
-  color: var(--secendary-color);
+  color: var(--c1-color);
 }
 
 .adminTitle{
   margin-top: 30px;
-  color: var(--title-color-dark);
+  color: var(--c2-color);
 }
 
 .list-group-item {
@@ -57,11 +62,12 @@ body{
 .adminListGroup button{
   margin: 10px;
   margin-inline: 0px;
-  background-color: var(--title-color-light)
+  background-color: var(--c2-color)
 }
 
 .adminListGroup button:hover{
-  background-color: var(--shade4-color)
+  opacity: 0.8;
+  font-weight: bold;
 }
 
 .bgAdminPage {

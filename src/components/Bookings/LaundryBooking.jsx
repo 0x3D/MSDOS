@@ -136,7 +136,7 @@ export default function LaundryBooking ({ idToRebook = null }) {
   return (
     <>
     <div className="instruction-container">
-      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du dina tvättider</h4>
+      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Såhär bokar du tvättid</h4>
       <div className='w-50 ml-auto mr-auto mb-4'>
         <ol className='instructionsList'>
           <li>Välj ett datum</li>

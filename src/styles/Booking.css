@@ -7,20 +7,19 @@
 }
 
 .instruction-container h4 {
-    background-color: var(--title-color-light);
     border-radius: 10px;
     font-weight: bolder;
-    opacity: 0.7;
-    color: aliceblue;
-    margin-bottom: 2%;
+    color: var(--c2-color);
+    margin-bottom: 0%;
 }
 .tab-content{
-    border-style: double;
+    border-style:ridge;
+    border-width: 20px;
+    border-color: var(--c4-color);
 }
 
 .instruction-container ol {
     font-weight: bold;
-    
 }
 
 ol li {
@@ -28,12 +27,13 @@ ol li {
     border-style: groove;
     border-width: 0.5px;
     border-color: rgba(240, 248, 255, 0.308);
+    text-align: left;
 }
 ol li:hover{
     margin: 2px;
     border-style: groove;
     border-width: 0.5px;
-    border-color: rgb(38, 69, 168);
+    border-color: var(--c2-color);
     cursor:context-menu;
 }
 
@@ -49,22 +49,28 @@ ol li:hover{
 }
 
 .header.row.flex-middle{
-    background-color: var(--shade4-color);
+    background-color: var(--c4-color);
 }
 
 .days.row {
-    background-color: var(--shade5-color);
-    color: aliceblue;
+    background-color: var(--c4-color);
+    color: rgb(255, 255, 255);
 }
 
 .days.row div {
-    font-weight: bold;
+    font-weight: 300;
     font-size: medium;
     background-color: var(--calander-color) !important;
+    color: var(--c2-color);
+}
+
+
+.col.col-center span {
+    color: var(--c2-color) !important;
 }
 
 .timeSelector {
-    background-color: var(--shade4-color)!important;
+    background-color: var(--c4-color)!important;
     font-size: large!important;
 }
 
@@ -77,4 +83,102 @@ button.timeSelector::after {
     content: 'Välj denna dag';
     font-size: xx-large;
     font-weight: 400;
+}
+
+.days.row div:nth-child(1){
+    visibility: hidden;
+}
+
+
+.days.row div:nth-child(1):after {
+    margin-left: 25%;
+    content: 'Söndag' !important;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.days.row div:nth-child(2){
+    visibility: hidden;
+}
+
+
+.days.row div:nth-child(2):after {
+    margin-left: 25%;
+    content: 'Måndag' !important;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.days.row div:nth-child(3){
+    visibility: hidden;
+}
+
+
+.days.row div:nth-child(3):after {
+    margin-left: 25%;
+    content: 'Tisdag' !important;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.days.row div:nth-child(4){
+    visibility: hidden;
+}
+
+
+.days.row div:nth-child(4):after {
+    margin-left: 25%;
+    content: 'Onsdag' !important;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.days.row div:nth-child(5){
+    visibility: hidden;
+}
+
+
+.days.row div:nth-child(5):after {
+    margin-left: 25%;
+    content: 'Torsdag' !important;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.days.row div:nth-child(6){
+    visibility: hidden;
+}
+
+
+.days.row div:nth-child(6):after {
+    margin-left: 25%;
+    content: 'Fredag' !important;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.days.row div:nth-child(7){
+    visibility: hidden;
+}
+
+
+.days.row div:nth-child(7):after {
+    margin-left: 25%;
+    content: 'Lördag' !important;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
