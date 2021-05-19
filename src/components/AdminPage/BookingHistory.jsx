@@ -15,6 +15,7 @@ import {
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
 import { getData, deleteData } from '../../Fetcher'
+import { formatDate } from '../../DateFormatter'
 
 const url = 'http://localhost:8000/'
 const laundryTable = 'laundryBookings/'
@@ -154,13 +155,11 @@ export default function BookingHistory () {
               ? (<Loader />)
               : (
                 <>
-                  {bookingHistory.map((row) => (
-                    <TableRow key={row.id}>
-                      <TableCell component='th' scope='row'>
-                        {row.start_time}
-                      </TableCell>
-                      <TableCell align='center'>{row.end_time}</TableCell>
-                      <TableCell align='center'>{row.apartmentNo}</TableCell>
+                  {bookingHistory.map((booking) => (
+                    <TableRow key={booking.id}>
+                      <TableCell component='th' scope='row'> {formatDate(booking.start_time)} </TableCell>
+                      <TableCell align='center'>{formatDate(booking.end_time)}</TableCell>
+                      <TableCell align='center'>{booking.apartmentNo}</TableCell>
                       <TableCell />
                     </TableRow>
                   ))}

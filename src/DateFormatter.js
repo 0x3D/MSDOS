@@ -27,3 +27,17 @@ export const formatDay = (dateString) => {
 
     return format(date, form, { locale: sv })
 }
+
+
+/**
+ * Function to format a date to a human readable date + time
+ * 
+ * @param {String} dateString A date as a string to extract the day and time from in swedish locale 
+ * @returns 
+ */
+ export const formatDate = (dateString) => {
+    let date = new Date(dateString)
+    let form = "Pp"
+
+    return format(date, form, { locale: sv })
+}

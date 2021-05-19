@@ -7,7 +7,7 @@ import { AiFillEdit } from 'react-icons/ai'
 import { FaCheck } from 'react-icons/fa'
 import { MdRefresh } from 'react-icons/md'
 import { getData, deleteData } from '../../Fetcher'
-import { formatTime, formatDay } from '../../DateFormatter'
+import { formatDay } from '../../DateFormatter'
 import {
   Card,
   Button,
