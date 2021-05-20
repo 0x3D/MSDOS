@@ -4,7 +4,7 @@ import { format, addMinutes, differenceInMinutes, isEqual } from 'date-fns'
 import { Button, Modal, Alert } from 'react-bootstrap'
 import '../../styles/App.css'
 import Emailer from '../../Emailer'
-import { getData, postData } from '../../Fetcher'
+import { getData, postData, deleteData } from '../../Fetcher'
 
 const alert = window.alert
 const localStorage = window.localStorage
@@ -18,11 +18,12 @@ const getAmountOfBookings = async () => {
 }
 
 /**
-* The react subtab component for booking the gym.
-*
-* @returns The HTML to be rendered
-*/
-export default function GymBooking ({ removeFunction, temporaryBookingId }) {
+ * Gymbooking time-calendar
+ *
+ * @param {integer} idToRebook if set the booking is considered a rebooking of the booking with this id
+ * @returns React component to book the gym
+ */
+export default function GymBooking ({ idToRebook = null }) {
   /**
     * Time in minutes for one gym section
     * @const {integer}
@@ -153,7 +154,7 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
       if (localStorage.getItem('settings')) {
         maxAmount = JSON.parse(localStorage.getItem('settings')).gymTime
       }
-      if (amountOfBookings < maxAmount) {
+      if (amountOfBookings < maxAmount || idToRebook) {
         // Success
         await postBooking(bookingData)
         Emailer(bookingData, 'GYM')
@@ -169,19 +170,22 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
     await fetchBookings()
 
     // IF-sats som ser till att två moduler inte visas när en ombokning görs
-    if (temporaryBookingId === undefined) {
+    if (!idToRebook) {
       setShowBookingModal(true)
     }
   }
 
   // Posts the previously created booking
   const postBooking = async (pData) => {
-    if (temporaryBookingId !== undefined) {
-      removeFunction(temporaryBookingId)
-      window.location.reload()
+    if (idToRebook) {
+      await deleteData(url, 'gymBookings/', idToRebook)
+      await postData(url, gymBokingTable, pData)
+      await fetchBookings()
       setShowRebookingModal(true)
+    } else {
+      await postData(url, gymBokingTable, pData)
+      await fetchBookings()
     }
-    postData(url, gymBokingTable, pData)
   }
 
   // Handles the "book" button on the modal
@@ -282,7 +286,7 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
               <br />
               Tid: {JSON.stringify(format(startTime, 'HH.mm')).replace(/"/g, '')} - {JSON.stringify(format(endTime, 'HH.mm')).replace(/"/g, '')}
               <br />
-              Dag: {JSON.stringify(format(startTime, 'dd/MM-yyyy')).replace(/"/g, '')}
+              Dag: {JSON.stringify(format(startTime, 'dd/MM - yyyy')).replace(/"/g, '')}
             </Modal.Body>
             )}
         <Modal.Footer>
@@ -323,7 +327,7 @@ export default function GymBooking ({ removeFunction, temporaryBookingId }) {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleBookingClose}>
+          <Button variant='secondary' onClick={(e) => { window.location.reload() }}>
             Stäng
           </Button>
 

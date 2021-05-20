@@ -1,5 +1,6 @@
 import { isPast } from 'date-fns'
 import React, { useState, useEffect } from 'react'
+import Loader from '../Loader'
 import {
   makeStyles,
   Table,
@@ -14,6 +15,7 @@ import {
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
 import { getData, deleteData } from '../../Fetcher'
+import { formatDate } from '../../DateFormatter'
 
 const url = 'http://localhost:8000/'
 const laundryTable = 'laundryBookings/'
@@ -122,7 +124,7 @@ export default function BookingHistory () {
         </Row>
       </Container>
 
-      <TableContainer component={Paper}>
+      <TableContainer className='bookingHistory' component={Paper}>
         <Button
           variant='contained'
           color='secondary'
@@ -134,31 +136,29 @@ export default function BookingHistory () {
           Rensa bokningshistorik
         </Button>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead>
-            <TableRow style={{ backgroundColor: 'LightGrey' }}>
+          <TableHead className='bookingHistoryTop'>
+            <TableRow>
               <TableCell align='left'>
-                <h3>Starttid</h3>
+                <h3 className='bookingHistoryStart'>Starttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Sluttid</h3>
+                <h3 className='bookingHistorySlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3>Lägenhetsnummer</h3>
+                <h3 className='bookingHistoryLGHnr'>Lägenhetsnummer</h3>
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className='bookingHistoryBody'>
             {!bookingHistory
-              ? (<h1>loading...</h1>)
+              ? (<Loader />)
               : (
                 <>
-                  {bookingHistory.map((row) => (
-                    <TableRow key={row.id}>
-                      <TableCell component='th' scope='row'>
-                        {row.start_time}
-                      </TableCell>
-                      <TableCell align='center'>{row.end_time}</TableCell>
-                      <TableCell align='center'>{row.apartmentNo}</TableCell>
+                  {bookingHistory.map((booking) => (
+                    <TableRow key={booking.id}>
+                      <TableCell component='th' scope='row'> {formatDate(booking.start_time)} </TableCell>
+                      <TableCell align='center'>{formatDate(booking.end_time)}</TableCell>
+                      <TableCell align='center'>{booking.apartmentNo}</TableCell>
                       <TableCell />
                     </TableRow>
                   ))}

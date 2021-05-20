@@ -6,6 +6,7 @@ export const getData = async (url, dataTable, condition) => {
   }
   const respons = await fetch(url + dataTable + condition)
   const data = await respons.json()
+  console.log('GET')
   return data
 }
 
@@ -20,6 +21,7 @@ export const deleteData = async (url, dataTable, condition) => {
     }
   })
     .then((res) => res.json())
+  console.log('DELETE')
 }
 
 export const postData = async (url, dataTable, data) => {
@@ -32,4 +34,5 @@ export const postData = async (url, dataTable, data) => {
     body: JSON.stringify(data)
   })
     .then((res) => res.json())
+  console.log('POST')
 }
