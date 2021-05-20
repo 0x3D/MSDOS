@@ -1,16 +1,24 @@
-language: node_js
-node_js: 
-  - stable
-before_install:
-  - "node --version"
-  - "npm --version"
-  - "nvm --version"
-install: 
-  - "npm install --legacy-peer-deps"
-script: 
-  - "./start_jsonplaceholder.sh"
-  - "npm test"
-  - "npm run build"
-arch: amd64          # optional, this is default, routes to a full VM
-os: linux            # optional, this is default
-dist: focal          # or bionic | xenial | trusty | precise with xenial as default
+jobs:
+  include:
+    - language: java
+      before_script:
+        - cd javaserver
+
+    - language: node_js
+      node_js: 
+        - stable
+      before_install:
+        - "node --version"
+        - "npm --version"
+        - "nvm --version"
+      install: 
+        - "npm install --legacy-peer-deps"
+      before_script:
+        - "./javaserver/.mvnw spring-boot:run"
+      script: 
+        - "npm test"
+        - "npm run build"
+      arch: amd64          # optional, this is default, routes to a full VM
+      os: linux            # optional, this is default
+      dist: focal          # or bionic | xenial | trusty | precise with xenial as default
+
