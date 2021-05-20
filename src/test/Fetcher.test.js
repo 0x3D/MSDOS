@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
-import { getData, deleteData, postData } from '../Fetcher'
+import { getData } from '../Fetcher'
 
 test('Should fetch a user with apartmentNumber 3', async () => {
   const url = 'http://localhost:8000/'
