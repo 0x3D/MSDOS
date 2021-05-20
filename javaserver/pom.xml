@@ -14,7 +14,8 @@
 	<name>msdosbooking</name>
 	<description>Java project for MSDOS booking system</description>
 	<properties>
-		<java.version>11</java.version>
+        <java.version>11</java.version>
+        <start-class>com.msdos.msdosbooking.MsDosBookingApplication</starter-class>
 	</properties>
 	<dependencies>
 		<dependency>
