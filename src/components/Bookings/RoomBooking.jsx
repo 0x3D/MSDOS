@@ -86,6 +86,11 @@ export default function RoomBooking ({ idToRebook = null }) {
     } else {
       await postData(url, 'roomBookings', data)
       await fetchBookings()
+
+      //Check so that the app doesn't open 2 modals when doing a rebooking
+      if (!idToRebook) {
+        setShowBookingModal(true)
+      }
     }
   }
 
