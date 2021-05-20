@@ -21,7 +21,9 @@ jobs:
       install: 
         - "npm install --legacy-peer-deps"
       before_script:
-        - "./javaserver/.mvnw spring-boot:run"
+        - "cd javaserver"
+        - ".mvnw spring-boot:run &"
+        - "cd .."
       script: 
         - "npm test"
         - "npm run build"
