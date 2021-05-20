@@ -56,10 +56,7 @@ export default function RoomBooking ({ idToRebook = null }) {
     await postBooking(postData)
     await fetchBookings()
 
-    // Check so that the app doesn't open 2 modals when doing a rebooking
-    if (idToRebook === undefined) {
-      setShowBookingModal(true)
-    }
+  
 
     // Sends email confiramtion when a time is booked
     Emailer(postData, 'room')
