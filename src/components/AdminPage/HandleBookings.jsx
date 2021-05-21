@@ -136,7 +136,7 @@ export default function HandleBookings () {
               : (
                 <>
                   {laundryBookings.map((booking) => (
-                    <TableRow key={booking.id}>
+                    <TableRow style={{ backgroundColor: 'var(--c4-color)' }} key={booking.id}>
                       <TableCell component='th' scope='row'>
                         {formatDate(booking.start_time)}
                       </TableCell>
