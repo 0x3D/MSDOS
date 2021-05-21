@@ -33,7 +33,7 @@ export default function NavigationBar () {
         <Nav.Link as={NavLink} to='/booking' activeStyle={whiteText} activeClassName='selected-tab'><BsCalendar size='1em' /> Boka </Nav.Link>
         <Nav.Link as={NavLink} to='/profile' activeStyle={whiteText} activeClassName='selected-tab'> <MdAssignment size='1.25em' /> Mina bokningar</Nav.Link>
         {loggedInRole === 'admin'
-          ? (<Nav.Link as={NavLink} to='/admin' activeStyle={whiteText} activeClassName='selected-tab'> <MdAssignment size='1.25em' /> Administratör sidan</Nav.Link>)
+          ? (<Nav.Link as={NavLink} to='/admin' activeStyle={whiteText} activeClassName='selected-tab'> <MdAssignment size='1.25em' /> Administratörsidan</Nav.Link>)
           : <></>}
       </Nav>
 
