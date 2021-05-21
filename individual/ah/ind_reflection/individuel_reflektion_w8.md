@@ -14,15 +14,6 @@ detta efter några youtube videor ingen svår fix alls, och är något nytt jag 
 lärt mig. Dock är det inte den mest säkra vi har gjort vi har gjort i vår
 applikation men duger bra för vår kund.
 
-Nu är det sista sprinten och har lärt mig väldigt mycket genom projektets gång.
-Exempelvis är att jag har lärt mig ett helt nytt program språk,__javascript__, och ett 
-grafiskt biblotek till javascript, __React__. Har också lärt mig om agila
-metoder och göra en applikation till en extern stakeholder. Ytterliggare en stor
-sak jag tar med mig med detta projekt är att man har blivit bättre att jobba i
-grupp. Till nästa grupparbete man kommer göra finns en rad saker som man kommer
-tänka på extra noga som man först såg efter detta arbete, detta är tex. ett
-mer detaljrikt socialt kontrakt. 
-
 En sak som jag efter detta projektet verkligen vill lära mig är det att från
 start göra en applikation som är testdriven. Nu har snacket varit efter man har
 implementerat något och pushat upp det på main-branchen, "Går det fortfarande
