@@ -12,6 +12,8 @@ jobs:
         - "cd .."
 
     - language: node_js
+      services:
+        - postgresql
       node_js: 
         - stable
       before_install:
@@ -21,7 +23,9 @@ jobs:
       install: 
         - "npm install --legacy-peer-deps"
       before_script:
+        - psql -c 'create database msdos;' -U postgres
         - "cd javaserver"
+        - psql -c '\i setup.sql' -U postgres
         - "./mvnw spring-boot:run &"
         - "sleep 30"
         - "cd .."
