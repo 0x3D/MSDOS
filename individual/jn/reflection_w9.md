@@ -17,4 +17,4 @@ Nu är applikationen klar. Vad jag kan göra denna vecka för att hjälpa framf�
 
 Teamets användning av scrum denna vecka har gjorts till största del genom refaktorering i koden och göra applikationen redo för demo. Mitt bidrag till detta har legat mest i att göra applikationen redo för demonatration, exempelvis har jag ändrat på lite formateringar av datum och vissa färger som lite "finishing touches".
 
-Veckans inlämningar var att göra en sista "team reflection" samt inom gruppen att göra applikationen redo för demo. Mitt fokus har till största del riktat sig mot refaktorering att skriva den sista team reflectionen. 
+Veckans inlämningar var att göra en sista "team reflection" samt inom gruppen att göra applikationen redo för demo. Mitt fokus har till största del riktat sig mot refaktorering samt att skriva den sista team reflectionen. 
