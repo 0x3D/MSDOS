@@ -15,6 +15,6 @@ Denna vecka har gått bra för gruppen. Projektet har fått sin sista slut-touch
 
 Nu är applikationen klar. Vad jag kan göra denna vecka för att hjälpa framförallt teamet är återigen att gå igenom applikationen i detalj med alla för att försäkra oss om att alla förstår allt som är skrivet i applikationen. 
 
-Teamets användning av scrum denna vecka har gjorts till största del genom refaktorering i koden och göra applikationen redo för demo. Mitt bidrag till detta har legat mest i att göra applikationen redo för demonatration, exempelvis har jag ändrat på lite formateringar av datum och vissa färger som lite "finishing touches".
+Teamets användning av scrum denna vecka har gjorts till största del genom refaktorering i koden och göra applikationen redo för demo samt en början på final team reflection. Mitt bidrag till detta har legat mest i att göra applikationen redo för demonstration, exempelvis har jag ändrat på lite formateringar av datum och vissa färger som lite "finishing touches". Vi har även i gruppen kommit igång med final reflection där jag börjat skriva om hur vi gör vår tekniska dokumentation.
 
 Veckans inlämningar var att göra en sista "team reflection" samt inom gruppen att göra applikationen redo för demo. Mitt fokus har till största del riktat sig mot refaktorering samt att skriva den sista team reflectionen. 
