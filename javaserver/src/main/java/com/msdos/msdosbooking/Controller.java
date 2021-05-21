@@ -1,15 +1,14 @@
 package com.msdos.msdosbooking;
 
-import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.*;
-
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.Optional;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class Controller {
@@ -56,11 +55,13 @@ public class Controller {
     return response;
   }
 
-  /** This is the endpoint /gymBookings
+  /**
+   * This is the endpoint /gymBookings
    *
    * @param start_time This param is given by the request. Not used currently.
    * @param end_time This param is given by the request. Not used currently
-   * @param apartmentNo This param is given by the request. Filters to give only bookings with a specific apartmentNo
+   * @param apartmentNo This param is given by the request. Filters to give only bookings with a
+   *     specific apartmentNo
    * @param id This param is given by the request. Not used currently.
    * @return A json array of gym bookings.
    */
@@ -75,11 +76,13 @@ public class Controller {
     return response;
   }
 
-  /** This is the endpoint /laundryBookings
+  /**
+   * This is the endpoint /laundryBookings
    *
    * @param start_time This param is given by the request. Not used currently.
    * @param end_time This param is given by the request. Not used currently
-   * @param apartmentNo This param is given by the request. Filters to give only bookings with a specific apartmentNo
+   * @param apartmentNo This param is given by the request. Filters to give only bookings with a
+   *     specific apartmentNo
    * @param id This param is given by the request. Not used currently.
    * @return A json array of laundry bookings.
    */
@@ -98,13 +101,17 @@ public class Controller {
     String response;
     if (apartmentNo.isPresent()) {
       String sql =
-          "SELECT jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id)) FROM "
+          "SELECT"
+              + " jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id))"
+              + " FROM "
               + table
               + " WHERE apartment_no = ?;";
       response = jdbcTemplate.queryForObject(sql, String.class, apartmentNo.get());
     } else {
       String sql =
-          "SELECT jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id)) FROM "
+          "SELECT"
+              + " jsonb_agg(jsonb_build_object('start_time',start_time,'end_time',end_time,'apartmentNo',apartment_no,'id',id))"
+              + " FROM "
               + table
               + ";";
       response = jdbcTemplate.queryForObject(sql, String.class);
@@ -117,6 +124,7 @@ public class Controller {
 
   /**
    * Adds a booking to the database
+   *
    * @param requestBody given by the request as body. JSON object with booking data.
    * @return a string to indicate that update worked.
    */
@@ -129,6 +137,7 @@ public class Controller {
 
   /**
    * Adds a booking to the database
+   *
    * @param requestBody given by the request as body. JSON object with booking data.
    * @return a string to indicate that update worked.
    */
@@ -141,6 +150,7 @@ public class Controller {
 
   /**
    * Adds a booking to the database
+   *
    * @param requestBody given by the request as body. JSON object with booking data.
    * @return a string to indicate that update worked.
    */
@@ -154,7 +164,7 @@ public class Controller {
   private void addToTable(String requestBody, String table) {
     JSONObject obj = new JSONObject(requestBody);
 
-    //This is because Database expects time in a certain way.
+    // This is because Database expects time in a certain way.
     TemporalAccessor taStartTime = DateTimeFormatter.ISO_INSTANT.parse(obj.getString("start_time"));
     Instant iStartTime = Instant.from(taStartTime);
     Timestamp start_time = Timestamp.from(iStartTime);
@@ -174,6 +184,7 @@ public class Controller {
 
   /**
    * Remove a gym booking
+   *
    * @param id given by /gymbookings/id in the request
    */
   @CrossOrigin
@@ -184,6 +195,7 @@ public class Controller {
 
   /**
    * Remove a laundry booking
+   *
    * @param id given by /laundryBookings/id in the request
    */
   @CrossOrigin
@@ -194,6 +206,7 @@ public class Controller {
 
   /**
    * Remove a room booking
+   *
    * @param id given by /roomBookings/id in the request
    */
   @CrossOrigin
@@ -209,6 +222,7 @@ public class Controller {
 
   /**
    * Remove a user
+   *
    * @param id given by /users/id in the request
    * @param apartmentNo given by /users?apartmentNo, removes by id
    */
@@ -234,6 +248,7 @@ public class Controller {
 
   /**
    * Adds a user
+   *
    * @param requestBody given by the request. Json object with user
    * @return true if update worked, false otherwise
    */
@@ -254,6 +269,7 @@ public class Controller {
 
   /**
    * Gets users. Filter with ?parameters. Looks at apartmentNo first, then id and last role
+   *
    * @param apartmentNo filter by apartmentNo
    * @param email not used
    * @param password not used
@@ -277,6 +293,7 @@ public class Controller {
 
   /**
    * Endpoint to get facilities
+   *
    * @return all facilities in database.
    */
   @CrossOrigin
@@ -295,7 +312,9 @@ public class Controller {
     String result;
     StringBuilder sb =
         new StringBuilder(
-            "SELECT jsonb_agg(jsonb_build_object('apartmentNo',apartment_no,'email',email,'password',password,'role',role,'id',id)) FROM Users");
+            "SELECT"
+                + " jsonb_agg(jsonb_build_object('apartmentNo',apartment_no,'email',email,'password',password,'role',role,'id',id))"
+                + " FROM Users");
     if (apartmentNo.isPresent()) {
       sb.append(" WHERE apartment_no = ?;");
       result = jdbcTemplate.queryForObject(sb.toString(), String.class, apartmentNo.get());
