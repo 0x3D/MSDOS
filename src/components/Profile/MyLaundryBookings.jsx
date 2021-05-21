@@ -152,10 +152,10 @@ export default function MyLaundryBookings ({ loggedIn }) {
             </Card.Header>{' '}
             <br />
             {laundryBookings.map((booking) => (
-              <Card.Text className='border' key={booking.start_time}>
-                <b>Tid : </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
+              <Card.Text className='border myBookingsCard' key={booking.start_time}>
+                <b>Tid: </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
                 <br />
-                <b>Dag : </b> {formatDay(booking.start_time)}
+                <b>Dag: </b> {formatDay(booking.start_time)}
                 <br />
                 <Button
                   className='btn-primary-spacing'
@@ -169,7 +169,7 @@ export default function MyLaundryBookings ({ loggedIn }) {
                   Ta bort bokning
                 </Button>
                 <Button
-                  className='btn-primary-spacing'
+                  className='btn-primary-spacing cardButton'
                   size='sm'
                   onClick={(e) => {
                     handleEditBooking(booking.id)
