@@ -14,6 +14,7 @@ import {
 import { Container, Row, Col, Toast } from 'react-bootstrap'
 import { FaCheck } from 'react-icons/fa'
 import { getData, deleteData } from '../../Fetcher'
+import { formatDate } from '../../DateFormatter'
 
 const url = 'http://localhost:8000/'
 const laundryBokingTable = 'laundryBookings/'
@@ -134,20 +135,20 @@ export default function HandleBookings () {
               ? (<Loader />)
               : (
                 <>
-                  {laundryBookings.map((row) => (
-                    <TableRow key={row.id}>
+                  {laundryBookings.map((booking) => (
+                    <TableRow key={booking.id}>
                       <TableCell component='th' scope='row'>
-                        {row.start_time}
+                        {formatDate(booking.start_time)}
                       </TableCell>
-                      <TableCell align='center'>{row.end_time}</TableCell>
-                      <TableCell align='center'>{row.apartmentNo}</TableCell>
+                      <TableCell align='center'>{formatDate(booking.end_time)}</TableCell>
+                      <TableCell align='center'>{booking.apartmentNo}</TableCell>
                       <TableCell className='removeUser'>
                         {' '}
                         <Button
                           variant='contained'
                           color='secondary'
                           onClick={(e) => {
-                            removeBooking(row.id)
+                            removeBooking(booking.id)
                           }}
                         >
                           {' '}

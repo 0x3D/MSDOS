@@ -7,6 +7,7 @@ import { AiFillEdit } from 'react-icons/ai'
 import { FaCheck } from 'react-icons/fa'
 import { MdRefresh } from 'react-icons/md'
 import { getData, deleteData } from '../../Fetcher'
+import { formatTime, formatDay } from '../../DateFormatter'
 import {
   Card,
   Button,
@@ -153,8 +154,10 @@ export default function MyGymBookings ({ loggedIn }) {
               <br />
               {gymBookings.map((booking) => (
                 <Card.Text className='border' key={booking.start_time}>
-                  <b>Starttid</b> : {booking.start_time} <br /> <b>Sluttid</b> :{' '}
-                  {booking.end_time} <br />
+                  <b>Tid : </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
+                  <br />
+                  <b>Dag : </b> {formatDay(booking.start_time)}
+                  <br />
                   <Button
                     className='btn-primary-spacing'
                     size='sm'
