@@ -145,17 +145,17 @@ export default function MyRoomBookings ({ loggedIn }) {
       {!roomBookings
         ? (<Loader />)
         : (
-          <Card style={{ color: 'white', backgroundColor: 'var(--shade6-color)' }}>
-            <Card.Header style={{ backgroundColor: 'var(--title-color-light)' }} as='h3'>
+          <Card style={{ color: 'white', backgroundColor: 'var(--c4-color)' }}>
+            <Card.Header style={{ color: 'var(--c2-color)', backgroundColor: 'var(--c3-color)' }} as='h3'>
               {' '}
               <b>Mina lokalbokningar</b>{' '}
             </Card.Header>{' '}
             <br />
             {roomBookings.map((booking) => (
-              <Card.Text className='border' key={booking.start_time}>
-                <b>Tid : </b> 8.00 - 20.00
+              <Card.Text className='border myBookingsCard' key={booking.start_time}>
+                <b>Tid: </b> 8.00 - 20.00
                 <br />
-                <b>Dag : </b> {formatDay(booking.start_time)}
+                <b>Dag: </b> {formatDay(booking.start_time)}
                 <br />
                 <Button
                   className='btn-primary-spacing'

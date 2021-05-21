@@ -4,6 +4,8 @@ import { format } from 'date-fns'
 import { Button, Modal } from 'react-bootstrap'
 import Emailer from '../../Emailer'
 import { deleteData, getData, postData } from '../../Fetcher'
+import '../../styles/Booking.css'
+import RoomInstruction from '../Instructions/RoomInstructions'
 
 // TODO removeFunction ska gå via fetcher istället.
 
@@ -30,6 +32,12 @@ export default function RoomBooking ({ idToRebook = null }) {
   const [showRebookingConfirmation, setShowRebookingModal] = useState(false)
 
   const handleRebookingClose = () => setShowRebookingModal(false)
+
+  const [showInstruction, setShowInstruction] = useState(false)
+
+  const handleInstructionClose = () => setShowInstruction(false)
+
+  const handleInstructionOpen = () => setShowInstruction(true)
 
   const openHours = [[8, 13]]
 
@@ -91,14 +99,15 @@ export default function RoomBooking ({ idToRebook = null }) {
 
   return (
     <>
-      <h4 className='pt-4 pb-4 ml-auto mr-auto'>Här bokar du lokalen</h4>
-      <div className='w-50 ml-auto mr-auto mb-4'>
-        <ol className='instructionsList'>
-          <li>Välj ett tillgängligt datum</li>
-          <li>Bekräfta bokning i rutan som kommer upp</li>
-        </ol>
+      <div className='instruction-container'>
+        <h4 className='pt-4 pb-4 ml-auto mr-auto'>Såhär bokar du lokaltid</h4>
+        <div className='w-50 ml-auto mr-auto mb-4' onClick={() => { handleInstructionOpen() }}>
+          <ol className='instructionsList'>
+            <li>Välj ett tillgängligt datum</li>
+            <li>Bekräfta bokning i rutan som kommer upp</li>
+          </ol>
+        </div>
       </div>
-
       <div className='border-top'>
         <TimeCalendar
           clickable
@@ -164,6 +173,16 @@ export default function RoomBooking ({ idToRebook = null }) {
         <Modal.Footer>
           <Button variant='secondary' onClick={(e) => { window.location.reload() }}>
             OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal show={showInstruction} onHide={handleInstructionClose} size='lg'>
+        <Modal.Title> <h4 style={{ marginTop: '2%', color: 'var(--c2-color)' }}><b>Tvättbokning instruktion</b></h4> </Modal.Title>
+        <Modal.Body> <RoomInstruction /> </Modal.Body>
+        <Modal.Footer>
+          <p style={{ marginRight: '30%' }}> <b>Videon spelas om autumatiskt</b></p>
+          <Button onClick={handleInstructionClose}>
+            Stäng
           </Button>
         </Modal.Footer>
       </Modal>

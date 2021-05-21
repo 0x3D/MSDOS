@@ -6,6 +6,7 @@ import {
 } from 'react-bootstrap'
 import { getAuthData } from '../../LoginBackend'
 import { getData } from '../../Fetcher'
+import '../../styles/Profile.css'
 import MyLaundryBookings from './MyLaundryBookings'
 import MyGymBookings from './MyGymBookings'
 import MyRoomBookings from './MyRoomBookings'
@@ -53,7 +54,7 @@ export default function Profile () {
     <>
       <div>
         <Container>
-          <Row>
+          <Row className='loggin-info'>
             <Col>
               <h3>
                 <h3>
@@ -66,7 +67,6 @@ export default function Profile () {
                     )}
               </h3>
             </Col>
-
             <Col>
               <h3>
                 <h3>
@@ -76,20 +76,18 @@ export default function Profile () {
               </h3>
             </Col>
           </Row>
-          <Row>
-            <Col md={{ span: 4, offset: 4 }}>
-              {/* {Sätt in bekräftelse på bokning här} */}
-            </Col>
-          </Row>
-          <Row>
-            <Col style={{ margin: '20px' }}>  <MyLaundryBookings loggedIn={currentUser} /> </Col>
-          </Row>
-          <Row>
-            <Col style={{ margin: '20px' }}>  <MyGymBookings loggedIn={currentUser} /> </Col>
-          </Row>
-          <Row>
-            <Col style={{ margin: '20px' }}> <MyRoomBookings loggedIn={currentUser} /> </Col>
-          </Row>
+
+          <div className='profile-container'>
+            <Row>
+              <Col style={{ margin: '20px' }}>  <MyLaundryBookings loggedIn={currentUser} /> </Col>
+            </Row>
+            <Row>
+              <Col style={{ margin: '20px' }}>  <MyGymBookings loggedIn={currentUser} /> </Col>
+            </Row>
+            <Row>
+              <Col style={{ margin: '20px' }}> <MyRoomBookings loggedIn={currentUser} /> </Col>
+            </Row>
+          </div>
         </Container>
       </div>
     </>
