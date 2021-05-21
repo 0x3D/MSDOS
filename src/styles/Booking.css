@@ -80,7 +80,7 @@ button.timeSelector p{
 
 button.timeSelector::after {
     size: 200px !important;
-    content: 'Välj denna dag';
+    content: 'Välj dag';
     font-size: xx-large;
     font-weight: 400;
 }
