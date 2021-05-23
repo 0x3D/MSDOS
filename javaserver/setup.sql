@@ -1,6 +1,6 @@
 -- Setup environment
 -- Create database 
-CREATE DATABASE IF NOT EXISTS msdos;i
+CREATE DATABASE IF NOT EXISTS msdos;
 -- Switch to connected database 
 \c msdos
 
