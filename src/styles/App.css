@@ -10,48 +10,65 @@
 
   /* Color scheme for application */
   --slate-gray: #627c85ff;
-  --alice-blue: #e1eff6ff;
+  --alice-blue: rgba(190, 195, 211, 0.808);
   --english-vermillion: #d33e43ff;
   --raisin-black: #1c1d21ff;
   --blue-ncs: #2e86abff;
-
+  --calander-color: rgba(110, 127, 199, 0.116);
   --title-color-dark:  #464646;
-  --title-color-light:  #072c5f;
-  --shade3-color:  #0E57C5;
-  --shade4-color:  #488CF2;
-  --shade5-color:  #84B1F7;
-  --shade6-color:  #ACCBF9;
+  --title-color-light:  #ffffff;
+  --shade1-color: #ffffff;
+  --shade2-color:  #ffffff;
+  --shade3-color:  #ffffff;
+  --shade4-color:  #cbd2db;
+  --shade5-color:  #ffffff;
+  --shade6-color:  #ff0000;
+  --shade7-color: #ffffff;
   --text-color-black: #000000;
   --text-color-white: #ffffff;
   --table1-color: #ACCBF9;
   --table2-color: #ffffff;
   --border-color: #000000;
-  --background-color: #aaccfc;
+  --background-color: #ffffff;
   --remove-button: #e64e4e;
   --remove-hover-button: #e47c7c;
-  --remove-hove: 
+  --remove-hove: ;
+  /* Discreete Palette */
+  --c1-color: #B4B4CF;
+  --c2-color: #7589F3;
+  --c3-color: #F8F8FF;
+  --c4-color: #cbd2db;
 
 }
 
-
+body{ 
+  background: var(--c3-color) !important;
+   background-repeat:round; 
+} 
 
 .namn{
-  color: var(--secendary-color);
+  color: var(--c1-color);
 }
 
 .adminTitle{
   margin-top: 30px;
-  color: var(--title-color-dark);
+  color: var(--c2-color);
+}
+
+.list-group-item {
+  background-color: var(--c4-color) !important;
+  color: var(--c2-color);
 }
 
 .adminListGroup button{
   margin: 10px;
   margin-inline: 0px;
-  background-color: var(--title-color-light)
+  background-color: var(--c2-color)
 }
 
 .adminListGroup button:hover{
-  background-color: var(--shade4-color)
+  opacity: 0.8;
+  font-weight: bold;
 }
 
 .bgAdminPage {
@@ -62,8 +79,8 @@
   background-color: var(--title-color-light)
 }
 
-.handleBookingTop{
-  background-color: var(--title-color-light)
+.handleUsersLghNr {
+  color: var(--c2-color);
 }
 
 .removeUser button{
@@ -75,53 +92,36 @@
 }
 
 .handleUsersBody{
-  background-color: var(--shade6-color)
+  background-color: var(--c4-color)
 }
 
-.handleBookingBody{
-  background-color: var(--shade6-color)
+/* HandleBookings css */
+.handleBookingLghNr, .handleBookingSlut, .handleBookingStart, .handleUsersEmail, .handleBookingTaBort {
+  color: var(--c2-color) !important;
 }
 
-
-.handleUsersEmail{
-  color: var(--table2-color);
+.handleBookingTop{
+  background-color: var(--c4-color)
 }
 
-.handleUsersLGHnr{
-  color: var(--table2-color);
-}
-
-.handleBookingStart{
-  color: var(--table2-color);
-}
-
-.handleBookingSlut{
-  color: var(--table2-color);
-}
-
-.handleBookingLGHnr{
-  color: var(--table2-color);
-}
-
-.handleBookingTaBort{
-  color: var(--table2-color);
-}
-
-.addFacilityTop{
-  background-color: var(--title-color-light)
-}
-
+/*Facilities admin*/
 .addFacility{
   background-color: var(--title-color-light)
 }
 
-.card-header-myFacilities{
-  background-color: var(--title-color-light)!important
-  
+.fac-div-border {
+  background-color: var(--c3-color);
+  border-style: ridge;
+  border-width: 10px;
+  border-color: var(--c4-color);
+}
+
+.fac-div-border h3{
+  margin-bottom: 0;
 }
 
 .handleFacilitiesBody{
-  background-color: var(--shade6-color);
+  background-color: var(--c4-color);
 }
 
 .bodyWrapper {
@@ -144,20 +144,12 @@ html,body{
   background-color: var(--title-color-light)
 }
 
-.bookingHistoryStart{
-  color: var(--table2-color);
-}
-
-.bookingHistorySlut{
-  color: var(--table2-color);
-}
-
-.bookingHistoryLGHnr{
-  color: var(--table2-color);
+.bookingHistoryLghNr, .bookingHistorySlut, .bookingHistoryStart{
+  color: var(--c2-color) !important;
 }
 
 .bookingHistoryBody{
-  background-color: var(--shade6-color)
+  background-color: var(--c4-color)
 }
 
 .bookingHistory button{
@@ -169,7 +161,21 @@ html,body{
 }
 
 .bookingSettingsBody{
-  background-color: var(--title-color-light);
+  background-color: var(--c3-color);
+}
+
+.bookingSettingsBody label{
+  color: var(--c2-color);
+  font-size: large;
+  font-weight: bold;
+}
+
+.MuiTableRow-root.MuiTableRow-head {
+  background-color: var(--c3-color);
+  border-style: ridge;
+  border-width: 10px;
+  border-color: var(--c4-color);
+  border-bottom-style: none;
 }
 
 .login button{

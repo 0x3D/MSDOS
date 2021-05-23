@@ -145,7 +145,7 @@ export default function BookingHistory () {
                 <h3 className='bookingHistorySlut'>Sluttid</h3>
               </TableCell>
               <TableCell align='center'>
-                <h3 className='bookingHistoryLGHnr'>Lägenhetsnummer</h3>
+                <h3 className='bookingHistoryLghNr'>Lägenhetsnummer</h3>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -155,7 +155,7 @@ export default function BookingHistory () {
               : (
                 <>
                   {bookingHistory.map((booking) => (
-                    <TableRow key={booking.id}>
+                    <TableRow style={{ backgroundColor: 'var(--c4-color)' }} key={booking.id}>
                       <TableCell component='th' scope='row'> {formatDate(booking.start_time)} </TableCell>
                       <TableCell align='center'>{formatDate(booking.end_time)}</TableCell>
                       <TableCell align='center'>{booking.apartmentNo}</TableCell>

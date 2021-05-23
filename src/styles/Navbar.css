@@ -1,6 +1,9 @@
 .selected-tab {
-    background-color: black;
-    border-radius: 10px;
+    background-color: var(--c3-color);
+    border-radius: 7.5px;
+    font-weight: 900;
+    opacity: 0.9;
+    color: var(--c2-color) !important;
 }
 
 .subnav {
@@ -16,4 +19,32 @@
     list-style:none;
     position:relative;
     right:0;    
+}
+
+.navbar {
+    background-color: var(--shade4-color);
+    font-size: large;
+    font-weight: 400;
+}
+
+.nav-tabs {
+    background-color: var(--shade4-color);
+    border-style:groove;
+    margin-bottom: 1%;
+}
+
+.nav-item.nav-link {
+    color: black;
+}
+
+.nav-item.nav-link.active{
+    background: var(--c3-color);
+    font-weight: bolder;
+    opacity: 0.8;
+    color: var(--c2-color);
+}
+
+.border-bottom.border-left.border-right {
+    background: var(--shade4-color);
+    
 }

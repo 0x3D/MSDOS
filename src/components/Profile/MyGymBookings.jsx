@@ -146,17 +146,17 @@ export default function MyGymBookings ({ loggedIn }) {
         {!gymBookings
           ? (<Loader />)
           : (
-            <Card style={{ color: 'white', backgroundColor: 'var(--shade6-color)' }}>
-              <Card.Header style={{ backgroundColor: 'var(--title-color-light)' }} as='h3'>
+            <Card style={{ color: 'white', backgroundColor: 'var(--c4-color)' }}>
+              <Card.Header style={{ color: 'var(--c2-color)', backgroundColor: 'var(--c3-color)' }} as='h3'>
                 {' '}
                 <b>Mina gymbokningar</b>{' '}
               </Card.Header>{' '}
               <br />
               {gymBookings.map((booking) => (
-                <Card.Text className='border' key={booking.start_time}>
-                  <b>Tid : </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
+                <Card.Text className='border myBookingsCard' key={booking.start_time}>
+                  <b>Tid: </b> {formatTime(booking.start_time)} - {formatTime(booking.end_time)}
                   <br />
-                  <b>Dag : </b> {formatDay(booking.start_time)}
+                  <b>Dag: </b> {formatDay(booking.start_time)}
                   <br />
                   <Button
                     className='btn-primary-spacing'

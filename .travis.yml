@@ -1,16 +1,40 @@
-language: node_js
-node_js: 
-  - stable
-before_install:
-  - "node --version"
-  - "npm --version"
-  - "nvm --version"
-install: 
-  - "npm install --legacy-peer-deps"
-script: 
-  - "./start_jsonplaceholder.sh"
-  - "npm test"
-  - "npm run build"
-arch: amd64          # optional, this is default, routes to a full VM
-os: linux            # optional, this is default
-dist: focal          # or bionic | xenial | trusty | precise with xenial as default
+jobs:
+  include:
+  - language: java
+    before_install:
+    - cd javaserver
+    - mvn --version
+    install:
+    - "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
+    script:
+    - "./mvnw test -B"
+    after_script:
+    - cd ..
+  - language: node_js
+    services:
+    - postgresql
+    node_js:
+    - stable
+    before_install:
+    - node --version
+    - npm --version
+    - nvm --version
+    install:
+    - npm install --legacy-peer-deps
+    before_script:
+    - psql -c 'create database msdos;' -U postgres
+    - cd javaserver
+    - psql -c '\i setup.sql' -U postgres
+    - "./mvnw spring-boot:run &"
+    - sleep 30
+    - cd ..
+    script:
+    - npm test
+    - npm run build
+    deploy:
+      provider: heroku
+      api_key:
+        secure: D96nu4Wp9bLXEBzGmyAHeCJJnaz4BeYD2fzpz3SBKK8GYsuUMJ3HR5FNwlpi0aeKlNWRDVsK/E3DOd6ydSBn7ty/Mad3iV3/bzmd7Xgz16mzAu/LeeRPyLdBYx5LP7UQ96uSSeM8mCeg05MauB+ZTDeAFlouVbuDpdQfEAMTuJ/CshYmmuZJS28dnyQvmIjJyhBEouWe/EeRbws4tx0SmhVaFhtbvzLoaCpJvNbsf2R+3ZK41/DE/jfzxeJAWgOET106tYWuXQFGikDWTF/+EmQkPQIv64ysmp0EQxMuE+vHIUd2gzajUQ17Qr22Eer3UuJUY3+ZsV8iVrKSKGzFuel2DXoxzJP++tIAB2VsF/OupGRZm4ya9uh7Kfw1tNs7F7XMMK/oQ7bwhwWbW+CLV3yL3KXVapYTnVz0aFNiBJDQYLAVDXwz9phHZnPIfGWIwX+ccT+l5HKDPIAIe1l5ecXV+hBi8u0XhrxaeDpRpv811hctqOKEnlcKem9I8cy6+vP3TNHcllWVvNld2J2HzFW1ZdcPd200seDtEBIoFdFIHOHBQ+8k8NOfRe8zWKFq56/9JCx1t9r9ci/23gxdaUIN9EeVM3Sw8oOLMvWmZS7b66u3icjAjiUIA7j7UYAtNRJuj2hTec6SfVt6wCZOf3SPZrNgZ0wX39aBFJVdAHw=
+      app: msdos-dat257 
+      on:
+        branch: main
