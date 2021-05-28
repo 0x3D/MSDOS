@@ -65,10 +65,22 @@ This will open your default browser with the react application.
 
 
 
-After this you need to start the server.You can do this by going to the terminal and typing:
+After this you need to start the server. You can do this by going to the terminal and navigate to javaserver:
 
 ```
-npm run json-server
+cd javaserver
+```
+
+__Then you run the command to start the spring-boot server__
+
+If you are on a Linux or Mac run
+```
+./mvnw spring-boot:run
+```
+If you are on Windows run:
+
+```
+mvnw.cmd spring-boot:run
 ```
 
 Now the application is started! If you not have the creaters of the application in contact you can
