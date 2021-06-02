@@ -96,13 +96,37 @@ npm start
 
 This will open your default browser with the react application.
 
-
-
 After this you need to start the server. You can do this by going to the terminal and navigate to javaserver:
 
 ```
 cd javaserver
 ```
+## Read this if you havent postgres installed
+
+To run this application you need to install postgres to you computer.
+You can follow the [instrction on this link](https://www.postgresql.org/download/).
+
+When you have it installed yo can navigate to the javaserver folder(you will already
+be in this folder if you followed the instructions). Follow the instructions below under __Start postgres__.
+
+##Start postgres
+
+```
+psql postgres
+```
+
+You will now open postgres and type this command:
+
+```
+\i setup.sql
+```
+
+You will now have all the needed data to the database.
+Now you are done. But keep in mind to have postgres running on your computer.
+You can read more on the link above.
+
+Make sure you still are in the __javaserver__ folder now!
+
 
 __Then you run the command to start the spring-boot server__
 
