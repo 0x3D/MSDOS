@@ -17,6 +17,8 @@ Project in DAT257 Agile software project management
  This is where the source code for the node javascript project are. 
 - docs 
  Here all our documents surrounding the project live. Notes, instructions etc.. 
+- executables
+ This contains files that is executable.
 
 ## WHOS WHO 
 - axelhertzberg = Axel Hertzberg (ah folder for individual) 
