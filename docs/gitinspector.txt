@@ -1,0 +1,152 @@
+Statistical information for the repository 'MSDOS' was gathered on 2021/06/02.
+The following historical commit information, by author, was found:
+
+Author                     Commits    Insertions      Deletions    % of changes
+0x3D                           102          2749           1171           25.91
+Axel Hertzberg                   1            85             16            0.67
+Jonas Nordin                     1            22              0            0.15
+Oliver Österberg                 1            19             19            0.25
+Theodor                          5           220             19            1.58
+axelhertzberg                  124          4413           1726           40.57
+erikbengtsson                   35          1222            707           12.75
+erikbengtssonchalmer             3            27              1            0.19
+filiphan                        12           287            145            2.86
+jonasn-chalmers                 88          1476            802           15.06
+theodorlyrheden                  3             2              3            0.03
+
+Below are the number of rows from each author that have survived and are still
+intact in the current revision:
+
+Author                     Rows      Stability          Age       % in comments
+0x3D                       1791           65.2          4.0                9.44
+Axel Hertzberg               60           70.6          3.1                0.00
+Oliver Österberg             16           84.2          3.1                0.00
+Theodor                     114           51.8          3.2                0.00
+axelhertzberg              2534           57.4          4.4                1.85
+erikbengtsson               467           38.2          4.5                0.86
+erikbengtssonchalmer         41          151.9          5.4                0.00
+filiphan                    110           38.3          3.5                0.00
+jonasn-chalmers             820           55.6          4.9                2.20
+theodorlyrheden               2          100.0          2.3                0.00
+
+The following history timeline has been gathered from the repository:
+
+Author                  2021W12    2021W13    2021W15    2021W16    2021W17 
+0x3D                       ++++  +++++++++        -++   ---+++++         -+ 
+Jonas Nordin                  +                                             
+axelhertzberg         -++++++++    +++++++   -+++++++  ---++++++   --++++++ 
+erikbengtsson                 +          +          .          .    ---++++ 
+erikbengtssonchalmer                                           .          . 
+filiphan                                            .                       
+jonasn-chalmers                       ++++         ++       --++   --++++++ 
+Modified Rows:              202        143       1187       3486       1586 
+
+Author                  2021W18    2021W19    2021W20    2021W21    2021W22 
+0x3D                        -++  +++++++++     -+++++              -+++++++ 
+Axel Hertzberg                           +                                  
+Oliver Österberg                         .                                  
+Theodor                       .         ++                                  
+axelhertzberg          --++++++     -+++++  --+++++++  -++++++++      +++++ 
+erikbengtsson               -++      --+++          .                       
+erikbengtssonchalmer          .                                             
+filiphan                      .          .          +                       
+jonasn-chalmers               .       -+++        -++                       
+theodorlyrheden                                     .                       
+Modified Rows:             4502       2252       1680         16         77 
+
+No metrics violations were found in the repository.
+
+The following responsibilities, by author, were found in the current revision of
+the repository (comments are excluded from the line count, if possible):
+
+0x3D is mostly responsible for:
+   237 javaserver/src/main/java/com/msdos/msdosbooking/Controller.java
+    90 individual/ear/week8.md
+    86 javaserver/.mvn/wrapper/MavenWrapperDownloader.java
+    77 src/components/AdminPage/BookingSettings.jsx
+    73 src/components/Login.jsx
+    70 src/components/Bookings/GymBooking.jsx
+    61 individual/ear/week9.md
+    61 individual/ear/week7.md
+    60 individual/ear/week2.md
+    59 javaserver/tools/inserts.sql
+
+Axel Hertzberg is mostly responsible for:
+    60 README.md
+
+Oliver Österberg is mostly responsible for:
+     7 src/components/Login.jsx
+     3 src/components/NavigationBar.jsx
+     3 src/components/Footer.jsx
+     2 src/components/AdminPage/BookingSettings.jsx
+     1 src/components/AdminPage/AdminPage.jsx
+
+Theodor is mostly responsible for:
+    47 src/components/Bookings/GymBooking.jsx
+    29 src/components/Bookings/LaundryBooking.jsx
+    27 src/components/Bookings/RoomBooking.jsx
+    11 src/styles/App.css
+
+axelhertzberg is mostly responsible for:
+   185 src/styles/Booking.css
+   153 src/components/Profile/MyGymBookings.jsx
+   148 src/components/Profile/MyRoomBookings.jsx
+   148 src/components/Profile/MyLaundryBookings.jsx
+   139 src/components/AdminPage/BookingHistory.jsx
+   128 src/components/AdminPage/HandleBookings.jsx
+   127 src/components/AdminPage/HandleUsers.jsx
+   126 src/components/AdminPage/AdminPage.jsx
+   102 individual/ah/ind_reflection/individuel_reflektion_w7.md
+    90 src/components/Footer.jsx
+
+erikbengtsson is mostly responsible for:
+    50 src/components/About/AboutPage.jsx
+    47 src/components/Bookings/LaundryBooking.jsx
+    29 src/components/Profile/MyRoomBookings.jsx
+    29 src/components/Profile/MyGymBookings.jsx
+    28 src/components/Profile/MyLaundryBookings.jsx
+    24 src/components/AdminPage/HandleBookings.jsx
+    24 src/components/About/CardsUI.jsx
+    23 src/components/AdminPage/HandleUsers.jsx
+    20 src/components/AdminPage/BookingHistory.jsx
+    20 individual/eb/week3.md
+
+erikbengtssonchalmers is mostly responsible for:
+    13 docs/week6meetingAgenda.md
+    12 individual/eb/week4.md
+     4 individual/eb/week9.md
+     4 individual/eb/week8.md
+     4 individual/eb/week7.md
+     4 individual/eb/week6.md
+
+filiphan is mostly responsible for:
+    77 src/styles/App.css
+     9 src/styles/Footer.css
+     6 src/components/AdminPage/BookingHistory.jsx
+     4 src/styles/Profile.css
+     4 src/components/AdminPage/AdminPage.jsx
+     3 src/components/AdminPage/MyFacilities.jsx
+     3 src/components/AdminPage/HandleBookings.jsx
+     2 src/components/AdminPage/HandleUsers.jsx
+     1 src/components/Bookings/RoomBooking.jsx
+     1 src/components/AdminPage/BookingSettings.jsx
+
+jonasn-chalmers is mostly responsible for:
+   205 src/components/Bookings/GymBooking.jsx
+   138 src/components/Bookings/RoomBooking.jsx
+    98 src/components/Bookings/LaundryBooking.jsx
+    39 individual/jn/reflection_w5.md
+    33 individual/jn/reflection_w4.md
+    29 individual/jn/reflection_w1.md
+    24 src/Booking.jsx
+    23 src/DateFormatter.js
+    20 individual/jn/reflection_w9.md
+    19 individual/jn/reflection_w8.md
+
+theodorlyrheden is mostly responsible for:
+     1 src/components/Bookings/RoomBooking.jsx
+     1 src/components/Bookings/LaundryBooking.jsx
+
+The extensions below were found in the repository history (extensions used
+during statistical analysis are marked):
+* cmd [css] html [java] [js] json [jsx] [md] [properties] [py] sh snap [sql] svg txt xml [yml] 

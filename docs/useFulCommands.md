@@ -1,3 +1,13 @@
+To generate Gitinspector 
+
+```
+npx gitinspector --grading -f css,java,js,jsx,md,properties,py,sql,yml -F html  > ./docs/gitinspect
+or.html
+```
+```
+npx gitinspector --grading -f css,java,js,jsx,md,properties,py,sql,yml -F text  > ./docs/gitinspect
+or.txt
+``` 
 # To run the jsonServer
 
 1. Navigate to jsonPlaceHolder folder
