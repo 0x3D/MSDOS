@@ -183,6 +183,8 @@ if there are any problem accessing the links:
     * [System requirments](https://docs.google.com/document/d/1EbG7kYNtikYl7S3jrPMdUNKbx4WJ4uxaDX2bVJyrBMA/edit?usp=sharing ) 
 * #### Link to our Team Reflections
     * [TeamReflektions](https://drive.google.com/drive/folders/1f-5Oz8pCtOLcliA5kxH_a1jNeqC-kHbm?usp=sharing) 
+* ### Link to gitinspector 
+    * [Git Inspector](https://htmlpreview.github.io/?https://github.com/0x3D/MSDOS/blob/main/docs/gitinspector.html)  
 
 
 ___
