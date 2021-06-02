@@ -2,6 +2,39 @@
 # MSDOS 
 Project in DAT257 Agile software project management
 
+## Directory Structure
+- individual
+ This is where the group has uploaded the individual reflections for each week.
+- javaserver
+ This is the mvn project for the java implementation of server. Source code in 
+ ./javaserver/src/ generating inserts in tools. There are sql files to generate 
+ inserts here. More on this later in document. 
+- jsonPlaceHolder 
+ This is the old mock server we used. 
+- public 
+ This contains files that a server will serve to the web. 
+- src 
+ This is where the source code for the node javascript project are. 
+- docs 
+ Here all our documents surrounding the project live. Notes, instructions etc.. 
+
+## WHOS WHO 
+- axelhertzberg = Axel Hertzberg 
+- 0x3D = Erik Anttila Ryderup
+- jonasn-chalmers = Jonas Nordin 
+- erikbengtssonchalmers = Erik Bengtsson
+- theodorlyrheden = Theodor Lyrheden 
+- oliost = Oliver Österberg
+- filiphan = Filip Hansson
+
+## Link to Trello
+[Trello](https://trello.com/b/5AVDNXZy/ms-dos)
+
+## Link to Google docs
+[Google docs](https://drive.google.com/drive/folders/10eJA2HTqj3wEJ3I7fBt-lKlSSfd_coiQ?usp=sharing)
+Files are uploaded to this repo in docs. 
+Specific links to documents later in document. 
+
 ## Start the applicationen
 ___
 
