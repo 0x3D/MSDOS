@@ -101,7 +101,7 @@ After this you need to start the server. You can do this by going to the termina
 ```
 cd javaserver
 ```
-## Read this if you havent postgres installed
+#### Read this if you havent postgres installed
 
 To run this application you need to install postgres to you computer.
 You can follow the [instrction on this link](https://www.postgresql.org/download/).
@@ -109,7 +109,7 @@ You can follow the [instrction on this link](https://www.postgresql.org/download
 When you have it installed yo can navigate to the javaserver folder(you will already
 be in this folder if you followed the instructions). Follow the instructions below under __Start postgres__.
 
-##Start postgres
+## Start postgres
 
 ```
 psql postgres
