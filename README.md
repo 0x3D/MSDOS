@@ -19,13 +19,13 @@ Project in DAT257 Agile software project management
  Here all our documents surrounding the project live. Notes, instructions etc.. 
 
 ## WHOS WHO 
-- axelhertzberg = Axel Hertzberg 
-- 0x3D = Erik Anttila Ryderup
-- jonasn-chalmers = Jonas Nordin 
-- erikbengtssonchalmers = Erik Bengtsson
-- theodorlyrheden = Theodor Lyrheden 
-- oliost = Oliver Österberg
-- filiphan = Filip Hansson
+- axelhertzberg = Axel Hertzberg (ah folder for individual) 
+- 0x3D = Erik Anttila Ryderup (ear folder for individual)
+- jonasn-chalmers = Jonas Nordin (jn for individual)
+- erikbengtssonchalmers = Erik Bengtsson (eb folder for individual)
+- theodorlyrheden = Theodor Lyrheden (tl folder for individual)
+- oliost = Oliver Österberg (oo folder for individual)
+- filiphan = Filip Hansson (fh folder for individual)
 
 ## Link to Trello
 [Trello](https://trello.com/b/5AVDNXZy/ms-dos)
